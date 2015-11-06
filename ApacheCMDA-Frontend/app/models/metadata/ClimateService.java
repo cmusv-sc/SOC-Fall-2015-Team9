@@ -184,7 +184,7 @@ public class ClimateService {
 	    return climateservice;
 	}
 
-	for (int i = 0; i < climateServiceNode.size(); i++) {
+	for (int i = 0; i < climateServiceNode.size() && i < 3; i++) {
 	    JsonNode json = climateServiceNode.path(i);
 	    ClimateService newClimateService = deserializeJsonToClimateService(json);
 	    climateservice.add(newClimateService);

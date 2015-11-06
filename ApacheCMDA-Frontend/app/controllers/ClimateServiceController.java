@@ -72,7 +72,7 @@ public class ClimateServiceController extends Controller {
 	String keywords = "";
 
 	try {
-	    keywords = dc.field("Keywords(separate by space)").value();
+	    keywords = dc.field("Keywords").value();
 	} catch (IllegalStateException e) {
 	    e.printStackTrace();
 	    Application.flashMsg(APICall.createResponse(ResponseType.CONVERSIONERROR));

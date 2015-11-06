@@ -54,7 +54,7 @@
 @helper.form(routes.ClimateServiceController.getClimateSearchResult()){
 <div class="ui-widget col-sm-offset-3 col-sm-6">
   <div class = "form-group">
-    @inputText(climateServiceForm("Keywords(separate by space)"), 'class -> "form-control", 'id -> "keywords", '_label -> Messages("Keywords"), 'placeholder -> "2-dimensional", 'size->70) 
+    @inputText(climateServiceForm("Keywords"), 'class -> "form-control", 'id -> "keywords", '_label -> Messages("Keywords(separate by space)"), 'placeholder -> "2-dimensional", 'size->70) 
   </div>		
   <div class = "form-group">
     <div id="show" style="display: none;">

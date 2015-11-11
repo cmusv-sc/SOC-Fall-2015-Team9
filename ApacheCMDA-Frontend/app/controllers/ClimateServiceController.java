@@ -124,8 +124,7 @@ public class ClimateServiceController extends Controller {
 	    Application.flashMsg(response);
 	} catch (IllegalStateException e) {
 	    e.printStackTrace();
-	    Application.flashMsg(APICall
-				 .createResponse(ResponseType.CONVERSIONERROR));
+	    Application.flashMsg(APICall.createResponse(ResponseType.CONVERSIONERROR));
 	} catch (Exception e) {
 	    e.printStackTrace();
 	    Application.flashMsg(APICall.createResponse(ResponseType.UNKNOWN));
@@ -134,7 +133,6 @@ public class ClimateServiceController extends Controller {
     }
 
     public static Result editClimateService() {
-
 	ObjectNode jsonData = Json.newObject();
 	try {
 	    DynamicForm df = DynamicForm.form().bindFromRequest();
@@ -216,5 +214,22 @@ public class ClimateServiceController extends Controller {
 	return ok(oneService.render("/assets/html/" + url));
     }
 
-
+    public Result getClimateServiceComment(String name){
+	ObjectNode jsonData = Json.newObject();
+	String result = "{\"results\":{\"comments\":[{\"comment_id\":\"1\",\"parent_id\":\"0\",\"in_reply_to\":null,\"element_id\":\"134\",\"created_by\":\"1\",\"fullname\":\"Administratoradmin\",\"picture\":\"/assets/images/user_blank_picture.png\",\"posted_date\":\"2013-02-2709:03:25\",\"text\":\"Testmessageone\",\"attachments\":[],\"childrens\":[]},{\"comment_id\":\"1\",\"parent_id\":\"0\",\"in_reply_to\":null,\"element_id\":\"134\",\"created_by\":\"1\",\"fullname\":\"Administratoradmin\",\"picture\":\"/assets/images/user_blank_picture.png\",\"posted_date\":\"2013-02-2709:03:25\",\"text\":\"Testmessageone\",\"attachments\":[],\"childrens\":[]}],\"total_comment\":2,\"user\":{\"user_id\":1,\"fullname\":\"Administratoradmin\",\"picture\":\"/assets/images/user_blank_picture.png\",\"is_logged_in\":true,\"is_add_allowed\":true,\"is_edit_allowed\":false}}}";
+	
+	// try {
+	//     jsonData.put("creatorId", 1);
+	//     DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+	//     Date date = new Date();
+	//     jsonData.put("createTime", dateFormat.format(date));
+	//     result = jsonData.toString();
+	// } catch (IllegalStateException e) {
+	//     e.printStackTrace();
+	// } catch (Exception e) {
+	//     e.printStackTrace();
+	// }
+	//System.out.println(result);
+	return ok(result);
+    }
 }

@@ -436,7 +436,10 @@ if ( typeof Object.create !== 'function' ) {
 			var reply_container = $('<span></span>');
 			reply_container.addClass('post-reply');
 
-			var reply = $('');
+			//var reply = $('');
+			var reply = $('<a>Reply</a>');
+			reply.attr('href','#');
+			reply.attr('title', 'Reply');
 
 			reply_container.append(reply);
 

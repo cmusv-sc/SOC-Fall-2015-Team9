@@ -41,7 +41,6 @@ import java.util.List;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class ClimateServiceController extends Controller {
-
     final static Form<ClimateService> climateServiceForm = Form
 	.form(ClimateService.class);
 
@@ -180,9 +179,7 @@ public class ClimateServiceController extends Controller {
 	    Application.flashMsg(APICall.createResponse(ResponseType.UNKNOWN));
 	}
 	return ok("updated");
-
     }
-
 
     public static Result deleteClimateService() throws UnsupportedEncodingException {
 	DynamicForm df = DynamicForm.form().bindFromRequest();
@@ -231,5 +228,13 @@ public class ClimateServiceController extends Controller {
 	// }
 	//System.out.println(result);
 	return ok(result);
+    }
+
+    public Result postClimateServiceComment(String url){
+	System.out.println("Url: " + url);
+	ClimateService element = ClimateService.findServiceByUrl(url);
+
+	System.out.println(element);
+	return ok("updated");
     }
 }

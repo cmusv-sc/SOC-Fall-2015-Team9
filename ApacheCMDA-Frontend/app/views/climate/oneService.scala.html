@@ -33,11 +33,21 @@
   $(document).ready(function(){
   <!-- var obj = document.getElementById("iframe"); -->
   <!-- resizeIframe(obj); -->
+  var url = null;
+  try{
+  var urlOri = "@url";
+  var urlArray = urlOri.split('/');
+  url = urlArray[urlArray.length - 1];
+  }
+  catch(e){
+  console.log(e);
+  }
+  
 
   $('div.comment-container').comment({
   title: 'Comments',
   url_get: 'getClimateServiceComment/hehe',
-  url_input: 'comments/:name/input',
+  url_input: 'postClimateServiceComment/' + url,
   url_delete: 'comments/:name/delete',
   limit: 10,
   auto_refresh: false,
@@ -45,7 +55,7 @@
   transition: 'slideToggle',
   });
 
-  $('#toLoad').load("/assets/html/threeDimVarVertical.html")
+  $('#toLoad').load("@url");
   });
   
   function resizeIframe(obj) {
@@ -56,10 +66,12 @@
 
 @main("Service", scripts) {
 
-<div id="toLoad">
-<!-- <iframe id="iframe" src="@url" frameborder="0" style="height:100%;width:100%;position:absolute;" scrolling="no" allowfullscreen> -->
-<!-- </iframe> -->
+<div id="toLoad" align="center">
+  <!-- <iframe id="iframe" src="@url" frameborder="0" style="height:100%;width:100%;position:absolute;" scrolling="no" allowfullscreen> -->
+  <!-- </iframe> -->
 </div>
+
+<hr style="display: block;margin-top: 2em;margin-bottom: 2em;margin-left: auto;margin-right: auto;border-style: inset;border-width: 1px;">
 
 <div class="container">
   <div class="comment-container"></div>

@@ -137,6 +137,21 @@ public class ClimateService {
     }
 
     /**
+     * find a climateService by its url
+     *
+     * @param url
+     * @return the founded result. If not found, return null
+     */
+    public static ClimateService findServiceByUrl(String url){
+	List<ClimateService> allList = all();
+	for (ClimateService element : allList) {
+	    if (element.getUrl().equals(url))
+		return element;
+	}
+	return null;
+    }
+
+    /**
      * Generate the list of all sensor categories
      *
      * @return a list of all the sensor categories
@@ -208,7 +223,6 @@ public class ClimateService {
     }
 	
     public static List<ClimateService> getMostRecentlyAdded() {
-
 	List<ClimateService> climateServices = new ArrayList<ClimateService>();
 
 	JsonNode climateServicesNode = APICall

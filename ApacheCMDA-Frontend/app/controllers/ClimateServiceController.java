@@ -213,7 +213,7 @@ public class ClimateServiceController extends Controller {
 
     public Result getClimateServiceComment(String name){
 	ObjectNode jsonData = Json.newObject();
-	String result = "{\"results\":{\"comments\":[{\"comment_id\":\"1\",\"parent_id\":\"0\",\"in_reply_to\":null,\"element_id\":\"134\",\"created_by\":\"1\",\"fullname\":\"Administratoradmin\",\"picture\":\"/assets/images/user_blank_picture.png\",\"posted_date\":\"2013-02-2709:03:25\",\"text\":\"Testmessageone\",\"attachments\":[],\"childrens\":[]},{\"comment_id\":\"1\",\"parent_id\":\"0\",\"in_reply_to\":null,\"element_id\":\"134\",\"created_by\":\"1\",\"fullname\":\"Administratoradmin\",\"picture\":\"/assets/images/user_blank_picture.png\",\"posted_date\":\"2013-02-2709:03:25\",\"text\":\"Testmessageone\",\"attachments\":[],\"childrens\":[]}],\"total_comment\":2,\"user\":{\"user_id\":1,\"fullname\":\"Administratoradmin\",\"picture\":\"/assets/images/user_blank_picture.png\",\"is_logged_in\":true,\"is_add_allowed\":true,\"is_edit_allowed\":false}}}";
+	String result = "{\"results\":{\"comments\":[{\"comment_id\":\"1\",\"parent_id\":\"0\",\"in_reply_to\":null,\"element_id\":\"134\",\"created_by\":\"1\",\"fullname\":\"Administratoradmin\",\"picture\":\"/assets/images/user_blank_picture.png\",\"posted_date\":\"2013-02-2709:03:25\",\"text\":\"Testmessageone\",\"attachments\":[],\"childrens\":[]},{\"comment_id\":\"2\",\"parent_id\":\"0\",\"in_reply_to\":null,\"element_id\":\"134\",\"created_by\":\"1\",\"fullname\":\"Administratoradmin\",\"picture\":\"/assets/images/user_blank_picture.png\",\"posted_date\":\"2013-02-2709:03:25\",\"text\":\"Testmessageone\",\"attachments\":[],\"childrens\":[]}],\"total_comment\":2,\"user\":{\"user_id\":1,\"fullname\":\"Administratoradmin\",\"picture\":\"/assets/images/user_blank_picture.png\",\"is_logged_in\":true,\"is_add_allowed\":true,\"is_edit_allowed\":true}}}";
 	
 	// try {
 	//     jsonData.put("creatorId", 1);
@@ -227,14 +227,55 @@ public class ClimateServiceController extends Controller {
 	//     e.printStackTrace();
 	// }
 	//System.out.println(result);
+	System.out.println("GET COMMENT");
 	return ok(result);
     }
 
     public Result postClimateServiceComment(String url){
-	System.out.println("Url: " + url);
+	String text = DynamicForm.form().bindFromRequest().get("text");
+	String parent_id = DynamicForm.form().bindFromRequest().get("parent_id");
 	ClimateService element = ClimateService.findServiceByUrl(url);
 
-	System.out.println(element);
-	return ok("updated");
+	System.out.println("POST COMMENT");
+	System.out.println("Url: " + url);
+	System.out.println("Text: " + text);
+	System.out.println("Parent ID: " + parent_id);
+
+	ObjectNode jsonData = Json.newObject();
+	String result = "{\"success\": true, \"comment_id\": \"3\", \"parent_id\":\"2\", \"posted_date\": \"2013-02-27 09:03:25\", \"childrens\": [], \"text\": \"heheh\"}";
+
+	return ok(result);
+    }
+
+    public Result editClimateServiceComment(String url, String id){
+	String text = DynamicForm.form().bindFromRequest().get("text");
+	String parent_id = DynamicForm.form().bindFromRequest().get("parent_id");
+	String comment_id = id;
+	ClimateService element = ClimateService.findServiceByUrl(url);
+
+	System.out.println("EDIT COMMENT");
+	System.out.println("Url: " + url);
+	System.out.println("Text: " + text);
+	System.out.println("Parent ID: " + parent_id);
+	System.out.println("Comment ID: " + comment_id);
+
+	ObjectNode jsonData = Json.newObject();
+	String result = "{\"success\": true, \"comment_id\": \"" + id + "\", \"parent_id\":\"2\", \"posted_date\": \"2013-02-27 09:03:25\", \"childrens\": [], \"text\": \""+ text + "\"}";
+
+	return ok(result);
+    }
+
+    public Result deleteClimateServiceComment(String url){
+	String comment_id = DynamicForm.form().bindFromRequest().get("comment_id");
+	ClimateService element = ClimateService.findServiceByUrl(url);
+
+	System.out.println("DELETE COMMENT");
+	System.out.println("Url: " + url);
+	System.out.println("Comment ID: " + comment_id);
+
+	ObjectNode jsonData = Json.newObject();
+	String result = "{\"success\": true, \"total_comment\": 2}";
+
+	return ok(result);
     }
 }

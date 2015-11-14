@@ -35,6 +35,8 @@ GET   /climate/new/climateServices			controllers.ClimateServiceController.addCli
 GET   /climate/oneService				controllers.ClimateServiceController.oneService(url ?= null)
 GET   /climate/getClimateServiceComment/:name		@controllers.ClimateServiceController.getClimateServiceComment(name: String)
 POST  /climate/postClimateServiceComment/:url		@controllers.ClimateServiceController.postClimateServiceComment(url: String)
+POST  /climate/postClimateServiceComment/:url/:id	@controllers.ClimateServiceController.editClimateServiceComment(url: String, id: String)
+DELETE  /climate/deleteClimateServiceComment/:url	@controllers.ClimateServiceController.deleteClimateServiceComment(url: String)
 # Keyword search
 GET   /climate/datasets					controllers.DatasetController.datasetList()
 GET   /climate/searchDataSet				controllers.DatasetController.searchDataset()

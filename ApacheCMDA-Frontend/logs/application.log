@@ -1,66 +1,39 @@
-2015-11-12 20:00:06,702 - [INFO] - from play in pool-4-thread-2 
+2015-11-13 21:01:59,164 - [INFO] - from play in pool-4-thread-2 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2015-11-12 20:02:19,803 - [INFO] - from play in play-internal-execution-context-1 
+2015-11-13 21:05:19,991 - [INFO] - from play in play-internal-execution-context-1 
 datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
 
-2015-11-12 20:02:20,312 - [INFO] - from play in play-internal-execution-context-1 
+2015-11-13 21:05:20,269 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:h2:file:data/db
 
-2015-11-12 20:02:21,847 - [INFO] - from play in play-internal-execution-context-1 
+2015-11-13 21:05:21,652 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 
-2015-11-12 20:02:37,578 - [INFO] - from application in play-akka.actor.default-dispatcher-7 
+2015-11-13 21:08:38,002 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-11-13 21:08:38,018 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-11-13 21:08:38,229 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-11-13 21:08:38,240 - [INFO] - from application in play-akka.actor.default-dispatcher-7 
 http://localhost:9034/climateService/getAllClimateServices/json
 
-2015-11-12 20:02:51,518 - [INFO] - from application in play-akka.actor.default-dispatcher-7 
+2015-11-13 21:08:46,139 - [INFO] - from application in play-akka.actor.default-dispatcher-10 
 http://localhost:9034/climateService/getAllClimateServices/json
 
-2015-11-12 20:04:35,330 - [INFO] - from play in play-internal-execution-context-1 
-datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
-
-2015-11-12 20:04:35,335 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:h2:file:data/db
-
-2015-11-12 20:04:35,534 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2015-11-12 20:11:38,287 - [INFO] - from play in play-internal-execution-context-1 
-datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
-
-2015-11-12 20:11:38,291 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:h2:file:data/db
-
-2015-11-12 20:11:38,436 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2015-11-12 20:13:28,495 - [INFO] - from play in play-internal-execution-context-1 
-datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
-
-2015-11-12 20:13:28,499 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:h2:file:data/db
-
-2015-11-12 20:13:28,680 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2015-11-12 20:21:18,866 - [INFO] - from application in play-akka.actor.default-dispatcher-51 
+2015-11-13 21:08:56,652 - [INFO] - from application in play-akka.actor.default-dispatcher-11 
 http://localhost:9034/climateService/getAllClimateServices/json
 
-2015-11-12 20:23:19,629 - [INFO] - from play in play-internal-execution-context-1 
-datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
-
-2015-11-12 20:23:19,644 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:h2:file:data/db
-
-2015-11-12 20:23:19,752 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2015-11-12 20:34:52,121 - [ERROR] - from application in New I/O worker #1 
+2015-11-13 21:13:52,971 - [ERROR] - from application in New I/O worker #1 
 
 
-! @6o57f36ho - Internal server error, for (GET) [/climate/climateServices] ->
+! @6o5f18648 - Internal server error, for (GET) [/climate/oneService?url=twoDimMap.html] ->
 
-play.PlayExceptions$CompilationException: Compilation error[Cannot use a method returning Unit as an Handler]
+play.PlayExceptions$CompilationException: Compilation error[error: ';' expected]
 	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
 	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
 	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
@@ -81,12 +54,12 @@ play.PlayExceptions$CompilationException: Compilation error[Cannot use a method 
 	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
 
-2015-11-12 20:36:03,493 - [ERROR] - from application in New I/O worker #1 
+2015-11-13 21:14:44,686 - [ERROR] - from application in New I/O worker #1 
 
 
-! @6o57f788c - Internal server error, for (GET) [/climate/climateServices] ->
+! @6o5f1b4i2 - Internal server error, for (GET) [/climate/oneService?url=twoDimMap.html] ->
 
-play.PlayExceptions$CompilationException: Compilation error[value postClimateServiceComment is not a member of controllers.ClimateServiceController]
+play.PlayExceptions$CompilationException: Compilation error[error: ';' expected]
 	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
 	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
 	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
@@ -107,12 +80,12 @@ play.PlayExceptions$CompilationException: Compilation error[value postClimateSer
 	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
 
-2015-11-12 20:38:59,155 - [ERROR] - from application in New I/O worker #1 
+2015-11-13 23:35:05,765 - [ERROR] - from application in New I/O worker #2 
 
 
-! @6o57fh84j - Internal server error, for (GET) [/climate/climateServices] ->
+! @6o5fjm7n4 - Internal server error, for (GET) [/climate/oneService?url=twoDimMap.html] ->
 
-play.PlayExceptions$CompilationException: Compilation error[value getClimateServiceComment is not a member of controllers.ClimateServiceController]
+play.PlayExceptions$CompilationException: Compilation error[error: cannot find symbol]
 	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
 	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
 	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
@@ -133,12 +106,12 @@ play.PlayExceptions$CompilationException: Compilation error[value getClimateServ
 	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
 
-2015-11-12 20:39:40,813 - [ERROR] - from application in New I/O worker #1 
+2015-11-13 23:35:16,630 - [ERROR] - from application in New I/O worker #2 
 
 
-! @6o57fjhko - Internal server error, for (GET) [/climate/climateServices] ->
+! @6o5fjmnpf - Internal server error, for (GET) [/climate/oneService?url=twoDimMap.html] ->
 
-play.PlayExceptions$CompilationException: Compilation error[value getClimateServiceComment is not a member of controllers.ClimateServiceController]
+play.PlayExceptions$CompilationException: Compilation error[error: cannot find symbol]
 	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
 	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
 	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
@@ -159,136 +132,39 @@ play.PlayExceptions$CompilationException: Compilation error[value getClimateServ
 	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
 
-2015-11-12 20:40:53,106 - [INFO] - from play in play-internal-execution-context-1 
+2015-11-13 23:36:08,218 - [INFO] - from play in play-internal-execution-context-1 
 datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
 
-2015-11-12 20:40:53,128 - [INFO] - from play in play-internal-execution-context-1 
+2015-11-13 23:36:08,228 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:h2:file:data/db
 
-2015-11-12 20:40:53,349 - [INFO] - from play in play-internal-execution-context-1 
+2015-11-13 23:36:08,517 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 
-2015-11-12 20:40:53,375 - [INFO] - from application in play-akka.actor.default-dispatcher-54 
+2015-11-13 23:36:12,460 - [INFO] - from application in play-akka.actor.default-dispatcher-12 
 http://localhost:9034/climateService/getAllClimateServices/json
 
-2015-11-12 20:45:08,832 - [ERROR] - from application in New I/O worker #1 
-
-
-! @6o57gc90l - Internal server error, for (GET) [/climate/oneService?url=twoDimTimeSeries.html] ->
-
-play.PlayExceptions$UnexpectedException: Unexpected exception[FileNotFoundException: /home/SOC-Fall-2015/ApacheCMDA-Frontend/app/views/climate/.#oneService.scala.html (No such file or directory)]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:309) ~[na:na]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
-	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
-	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library-2.10.3.jar:na]
-	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
-	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10-2.2.3.jar:2.2.3]
-	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10-2.2.3.jar:2.2.3]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.10.3.jar:na]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
-java.io.FileNotFoundException: /home/SOC-Fall-2015/ApacheCMDA-Frontend/app/views/climate/.#oneService.scala.html (No such file or directory)
-	at java.io.RandomAccessFile.open(Native Method) ~[na:1.7.0_79]
-	at java.io.RandomAccessFile.<init>(RandomAccessFile.java:241) ~[na:1.7.0_79]
-	at scalax.io.support.FileUtils$.randomAccessFile(FileUtils.scala:105) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
-	at scalax.io.support.FileUtils$.openChannel(FileUtils.scala:49) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
-	at scalax.file.defaultfs.DefaultFileOps$$anonfun$channel$1.apply(DefaultFileOps.scala:43) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
-	at scalax.file.defaultfs.DefaultFileOps$$anonfun$channel$1.apply(DefaultFileOps.scala:43) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
-	at scalax.io.Resource$$anonfun$fromSeekableByteChannel$1.apply(Resource.scala:460) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
-	at scalax.io.Resource$$anonfun$fromSeekableByteChannel$1.apply(Resource.scala:460) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
-	at scalax.io.managed.SeekableByteChannelResource.scalax$io$managed$SeekableByteChannelResource$$rawOpen(SeekableByteChannelResource.scala:24) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
-	at scalax.io.managed.SeekableByteChannelResource.open(SeekableByteChannelResource.scala:27) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
-	at scalax.io.managed.SeekableByteChannelResource$$anonfun$bytes$1.apply(SeekableByteChannelResource.scala:79) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
-	at scalax.io.managed.SeekableByteChannelResource$$anonfun$bytes$1.apply(SeekableByteChannelResource.scala:79) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
-	at scalax.io.traversable.ByteResourceTraversable.iterator(ByteResourceTraversable.scala:28) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
-	at scalax.io.traversable.ByteResourceTraversable$$anonfun$toArray$1.apply(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
-	at scalax.io.traversable.ByteResourceTraversable$$anonfun$toArray$1.apply(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
-	at scala.util.control.Exception$Catch$$anonfun$either$1.apply(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
-	at scala.util.control.Exception$Catch$$anonfun$either$1.apply(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
-	at scala.util.control.Exception$Catch.apply(Exception.scala:102) ~[scala-library-2.10.3.jar:na]
-	at scala.util.control.Exception$Catch.either(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
-	at scalax.io.CloseableIterator$.withIterator(CloseableIterator.scala:101) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
-	at scalax.io.traversable.ByteResourceTraversable.toArray(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
-	at scalax.io.Input$class.byteArray(Input.scala:81) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
-	at scalax.file.FileOps.byteArray(FileOps.scala:78) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
-	at play.templates.ScalaTemplateCompiler$.compile(ScalaTemplateCompiler.scala:178) ~[na:na]
-	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8$$anonfun$apply$9.apply(PlaySourceGenerators.scala:45) ~[na:na]
-	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8$$anonfun$apply$9.apply(PlaySourceGenerators.scala:43) ~[na:na]
-	at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59) ~[scala-library-2.10.3.jar:na]
-	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:47) ~[scala-library-2.10.3.jar:na]
-	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8.apply(PlaySourceGenerators.scala:43) ~[na:na]
-	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8.apply(PlaySourceGenerators.scala:42) ~[na:na]
-	at scala.collection.immutable.List.foreach(List.scala:318) ~[scala-library-2.10.3.jar:na]
-	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:42) ~[na:na]
-	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:30) ~[na:na]
-	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:35) ~[scala-library-2.10.3.jar:na]
-	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:34) ~[scala-library-2.10.3.jar:na]
-	at scala.Function1$$anonfun$compose$1.apply(Function1.scala:47) ~[scala-library-2.10.3.jar:na]
-	at sbt.$tilde$greater$$anonfun$$u2219$1.apply(TypeFunctions.scala:42) ~[na:na]
-	at sbt.std.Transform$$anon$4.work(System.scala:64) ~[na:na]
-	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
-	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
-	at sbt.ErrorHandling$.wideConvert(ErrorHandling.scala:18) ~[na:na]
-	at sbt.Execute.work(Execute.scala:244) ~[na:na]
-	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
-	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
-	at sbt.ConcurrentRestrictions$$anon$4$$anonfun$1.apply(ConcurrentRestrictions.scala:160) ~[na:na]
-	at sbt.CompletionService$$anon$2.call(CompletionService.scala:30) ~[na:na]
-	at java.util.concurrent.FutureTask.run(FutureTask.java:262) ~[na:1.7.0_79]
-	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471) ~[na:1.7.0_79]
-	at java.util.concurrent.FutureTask.run(FutureTask.java:262) ~[na:1.7.0_79]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
-	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
-
-2015-11-12 20:45:26,312 - [INFO] - from play in play-internal-execution-context-1 
+2015-11-13 23:36:44,533 - [INFO] - from play in play-internal-execution-context-1 
 datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
 
-2015-11-12 20:45:26,317 - [INFO] - from play in play-internal-execution-context-1 
+2015-11-13 23:36:44,537 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:h2:file:data/db
 
-2015-11-12 20:45:26,413 - [INFO] - from play in play-internal-execution-context-1 
+2015-11-13 23:36:44,948 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 
-2015-11-12 20:45:54,912 - [INFO] - from application in play-akka.actor.default-dispatcher-78 
+2015-11-13 23:36:49,123 - [INFO] - from application in play-akka.actor.default-dispatcher-23 
 http://localhost:9034/climateService/getAllClimateServices/json
 
-2015-11-12 21:05:07,598 - [INFO] - from application in play-akka.actor.default-dispatcher-144 
+2015-11-13 23:37:04,922 - [INFO] - from application in play-akka.actor.default-dispatcher-22 
 http://localhost:9034/climateService/getAllClimateServices/json
 
-2015-11-12 21:06:56,439 - [INFO] - from play in play-internal-execution-context-1 
-datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
-
-2015-11-12 21:06:56,447 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:h2:file:data/db
-
-2015-11-12 21:06:56,552 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2015-11-12 21:07:27,975 - [INFO] - from play in play-internal-execution-context-1 
-datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
-
-2015-11-12 21:07:27,976 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:h2:file:data/db
-
-2015-11-12 21:07:28,122 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2015-11-12 21:07:32,224 - [INFO] - from application in play-akka.actor.default-dispatcher-168 
-http://localhost:9034/climateService/getAllClimateServices/json
-
-2015-11-12 21:09:17,160 - [ERROR] - from application in New I/O worker #1 
+2015-11-13 23:38:16,813 - [ERROR] - from application in New I/O worker #1 
 
 
-! @6o57jgjdp - Internal server error, for (GET) [/climate/oneService?url=twoDimMap.html] ->
+! @6o5fk74dg - Internal server error, for (GET) [/climate/oneService?url=twoDimMap.html] ->
 
-play.PlayExceptions$CompilationException: Compilation error[unclosed character literal]
+play.PlayExceptions$CompilationException: Compilation error[error: package BodyParser does not exist]
 	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
 	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
 	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
@@ -309,12 +185,12 @@ play.PlayExceptions$CompilationException: Compilation error[unclosed character l
 	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
 
-2015-11-12 21:09:36,953 - [ERROR] - from application in New I/O worker #1 
+2015-11-13 23:39:56,364 - [ERROR] - from application in New I/O worker #1 
 
 
-! @6o57jhml7 - Internal server error, for (GET) [/climate/oneService?url=twoDimMap.html] ->
+! @6o5fkclk7 - Internal server error, for (GET) [/] ->
 
-play.PlayExceptions$CompilationException: Compilation error[error: no suitable method found for println(String,String)]
+play.PlayExceptions$CompilationException: Compilation error[error: package BodyParser does not exist]
 	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
 	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
 	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
@@ -335,171 +211,467 @@ play.PlayExceptions$CompilationException: Compilation error[error: no suitable m
 	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
 
-2015-11-12 21:09:59,449 - [INFO] - from play in play-internal-execution-context-1 
+2015-11-13 23:40:04,735 - [INFO] - from play in play-internal-execution-context-1 
 datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
 
-2015-11-12 21:09:59,452 - [INFO] - from play in play-internal-execution-context-1 
+2015-11-13 23:40:04,738 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:h2:file:data/db
 
-2015-11-12 21:09:59,529 - [INFO] - from play in play-internal-execution-context-1 
+2015-11-13 23:40:05,098 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 
-2015-11-12 21:10:29,782 - [INFO] - from play in play-internal-execution-context-1 
-datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
-
-2015-11-12 21:10:29,784 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:h2:file:data/db
-
-2015-11-12 21:10:29,894 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2015-11-12 21:10:39,471 - [INFO] - from play in play-internal-execution-context-1 
-datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
-
-2015-11-12 21:10:39,480 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:h2:file:data/db
-
-2015-11-12 21:10:39,626 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2015-11-12 21:10:50,928 - [INFO] - from play in play-internal-execution-context-1 
-datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
-
-2015-11-12 21:10:50,936 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:h2:file:data/db
-
-2015-11-12 21:10:51,045 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2015-11-12 21:11:17,297 - [INFO] - from play in play-internal-execution-context-1 
-datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
-
-2015-11-12 21:11:17,299 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:h2:file:data/db
-
-2015-11-12 21:11:17,435 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2015-11-12 21:11:45,399 - [INFO] - from play in play-internal-execution-context-1 
-datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
-
-2015-11-12 21:11:45,400 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:h2:file:data/db
-
-2015-11-12 21:11:45,534 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2015-11-12 21:12:01,952 - [INFO] - from play in play-internal-execution-context-1 
-datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
-
-2015-11-12 21:12:01,959 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:h2:file:data/db
-
-2015-11-12 21:12:02,070 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2015-11-12 21:12:35,705 - [INFO] - from play in play-internal-execution-context-1 
-datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
-
-2015-11-12 21:12:35,708 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:h2:file:data/db
-
-2015-11-12 21:12:35,778 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2015-11-12 21:12:51,682 - [INFO] - from play in play-internal-execution-context-1 
-datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
-
-2015-11-12 21:12:51,694 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:h2:file:data/db
-
-2015-11-12 21:12:51,821 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2015-11-12 21:13:23,778 - [INFO] - from play in play-internal-execution-context-1 
-datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
-
-2015-11-12 21:13:23,782 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:h2:file:data/db
-
-2015-11-12 21:13:23,892 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2015-11-12 21:13:40,531 - [INFO] - from play in play-internal-execution-context-1 
-datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
-
-2015-11-12 21:13:40,533 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:h2:file:data/db
-
-2015-11-12 21:13:40,601 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2015-11-12 21:14:02,735 - [INFO] - from play in play-internal-execution-context-1 
-datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
-
-2015-11-12 21:14:02,750 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:h2:file:data/db
-
-2015-11-12 21:14:02,893 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2015-11-12 21:14:26,881 - [INFO] - from play in play-internal-execution-context-1 
-datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
-
-2015-11-12 21:14:26,893 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:h2:file:data/db
-
-2015-11-12 21:14:27,054 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2015-11-12 21:14:45,383 - [INFO] - from play in play-internal-execution-context-1 
-datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
-
-2015-11-12 21:14:45,385 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:h2:file:data/db
-
-2015-11-12 21:14:45,467 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2015-11-12 21:14:59,468 - [INFO] - from play in play-internal-execution-context-1 
-datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
-
-2015-11-12 21:14:59,476 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:h2:file:data/db
-
-2015-11-12 21:14:59,616 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2015-11-12 21:15:07,152 - [INFO] - from play in play-internal-execution-context-1 
-datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
-
-2015-11-12 21:15:07,154 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:h2:file:data/db
-
-2015-11-12 21:15:07,324 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2015-11-12 21:15:14,646 - [INFO] - from play in play-internal-execution-context-1 
-datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
-
-2015-11-12 21:15:14,648 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:h2:file:data/db
-
-2015-11-12 21:15:14,705 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2015-11-12 21:15:20,974 - [INFO] - from application in play-akka.actor.default-dispatcher-201 
+2015-11-13 23:40:52,661 - [INFO] - from application in play-akka.actor.default-dispatcher-34 
 http://localhost:9034/climateService/getAllClimateServices/json
 
-2015-11-12 21:16:06,244 - [INFO] - from play in play-internal-execution-context-1 
+2015-11-13 23:41:57,484 - [INFO] - from application in play-akka.actor.default-dispatcher-30 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-13 23:51:03,038 - [INFO] - from play in play-internal-execution-context-1 
 datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
 
-2015-11-12 21:16:06,251 - [INFO] - from play in play-internal-execution-context-1 
+2015-11-13 23:51:03,043 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:h2:file:data/db
 
-2015-11-12 21:16:06,315 - [INFO] - from play in play-internal-execution-context-1 
+2015-11-13 23:51:03,205 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 
-2015-11-12 21:16:09,856 - [INFO] - from application in play-akka.actor.default-dispatcher-212 
+2015-11-13 23:51:06,237 - [INFO] - from application in play-akka.actor.default-dispatcher-57 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-13 23:51:45,848 - [INFO] - from application in play-akka.actor.default-dispatcher-58 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-13 23:52:01,410 - [INFO] - from application in play-akka.actor.default-dispatcher-64 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-13 23:53:07,075 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-11-13 23:53:07,083 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-11-13 23:53:07,400 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-11-13 23:53:13,871 - [INFO] - from application in play-akka.actor.default-dispatcher-68 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-14 00:02:09,719 - [ERROR] - from application in New I/O worker #2 
+
+
+! @6o5fnai5c - Internal server error, for (GET) [/climate/oneService?url=twoDimMap.html] ->
+
+play.PlayExceptions$CompilationException: Compilation error[error: cannot find symbol]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10-2.2.3.jar:2.2.3]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
+
+2015-11-14 00:02:34,491 - [ERROR] - from application in New I/O worker #2 
+
+
+! @6o5fnc2m5 - Internal server error, for (GET) [/climate/oneService?url=twoDimMap.html] ->
+
+play.PlayExceptions$CompilationException: Compilation error[error: cannot find symbol]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10-2.2.3.jar:2.2.3]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
+
+2015-11-14 00:02:45,894 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-11-14 00:02:45,914 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-11-14 00:02:46,226 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-11-14 00:02:50,213 - [INFO] - from application in play-akka.actor.default-dispatcher-78 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-14 00:02:58,773 - [INFO] - from application in play-akka.actor.default-dispatcher-78 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-14 00:32:58,667 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-11-14 00:32:58,671 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-11-14 00:32:59,114 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-11-14 00:33:04,639 - [INFO] - from application in play-akka.actor.default-dispatcher-73 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-14 00:34:35,418 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-11-14 00:34:35,435 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-11-14 00:34:35,670 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-11-14 00:34:40,366 - [INFO] - from application in play-akka.actor.default-dispatcher-91 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-14 00:35:17,145 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-11-14 00:35:17,170 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-11-14 00:35:17,345 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-11-14 00:36:47,451 - [INFO] - from application in play-akka.actor.default-dispatcher-98 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-14 00:38:01,367 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-11-14 00:38:01,388 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-11-14 00:38:01,816 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-11-14 00:38:06,037 - [INFO] - from application in play-akka.actor.default-dispatcher-110 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-14 00:40:57,714 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-11-14 00:40:57,720 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-11-14 00:40:57,990 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-11-14 00:41:13,248 - [INFO] - from application in play-akka.actor.default-dispatcher-118 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-14 00:47:17,508 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-11-14 00:47:17,512 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-11-14 00:47:17,842 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-11-14 00:47:22,232 - [INFO] - from application in play-akka.actor.default-dispatcher-123 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-14 00:49:08,572 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-11-14 00:49:08,583 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-11-14 00:49:08,884 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-11-14 00:49:14,232 - [INFO] - from application in play-akka.actor.default-dispatcher-126 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-14 00:49:55,383 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-11-14 00:49:55,387 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-11-14 00:49:55,576 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-11-14 00:49:59,432 - [INFO] - from application in play-akka.actor.default-dispatcher-133 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-14 00:50:28,110 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-11-14 00:50:28,113 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-11-14 00:50:28,296 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-11-14 00:50:33,565 - [INFO] - from application in play-akka.actor.default-dispatcher-140 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-14 00:50:42,115 - [INFO] - from application in play-akka.actor.default-dispatcher-133 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-14 00:50:44,921 - [INFO] - from application in play-akka.actor.default-dispatcher-138 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-14 00:50:48,921 - [INFO] - from application in play-akka.actor.default-dispatcher-133 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-14 00:57:28,665 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-11-14 00:57:28,669 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-11-14 00:57:28,931 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-11-14 01:01:55,706 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-11-14 01:01:55,709 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-11-14 01:01:55,781 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-11-14 01:05:36,748 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6o5g5j7nh - Internal server error, for (GET) [/climate/oneService?url=twoDimMap.html] ->
+
+play.PlayExceptions$CompilationException: Compilation error[error: variable parent_id is already defined in method editClimateServiceComment(String,String)]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10-2.2.3.jar:2.2.3]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
+
+2015-11-14 01:06:16,927 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-11-14 01:06:16,947 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-11-14 01:06:17,159 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-11-14 01:06:23,598 - [INFO] - from application in play-akka.actor.default-dispatcher-162 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-14 01:07:13,602 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-11-14 01:07:13,605 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-11-14 01:07:13,692 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-11-14 01:07:18,336 - [INFO] - from application in play-akka.actor.default-dispatcher-168 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-14 01:07:21,349 - [INFO] - from application in play-akka.actor.default-dispatcher-167 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-14 01:07:29,996 - [INFO] - from application in play-akka.actor.default-dispatcher-167 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-14 01:07:32,457 - [INFO] - from application in play-akka.actor.default-dispatcher-167 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-14 01:07:45,174 - [INFO] - from application in play-akka.actor.default-dispatcher-167 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-14 01:08:14,643 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-11-14 01:08:14,645 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-11-14 01:08:14,720 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-11-14 01:08:21,128 - [INFO] - from application in play-akka.actor.default-dispatcher-177 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-14 01:08:24,152 - [INFO] - from application in play-akka.actor.default-dispatcher-166 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-14 01:08:37,783 - [INFO] - from application in play-akka.actor.default-dispatcher-169 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-14 01:09:07,191 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-11-14 01:09:07,193 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-11-14 01:09:07,264 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-11-14 01:09:13,391 - [INFO] - from application in play-akka.actor.default-dispatcher-181 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-14 01:09:16,600 - [INFO] - from application in play-akka.actor.default-dispatcher-178 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-14 01:13:34,450 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6o5g6kcel - Internal server error, for (GET) [/climate/oneService?url=twoDimMap.html] ->
+
+play.PlayExceptions$CompilationException: Compilation error[error: cannot find symbol]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10-2.2.3.jar:2.2.3]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
+
+2015-11-14 01:14:17,797 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-11-14 01:14:17,803 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-11-14 01:14:17,885 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-11-14 01:14:57,323 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-11-14 01:14:57,329 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-11-14 01:14:57,414 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-11-14 01:15:06,347 - [INFO] - from application in play-akka.actor.default-dispatcher-186 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-14 01:15:09,512 - [INFO] - from application in play-akka.actor.default-dispatcher-190 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-14 01:15:10,800 - [INFO] - from application in play-akka.actor.default-dispatcher-188 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-14 01:15:12,915 - [INFO] - from application in play-akka.actor.default-dispatcher-190 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-14 01:16:25,405 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-11-14 01:16:25,408 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-11-14 01:16:25,605 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-11-14 01:16:31,332 - [INFO] - from application in play-akka.actor.default-dispatcher-196 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-14 01:16:35,264 - [INFO] - from application in play-akka.actor.default-dispatcher-192 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-14 01:16:39,324 - [INFO] - from application in play-akka.actor.default-dispatcher-196 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-14 01:16:42,397 - [INFO] - from application in play-akka.actor.default-dispatcher-198 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-14 01:17:36,349 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-11-14 01:17:36,351 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-11-14 01:17:36,425 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-11-14 01:17:40,759 - [INFO] - from application in play-akka.actor.default-dispatcher-204 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-14 01:17:45,667 - [INFO] - from application in play-akka.actor.default-dispatcher-205 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-14 01:17:48,868 - [INFO] - from application in play-akka.actor.default-dispatcher-204 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-14 01:17:54,551 - [INFO] - from application in play-akka.actor.default-dispatcher-205 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-14 01:17:59,006 - [INFO] - from application in play-akka.actor.default-dispatcher-205 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-14 01:18:03,408 - [INFO] - from application in play-akka.actor.default-dispatcher-204 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-14 01:18:28,029 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-11-14 01:18:28,031 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-11-14 01:18:28,127 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-11-14 01:18:31,511 - [INFO] - from application in play-akka.actor.default-dispatcher-208 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-14 01:18:34,451 - [INFO] - from application in play-akka.actor.default-dispatcher-207 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-14 01:18:37,147 - [INFO] - from application in play-akka.actor.default-dispatcher-209 
 http://localhost:9034/climateService/getAllClimateServices/json
 

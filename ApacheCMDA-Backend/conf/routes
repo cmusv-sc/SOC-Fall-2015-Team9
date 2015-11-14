@@ -22,6 +22,9 @@ DELETE    /climateService/deleteClimateService/id/:id               @controllers
 DELETE    /climateService/deleteClimateService/name/:name           @controllers.ClimateServiceController.deleteClimateServiceByName(name: String)
 GET       /climateService/queryClimateService/:keywords             @controllers.ClimateServiceController.queryClimateService(keywords:String)
 
+# Comment
+GET       /comment/getComment/:id/json			            @controllers.CommentController.getComment(id: Long, format: String="json")
+
 # Instrument
 GET       /instrument/getAllInstruments/json                        @controllers.InstrumentController.getAllInstruments(format: String="json")
 GET       /instrument/getInstrument/id/:id/json                     @controllers.InstrumentController.getInstrument(id: Long, format: String="json")

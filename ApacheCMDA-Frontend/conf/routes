@@ -33,10 +33,11 @@ POST  /climate/download/climateServices			controllers.ClimateServiceController.d
 POST  /climate/edit/climateServices			controllers.ClimateServiceController.editClimateService()
 GET   /climate/new/climateServices			controllers.ClimateServiceController.addClimateServices()
 GET   /climate/oneService				controllers.ClimateServiceController.oneService(url ?= null)
-GET   /climate/getClimateServiceComment/:name		@controllers.ClimateServiceController.getClimateServiceComment(name: String)
-POST  /climate/postClimateServiceComment/:url		@controllers.ClimateServiceController.postClimateServiceComment(url: String)
-POST  /climate/postClimateServiceComment/:url/:id	@controllers.ClimateServiceController.editClimateServiceComment(url: String, id: String)
-DELETE  /climate/deleteClimateServiceComment/:url	@controllers.ClimateServiceController.deleteClimateServiceComment(url: String)
+# Comment
+GET   /comment/getComment/:name				@controllers.CommentController.getComment(name: String)
+POST  /comment/postComment/:url				@controllers.CommentController.postComment(url: String)
+POST  /comment/postComment/:url/:id			@controllers.CommentController.editComment(url: String, id: String)
+DELETE  /climate/deleteComment/:url			@controllers.CommentController.deleteComment(url: String)
 # Keyword search
 GET   /climate/datasets					controllers.DatasetController.datasetList()
 GET   /climate/searchDataSet				controllers.DatasetController.searchDataset()

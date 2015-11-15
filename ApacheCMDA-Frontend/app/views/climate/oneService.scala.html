@@ -46,9 +46,9 @@
 
   $('div.comment-container').comment({
   title: 'Comments',
-  url_get: 'getComment/hehe',
-  url_input: 'postComment/' + url,
-  url_delete: 'deleteComment/' + url,
+  url_get: '/comment/getComment/' + url,
+  url_input: '/comment/postComment/' + url,
+  url_delete: '/comment/deleteComment/' + url,
   limit: 10,
   auto_refresh: false,
   refresh: 10000,

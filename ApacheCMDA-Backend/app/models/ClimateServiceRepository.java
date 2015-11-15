@@ -33,18 +33,13 @@ public interface ClimateServiceRepository extends CrudRepository<ClimateService,
     ClimateService findFirstByName(String oldName);
     List<ClimateService> findAllByPurpose(String purpose);
     List<ClimateService> findByOrderByCreateTimeDesc();
-    // @Query(value = "select d.* from Dataset d where ((d.name like ?1) and (d.agencyId like ?2) and (d.gridDimension like ?3) and (d.physicalVariable like ?4) and (d.instrumentId = ?5)) and ((d.startTime between ?6 and ?7) or (d.endTime between ?6 and ?7) or (d.startTime <= ?6 and d.endTime >= ?7))", nativeQuery = true)
 
     @Query(value = "select c.* from ClimateService c where lower(c.name) like lower(?1)", nativeQuery = true)
 	List<ClimateService> findServiceWithName(String name);
     @Query(value = "select c.* from ClimateService c where lower(c.purpose) like lower(?1)", nativeQuery = true)
 	List<ClimateService> findServiceWithPurpose(String purpose);
-    // List<ClimateService> findByOrderByCreateTimeDesc();
-    // select c.*, sum(s.count) as totalcount from ClimateService c, ServiceEntry s where c.id=s.serviceId group by s.serviceId order by totalcount desc;
     @Query(value = "select c.* from ClimateService c, ServiceEntry s where c.id=s.serviceId group by s.serviceId order by sum(s.count) desc", nativeQuery = true)
 	List<ClimateService> getClimateServiceOrderByCount();
-
     @Query(value = "select c.* from ClimateService c, ServiceEntry s where c.id=s.serviceId group by s.serviceId order by s.latestAccessTimeStamp desc", nativeQuery = true)
 	List<ClimateService> getClimateServiceOrderByLatestAccessTime();
-
 }

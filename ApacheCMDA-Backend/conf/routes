@@ -24,6 +24,8 @@ GET       /climateService/queryClimateService/:keywords             @controllers
 
 # Comment
 GET       /comment/getComment/:id/json			            @controllers.CommentController.getComment(id: Long, format: String="json")
+POST  	  /comment/postComment					    @controllers.CommentController.postComment
+DELETE    /climate/deleteComment				    @controllers.CommentController.deleteComment
 
 # Instrument
 GET       /instrument/getAllInstruments/json                        @controllers.InstrumentController.getAllInstruments(format: String="json")

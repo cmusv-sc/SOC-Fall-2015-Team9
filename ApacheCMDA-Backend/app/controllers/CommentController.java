@@ -52,6 +52,26 @@ public class CommentController extends Controller{
 
     public Result getComment(Long id, String format){
 	String result = "{\"results\":{\"comments\":[{\"comment_id\":\"1\",\"parent_id\":\"0\",\"in_reply_to\":null,\"element_id\":\"134\",\"created_by\":\"1\",\"fullname\":\"Administratoradmin\",\"picture\":\"/assets/images/user_blank_picture.png\",\"posted_date\":\"2013-02-2709:03:25\",\"text\":\"Testmessageone\",\"attachments\":[],\"childrens\":[]},{\"comment_id\":\"2\",\"parent_id\":\"0\",\"in_reply_to\":null,\"element_id\":\"134\",\"created_by\":\"1\",\"fullname\":\"Administratoradmin\",\"picture\":\"/assets/images/user_blank_picture.png\",\"posted_date\":\"2013-02-2709:03:25\",\"text\":\"Testmessageone\",\"attachments\":[],\"childrens\":[]}],\"total_comment\":2,\"user\":{\"user_id\":1,\"fullname\":\"Administratoradmin\",\"picture\":\"/assets/images/user_blank_picture.png\",\"is_logged_in\":true,\"is_add_allowed\":true,\"is_edit_allowed\":true}}}";
+
+	System.out.println("GET COMMENT");
+	System.out.println("CLIMATE SERVICE ID: " + id);
+	
+	return ok(result);
+    }
+
+    public Result postComment(){
+	System.out.println("POST COMMENT");
+
+	String result = "{\"success\": true, \"comment_id\": \"3\", \"parent_id\":\"2\", \"posted_date\": \"2013-02-27 09:03:25\", \"childrens\": [], \"text\": \"heheh\"}";
+
+	return ok(result);
+    }
+
+    public Result deleteComment(){
+	System.out.println("DELETE COMMENT");
+
+	String result = "{\"success\": true, \"total_comment\": 2}";
+
 	return ok(result);
     }
 }

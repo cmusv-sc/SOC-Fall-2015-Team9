@@ -42,10 +42,12 @@ import java.util.List;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class CommentController extends Controller{
+    private static final String GET_COMMENT_CALL = Constants.NEW_BACKEND + "comment/getComment/";
+    
     final static Form<Comment> commentForm = Form.form(Comment.class);
 
-    public Result getComment(String name){
-	String result = "{\"results\":{\"comments\":[{\"comment_id\":\"1\",\"parent_id\":\"0\",\"in_reply_to\":null,\"element_id\":\"134\",\"created_by\":\"1\",\"fullname\":\"Administratoradmin\",\"picture\":\"/assets/images/user_blank_picture.png\",\"posted_date\":\"2013-02-2709:03:25\",\"text\":\"Testmessageone\",\"attachments\":[],\"childrens\":[]},{\"comment_id\":\"2\",\"parent_id\":\"0\",\"in_reply_to\":null,\"element_id\":\"134\",\"created_by\":\"1\",\"fullname\":\"Administratoradmin\",\"picture\":\"/assets/images/user_blank_picture.png\",\"posted_date\":\"2013-02-2709:03:25\",\"text\":\"Testmessageone\",\"attachments\":[],\"childrens\":[]}],\"total_comment\":2,\"user\":{\"user_id\":1,\"fullname\":\"Administratoradmin\",\"picture\":\"/assets/images/user_blank_picture.png\",\"is_logged_in\":true,\"is_add_allowed\":true,\"is_edit_allowed\":true}}}";
+    public Result getComment(String url){
+	//String result = "{\"results\":{\"comments\":[{\"comment_id\":\"1\",\"parent_id\":\"0\",\"in_reply_to\":null,\"element_id\":\"134\",\"created_by\":\"1\",\"fullname\":\"Administratoradmin\",\"picture\":\"/assets/images/user_blank_picture.png\",\"posted_date\":\"2013-02-2709:03:25\",\"text\":\"Testmessageone\",\"attachments\":[],\"childrens\":[]},{\"comment_id\":\"2\",\"parent_id\":\"0\",\"in_reply_to\":null,\"element_id\":\"134\",\"created_by\":\"1\",\"fullname\":\"Administratoradmin\",\"picture\":\"/assets/images/user_blank_picture.png\",\"posted_date\":\"2013-02-2709:03:25\",\"text\":\"Testmessageone\",\"attachments\":[],\"childrens\":[]}],\"total_comment\":2,\"user\":{\"user_id\":1,\"fullname\":\"Administratoradmin\",\"picture\":\"/assets/images/user_blank_picture.png\",\"is_logged_in\":true,\"is_add_allowed\":true,\"is_edit_allowed\":true}}}";
 	
 	// try {
 	//     jsonData.put("creatorId", 1);
@@ -59,8 +61,24 @@ public class CommentController extends Controller{
 	//     e.printStackTrace();
 	// }
 	//System.out.println(result);
+
 	System.out.println("GET COMMENT");
-	return ok(result);
+	ClimateService element = ClimateService.findServiceByUrl(url);
+	JsonNode response = null;
+
+	try{
+	    response = APICall.callAPI(GET_COMMENT_CALL + element.getId() + "/json");
+	}
+	catch (IllegalStateException e){
+	    e.printStackTrace();
+	    Application.flashMsg(APICall.createResponse(ResponseType.CONVERSIONERROR));
+	}
+	catch (Exception e) {
+	    e.printStackTrace();
+	    Application.flashMsg(APICall.createResponse(ResponseType.UNKNOWN));
+	}
+
+	return ok(response.toString());
     }
 
     public Result postComment(String url){
@@ -74,9 +92,24 @@ public class CommentController extends Controller{
 	System.out.println("Parent ID: " + parent_id);
 
 	ObjectNode jsonData = Json.newObject();
-	String result = "{\"success\": true, \"comment_id\": \"3\", \"parent_id\":\"2\", \"posted_date\": \"2013-02-27 09:03:25\", \"childrens\": [], \"text\": \"heheh\"}";
+	JsonNode response = null;
+	try{
+	    jsonData.put("parent_id", parent_id);
+	    jsonData.put("text", text);
+	    jsonData.put("climate_service", element.getId());
+	    //response = APICall.putAPI();
+	}
+	catch (IllegalStateException e){
+	    e.printStackTrace();
+	    Application.flashMsg(APICall.createResponse(ResponseType.CONVERSIONERROR));
+	}
+	catch (Exception e) {
+	    e.printStackTrace();
+	    Application.flashMsg(APICall.createResponse(ResponseType.UNKNOWN));
+	}
+	//String result = "{\"success\": true, \"comment_id\": \"3\", \"parent_id\":\"2\", \"posted_date\": \"2013-02-27 09:03:25\", \"childrens\": [], \"text\": \"heheh\"}";
 
-	return ok(result);
+	return ok(response.toString());
     }
 
     public Result editComment(String url, String id){

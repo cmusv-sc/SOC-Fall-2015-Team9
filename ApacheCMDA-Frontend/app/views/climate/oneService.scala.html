@@ -46,9 +46,9 @@
 
   $('div.comment-container').comment({
   title: 'Comments',
-  url_get: 'getClimateServiceComment/hehe',
-  url_input: 'postClimateServiceComment/' + url,
-  url_delete: 'deleteClimateServiceComment/' + url,
+  url_get: '/comment/getComment/' + url,
+  url_input: '/comment/postComment/' + url,
+  url_delete: '/comment/deleteComment/' + url,
   limit: 10,
   auto_refresh: false,
   refresh: 10000,

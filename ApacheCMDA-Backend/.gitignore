@@ -1,3 +1,4 @@
 target
 logs
 project/target
+.DS_Store

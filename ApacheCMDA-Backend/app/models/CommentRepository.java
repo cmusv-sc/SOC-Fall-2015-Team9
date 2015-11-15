@@ -28,18 +28,7 @@ import javax.inject.Singleton;
 
 @Named
 @Singleton
-public interface ClimateServiceRepository extends CrudRepository<ClimateService, Long> {
-    List<ClimateService> findAllByName(String name);
-    ClimateService findFirstByName(String oldName);
-    List<ClimateService> findAllByPurpose(String purpose);
-    List<ClimateService> findByOrderByCreateTimeDesc();
-
-    @Query(value = "select c.* from ClimateService c where lower(c.name) like lower(?1)", nativeQuery = true)
-	List<ClimateService> findServiceWithName(String name);
-    @Query(value = "select c.* from ClimateService c where lower(c.purpose) like lower(?1)", nativeQuery = true)
-	List<ClimateService> findServiceWithPurpose(String purpose);
-    @Query(value = "select c.* from ClimateService c, ServiceEntry s where c.id=s.serviceId group by s.serviceId order by sum(s.count) desc", nativeQuery = true)
-	List<ClimateService> getClimateServiceOrderByCount();
-    @Query(value = "select c.* from ClimateService c, ServiceEntry s where c.id=s.serviceId group by s.serviceId order by s.latestAccessTimeStamp desc", nativeQuery = true)
-	List<ClimateService> getClimateServiceOrderByLatestAccessTime();
+public interface CommentRepository extends CrudRepository<Comment, Long>{
+    @Query(value = "select c.* from Comment c where c.elementId = ?1", nativeQuery = true)
+	List<Comment> findAllByClimateServiceId(Long id);
 }

@@ -407,8 +407,6 @@ public class ClimateServiceController extends Controller {
     }
 
     public Result getAllClimateServicesOrderByCount(String format){
-	//        Iterable<ClimateService> climateServices = climateServiceRepository
-	//                .findByOrderByCreateTimeDesc();
         Iterable<ClimateService> climateServices = climateServiceRepository.getClimateServiceOrderByCount();
         if (climateServices == null) {
             System.out.println("No climate service found");
@@ -434,7 +432,6 @@ public class ClimateServiceController extends Controller {
         String versionNo = json.findPath("versionNo").asText();
         String registerNote = json.findPath("registerNote").asText();
         int count = json.findPath("count").asInt();
-        // String scenario = json.findPath("scenario").asText();
         long serviceId = json.findPath("serviceId").asLong();
         long creatorId = json.findPath("creatorId").asLong();
 
@@ -495,7 +492,6 @@ public class ClimateServiceController extends Controller {
 
     }
 
-
     private List<ClimateService> removeDuplicateServices(List<ClimateService> in) {
 	List<ClimateService> out = new ArrayList<ClimateService>();
 	Collections.sort(in, new CompareServiceById());
@@ -510,14 +506,11 @@ public class ClimateServiceController extends Controller {
 	}
 	return out;
     }
+    
     public Result queryClimateService(String keywords) {
-	//JsonNode json = request().body().asJson();
-	// String keywords = json.findPath("name").asText();
-	System.out.println("query climate service: " + keywords);
 	String [] words = keywords.split("\\s+");
 	List<ClimateService> services = new ArrayList<ClimateService>();
-	for (String word : words) {
-	    // System.out.println("word: " + word);
+	for (String word : words){
 	    services.addAll(climateServiceRepository.findServiceWithName("%" + word + "%"));
 	    services.addAll(climateServiceRepository.findServiceWithPurpose("%" + word + "%"));
 	}

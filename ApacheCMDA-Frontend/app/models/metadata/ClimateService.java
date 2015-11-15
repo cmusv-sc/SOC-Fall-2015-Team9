@@ -29,7 +29,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 public class ClimateService {
-    private static final String CLIMATE_SERVICE_QUERY = Constants.NEW_BACKEND + "climateService/queryClimateService/";
     private String id;
     private String climateServiceName;
     private String purpose;
@@ -74,8 +73,10 @@ public class ClimateService {
     private static final String ADD_CLIMATE_SERVICE_CALL = Constants.NEW_BACKEND+"climateService/addClimateService";
 
     private static final String DELETE_CLIMATE_SERVICE_CALL = Constants.NEW_BACKEND + util.Constants.NEW_DELETE_CLIMATE_SERVICE;
-    private static final String EDIT_CLIMATE_SERVICE_CALL = Constants.NEW_BACKEND+ "climateService/"
-	+ util.Constants.NEW_EDIT_CLIMATE_SERVICE + "/name/";
+    
+    private static final String EDIT_CLIMATE_SERVICE_CALL = Constants.NEW_BACKEND+ "climateService/" + util.Constants.NEW_EDIT_CLIMATE_SERVICE + "/name/";
+
+    private static final String CLIMATE_SERVICE_QUERY = Constants.NEW_BACKEND + "climateService/queryClimateService/";
 
     public ClimateService() {
 	// TODO Auto-generated constructor stub

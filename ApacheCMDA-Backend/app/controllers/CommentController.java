@@ -55,6 +55,12 @@ public class CommentController extends Controller{
 
 	System.out.println("GET COMMENT");
 	System.out.println("CLIMATE SERVICE ID: " + id);
+
+	List<Comment> comments = commentRepository.findAllByClimateServiceId(id);
+	System.out.println("GET COMMENT FROM MYSQL:");
+	for (Comment comment : comments){
+	    System.out.println(comment);
+	}
 	
 	return ok(result);
     }

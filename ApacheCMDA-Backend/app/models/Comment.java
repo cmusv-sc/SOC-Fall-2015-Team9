@@ -44,6 +44,10 @@ public class Comment{
     private Date postedDate;
     private String text;
 
+    public Comment(){
+	
+    }
+
     public Comment(long parentId, String inReplyTo, long elementId, long createdBy, String fullname,
 		   String picture, Date postedDate, String text){
 	super();
@@ -118,5 +122,10 @@ public class Comment{
     }
     public void setText(String text){
 	this.text = text;
+    }
+
+    @Override
+    public String toString() {
+	return "Comment from " + fullname + " @ " + postedDate + ": " + text;
     }
 }

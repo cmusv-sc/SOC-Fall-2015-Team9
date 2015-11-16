@@ -1,34 +1,100 @@
-2015-11-15 18:39:55,583 - [INFO] - from play in pool-4-thread-4 
+2015-11-16 16:14:44,064 - [INFO] - from play in pool-4-thread-3 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2015-11-15 18:40:04,319 - [INFO] - from play in play-internal-execution-context-1 
+2015-11-16 16:14:55,046 - [INFO] - from play in play-internal-execution-context-1 
 datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
 
-2015-11-15 18:40:04,809 - [INFO] - from play in play-internal-execution-context-1 
+2015-11-16 16:14:55,438 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:h2:file:data/db
 
-2015-11-15 18:40:06,404 - [INFO] - from play in play-internal-execution-context-1 
+2015-11-16 16:14:56,891 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 
-2015-11-15 18:40:12,780 - [INFO] - from application in play-akka.actor.default-dispatcher-5 
+2015-11-16 16:15:45,290 - [INFO] - from application in play-akka.actor.default-dispatcher-9 
 http://localhost:9034/climateService/getAllClimateServices/json
 
-2015-11-15 18:40:42,326 - [INFO] - from application in play-akka.actor.default-dispatcher-8 
+2015-11-16 16:22:32,216 - [INFO] - from application in play-akka.actor.default-dispatcher-11 
 http://localhost:9034/climateService/getAllClimateServices/json
 
-2015-11-15 18:46:48,018 - [INFO] - from application in play-akka.actor.default-dispatcher-17 
+2015-11-16 16:29:41,822 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-11-16 16:29:41,826 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-11-16 16:29:41,964 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-11-16 16:29:42,576 - [INFO] - from application in play-akka.actor.default-dispatcher-22 
 http://localhost:9034/climateService/getAllClimateServices/json
 
-2015-11-15 18:46:50,113 - [INFO] - from application in play-akka.actor.default-dispatcher-13 
+2015-11-16 16:29:52,606 - [ERROR] - from play in play-internal-execution-context-1 
+Cannot invoke the action, eventually got an error: java.lang.NullPointerException
+
+2015-11-16 16:29:52,633 - [ERROR] - from application in play-internal-execution-context-1 
+
+
+! @6o69b62dd - Internal server error, for (GET) [/comment/getComment/twoDimMap.html] ->
+
+play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
+	at play.api.Application$class.handleError(Application.scala:293) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.api.DefaultApplication.handleError(Application.scala:399) [play_2.10-2.2.3.jar:2.2.3]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:264) [play_2.10-2.2.3.jar:2.2.3]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:264) [play_2.10-2.2.3.jar:2.2.3]
+	at scala.Option.map(Option.scala:145) [scala-library-2.10.3.jar:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:264) [play_2.10-2.2.3.jar:2.2.3]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:260) [play_2.10-2.2.3.jar:2.2.3]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.10.3.jar:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute(Execution.scala:43) [play-iteratees_2.10-2.2.3.jar:2.2.3]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.10.3.jar:na]
+Caused by: java.lang.NullPointerException: null
+	at controllers.CommentController.getComment(CommentController.java:82) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$24$$anonfun$apply$24.apply(routes_routing.scala:349) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$24$$anonfun$apply$24.apply(routes_routing.scala:349) ~[na:na]
+	at play.core.Router$HandlerInvoker$$anon$7$$anon$2.invocation(Router.scala:183) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.Router$Routes$$anon$1.invocation(Router.scala:377) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:56) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:91) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:90) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10-2.2.3.jar:2.2.3]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:251) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.10.3.jar:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:37) ~[play_2.10-2.2.3.jar:2.2.3]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:42) ~[akka-actor_2.10-2.2.0.jar:2.2.0]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) ~[akka-actor_2.10-2.2.0.jar:2.2.0]
+	... 4 common frames omitted
+
+2015-11-16 16:29:57,056 - [INFO] - from application in play-akka.actor.default-dispatcher-22 
 500
 
-2015-11-15 18:46:50,135 - [ERROR] - from play in play-internal-execution-context-1 
+2015-11-16 16:30:51,934 - [INFO] - from application in play-akka.actor.default-dispatcher-33 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 16:30:58,318 - [INFO] - from application in play-akka.actor.default-dispatcher-34 
+500
+
+2015-11-16 16:30:58,325 - [ERROR] - from play in play-internal-execution-context-1 
 Cannot invoke the action, eventually got an error: java.lang.NullPointerException
 
-2015-11-15 18:46:50,170 - [ERROR] - from application in play-internal-execution-context-1 
+2015-11-16 16:30:58,329 - [ERROR] - from application in play-internal-execution-context-1 
 
 
-! @6o62m3m01 - Internal server error, for (GET) [/comment/getComment/twoDimMap.html] ->
+! @6o69b9lip - Internal server error, for (GET) [/comment/getComment/twoDimMap.html] ->
 
 play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
 	at play.api.Application$class.handleError(Application.scala:293) ~[play_2.10-2.2.3.jar:2.2.3]
@@ -55,7 +121,7 @@ play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
 	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.10.3.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.10.3.jar:na]
 Caused by: java.lang.NullPointerException: null
-	at controllers.CommentController.getComment(CommentController.java:81) ~[na:na]
+	at controllers.CommentController.getComment(CommentController.java:82) ~[na:na]
 	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$24$$anonfun$apply$24.apply(routes_routing.scala:349) ~[na:na]
 	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$24$$anonfun$apply$24.apply(routes_routing.scala:349) ~[na:na]
 	at play.core.Router$HandlerInvoker$$anon$7$$anon$2.invocation(Router.scala:183) ~[play_2.10-2.2.3.jar:2.2.3]
@@ -73,16 +139,16 @@ Caused by: java.lang.NullPointerException: null
 	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) ~[akka-actor_2.10-2.2.0.jar:2.2.0]
 	... 4 common frames omitted
 
-2015-11-15 18:47:10,038 - [INFO] - from application in play-akka.actor.default-dispatcher-21 
+2015-11-16 16:31:14,329 - [INFO] - from application in play-akka.actor.default-dispatcher-32 
 http://localhost:9034/climateService/getAllClimateServices/json
 
-2015-11-15 18:47:20,053 - [ERROR] - from play in play-internal-execution-context-1 
+2015-11-16 16:31:24,347 - [ERROR] - from play in play-internal-execution-context-1 
 Cannot invoke the action, eventually got an error: java.lang.NullPointerException
 
-2015-11-15 18:47:20,058 - [ERROR] - from application in play-internal-execution-context-1 
+2015-11-16 16:31:24,351 - [ERROR] - from application in play-internal-execution-context-1 
 
 
-! @6o62m5e5n - Internal server error, for (GET) [/comment/getComment/twoDimMap.html] ->
+! @6o69bb85l - Internal server error, for (GET) [/comment/getComment/twoDimMap.html] ->
 
 play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
 	at play.api.Application$class.handleError(Application.scala:293) ~[play_2.10-2.2.3.jar:2.2.3]
@@ -109,7 +175,7 @@ play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
 	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.10.3.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.10.3.jar:na]
 Caused by: java.lang.NullPointerException: null
-	at controllers.CommentController.getComment(CommentController.java:81) ~[na:na]
+	at controllers.CommentController.getComment(CommentController.java:82) ~[na:na]
 	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$24$$anonfun$apply$24.apply(routes_routing.scala:349) ~[na:na]
 	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$24$$anonfun$apply$24.apply(routes_routing.scala:349) ~[na:na]
 	at play.core.Router$HandlerInvoker$$anon$7$$anon$2.invocation(Router.scala:183) ~[play_2.10-2.2.3.jar:2.2.3]
@@ -127,195 +193,655 @@ Caused by: java.lang.NullPointerException: null
 	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) ~[akka-actor_2.10-2.2.0.jar:2.2.0]
 	... 4 common frames omitted
 
-2015-11-15 18:49:29,232 - [INFO] - from application in play-akka.actor.default-dispatcher-15 
+2015-11-16 16:31:52,162 - [INFO] - from application in play-akka.actor.default-dispatcher-39 
 http://localhost:9034/climateService/getAllClimateServices/json
 
-2015-11-15 18:49:29,294 - [INFO] - from application in play-akka.actor.default-dispatcher-15 
+2015-11-16 16:31:52,653 - [INFO] - from application in play-akka.actor.default-dispatcher-39 
 http://localhost:9034/comment/getComment/1/json
 
-2015-11-15 19:07:21,622 - [INFO] - from application in play-akka.actor.default-dispatcher-33 
+2015-11-16 16:37:16,092 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6o69c58e3 - Internal server error, for (GET) [/climate/oneService?url=twoDimMap.html] ->
+
+play.PlayExceptions$CompilationException: Compilation error[error: incompatible types]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10-2.2.3.jar:2.2.3]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
+
+2015-11-16 16:37:50,340 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-11-16 16:37:50,354 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-11-16 16:37:50,559 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-11-16 16:37:51,179 - [INFO] - from application in play-akka.actor.default-dispatcher-30 
 http://localhost:9034/climateService/getAllClimateServices/json
 
-2015-11-15 19:07:24,203 - [INFO] - from application in play-akka.actor.default-dispatcher-31 
-500
-
-2015-11-15 19:07:24,206 - [ERROR] - from play in play-internal-execution-context-1 
-Cannot invoke the action, eventually got an error: java.lang.NullPointerException
-
-2015-11-15 19:07:24,211 - [ERROR] - from application in play-internal-execution-context-1 
-
-
-! @6o62om1db - Internal server error, for (GET) [/comment/getComment/twoDimMap.html] ->
-
-play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
-	at play.api.Application$class.handleError(Application.scala:293) ~[play_2.10-2.2.3.jar:2.2.3]
-	at play.api.DefaultApplication.handleError(Application.scala:399) [play_2.10-2.2.3.jar:2.2.3]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:264) [play_2.10-2.2.3.jar:2.2.3]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:264) [play_2.10-2.2.3.jar:2.2.3]
-	at scala.Option.map(Option.scala:145) [scala-library-2.10.3.jar:na]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:264) [play_2.10-2.2.3.jar:2.2.3]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:260) [play_2.10-2.2.3.jar:2.2.3]
-	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.10.3.jar:na]
-	at play.api.libs.iteratee.Execution$$anon$1.execute(Execution.scala:43) [play-iteratees_2.10-2.2.3.jar:2.2.3]
-	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.10.3.jar:na]
-Caused by: java.lang.NullPointerException: null
-	at controllers.CommentController.getComment(CommentController.java:81) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$24$$anonfun$apply$24.apply(routes_routing.scala:349) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$24$$anonfun$apply$24.apply(routes_routing.scala:349) ~[na:na]
-	at play.core.Router$HandlerInvoker$$anon$7$$anon$2.invocation(Router.scala:183) ~[play_2.10-2.2.3.jar:2.2.3]
-	at play.core.Router$Routes$$anon$1.invocation(Router.scala:377) ~[play_2.10-2.2.3.jar:2.2.3]
-	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:56) ~[play_2.10-2.2.3.jar:2.2.3]
-	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:91) ~[play_2.10-2.2.3.jar:2.2.3]
-	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:90) ~[play_2.10-2.2.3.jar:2.2.3]
-	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10-2.2.3.jar:2.2.3]
-	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10-2.2.3.jar:2.2.3]
-	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:251) ~[scala-library-2.10.3.jar:na]
-	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) ~[scala-library-2.10.3.jar:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.10.3.jar:na]
-	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:37) ~[play_2.10-2.2.3.jar:2.2.3]
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:42) ~[akka-actor_2.10-2.2.0.jar:2.2.0]
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) ~[akka-actor_2.10-2.2.0.jar:2.2.0]
-	... 4 common frames omitted
-
-2015-11-15 19:08:27,734 - [INFO] - from application in play-akka.actor.default-dispatcher-35 
-http://localhost:9034/climateService/getAllClimateServices/json
-
-2015-11-15 19:08:30,327 - [INFO] - from application in play-akka.actor.default-dispatcher-37 
-500
-
-2015-11-15 19:08:30,331 - [ERROR] - from play in play-internal-execution-context-1 
-Cannot invoke the action, eventually got an error: java.lang.NullPointerException
-
-2015-11-15 19:08:30,342 - [ERROR] - from application in play-internal-execution-context-1 
-
-
-! @6o62opl8p - Internal server error, for (GET) [/comment/getComment/twoDimMap.html] ->
-
-play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
-	at play.api.Application$class.handleError(Application.scala:293) ~[play_2.10-2.2.3.jar:2.2.3]
-	at play.api.DefaultApplication.handleError(Application.scala:399) [play_2.10-2.2.3.jar:2.2.3]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:264) [play_2.10-2.2.3.jar:2.2.3]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:264) [play_2.10-2.2.3.jar:2.2.3]
-	at scala.Option.map(Option.scala:145) [scala-library-2.10.3.jar:na]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:264) [play_2.10-2.2.3.jar:2.2.3]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:260) [play_2.10-2.2.3.jar:2.2.3]
-	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.10.3.jar:na]
-	at play.api.libs.iteratee.Execution$$anon$1.execute(Execution.scala:43) [play-iteratees_2.10-2.2.3.jar:2.2.3]
-	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.10.3.jar:na]
-Caused by: java.lang.NullPointerException: null
-	at controllers.CommentController.getComment(CommentController.java:81) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$24$$anonfun$apply$24.apply(routes_routing.scala:349) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$24$$anonfun$apply$24.apply(routes_routing.scala:349) ~[na:na]
-	at play.core.Router$HandlerInvoker$$anon$7$$anon$2.invocation(Router.scala:183) ~[play_2.10-2.2.3.jar:2.2.3]
-	at play.core.Router$Routes$$anon$1.invocation(Router.scala:377) ~[play_2.10-2.2.3.jar:2.2.3]
-	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:56) ~[play_2.10-2.2.3.jar:2.2.3]
-	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:91) ~[play_2.10-2.2.3.jar:2.2.3]
-	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:90) ~[play_2.10-2.2.3.jar:2.2.3]
-	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10-2.2.3.jar:2.2.3]
-	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10-2.2.3.jar:2.2.3]
-	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:251) ~[scala-library-2.10.3.jar:na]
-	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) ~[scala-library-2.10.3.jar:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.10.3.jar:na]
-	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:37) ~[play_2.10-2.2.3.jar:2.2.3]
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:42) ~[akka-actor_2.10-2.2.0.jar:2.2.0]
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) ~[akka-actor_2.10-2.2.0.jar:2.2.0]
-	... 4 common frames omitted
-
-2015-11-15 19:09:33,433 - [INFO] - from application in play-akka.actor.default-dispatcher-42 
-http://localhost:9034/climateService/getAllClimateServices/json
-
-2015-11-15 19:09:35,573 - [INFO] - from application in play-akka.actor.default-dispatcher-48 
-500
-
-2015-11-15 19:09:35,577 - [ERROR] - from play in play-internal-execution-context-1 
-Cannot invoke the action, eventually got an error: java.lang.NullPointerException
-
-2015-11-15 19:09:35,581 - [ERROR] - from application in play-internal-execution-context-1 
-
-
-! @6o62p3dm4 - Internal server error, for (GET) [/comment/getComment/twoDimMap.html] ->
-
-play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
-	at play.api.Application$class.handleError(Application.scala:293) ~[play_2.10-2.2.3.jar:2.2.3]
-	at play.api.DefaultApplication.handleError(Application.scala:399) [play_2.10-2.2.3.jar:2.2.3]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:264) [play_2.10-2.2.3.jar:2.2.3]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:264) [play_2.10-2.2.3.jar:2.2.3]
-	at scala.Option.map(Option.scala:145) [scala-library-2.10.3.jar:na]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:264) [play_2.10-2.2.3.jar:2.2.3]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:260) [play_2.10-2.2.3.jar:2.2.3]
-	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.10.3.jar:na]
-	at play.api.libs.iteratee.Execution$$anon$1.execute(Execution.scala:43) [play-iteratees_2.10-2.2.3.jar:2.2.3]
-	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.10.3.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.10.3.jar:na]
-Caused by: java.lang.NullPointerException: null
-	at controllers.CommentController.getComment(CommentController.java:81) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$24$$anonfun$apply$24.apply(routes_routing.scala:349) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$24$$anonfun$apply$24.apply(routes_routing.scala:349) ~[na:na]
-	at play.core.Router$HandlerInvoker$$anon$7$$anon$2.invocation(Router.scala:183) ~[play_2.10-2.2.3.jar:2.2.3]
-	at play.core.Router$Routes$$anon$1.invocation(Router.scala:377) ~[play_2.10-2.2.3.jar:2.2.3]
-	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:56) ~[play_2.10-2.2.3.jar:2.2.3]
-	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:91) ~[play_2.10-2.2.3.jar:2.2.3]
-	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:90) ~[play_2.10-2.2.3.jar:2.2.3]
-	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10-2.2.3.jar:2.2.3]
-	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10-2.2.3.jar:2.2.3]
-	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:251) ~[scala-library-2.10.3.jar:na]
-	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) ~[scala-library-2.10.3.jar:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.10.3.jar:na]
-	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:37) ~[play_2.10-2.2.3.jar:2.2.3]
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:42) ~[akka-actor_2.10-2.2.0.jar:2.2.0]
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) ~[akka-actor_2.10-2.2.0.jar:2.2.0]
-	... 4 common frames omitted
-
-2015-11-15 19:11:33,557 - [INFO] - from application in play-akka.actor.default-dispatcher-52 
-http://localhost:9034/climateService/getAllClimateServices/json
-
-2015-11-15 19:11:39,519 - [INFO] - from application in play-akka.actor.default-dispatcher-52 
+2015-11-16 16:37:51,217 - [INFO] - from application in play-akka.actor.default-dispatcher-30 
 http://localhost:9034/comment/getComment/1/json
 
-2015-11-15 19:11:39,897 - [INFO] - from application in play-akka.actor.default-dispatcher-51 
-500
-
-2015-11-15 19:13:16,732 - [INFO] - from application in play-akka.actor.default-dispatcher-59 
+2015-11-16 16:37:54,964 - [INFO] - from application in play-akka.actor.default-dispatcher-30 
 http://localhost:9034/climateService/getAllClimateServices/json
 
-2015-11-15 19:13:23,188 - [INFO] - from application in play-akka.actor.default-dispatcher-59 
+2015-11-16 16:41:39,354 - [INFO] - from application in play-akka.actor.default-dispatcher-51 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 16:41:41,918 - [INFO] - from application in play-akka.actor.default-dispatcher-51 
 http://localhost:9034/comment/getComment/1/json
+
+2015-11-16 16:42:35,219 - [INFO] - from application in play-akka.actor.default-dispatcher-49 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 16:42:37,659 - [INFO] - from application in play-akka.actor.default-dispatcher-49 
+http://localhost:9034/comment/getComment/1/json
+
+2015-11-16 16:42:53,054 - [INFO] - from application in play-akka.actor.default-dispatcher-56 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 16:43:55,707 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-11-16 16:43:55,711 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-11-16 16:43:55,917 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-11-16 16:43:56,543 - [INFO] - from application in play-akka.actor.default-dispatcher-61 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 16:43:56,569 - [INFO] - from application in play-akka.actor.default-dispatcher-61 
+http://localhost:9034/comment/getComment/1/json
+
+2015-11-16 16:43:59,414 - [INFO] - from application in play-akka.actor.default-dispatcher-65 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 16:44:04,356 - [INFO] - from application in play-akka.actor.default-dispatcher-61 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 16:49:52,227 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6o69dm92a - Internal server error, for (GET) [/climate/oneService?url=twoDimMap.html] ->
+
+play.PlayExceptions$CompilationException: Compilation error[error: cannot find symbol]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10-2.2.3.jar:2.2.3]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
+
+2015-11-16 16:50:20,657 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6o69dnp3n - Internal server error, for (GET) [/climate/oneService?url=twoDimMap.html] ->
+
+play.PlayExceptions$CompilationException: Compilation error[error: cannot find symbol]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10-2.2.3.jar:2.2.3]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
+
+2015-11-16 16:50:37,920 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-11-16 16:50:37,939 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-11-16 16:50:38,070 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-11-16 16:50:38,701 - [INFO] - from application in play-akka.actor.default-dispatcher-71 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 16:50:43,072 - [INFO] - from application in play-akka.actor.default-dispatcher-71 
+http://localhost:9034/comment/getComment/1/json
+
+2015-11-16 16:50:47,090 - [INFO] - from application in play-akka.actor.default-dispatcher-60 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 16:53:18,141 - [INFO] - from application in play-akka.actor.default-dispatcher-78 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 16:53:28,159 - [ERROR] - from play in play-internal-execution-context-1 
+Cannot invoke the action, eventually got an error: java.lang.NullPointerException
+
+2015-11-16 16:53:28,162 - [ERROR] - from application in play-internal-execution-context-1 
+
+
+! @6o69e8gdg - Internal server error, for (GET) [/comment/getComment/twoDimMap.html] ->
+
+play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
+	at play.api.Application$class.handleError(Application.scala:293) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.api.DefaultApplication.handleError(Application.scala:399) [play_2.10-2.2.3.jar:2.2.3]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:264) [play_2.10-2.2.3.jar:2.2.3]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:264) [play_2.10-2.2.3.jar:2.2.3]
+	at scala.Option.map(Option.scala:145) [scala-library-2.10.3.jar:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:264) [play_2.10-2.2.3.jar:2.2.3]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:260) [play_2.10-2.2.3.jar:2.2.3]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.10.3.jar:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute(Execution.scala:43) [play-iteratees_2.10-2.2.3.jar:2.2.3]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.10.3.jar:na]
+Caused by: java.lang.NullPointerException: null
+	at controllers.CommentController.getComment(CommentController.java:71) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$24$$anonfun$apply$24.apply(routes_routing.scala:349) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$24$$anonfun$apply$24.apply(routes_routing.scala:349) ~[na:na]
+	at play.core.Router$HandlerInvoker$$anon$7$$anon$2.invocation(Router.scala:183) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.Router$Routes$$anon$1.invocation(Router.scala:377) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:56) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:91) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:90) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10-2.2.3.jar:2.2.3]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:251) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.10.3.jar:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:37) ~[play_2.10-2.2.3.jar:2.2.3]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:42) ~[akka-actor_2.10-2.2.0.jar:2.2.0]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) ~[akka-actor_2.10-2.2.0.jar:2.2.0]
+	... 4 common frames omitted
+
+2015-11-16 16:53:30,165 - [INFO] - from application in play-akka.actor.default-dispatcher-78 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 16:53:30,206 - [INFO] - from application in play-akka.actor.default-dispatcher-78 
+http://localhost:9034/comment/getComment/1/json
+
+2015-11-16 16:53:30,283 - [INFO] - from application in play-akka.actor.default-dispatcher-74 
+500
+
+2015-11-16 16:53:32,655 - [INFO] - from application in play-akka.actor.default-dispatcher-78 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 16:53:32,677 - [INFO] - from application in play-akka.actor.default-dispatcher-78 
+http://localhost:9034/comment/getComment/1/json
+
+2015-11-16 16:53:32,720 - [INFO] - from application in play-akka.actor.default-dispatcher-66 
+500
+
+2015-11-16 16:53:43,832 - [INFO] - from application in play-akka.actor.default-dispatcher-77 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 16:53:47,611 - [INFO] - from application in play-akka.actor.default-dispatcher-77 
+http://localhost:9034/comment/getComment/1/json
+
+2015-11-16 16:53:52,072 - [INFO] - from application in play-akka.actor.default-dispatcher-73 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 16:53:54,645 - [INFO] - from application in play-akka.actor.default-dispatcher-77 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 16:56:36,367 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6o69ej8o7 - Internal server error, for (GET) [/climate/oneService?url=twoDimMap.html] ->
+
+play.PlayExceptions$CompilationException: Compilation error[error: method deleteAPI in class APICall cannot be applied to given types;]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10-2.2.3.jar:2.2.3]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
+
+2015-11-16 16:58:18,327 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6o69ep3jk - Internal server error, for (GET) [/climate/oneService?url=twoDimMap.html] ->
+
+play.PlayExceptions$CompilationException: Compilation error[error: method deleteAPI in class APICall cannot be applied to given types;]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10-2.2.3.jar:2.2.3]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
+
+2015-11-16 16:58:31,287 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-11-16 16:58:31,292 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-11-16 16:58:31,401 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-11-16 16:58:32,127 - [INFO] - from application in play-akka.actor.default-dispatcher-78 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 16:58:42,150 - [ERROR] - from play in play-internal-execution-context-1 
+Cannot invoke the action, eventually got an error: java.lang.NullPointerException
+
+2015-11-16 16:58:42,153 - [ERROR] - from application in play-internal-execution-context-1 
+
+
+! @6o69f0d05 - Internal server error, for (GET) [/comment/getComment/twoDimMap.html] ->
+
+play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
+	at play.api.Application$class.handleError(Application.scala:293) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.api.DefaultApplication.handleError(Application.scala:399) [play_2.10-2.2.3.jar:2.2.3]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:264) [play_2.10-2.2.3.jar:2.2.3]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:264) [play_2.10-2.2.3.jar:2.2.3]
+	at scala.Option.map(Option.scala:145) [scala-library-2.10.3.jar:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:264) [play_2.10-2.2.3.jar:2.2.3]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:260) [play_2.10-2.2.3.jar:2.2.3]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.10.3.jar:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute(Execution.scala:43) [play-iteratees_2.10-2.2.3.jar:2.2.3]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.10.3.jar:na]
+Caused by: java.lang.NullPointerException: null
+	at controllers.CommentController.getComment(CommentController.java:71) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$24$$anonfun$apply$24.apply(routes_routing.scala:349) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$24$$anonfun$apply$24.apply(routes_routing.scala:349) ~[na:na]
+	at play.core.Router$HandlerInvoker$$anon$7$$anon$2.invocation(Router.scala:183) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.Router$Routes$$anon$1.invocation(Router.scala:377) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:56) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:91) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:90) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10-2.2.3.jar:2.2.3]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:251) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.10.3.jar:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:37) ~[play_2.10-2.2.3.jar:2.2.3]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:42) ~[akka-actor_2.10-2.2.0.jar:2.2.0]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) ~[akka-actor_2.10-2.2.0.jar:2.2.0]
+	... 4 common frames omitted
+
+2015-11-16 16:58:49,015 - [INFO] - from application in play-akka.actor.default-dispatcher-78 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 16:58:49,040 - [INFO] - from application in play-akka.actor.default-dispatcher-78 
+http://localhost:9034/comment/getComment/1/json
+
+2015-11-16 17:00:11,515 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-11-16 17:00:11,522 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-11-16 17:00:11,628 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-11-16 17:00:12,527 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-11-16 17:00:12,542 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-11-16 17:00:12,693 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-11-16 17:00:13,896 - [INFO] - from application in play-akka.actor.default-dispatcher-93 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:00:13,925 - [INFO] - from application in play-akka.actor.default-dispatcher-93 
+http://localhost:9034/comment/getComment/1/json
+
+2015-11-16 17:00:59,861 - [INFO] - from application in play-akka.actor.default-dispatcher-92 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:01:05,614 - [INFO] - from application in play-akka.actor.default-dispatcher-95 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:01:07,812 - [INFO] - from application in play-akka.actor.default-dispatcher-91 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:02:25,973 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-11-16 17:02:25,984 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-11-16 17:02:26,144 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-11-16 17:02:27,008 - [INFO] - from application in play-akka.actor.default-dispatcher-96 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:02:27,041 - [INFO] - from application in play-akka.actor.default-dispatcher-96 
+http://localhost:9034/comment/getComment/1/json
+
+2015-11-16 17:07:25,823 - [INFO] - from application in play-akka.actor.default-dispatcher-97 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:07:28,708 - [INFO] - from application in play-akka.actor.default-dispatcher-103 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:11:30,178 - [INFO] - from application in play-akka.actor.default-dispatcher-105 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:11:56,407 - [INFO] - from application in play-akka.actor.default-dispatcher-103 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:12:06,426 - [ERROR] - from play in play-internal-execution-context-1 
+Cannot invoke the action, eventually got an error: java.lang.NullPointerException
+
+2015-11-16 17:12:06,474 - [ERROR] - from application in play-internal-execution-context-1 
+
+
+! @6o69gk6l8 - Internal server error, for (GET) [/comment/getComment/twoDimMap.html] ->
+
+play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
+	at play.api.Application$class.handleError(Application.scala:293) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.api.DefaultApplication.handleError(Application.scala:399) [play_2.10-2.2.3.jar:2.2.3]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:264) [play_2.10-2.2.3.jar:2.2.3]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:264) [play_2.10-2.2.3.jar:2.2.3]
+	at scala.Option.map(Option.scala:145) [scala-library-2.10.3.jar:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:264) [play_2.10-2.2.3.jar:2.2.3]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:260) [play_2.10-2.2.3.jar:2.2.3]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.10.3.jar:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute(Execution.scala:43) [play-iteratees_2.10-2.2.3.jar:2.2.3]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.10.3.jar:na]
+Caused by: java.lang.NullPointerException: null
+	at controllers.CommentController.getComment(CommentController.java:71) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$24$$anonfun$apply$24.apply(routes_routing.scala:349) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$24$$anonfun$apply$24.apply(routes_routing.scala:349) ~[na:na]
+	at play.core.Router$HandlerInvoker$$anon$7$$anon$2.invocation(Router.scala:183) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.Router$Routes$$anon$1.invocation(Router.scala:377) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:56) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:91) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:90) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10-2.2.3.jar:2.2.3]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:251) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.10.3.jar:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:37) ~[play_2.10-2.2.3.jar:2.2.3]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:42) ~[akka-actor_2.10-2.2.0.jar:2.2.0]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) ~[akka-actor_2.10-2.2.0.jar:2.2.0]
+	... 4 common frames omitted
+
+2015-11-16 17:12:08,604 - [INFO] - from application in play-akka.actor.default-dispatcher-113 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:12:08,623 - [INFO] - from application in play-akka.actor.default-dispatcher-113 
+http://localhost:9034/comment/getComment/1/json
+
+2015-11-16 17:12:10,894 - [INFO] - from application in play-akka.actor.default-dispatcher-108 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:12:13,560 - [INFO] - from application in play-akka.actor.default-dispatcher-108 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:12:17,524 - [INFO] - from application in play-akka.actor.default-dispatcher-108 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:12:19,161 - [INFO] - from application in play-akka.actor.default-dispatcher-108 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:12:22,724 - [INFO] - from application in play-akka.actor.default-dispatcher-108 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:12:25,221 - [INFO] - from application in play-akka.actor.default-dispatcher-110 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:12:39,864 - [INFO] - from application in play-akka.actor.default-dispatcher-114 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:12:39,913 - [INFO] - from application in play-akka.actor.default-dispatcher-114 
+http://localhost:9034/comment/getComment/1/json
+
+2015-11-16 17:12:42,399 - [INFO] - from application in play-akka.actor.default-dispatcher-114 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:12:44,686 - [INFO] - from application in play-akka.actor.default-dispatcher-114 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:12:50,975 - [INFO] - from application in play-akka.actor.default-dispatcher-110 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:12:53,642 - [INFO] - from application in play-akka.actor.default-dispatcher-110 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:14:37,253 - [INFO] - from application in play-akka.actor.default-dispatcher-116 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:14:37,277 - [INFO] - from application in play-akka.actor.default-dispatcher-116 
+http://localhost:9034/comment/getComment/1/json
+
+2015-11-16 17:14:42,325 - [INFO] - from application in play-akka.actor.default-dispatcher-115 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:15:22,463 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-11-16 17:15:22,467 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-11-16 17:15:22,646 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-11-16 17:15:23,416 - [INFO] - from application in play-akka.actor.default-dispatcher-117 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:15:23,442 - [INFO] - from application in play-akka.actor.default-dispatcher-117 
+http://localhost:9034/comment/getComment/1/json
+
+2015-11-16 17:15:26,851 - [INFO] - from application in play-akka.actor.default-dispatcher-124 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:15:30,577 - [INFO] - from application in play-akka.actor.default-dispatcher-123 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:20:40,176 - [INFO] - from application in play-akka.actor.default-dispatcher-129 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:20:40,208 - [INFO] - from application in play-akka.actor.default-dispatcher-129 
+http://localhost:9034/comment/getComment/1/json
+
+2015-11-16 17:20:57,991 - [INFO] - from application in play-akka.actor.default-dispatcher-132 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:20:58,636 - [INFO] - from application in play-akka.actor.default-dispatcher-132 
+http://localhost:9034/comment/getComment/1/json
+
+2015-11-16 17:21:03,119 - [INFO] - from application in play-akka.actor.default-dispatcher-130 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:21:49,424 - [INFO] - from application in play-akka.actor.default-dispatcher-138 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:21:52,670 - [INFO] - from application in play-akka.actor.default-dispatcher-138 
+http://localhost:9034/comment/getComment/1/json
+
+2015-11-16 17:21:55,788 - [INFO] - from application in play-akka.actor.default-dispatcher-138 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:26:01,365 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-11-16 17:26:01,368 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-11-16 17:26:01,494 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-11-16 17:26:02,260 - [INFO] - from application in play-akka.actor.default-dispatcher-145 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:26:10,033 - [INFO] - from application in play-akka.actor.default-dispatcher-145 
+http://localhost:9034/comment/getComment/1/json
+
+2015-11-16 17:26:13,201 - [INFO] - from application in play-akka.actor.default-dispatcher-145 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:26:17,532 - [INFO] - from application in play-akka.actor.default-dispatcher-140 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:26:20,386 - [INFO] - from application in play-akka.actor.default-dispatcher-140 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:26:22,723 - [INFO] - from application in play-akka.actor.default-dispatcher-140 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:26:47,661 - [INFO] - from application in play-akka.actor.default-dispatcher-148 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:26:55,856 - [INFO] - from application in play-akka.actor.default-dispatcher-148 
+http://localhost:9034/comment/getComment/1/json
+
+2015-11-16 17:26:57,983 - [INFO] - from application in play-akka.actor.default-dispatcher-148 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:27:37,826 - [INFO] - from application in play-akka.actor.default-dispatcher-151 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:27:40,600 - [INFO] - from application in play-akka.actor.default-dispatcher-151 
+http://localhost:9034/comment/getComment/1/json
+
+2015-11-16 17:27:42,925 - [INFO] - from application in play-akka.actor.default-dispatcher-154 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:28:03,583 - [INFO] - from application in play-akka.actor.default-dispatcher-153 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:29:57,183 - [INFO] - from application in play-akka.actor.default-dispatcher-162 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:30:03,890 - [INFO] - from application in play-akka.actor.default-dispatcher-162 
+http://localhost:9034/comment/getComment/1/json
+
+2015-11-16 17:30:25,993 - [INFO] - from application in play-akka.actor.default-dispatcher-163 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:30:29,089 - [INFO] - from application in play-akka.actor.default-dispatcher-163 
+http://localhost:9034/comment/getComment/1/json
+
+2015-11-16 17:30:33,465 - [INFO] - from application in play-akka.actor.default-dispatcher-157 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:32:49,371 - [INFO] - from application in play-akka.actor.default-dispatcher-158 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:32:55,970 - [INFO] - from application in play-akka.actor.default-dispatcher-158 
+http://localhost:9034/comment/getComment/1/json
+
+2015-11-16 17:32:58,341 - [INFO] - from application in play-akka.actor.default-dispatcher-158 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:34:18,686 - [INFO] - from application in play-akka.actor.default-dispatcher-171 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:34:26,869 - [INFO] - from application in play-akka.actor.default-dispatcher-171 
+http://localhost:9034/comment/getComment/1/json
+
+2015-11-16 17:34:29,027 - [INFO] - from application in play-akka.actor.default-dispatcher-175 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-16 17:34:35,373 - [INFO] - from application in play-akka.actor.default-dispatcher-176 
+http://localhost:9034/climateService/getAllClimateServices/json
 

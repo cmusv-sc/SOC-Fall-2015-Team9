@@ -42,27 +42,17 @@ import java.util.List;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class CommentController extends Controller{
+    private static final Long USER_ID = 0L;
     private static final String GET_COMMENT_CALL = Constants.NEW_BACKEND + "comment/getComment/";
+    private static final String POST_COMMENT_CALL = Constants.NEW_BACKEND + "comment/postComment";
+    private static final String EDIT_COMMENT_CALL = Constants.NEW_BACKEND + "comment/editComment";
+    private static final String DELETE_COMMENT_CALL = Constants.NEW_BACKEND + "comment/deleteComment/";
     
     final static Form<Comment> commentForm = Form.form(Comment.class);
 
     public Result getComment(String url){
-	//String result = "{\"results\":{\"comments\":[{\"comment_id\":\"1\",\"parent_id\":\"0\",\"in_reply_to\":null,\"element_id\":\"134\",\"created_by\":\"1\",\"fullname\":\"Administratoradmin\",\"picture\":\"/assets/images/user_blank_picture.png\",\"posted_date\":\"2013-02-2709:03:25\",\"text\":\"Testmessageone\",\"attachments\":[],\"childrens\":[]},{\"comment_id\":\"2\",\"parent_id\":\"0\",\"in_reply_to\":null,\"element_id\":\"134\",\"created_by\":\"1\",\"fullname\":\"Administratoradmin\",\"picture\":\"/assets/images/user_blank_picture.png\",\"posted_date\":\"2013-02-2709:03:25\",\"text\":\"Testmessageone\",\"attachments\":[],\"childrens\":[]}],\"total_comment\":2,\"user\":{\"user_id\":1,\"fullname\":\"Administratoradmin\",\"picture\":\"/assets/images/user_blank_picture.png\",\"is_logged_in\":true,\"is_add_allowed\":true,\"is_edit_allowed\":true}}}";
-	
-	// try {
-	//     jsonData.put("creatorId", 1);
-	//     DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
-	//     Date date = new Date();
-	//     jsonData.put("createTime", dateFormat.format(date));
-	//     result = jsonData.toString();
-	// } catch (IllegalStateException e) {
-	//     e.printStackTrace();
-	// } catch (Exception e) {
-	//     e.printStackTrace();
-	// }
-	//System.out.println(result);
-
 	System.out.println("GET COMMENT");
+	
 	ClimateService element = ClimateService.findServiceByUrl(url);
 	JsonNode response = null;
 
@@ -82,22 +72,20 @@ public class CommentController extends Controller{
     }
 
     public Result postComment(String url){
+	System.out.println("POST COMMENT");
+	
 	String text = DynamicForm.form().bindFromRequest().get("text");
 	String parent_id = DynamicForm.form().bindFromRequest().get("parent_id");
 	ClimateService element = ClimateService.findServiceByUrl(url);
-
-	System.out.println("POST COMMENT");
-	System.out.println("Url: " + url);
-	System.out.println("Text: " + text);
-	System.out.println("Parent ID: " + parent_id);
-
 	ObjectNode jsonData = Json.newObject();
 	JsonNode response = null;
+	
 	try{
 	    jsonData.put("parent_id", parent_id);
 	    jsonData.put("text", text);
-	    jsonData.put("climate_service", element.getId());
-	    //response = APICall.putAPI();
+	    jsonData.put("user_id", USER_ID);
+	    jsonData.put("climate_service_id", element.getId());
+	    response = APICall.postAPI(POST_COMMENT_CALL, jsonData);
 	}
 	catch (IllegalStateException e){
 	    e.printStackTrace();
@@ -107,40 +95,60 @@ public class CommentController extends Controller{
 	    e.printStackTrace();
 	    Application.flashMsg(APICall.createResponse(ResponseType.UNKNOWN));
 	}
-	//String result = "{\"success\": true, \"comment_id\": \"3\", \"parent_id\":\"2\", \"posted_date\": \"2013-02-27 09:03:25\", \"childrens\": [], \"text\": \"heheh\"}";
 
 	return ok(response.toString());
     }
 
     public Result editComment(String url, String id){
+	System.out.println("EDIT COMMENT");
+	
 	String text = DynamicForm.form().bindFromRequest().get("text");
 	String parent_id = DynamicForm.form().bindFromRequest().get("parent_id");
 	String comment_id = id;
 	ClimateService element = ClimateService.findServiceByUrl(url);
-
-	System.out.println("EDIT COMMENT");
-	System.out.println("Url: " + url);
-	System.out.println("Text: " + text);
-	System.out.println("Parent ID: " + parent_id);
-	System.out.println("Comment ID: " + comment_id);
-
 	ObjectNode jsonData = Json.newObject();
-	String result = "{\"success\": true, \"comment_id\": \"" + id + "\", \"parent_id\":\"2\", \"posted_date\": \"2013-02-27 09:03:25\", \"childrens\": [], \"text\": \""+ text + "\"}";
+	JsonNode response = null;
+	
+	try{
+	    jsonData.put("parent_id", parent_id);
+	    jsonData.put("text", text);
+	    jsonData.put("user_id", USER_ID);
+	    jsonData.put("climate_service_id", element.getId());
+	    response = APICall.putAPI(EDIT_COMMENT_CALL, jsonData);
+	}
+	catch (IllegalStateException e){
+	    e.printStackTrace();
+	    Application.flashMsg(APICall.createResponse(ResponseType.CONVERSIONERROR));
+	}
+	catch (Exception e) {
+	    e.printStackTrace();
+	    Application.flashMsg(APICall.createResponse(ResponseType.UNKNOWN));
+	}
 
-	return ok(result);
+	return ok(response.toString());
     }
 
     public Result deleteComment(String url){
+	System.out.println("DELETE COMMENT");
+	
 	String comment_id = DynamicForm.form().bindFromRequest().get("comment_id");
 	ClimateService element = ClimateService.findServiceByUrl(url);
+	JsonNode response = null;
 
-	System.out.println("DELETE COMMENT");
-	System.out.println("Url: " + url);
-	System.out.println("Comment ID: " + comment_id);
+	try{
+	    response = APICall.deleteAPI(DELETE_COMMENT_CALL + element.getId() + "/" + comment_id);
+	}
+	catch (IllegalStateException e){
+	    e.printStackTrace();
+	    Application.flashMsg(APICall.createResponse(ResponseType.CONVERSIONERROR));
+	}
+	catch (Exception e) {
+	    e.printStackTrace();
+	    Application.flashMsg(APICall.createResponse(ResponseType.UNKNOWN));
+	}
 
-	ObjectNode jsonData = Json.newObject();
-	String result = "{\"success\": true, \"total_comment\": 2}";
+	System.out.println(response.toString());
 
-	return ok(result);
+	return ok(response.toString());
     }
 }

@@ -2,3 +2,4 @@ target
 logs
 project/target
 .DS_Store
+.idea_modules

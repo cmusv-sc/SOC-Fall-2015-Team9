@@ -25,6 +25,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
 import models.*;
 import util.Common;
 import util.Constants;
@@ -44,35 +47,65 @@ import com.google.gson.Gson;
 @Singleton
 public class CommentController extends Controller{
     private final CommentRepository commentRepository;
+	private final ClimateServiceRepository climateServiceRepository;
+	private final HashTagRepository hashTagRepository;
+	private final Pattern HASHTAG_PATTERN = Pattern.compile("#(\\w+|\\W+)");
 
     @Inject
-    public CommentController(final CommentRepository commentRepository){
-	this.commentRepository = commentRepository;
+    public CommentController(final CommentRepository commentRepository,
+							 final ClimateServiceRepository climateServiceRepository,
+							 final HashTagRepository hashTagRepository){
+		this.commentRepository = commentRepository;
+		this.climateServiceRepository = climateServiceRepository;
+		this.hashTagRepository = hashTagRepository;
     }
+
 
     public Result getComment(Long id, String format){
-	String result = "{\"results\":{\"comments\":[{\"comment_id\":\"1\",\"parent_id\":\"0\",\"in_reply_to\":null,\"element_id\":\"134\",\"created_by\":\"1\",\"fullname\":\"Administratoradmin\",\"picture\":\"/assets/images/user_blank_picture.png\",\"posted_date\":\"2013-02-27 09:03:25\",\"text\":\"Testmessageone\",\"attachments\":[],\"childrens\":[]},{\"comment_id\":\"2\",\"parent_id\":\"0\",\"in_reply_to\":null,\"element_id\":\"134\",\"created_by\":\"1\",\"fullname\":\"Administratoradmin\",\"picture\":\"/assets/images/user_blank_picture.png\",\"posted_date\":\"2015-02-27 09:03:25\",\"text\":\"Testmessageone\",\"attachments\":[],\"childrens\":[]}],\"total_comment\":2,\"user\":{\"user_id\":1,\"fullname\":\"Administratoradmin\",\"picture\":\"/assets/images/user_blank_picture.png\",\"is_logged_in\":true,\"is_add_allowed\":true,\"is_edit_allowed\":true}}}";
+		String result = "{\"results\":{\"comments\":[{\"comment_id\":\"1\",\"parent_id\":\"0\",\"in_reply_to\":null,\"element_id\":\"134\",\"created_by\":\"1\",\"fullname\":\"Administratoradmin\",\"picture\":\"/assets/images/user_blank_picture.png\",\"posted_date\":\"2013-02-27 09:03:25\",\"text\":\"Testmessageone\",\"attachments\":[],\"childrens\":[]},{\"comment_id\":\"2\",\"parent_id\":\"0\",\"in_reply_to\":null,\"element_id\":\"134\",\"created_by\":\"1\",\"fullname\":\"Administratoradmin\",\"picture\":\"/assets/images/user_blank_picture.png\",\"posted_date\":\"2015-02-27 09:03:25\",\"text\":\"Testmessageone\",\"attachments\":[],\"childrens\":[]}],\"total_comment\":2,\"user\":{\"user_id\":1,\"fullname\":\"Administratoradmin\",\"picture\":\"/assets/images/user_blank_picture.png\",\"is_logged_in\":true,\"is_add_allowed\":true,\"is_edit_allowed\":true}}}";
 
-	System.out.println("GET COMMENT");
+		System.out.println("GET COMMENT");
 
-	List<Comment> comments = commentRepository.findAllByClimateServiceId(id);
-	System.out.println("GET COMMENT FROM MYSQL:");
-	for (Comment comment : comments){
-	    System.out.println(comment);
-	}
-	
-	return ok(result);
+		List<Comment> comments = commentRepository.findAllByClimateServiceId(id);
+		System.out.println("GET COMMENT FROM MYSQL:");
+		for (Comment comment : comments){
+			System.out.println(comment);
+		}
+
+		return ok(result);
     }
 
+
+	private void addHashTags(Comment comment) {
+
+		Matcher mat = HASHTAG_PATTERN.matcher(comment.getText());
+
+		List<HashTag> htags = new ArrayList<HashTag>();
+		while (mat.find()) {
+			String hashTag = mat.group(1);
+			String serviceName = hashTag.substring(1);
+			List<ClimateService> services = climateServiceRepository.findAllByName(serviceName);
+			if (!services.isEmpty()) {
+				ClimateService service = services.get(0);
+				HashTag htag = new HashTag(comment, service, hashTag);
+				htags.add(htag);
+			}
+		}
+		hashTagRepository.save(htags);
+	}
+
     public Result postComment(){
-	System.out.println("POST COMMENT");
+		System.out.println("POST COMMENT");
 
-	JsonNode json = request().body().asJson();
-	System.out.println(json.toString());
+		JsonNode json = request().body().asJson();
 
-	String result = "{\"success\": true, \"comment_id\": \"3\", \"parent_id\":\"2\", \"created_by\":\"1\",\"fullname\":\"Administratoradmin\",\"picture\":\"/assets/images/user_blank_picture.png\",\"posted_date\": \"2015-02-27 09:03:25\", \"childrens\": [], \"text\": \"heheh\",\"is_logged_in\":true,\"is_add_allowed\":true,\"is_edit_allowed\":true}";
+		System.out.println(json.toString());
 
-	return ok(result);
+		addHashTags(new Comment());
+
+		String result = "{\"success\": true, \"comment_id\": \"3\", \"parent_id\":\"2\", \"created_by\":\"1\",\"fullname\":\"Administratoradmin\",\"picture\":\"/assets/images/user_blank_picture.png\",\"posted_date\": \"2015-02-27 09:03:25\", \"childrens\": [], \"text\": \"heheh\",\"is_logged_in\":true,\"is_add_allowed\":true,\"is_edit_allowed\":true}";
+
+		return ok(result);
     }
 
     public Result editComment(){

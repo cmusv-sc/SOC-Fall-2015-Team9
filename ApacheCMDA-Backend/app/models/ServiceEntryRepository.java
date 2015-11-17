@@ -31,7 +31,3 @@ import java.util.List;
 public interface ServiceEntryRepository extends CrudRepository<ServiceEntry, Long> {
 	List<ServiceEntry> findByClimateServiceAndVersionNo(ClimateService climateService, String versionNo);
 }
-
-
-
-

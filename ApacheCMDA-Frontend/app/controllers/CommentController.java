@@ -50,6 +50,14 @@ public class CommentController extends Controller{
     
     final static Form<Comment> commentForm = Form.form(Comment.class);
 
+    private String failJson(String msg){
+	ObjectNode response = Json.newObject();
+	response.put("success", false);
+	response.put("message", msg);
+
+	return response.toString();
+    }
+
     public Result getComment(String url){
 	System.out.println("GET COMMENT");
 	
@@ -61,11 +69,11 @@ public class CommentController extends Controller{
 	}
 	catch (IllegalStateException e){
 	    e.printStackTrace();
-	    Application.flashMsg(APICall.createResponse(ResponseType.CONVERSIONERROR));
+	    return ok(failJson("Fail to connect"));
 	}
 	catch (Exception e) {
 	    e.printStackTrace();
-	    Application.flashMsg(APICall.createResponse(ResponseType.UNKNOWN));
+	    return ok(failJson("Fail to connect"));
 	}
 
 	return ok(response.toString());
@@ -81,6 +89,9 @@ public class CommentController extends Controller{
 	JsonNode response = null;
 	
 	try{
+	    DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	    Date date = new Date();
+	    jsonData.put("posted_date", dateFormat.format(date));
 	    jsonData.put("parent_id", parent_id);
 	    jsonData.put("text", text);
 	    jsonData.put("user_id", USER_ID);
@@ -89,11 +100,11 @@ public class CommentController extends Controller{
 	}
 	catch (IllegalStateException e){
 	    e.printStackTrace();
-	    Application.flashMsg(APICall.createResponse(ResponseType.CONVERSIONERROR));
+	    return ok(failJson("Fail to connect"));
 	}
 	catch (Exception e) {
 	    e.printStackTrace();
-	    Application.flashMsg(APICall.createResponse(ResponseType.UNKNOWN));
+	    return ok(failJson("Fail to connect"));
 	}
 
 	return ok(response.toString());
@@ -110,6 +121,9 @@ public class CommentController extends Controller{
 	JsonNode response = null;
 	
 	try{
+	    DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+	    Date date = new Date();
+	    jsonData.put("posted_date", dateFormat.format(date));
 	    jsonData.put("parent_id", parent_id);
 	    jsonData.put("text", text);
 	    jsonData.put("user_id", USER_ID);
@@ -118,11 +132,11 @@ public class CommentController extends Controller{
 	}
 	catch (IllegalStateException e){
 	    e.printStackTrace();
-	    Application.flashMsg(APICall.createResponse(ResponseType.CONVERSIONERROR));
+	    return ok(failJson("Fail to connect"));
 	}
 	catch (Exception e) {
 	    e.printStackTrace();
-	    Application.flashMsg(APICall.createResponse(ResponseType.UNKNOWN));
+	    return ok(failJson("Fail to connect"));
 	}
 
 	return ok(response.toString());
@@ -140,11 +154,11 @@ public class CommentController extends Controller{
 	}
 	catch (IllegalStateException e){
 	    e.printStackTrace();
-	    Application.flashMsg(APICall.createResponse(ResponseType.CONVERSIONERROR));
+	    return ok(failJson("Fail to connect"));
 	}
 	catch (Exception e) {
 	    e.printStackTrace();
-	    Application.flashMsg(APICall.createResponse(ResponseType.UNKNOWN));
+	    return ok(failJson("Fail to connect"));
 	}
 
 	System.out.println(response.toString());

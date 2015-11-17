@@ -29,6 +29,6 @@ import javax.inject.Singleton;
 @Named
 @Singleton
 public interface CommentRepository extends CrudRepository<Comment, Long>{
-    @Query(value = "select c.* from Comment c where c.elementId = ?1", nativeQuery = true)
+    @Query(value = "select c.* from Comment c where c.elementId = ?1 and c.parentId = 0", nativeQuery = true)
 	List<Comment> findAllByClimateServiceId(Long id);
 }

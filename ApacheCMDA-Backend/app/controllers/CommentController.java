@@ -17,6 +17,7 @@
 package controllers;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import java.io.BufferedWriter;
@@ -65,12 +66,37 @@ public class CommentController extends Controller{
 	String result = "{\"results\":{\"comments\":[{\"comment_id\":\"1\",\"parent_id\":\"0\",\"in_reply_to\":null,\"element_id\":\"134\",\"created_by\":\"1\",\"fullname\":\"Administratoradmin\",\"picture\":\"/assets/images/user_blank_picture.png\",\"posted_date\":\"2013-02-27 09:03:25\",\"text\":\"Testmessageone\",\"attachments\":[],\"childrens\":[]},{\"comment_id\":\"2\",\"parent_id\":\"0\",\"in_reply_to\":null,\"element_id\":\"134\",\"created_by\":\"1\",\"fullname\":\"Administratoradmin\",\"picture\":\"/assets/images/user_blank_picture.png\",\"posted_date\":\"2015-02-27 09:03:25\",\"text\":\"Testmessageone\",\"attachments\":[],\"childrens\":[]}],\"total_comment\":2,\"user\":{\"user_id\":1,\"fullname\":\"Administratoradmin\",\"picture\":\"/assets/images/user_blank_picture.png\",\"is_logged_in\":true,\"is_add_allowed\":true,\"is_edit_allowed\":true}}}";
 
 	System.out.println("GET COMMENT");
+	long totalComment = 0;
+	ObjectNode response = Json.newObject();
+	ObjectNode user = Json.newObject();
 
 	List<Comment> comments = commentRepository.findAllByClimateServiceId(id);
-	System.out.println("GET COMMENT FROM MYSQL:");
-	for (Comment comment : comments){
-	    System.out.println(comment);
-	}
+
+	ArrayNode apps = JsonNodeFactory.instance.arrayNode();
+	ObjectNode appsObj = JsonNodeFactory.instance.objectNode();
+	appsObj.put("user_id", 1);
+	appsObj.put("fullname", "zhibin");
+	apps.add(appsObj);
+	apps.add(appsObj);
+	response.put("apps", apps);
+	
+	// System.out.println("GET COMMENT FROM MYSQL:");
+	// for (Comment comment : comments){
+	//     System.out.println(comment);
+	// }
+
+	// User node
+	user.put("user_id", 1);
+	user.put("fullname", "Admin");
+	user.put("picture", "/assets/images/user_blank_picture.png");
+	user.put("is_logged_in", true);
+	user.put("is_add_allowed", true);
+	user.put("is_edit_allowed", true);
+
+	response.put("total_comment", totalComment);
+	response.put("user", user);
+
+	System.out.println(response.toString());
 	
 	return ok(result);
     }

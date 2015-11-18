@@ -52,7 +52,7 @@ public class CommentController extends Controller{
     private final CommentRepository commentRepository;
 	private final ClimateServiceRepository climateServiceRepository;
 	private final HashTagRepository hashTagRepository;
-	private final Pattern HASHTAG_PATTERN = Pattern.compile("#(\\w+|\\W+)");
+	private final Pattern HASHTAG_PATTERN = Pattern.compile("#(\\S+)");
 
     @Inject
     public CommentController(final CommentRepository commentRepository,
@@ -88,16 +88,18 @@ public class CommentController extends Controller{
 
 	private void addHashTags(Comment comment) {
 
+    System.out.println("Comment text: " + comment.getText());
 		Matcher mat = HASHTAG_PATTERN.matcher(comment.getText());
 
 		List<HashTag> htags = new ArrayList<HashTag>();
 		while (mat.find()) {
-			String hashTag = mat.group(1);
-			String serviceName = hashTag.substring(1);
+			String serviceName = mat.group(1);
 			List<ClimateService> services = climateServiceRepository.findAllByName(serviceName);
+      System.out.println("hash tag: " + serviceName);
 			if (!services.isEmpty()) {
+        System.out.println("\t matched a service for : " + serviceName);
 				ClimateService service = services.get(0);
-				HashTag htag = new HashTag(comment, service, hashTag);
+				HashTag htag = new HashTag(comment, service, serviceName);
 				htags.add(htag);
 			}
 		}

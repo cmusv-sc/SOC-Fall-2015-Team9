@@ -10,6 +10,11 @@ import javax.persistence.*;
 
 @Entity
 public class HashTag {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
     @ManyToOne(optional = false)
     @JoinColumn(name = "commentId", referencedColumnName = "commentId")
     private Comment comment;

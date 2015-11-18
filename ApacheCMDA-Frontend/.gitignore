@@ -3,3 +3,6 @@ projectFilesBackup1
 projectFilesBackup2
 project/target
 .DS_Store
+.idea_modules
+.idea
+logs

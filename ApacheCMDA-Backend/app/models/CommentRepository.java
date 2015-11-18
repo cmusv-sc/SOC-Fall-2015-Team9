@@ -29,7 +29,7 @@ import javax.inject.Singleton;
 @Named
 @Singleton
 public interface CommentRepository extends CrudRepository<Comment, Long>{
-    @Query(value = "select c.* from Comment c where c.elementId = ?1 and c.parentId = ?2", nativeQuery = true)
+    @Query(value = "select c.* from Comment c where c.elementId = ?1 and c.parentId = ?2 order by postedDate desc", nativeQuery = true)
 	List<Comment> findAllByClimateServiceIdAndParentId(Long elementId, Long parentId);
     @Query(value = "select count(*) from Comment where elementId = ?1", nativeQuery = true)
 	Long countComments(Long elementId);

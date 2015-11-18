@@ -87,18 +87,11 @@ public class CommentController extends Controller{
     }
     
     public Result getComment(Long id, String format){
-	//String result = "{\"results\":{\"comments\":[{\"comment_id\":\"1\",\"parent_id\":\"0\",\"in_reply_to\":null,\"element_id\":\"134\",\"created_by\":\"1\",\"fullname\":\"Administratoradmin\",\"picture\":\"/assets/images/user_blank_picture.png\",\"posted_date\":\"2013-02-27 09:03:25\",\"text\":\"Testmessageone\",\"attachments\":[],\"childrens\":[]},{\"comment_id\":\"2\",\"parent_id\":\"0\",\"in_reply_to\":null,\"element_id\":\"134\",\"created_by\":\"1\",\"fullname\":\"Administratoradmin\",\"picture\":\"/assets/images/user_blank_picture.png\",\"posted_date\":\"2015-02-27 09:03:25\",\"text\":\"Testmessageone\",\"attachments\":[],\"childrens\":[]}],\"total_comment\":2,\"user\":{\"user_id\":1,\"fullname\":\"Administratoradmin\",\"picture\":\"/assets/images/user_blank_picture.png\",\"is_logged_in\":true,\"is_add_allowed\":true,\"is_edit_allowed\":true}}}";
-
 	System.out.println("GET COMMENT");
 	ObjectNode response = Json.newObject();
 	ObjectNode result = Json.newObject();
 	ObjectNode user = Json.newObject();
 	
-	// System.out.println("GET COMMENT FROM MYSQL:");
-	// for (Comment comment : comments){
-	//     System.out.println(comment);
-	// }
-
 	// User node
 	user.put("user_id", 1);
 	user.put("fullname", "Admin");
@@ -115,8 +108,6 @@ public class CommentController extends Controller{
 	// response
 	response.put("results", result);
 
-	System.out.println(response.toString());
-	
 	return ok(response.toString());
     }
 
@@ -169,8 +160,6 @@ public class CommentController extends Controller{
 	    System.out.println("Comment not saved");
 	    return badRequest(failJson("Comment not saved"));
 	}
-
-	//String result = "{\"success\": true, \"comment_id\": \"3\", \"parent_id\":\"2\", \"created_by\":\"1\",\"fullname\":\"Administratoradmin\",\"picture\":\"/assets/images/user_blank_picture.png\",\"posted_date\": \"2015-02-27 09:03:25\", \"childrens\": [], \"text\": \"heheh\",\"is_logged_in\":true,\"is_add_allowed\":true,\"is_edit_allowed\":true}";
 
 	return ok(response);
     }

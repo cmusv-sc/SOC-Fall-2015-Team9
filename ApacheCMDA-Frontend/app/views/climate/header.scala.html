@@ -21,20 +21,19 @@
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse"
 	      data-target=".navbar-collapse">
-	<span class="sr-only">Toggle navigation</span> <span
-							  class="icon-bar"></span> <span class="icon-bar"></span> <span
-														     class="icon-bar"></span>
+	<span class="sr-only">Toggle navigation</span>
+	<span class="icon-bar"></span> <span class="icon-bar"></span>
+	<span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" style="padding-bottom: 0;" href="/climate"><img
-									    src='@routes.Assets.at("images/NASA_JPL_logo.png")' style="height: 40px; width: 220px;">&nbsp&nbsp<img
-																						 src='@routes.Assets.at("images/logo.png")' style="height: 15px; width: 250px;"></a>
+      <a class="navbar-brand" style="padding-bottom: 0;" href="/climate">
+	<img src='@routes.Assets.at("images/NASA_JPL_logo.png")' style="height: 40px; width: 220px;">
+	&nbsp&nbsp
+	<img src='@routes.Assets.at("images/logo.png")' style="height: 15px; width: 250px;"></a>
     </div>
     <div class="navbar-collapse collapse" style="height:">
       <ul class="nav navbar-nav navbar-right">
 	
-	<li class="dropdown"><a href="#"
-				class="dropdown-toggle" data-toggle="dropdown">Service<b
-											 class="caret"></b></a>
+	<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Service<b class="caret"></b></a>
 	  <ul class="dropdown-menu">
 
 	    <li><a href="@routes.ClimateServiceController.climateServices()">Service List</a></li>
@@ -43,11 +42,8 @@
 	  </ul>
 	  
 	</li>
-	<li class="dropdown"><a href="#"
-				class="dropdown-toggle" data-toggle="dropdown">Dataset<b
-											 class="caret"></b></a>
+	<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Dataset<b class="caret"></b></a>
 	  <ul class="dropdown-menu">
-	    
 	    <li><a href="@routes.DatasetController.datasetList()">Dataset List</a></li>
 	    <li><a href="@routes.DatasetController.searchDataset()">Search dataset</a></li>
 	  </ul>

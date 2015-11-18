@@ -20,11 +20,11 @@
 @import helper._ 
 
 @scripts = {
+<script src="//code.jquery.com/jquery-migrate-1.1.1.min.js"></script>
+<script src="//code.jquery.com/ui/1.9.2/jquery-ui.min.js"></script>
 <script src='@routes.Assets.at("javascripts/jquery.timeago.js")'></script>
 <script src='@routes.Assets.at("javascripts/jquery.autogrow-textarea.js")'></script>
 <script src='@routes.Assets.at("javascripts/jquery.comment.js")'></script>
-<script src="//code.jquery.com/jquery-migrate-1.1.1.min.js"></script>
-<script src="//code.jquery.com/ui/1.9.2/jquery-ui.min.js"></script>
 
 <link rel="stylesheet" href='@routes.Assets.at("stylesheets/jquery.comment.css")'>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css">
@@ -33,6 +33,14 @@
   $(document).ready(function(){
   <!-- var obj = document.getElementById("iframe"); -->
   <!-- resizeIframe(obj); -->
+  <!-- function resizeIframe(obj) { -->
+  <!-- obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px'; -->
+  <!-- } -->
+
+  $.ajaxPrefilter(function(options, originalOptions, jqXHR){
+      options.async = true;
+  });
+  
   var url = null;
   try{
   var urlOri = "@url";
@@ -42,8 +50,9 @@
   catch(e){
   console.log(e);
   }
-  
 
+  $('#toLoad').load("@url");
+  
   $('div.comment-container').comment({
   title: 'Comments',
   url_get: '/comment/getComment/' + url,
@@ -52,24 +61,19 @@
   limit: 10,
   auto_refresh: false,
   refresh: 10000,
-  transition: 'slideToggle',
+  transition: 'slideToggle'
   });
-
-  $('#toLoad').load("@url");
   });
-  
-  function resizeIframe(obj) {
-  obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
-  }
 </script>
 }
 
 @main("Service", scripts) {
 
 <div id="toLoad" align="center">
-  <!-- <iframe id="iframe" src="@url" frameborder="0" style="height:100%;width:100%;position:absolute;" scrolling="no" allowfullscreen> -->
-  <!-- </iframe> -->
 </div>
+
+<!-- <iframe id="iframe" src="@url" frameborder="0" style="height:100%;width:100%;position:absolute;" scrolling="no" allowfullscreen> -->
+<!-- </iframe> -->
 
 <hr style="display: block;margin-top: 2em;margin-bottom: 2em;margin-left: auto;margin-right: auto;border-style: inset;border-width: 1px;">
 

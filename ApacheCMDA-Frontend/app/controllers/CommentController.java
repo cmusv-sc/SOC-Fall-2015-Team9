@@ -42,13 +42,13 @@ import java.util.List;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class CommentController extends Controller{
-    private static final Long USER_ID = 0L;
     private static final String GET_COMMENT_CALL = Constants.NEW_BACKEND + "comment/getComment/";
     private static final String POST_COMMENT_CALL = Constants.NEW_BACKEND + "comment/postComment";
     private static final String EDIT_COMMENT_CALL = Constants.NEW_BACKEND + "comment/editComment";
     private static final String DELETE_COMMENT_CALL = Constants.NEW_BACKEND + "comment/deleteComment/";
     
     final static Form<Comment> commentForm = Form.form(Comment.class);
+    private final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     private String failJson(String msg){
 	ObjectNode response = Json.newObject();
@@ -65,7 +65,7 @@ public class CommentController extends Controller{
 	JsonNode response = null;
 
 	try{
-	    response = APICall.callAPI(GET_COMMENT_CALL + element.getId() + "/json");
+	    response = APICall.callAPI(GET_COMMENT_CALL + element.getId() + "/" + session("email") + "/json");
 	}
 	catch (IllegalStateException e){
 	    e.printStackTrace();
@@ -81,7 +81,10 @@ public class CommentController extends Controller{
 
     public Result postComment(String url){
 	System.out.println("POST COMMENT");
-	
+
+	if (session("email") == null){
+	    return ok(failJson("Please login first"));
+	}
 	String text = DynamicForm.form().bindFromRequest().get("text");
 	String parent_id = DynamicForm.form().bindFromRequest().get("parent_id");
 	ClimateService element = ClimateService.findServiceByUrl(url);
@@ -89,12 +92,11 @@ public class CommentController extends Controller{
 	JsonNode response = null;
 	
 	try{
-	    DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	    Date date = new Date();
 	    jsonData.put("posted_date", dateFormat.format(date));
 	    jsonData.put("parent_id", parent_id);
 	    jsonData.put("text", text);
-	    jsonData.put("user_id", USER_ID);
+	    jsonData.put("email", session("email"));
 	    jsonData.put("climate_service_id", element.getId());
 	    response = APICall.postAPI(POST_COMMENT_CALL, jsonData);
 	}
@@ -114,19 +116,16 @@ public class CommentController extends Controller{
 	System.out.println("EDIT COMMENT");
 	
 	String text = DynamicForm.form().bindFromRequest().get("text");
-	String parent_id = DynamicForm.form().bindFromRequest().get("parent_id");
 	String comment_id = id;
 	ClimateService element = ClimateService.findServiceByUrl(url);
 	ObjectNode jsonData = Json.newObject();
 	JsonNode response = null;
 	
 	try{
-	    DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
 	    Date date = new Date();
 	    jsonData.put("posted_date", dateFormat.format(date));
-	    jsonData.put("parent_id", parent_id);
+	    jsonData.put("comment_id", comment_id);
 	    jsonData.put("text", text);
-	    jsonData.put("user_id", USER_ID);
 	    jsonData.put("climate_service_id", element.getId());
 	    response = APICall.putAPI(EDIT_COMMENT_CALL, jsonData);
 	}
@@ -160,8 +159,6 @@ public class CommentController extends Controller{
 	    e.printStackTrace();
 	    return ok(failJson("Fail to connect"));
 	}
-
-	System.out.println(response.toString());
 
 	return ok(response.toString());
     }

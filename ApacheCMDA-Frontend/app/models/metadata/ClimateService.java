@@ -211,7 +211,6 @@ public class ClimateService {
 
     private static ClimateService deserializeJsonToClimateService(JsonNode json) {
 	ClimateService newClimateService = new ClimateService();
-	System.out.println(json);
 	newClimateService.setId(json.get("id").asText());
 	newClimateService.setClimateServiceName(json.get("name").asText());
 	newClimateService.setPurpose(json.get("purpose").asText());

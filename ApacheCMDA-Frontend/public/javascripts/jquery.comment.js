@@ -117,9 +117,8 @@
                     	    item_txt.html(result.text);
                     	    item_txt.toggle();
 
-                    	    var item_form_edit = $('.posted-comment-form-edit', item);
+                    	    var item_form_edit = $('.posted-comment-form-edit', item).first();
                     	    item_form_edit.toggle();
-
                     	}
                     	else
                     	{
@@ -140,26 +139,27 @@
 			            var id = 'posted-comment-child-'+result.parent_id;
 
 			            //prepend the new comment
-			            var the_child = $('ul[id="'+id+'"]', self.$elem).prepend(itemlist);
+			            //var the_child = $('ul[id="'+id+'"]', self.$elem).prepend(itemlist);
+				    $(itemlist).insertAfter('#' + id + ' > div');
 
-			            // hide the form post
-			            $('div.posted-comments-postbox:visible', the_child).hide();
-		                }
-		            }
+				    // hide the form post
+				    $('div.posted-comments-postbox:visible', '#'+id).hide();
+				}
+			    }
 
-	                    // update total comment
-	                    self.total_comment++;
-	                    self.$total_comment.html(self.total_comment+' '+self.options.title);
-                    	}
+			    // update total comment
+			    self.total_comment++;
+			    self.$total_comment.html(self.total_comment+' '+self.options.title);
+			}
 
-                    	// clear and enable textarea
-	                $('textarea', self.$elem).val('');                    	
-	                $('textarea', self.$elem).attr("disabled", false);                    	                    		
-                    }
-                }                   
+			// clear and enable textarea
+			$('textarea', self.$elem).val('');                    	
+			$('textarea', self.$elem).attr("disabled", false);                    	                    		
+		    }
+		}                   
 
 
-            });
+	    });
 	},
 
 	buildPostBox_: function(parent_id){
@@ -435,6 +435,8 @@
 	    {
 		var reply_container = $('<span></span>');
 		reply_container.addClass('post-reply');
+
+		console.log(self.user_info_);
 
 		//var reply = $('');
 		var reply = $('<a>Reply</a>');

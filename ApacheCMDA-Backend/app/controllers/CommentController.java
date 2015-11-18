@@ -48,6 +48,7 @@ import com.google.gson.Gson;
 @Singleton
 public class CommentController extends Controller{
     private final CommentRepository commentRepository;
+    private final SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     @Inject
     public CommentController(final CommentRepository commentRepository){
@@ -61,24 +62,37 @@ public class CommentController extends Controller{
 
 	return response.toString();
     }
+
+    private ArrayNode getCommentArray(Long elementId, Long parentId){
+	List<Comment> comments = commentRepository.findAllByClimateServiceIdAndParentId(elementId, parentId);
+	ArrayNode commentArray = JsonNodeFactory.instance.arrayNode();
+
+	for (Comment comment : comments){
+	    ObjectNode oneComment = JsonNodeFactory.instance.objectNode();
+	    oneComment.put("comment_id", comment.getCommentId());
+	    oneComment.put("parent_id", parentId);
+	    oneComment.put("in_reply_to", comment.getInReplyTo());
+	    oneComment.put("element_id", elementId);
+	    oneComment.put("created_by", comment.getCreatedBy());
+	    oneComment.put("fullname", comment.getFullname());
+	    oneComment.put("picture", comment.getPicture());
+	    oneComment.put("posted_date", timeFormat.format(comment.getPostedDate()));
+	    oneComment.put("text", comment.getText());
+	    oneComment.put("attachments", JsonNodeFactory.instance.arrayNode());
+	    oneComment.put("childrens", getCommentArray(elementId, comment.getCommentId()));
+	    commentArray.add(oneComment);
+	}
+
+	return commentArray;
+    }
     
     public Result getComment(Long id, String format){
-	String result = "{\"results\":{\"comments\":[{\"comment_id\":\"1\",\"parent_id\":\"0\",\"in_reply_to\":null,\"element_id\":\"134\",\"created_by\":\"1\",\"fullname\":\"Administratoradmin\",\"picture\":\"/assets/images/user_blank_picture.png\",\"posted_date\":\"2013-02-27 09:03:25\",\"text\":\"Testmessageone\",\"attachments\":[],\"childrens\":[]},{\"comment_id\":\"2\",\"parent_id\":\"0\",\"in_reply_to\":null,\"element_id\":\"134\",\"created_by\":\"1\",\"fullname\":\"Administratoradmin\",\"picture\":\"/assets/images/user_blank_picture.png\",\"posted_date\":\"2015-02-27 09:03:25\",\"text\":\"Testmessageone\",\"attachments\":[],\"childrens\":[]}],\"total_comment\":2,\"user\":{\"user_id\":1,\"fullname\":\"Administratoradmin\",\"picture\":\"/assets/images/user_blank_picture.png\",\"is_logged_in\":true,\"is_add_allowed\":true,\"is_edit_allowed\":true}}}";
+	//String result = "{\"results\":{\"comments\":[{\"comment_id\":\"1\",\"parent_id\":\"0\",\"in_reply_to\":null,\"element_id\":\"134\",\"created_by\":\"1\",\"fullname\":\"Administratoradmin\",\"picture\":\"/assets/images/user_blank_picture.png\",\"posted_date\":\"2013-02-27 09:03:25\",\"text\":\"Testmessageone\",\"attachments\":[],\"childrens\":[]},{\"comment_id\":\"2\",\"parent_id\":\"0\",\"in_reply_to\":null,\"element_id\":\"134\",\"created_by\":\"1\",\"fullname\":\"Administratoradmin\",\"picture\":\"/assets/images/user_blank_picture.png\",\"posted_date\":\"2015-02-27 09:03:25\",\"text\":\"Testmessageone\",\"attachments\":[],\"childrens\":[]}],\"total_comment\":2,\"user\":{\"user_id\":1,\"fullname\":\"Administratoradmin\",\"picture\":\"/assets/images/user_blank_picture.png\",\"is_logged_in\":true,\"is_add_allowed\":true,\"is_edit_allowed\":true}}}";
 
 	System.out.println("GET COMMENT");
-	long totalComment = 0;
 	ObjectNode response = Json.newObject();
+	ObjectNode result = Json.newObject();
 	ObjectNode user = Json.newObject();
-
-	List<Comment> comments = commentRepository.findAllByClimateServiceId(id);
-
-	ArrayNode apps = JsonNodeFactory.instance.arrayNode();
-	ObjectNode appsObj = JsonNodeFactory.instance.objectNode();
-	appsObj.put("user_id", 1);
-	appsObj.put("fullname", "zhibin");
-	apps.add(appsObj);
-	apps.add(appsObj);
-	response.put("apps", apps);
 	
 	// System.out.println("GET COMMENT FROM MYSQL:");
 	// for (Comment comment : comments){
@@ -93,12 +107,17 @@ public class CommentController extends Controller{
 	user.put("is_add_allowed", true);
 	user.put("is_edit_allowed", true);
 
-	response.put("total_comment", totalComment);
-	response.put("user", user);
+	// result
+	result.put("comments", getCommentArray(id, 0L));
+	result.put("total_comment", commentRepository.countComments(id));
+	result.put("user", user);
+
+	// response
+	response.put("results", result);
 
 	System.out.println(response.toString());
 	
-	return ok(result);
+	return ok(response.toString());
     }
 
     public Result postComment(){
@@ -116,8 +135,7 @@ public class CommentController extends Controller{
 	    String text = json.findPath("text").asText();
 	    long userId = json.findPath("user_id").asLong();
 	    long serviceId = json.findPath("climate_service_id").asLong();
-	    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-	    Date postedDate = format.parse(json.findPath("posted_date").asText());
+	    Date postedDate = timeFormat.parse(json.findPath("posted_date").asText());
 	    String inReplyTo = null;
 
 	    // if inside reply
@@ -134,7 +152,7 @@ public class CommentController extends Controller{
 	    response.put("created_by", commentEntry.getCreatedBy());
 	    response.put("fullname", commentEntry.getFullname());
 	    response.put("picture", commentEntry.getPicture());
-	    response.put("posted_date", format.format(commentEntry.getPostedDate()));
+	    response.put("posted_date", timeFormat.format(commentEntry.getPostedDate()));
 	    response.putArray("childrens");
 	    response.put("text", commentEntry.getText());
 	    response.put("is_logged_in", true);

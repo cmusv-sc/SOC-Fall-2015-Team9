@@ -48,11 +48,13 @@ import com.google.gson.Gson;
 @Singleton
 public class CommentController extends Controller{
     private final CommentRepository commentRepository;
+    private final UserRepository userRepository;
     private final SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     @Inject
-    public CommentController(final CommentRepository commentRepository){
+    public CommentController(final CommentRepository commentRepository, final UserRepository userRepository){
 	this.commentRepository = commentRepository;
+	this.userRepository = userRepository;
     }
 
     private String failJson(String msg){
@@ -97,19 +99,29 @@ public class CommentController extends Controller{
 	commentRepository.delete(commentRepository.findCommentById(commentId));
     }
     
-    public Result getComment(Long id, String format){
+    public Result getComment(Long id, String email, String format){
 	System.out.println("GET COMMENT");
 	ObjectNode response = Json.newObject();
 	ObjectNode result = Json.newObject();
 	ObjectNode user = Json.newObject();
+	JsonNode json = request().body().asJson();
 	
 	// User node
-	user.put("user_id", 1);
-	user.put("fullname", "Admin");
+	if (userRepository.getUserIdByEmail(email) == null){
+	    user.put("user_id", -1);
+	    user.put("fullname", "Visitor");
+	    user.put("is_logged_in", false);
+	    user.put("is_add_allowed", false);
+	    user.put("is_edit_allowed", false);
+	}
+	else{
+	    user.put("user_id", userRepository.getUserIdByEmail(email));
+	    user.put("fullname", userRepository.getUsernameByEmail(email));
+	    user.put("is_logged_in", true);
+	    user.put("is_add_allowed", true);
+	    user.put("is_edit_allowed", true);
+	}
 	user.put("picture", "/assets/images/user_blank_picture.png");
-	user.put("is_logged_in", true);
-	user.put("is_add_allowed", true);
-	user.put("is_edit_allowed", true);
 
 	// result
 	result.put("comments", getCommentArray(id, 0L));
@@ -135,17 +147,20 @@ public class CommentController extends Controller{
 	try{
 	    long parentId = json.findPath("parent_id").asLong();
 	    String text = json.findPath("text").asText();
-	    long userId = json.findPath("user_id").asLong();
+	    String email = json.findPath("email").asText();
+	    Long createdBy = userRepository.getUserIdByEmail(email);
+	    String fullname = userRepository.getUsernameByEmail(email);
+	    
 	    long serviceId = json.findPath("climate_service_id").asLong();
 	    Date postedDate = timeFormat.parse(json.findPath("posted_date").asText());
 	    String inReplyTo = null;
 
 	    // if inside reply
 	    if (parentId != 0){
-		inReplyTo = "Admin";
+		inReplyTo = userRepository.getUsernameById(parentId);
 	    }
 	    
-	    Comment comment = new Comment(parentId, inReplyTo, serviceId, 1, "Admin", "/assets/images/user_blank_picture.png", postedDate, text);
+	    Comment comment = new Comment(parentId, inReplyTo, serviceId, createdBy, fullname, "/assets/images/user_blank_picture.png", postedDate, text);
 	    Comment commentEntry = commentRepository.save(comment);
 
 	    response.put("success", true);

@@ -132,8 +132,7 @@ public class Application extends Controller {
 				 .createResponse(ResponseType.CONVERSIONERROR));
 	} catch (Exception e){
 	    e.printStackTrace();
-	    Application.flashMsg(APICall
-				 .createResponse(ResponseType.UNKNOWN));
+	    Application.flashMsg(APICall.createResponse(ResponseType.UNKNOWN));
 	}
 	return ok(signup.render(nu));  
     }
@@ -150,12 +149,10 @@ public class Application extends Controller {
 	    Application.flashMsg(response);
 	}catch (IllegalStateException e){
 	    e.printStackTrace();
-	    Application.flashMsg(APICall
-				 .createResponse(ResponseType.CONVERSIONERROR));
+	    Application.flashMsg(APICall.createResponse(ResponseType.CONVERSIONERROR));
 	} catch (Exception e){
 	    e.printStackTrace();
-	    Application.flashMsg(APICall
-				 .createResponse(ResponseType.UNKNOWN));
+	    Application.flashMsg(APICall.createResponse(ResponseType.UNKNOWN));
 	}
 	return ok(response);
     }

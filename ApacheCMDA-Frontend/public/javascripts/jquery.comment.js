@@ -436,6 +436,8 @@
 		var reply_container = $('<span></span>');
 		reply_container.addClass('post-reply');
 
+		console.log(self.user_info_);
+
 		//var reply = $('');
 		var reply = $('<a>Reply</a>');
 		reply.attr('href','#');

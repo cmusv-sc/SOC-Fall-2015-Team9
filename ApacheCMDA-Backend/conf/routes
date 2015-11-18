@@ -53,6 +53,7 @@ PUT       /parameter/updateParameter/name/:oldName                  @controllers
 DELETE    /parameter/deleteParameter/service/:id/name/:name         @controllers.ParameterController.deleteParameterByName(id:Long, name: String)
 
 # Users
+POST	  /users/isEmailExisted	     				    @controllers.UserController.isEmailExisted
 GET       /users/:id                                                @controllers.UserController.getUser(id: Long, format: String="json")
 POST      /users/add                                                @controllers.UserController.addUser
 PUT       /users/update/:id                                         @controllers.UserController.updateUser(id: Long)

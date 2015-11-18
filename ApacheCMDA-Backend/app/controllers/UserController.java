@@ -185,6 +185,9 @@ public class UserController extends Controller {
 	}
 	String email = json.path("email").asText();
 	String password = json.path("password").asText();
+
+	System.out.println("Email: " + email + " Password: " + password);
+	
 	User user = userRepository.findByEmail(email);
 	if (user.getPassword().equals(password)) {
 	    System.out.println("User is valid");
@@ -220,5 +223,17 @@ public class UserController extends Controller {
 	}
 		
     }
-
+    
+    public Result isEmailExisted(){
+	JsonNode json = request().body().asJson();
+	if (json == null) {
+	    return badRequest("Cannot check email, expecting Json data");
+	}
+	String email = json.path("email").asText();
+	if (userRepository.findByEmail(email) != null) {
+	    System.out.println(userRepository.findByEmail(email));
+	    return badRequest("Email already existed");
+	}
+	return ok("Email is valid");
+    }
 }

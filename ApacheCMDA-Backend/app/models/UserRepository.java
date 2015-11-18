@@ -19,6 +19,8 @@ package models;
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import javax.inject.Named;
 import javax.inject.Singleton;
@@ -29,7 +31,9 @@ import javax.inject.Singleton;
  */
 @Named
 @Singleton
-public interface UserRepository extends CrudRepository<User, Long> {
+public interface UserRepository extends CrudRepository<User, Long>{
+    @Query(value = "select u.* from User u where u.userName = ?1", nativeQuery = true)
 	List<User> findByUserName(String userName);
+    @Query(value = "select u.* from User u where u.email = ?1", nativeQuery = true)
 	User findByEmail(String email);
 }

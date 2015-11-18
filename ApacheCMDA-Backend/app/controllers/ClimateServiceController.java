@@ -498,7 +498,6 @@ public class ClimateServiceController extends Controller {
 	ClimateService prev = null;
 
 	for (ClimateService cur: in) {
-	    System.out.println("id " + Long.toString(cur.getId()));
 	    if (prev == null || prev.getId() != cur.getId()) {
 		out.add(cur);
 	    }

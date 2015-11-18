@@ -51,18 +51,21 @@ import com.google.gson.Gson;
 @Singleton
 public class CommentController extends Controller{
     private final CommentRepository commentRepository;
-	private final ClimateServiceRepository climateServiceRepository;
-	private final HashTagRepository hashTagRepository;
-	private final Pattern HASHTAG_PATTERN = Pattern.compile("#(\\S+)");
+    private final ClimateServiceRepository climateServiceRepository;
+    private final HashTagRepository hashTagRepository;
+    private final UserRepository userRepository;
+    private final Pattern HASHTAG_PATTERN = Pattern.compile("#(\\w+|\\W+)");
     private final SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     @Inject
     public CommentController(final CommentRepository commentRepository,
-							 final ClimateServiceRepository climateServiceRepository,
-							 final HashTagRepository hashTagRepository){
-		this.commentRepository = commentRepository;
-		this.climateServiceRepository = climateServiceRepository;
-		this.hashTagRepository = hashTagRepository;
+			     final ClimateServiceRepository climateServiceRepository,
+			     final HashTagRepository hashTagRepository,
+			     final UserRepository userRepository){
+	this.commentRepository = commentRepository;
+	this.climateServiceRepository = climateServiceRepository;
+	this.hashTagRepository = hashTagRepository;
+	this.userRepository = userRepository;
     }
 
     private String failJson(String msg){
@@ -106,19 +109,29 @@ public class CommentController extends Controller{
 	commentRepository.delete(commentRepository.findCommentById(commentId));
     }
     
-    public Result getComment(Long id, String format){
+    public Result getComment(Long id, String email, String format){
 	System.out.println("GET COMMENT");
 	ObjectNode response = Json.newObject();
 	ObjectNode result = Json.newObject();
 	ObjectNode user = Json.newObject();
+	JsonNode json = request().body().asJson();
 	
 	// User node
-	user.put("user_id", 1);
-	user.put("fullname", "Admin");
+	if (userRepository.getUserIdByEmail(email) == null){
+	    user.put("user_id", -1);
+	    user.put("fullname", "Visitor");
+	    user.put("is_logged_in", false);
+	    user.put("is_add_allowed", false);
+	    user.put("is_edit_allowed", false);
+	}
+	else{
+	    user.put("user_id", userRepository.getUserIdByEmail(email));
+	    user.put("fullname", userRepository.getUsernameByEmail(email));
+	    user.put("is_logged_in", true);
+	    user.put("is_add_allowed", true);
+	    user.put("is_edit_allowed", true);
+	}
 	user.put("picture", "/assets/images/user_blank_picture.png");
-	user.put("is_logged_in", true);
-	user.put("is_add_allowed", true);
-	user.put("is_edit_allowed", true);
 
 	// result
 	result.put("comments", getCommentArray(id, 0L));
@@ -132,25 +145,22 @@ public class CommentController extends Controller{
     }
 
 
-	private void addHashTags(Comment comment) {
+    private void addHashTags(Comment comment) {
+	Matcher mat = HASHTAG_PATTERN.matcher(comment.getText());
 
-    System.out.println("Comment text: " + comment.getText());
-		Matcher mat = HASHTAG_PATTERN.matcher(comment.getText());
-
-		List<HashTag> htags = new ArrayList<HashTag>();
-		while (mat.find()) {
-			String serviceName = mat.group(1);
-			List<ClimateService> services = climateServiceRepository.findAllByName(serviceName);
-      System.out.println("hash tag: " + serviceName);
-			if (!services.isEmpty()) {
-        System.out.println("\t matched a service for : " + serviceName);
-				ClimateService service = services.get(0);
-				HashTag htag = new HashTag(comment, service, serviceName);
-				htags.add(htag);
-			}
-		}
-		hashTagRepository.save(htags);
+	List<HashTag> htags = new ArrayList<HashTag>();
+	while (mat.find()) {
+	    String hashTag = mat.group(1);
+	    String serviceName = hashTag.substring(1);
+	    List<ClimateService> services = climateServiceRepository.findAllByName(serviceName);
+	    if (!services.isEmpty()) {
+		ClimateService service = services.get(0);
+		HashTag htag = new HashTag(comment, service, hashTag);
+		htags.add(htag);
+	    }
 	}
+	hashTagRepository.save(htags);
+    }
 
     public Result postComment(){
 		System.out.println("POST COMMENT");
@@ -165,19 +175,22 @@ public class CommentController extends Controller{
 	try{
 	    long parentId = json.findPath("parent_id").asLong();
 	    String text = json.findPath("text").asText();
-	    long userId = json.findPath("user_id").asLong();
+	    String email = json.findPath("email").asText();
+	    Long createdBy = userRepository.getUserIdByEmail(email);
+	    String fullname = userRepository.getUsernameByEmail(email);
+	    
 	    long serviceId = json.findPath("climate_service_id").asLong();
 	    Date postedDate = timeFormat.parse(json.findPath("posted_date").asText());
 	    String inReplyTo = null;
 
 	    // if inside reply
 	    if (parentId != 0){
-		inReplyTo = "Admin";
+		inReplyTo = userRepository.getUsernameById(parentId);
 	    }
 	    
-	    Comment comment = new Comment(parentId, inReplyTo, serviceId, 1, "Admin", "/assets/images/user_blank_picture.png", postedDate, text);
+	    Comment comment = new Comment(parentId, inReplyTo, serviceId, createdBy, fullname, "/assets/images/user_blank_picture.png", postedDate, text);
 	    Comment commentEntry = commentRepository.save(comment);
-      addHashTags(commentEntry);
+	    addHashTags(commentEntry);
 
 	    response.put("success", true);
 	    response.put("comment_id", commentEntry.getCommentId());

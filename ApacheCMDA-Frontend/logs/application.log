@@ -1,21 +1,30 @@
-2015-11-18 17:38:05,377 - [INFO] - from play in pool-4-thread-1 
+2015-11-18 22:50:00,224 - [INFO] - from play in pool-4-thread-3 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2015-11-18 17:39:29,434 - [INFO] - from play in play-internal-execution-context-1 
+2015-11-18 22:51:35,763 - [INFO] - from play in play-internal-execution-context-1 
 datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
 
-2015-11-18 17:39:29,700 - [INFO] - from play in play-internal-execution-context-1 
+2015-11-18 22:51:35,963 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:h2:file:data/db
 
-2015-11-18 17:39:31,305 - [INFO] - from play in play-internal-execution-context-1 
+2015-11-18 22:51:36,926 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 
-2015-11-18 17:40:00,078 - [INFO] - from play in play-internal-execution-context-1 
-datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+2015-11-18 22:51:37,351 - [INFO] - from application in play-akka.actor.default-dispatcher-5 
+http://localhost:9034/climateService/getAllClimateServices/json
 
-2015-11-18 17:40:00,082 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:h2:file:data/db
+2015-11-18 22:52:18,675 - [INFO] - from application in play-akka.actor.default-dispatcher-7 
+500
 
-2015-11-18 17:40:00,354 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
+2015-11-18 22:56:43,053 - [INFO] - from application in play-akka.actor.default-dispatcher-9 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-18 22:57:04,278 - [INFO] - from application in play-akka.actor.default-dispatcher-16 
+500
+
+2015-11-18 22:59:10,928 - [INFO] - from application in play-akka.actor.default-dispatcher-12 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-18 22:59:25,478 - [INFO] - from application in play-akka.actor.default-dispatcher-22 
+500
 

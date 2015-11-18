@@ -42,7 +42,6 @@ import java.util.List;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class CommentController extends Controller{
-    private static final Long USER_ID = 0L;
     private static final String GET_COMMENT_CALL = Constants.NEW_BACKEND + "comment/getComment/";
     private static final String POST_COMMENT_CALL = Constants.NEW_BACKEND + "comment/postComment";
     private static final String EDIT_COMMENT_CALL = Constants.NEW_BACKEND + "comment/editComment";
@@ -66,7 +65,7 @@ public class CommentController extends Controller{
 	JsonNode response = null;
 
 	try{
-	    response = APICall.callAPI(GET_COMMENT_CALL + element.getId() + "/json");
+	    response = APICall.callAPI(GET_COMMENT_CALL + element.getId() + "/" + session("email") + "/json");
 	}
 	catch (IllegalStateException e){
 	    e.printStackTrace();
@@ -82,7 +81,10 @@ public class CommentController extends Controller{
 
     public Result postComment(String url){
 	System.out.println("POST COMMENT");
-	
+
+	if (session("email") == null){
+	    return ok(failJson("Please login first"));
+	}
 	String text = DynamicForm.form().bindFromRequest().get("text");
 	String parent_id = DynamicForm.form().bindFromRequest().get("parent_id");
 	ClimateService element = ClimateService.findServiceByUrl(url);
@@ -94,7 +96,7 @@ public class CommentController extends Controller{
 	    jsonData.put("posted_date", dateFormat.format(date));
 	    jsonData.put("parent_id", parent_id);
 	    jsonData.put("text", text);
-	    jsonData.put("user_id", USER_ID);
+	    jsonData.put("email", session("email"));
 	    jsonData.put("climate_service_id", element.getId());
 	    response = APICall.postAPI(POST_COMMENT_CALL, jsonData);
 	}

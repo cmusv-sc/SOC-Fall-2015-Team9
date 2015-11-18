@@ -65,8 +65,7 @@ public class ClimateServiceController extends Controller {
     // We are using constructor injection to receive a repository to support our
     // desire for immutability.
     @Inject
-    public ClimateServiceController(
-				    final ClimateServiceRepository climateServiceRepository,
+    public ClimateServiceController(final ClimateServiceRepository climateServiceRepository,
 				    UserRepository userRepository,ServiceEntryRepository serviceEntryRepository) {
 	this.climateServiceRepository = climateServiceRepository;
 	this.userRepository = userRepository;

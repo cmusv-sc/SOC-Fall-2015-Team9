@@ -85,6 +85,17 @@ public class CommentController extends Controller{
 
 	return commentArray;
     }
+
+    private void deleteCommentById(Long elementId, Long commentId){
+	List<Comment> comments = commentRepository.findAllByClimateServiceIdAndParentId(elementId, commentId);
+
+	for (Comment comment : comments){
+	    deleteCommentById(elementId, comment.getCommentId());
+	    commentRepository.delete(comment);
+	}
+
+	commentRepository.delete(commentRepository.findCommentById(commentId));
+    }
     
     public Result getComment(Long id, String format){
 	System.out.println("GET COMMENT");
@@ -167,6 +178,7 @@ public class CommentController extends Controller{
     public Result editComment(){
 	System.out.println("EDIT COMMENT");
 
+	ObjectNode response = Json.newObject();
 	JsonNode json = request().body().asJson();
 	if (json == null) {
 	    System.out.println("Comment not updated, expecting Json data");
@@ -174,16 +186,50 @@ public class CommentController extends Controller{
 	}
 	System.out.println(json.toString());
 
-	String result = "{\"success\": true, \"comment_id\": \"3\", \"parent_id\":\"2\", \"posted_date\": \"2013-02-27 09:03:25\", \"childrens\": [], \"text\": \"heheh\"}";
+	try{
+	    String text = json.findPath("text").asText();
+	    Long commentId = json.findPath("comment_id").asLong();
+	    Date postedDate = timeFormat.parse(json.findPath("posted_date").asText());
 
-	return ok(result);
+	    Comment comment = commentRepository.findCommentById(commentId);
+	    comment.setText(text);
+	    comment.setPostedDate(postedDate);
+	    Comment commentEntry = commentRepository.save(comment);
+
+	    response.put("success", true);
+	    response.put("text", commentEntry.getText());
+	}
+	catch (ParseException pe){
+	    pe.printStackTrace();
+	    System.out.println("Invalid date format");
+	    return badRequest(failJson("Invalid date format"));
+	}
+	catch (PersistenceException pe) {
+	    pe.printStackTrace();
+	    System.out.println("Comment not updated");
+	    return badRequest(failJson("Comment not updated"));
+	}
+
+	return ok(response.toString());
     }
 
     public Result deleteComment(Long service_id, Long comment_id){
 	System.out.println("DELETE COMMENT");
 
-	String result = "{\"success\": true, \"total_comment\": 2}";
+	ObjectNode response = Json.newObject();
 
-	return ok(result);
+	try{
+	    deleteCommentById(service_id, comment_id);
+
+	    response.put("success", true);
+	    response.put("total_comment", commentRepository.countComments(service_id));
+	}
+	catch (PersistenceException pe) {
+	    pe.printStackTrace();
+	    System.out.println("Comment not deleted");
+	    return badRequest(failJson("Comment not deleted"));
+	}
+
+	return ok(response.toString());
     }
 }

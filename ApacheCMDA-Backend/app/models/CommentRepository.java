@@ -33,4 +33,6 @@ public interface CommentRepository extends CrudRepository<Comment, Long>{
 	List<Comment> findAllByClimateServiceIdAndParentId(Long elementId, Long parentId);
     @Query(value = "select count(*) from Comment where elementId = ?1", nativeQuery = true)
 	Long countComments(Long elementId);
+    @Query(value = "select c.* from Comment c where c.commentId = ?1", nativeQuery = true)
+	Comment findCommentById(Long commentId);
 }

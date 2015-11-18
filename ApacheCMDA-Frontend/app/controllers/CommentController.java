@@ -49,6 +49,7 @@ public class CommentController extends Controller{
     private static final String DELETE_COMMENT_CALL = Constants.NEW_BACKEND + "comment/deleteComment/";
     
     final static Form<Comment> commentForm = Form.form(Comment.class);
+    private final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     private String failJson(String msg){
 	ObjectNode response = Json.newObject();
@@ -89,7 +90,6 @@ public class CommentController extends Controller{
 	JsonNode response = null;
 	
 	try{
-	    DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	    Date date = new Date();
 	    jsonData.put("posted_date", dateFormat.format(date));
 	    jsonData.put("parent_id", parent_id);
@@ -114,19 +114,16 @@ public class CommentController extends Controller{
 	System.out.println("EDIT COMMENT");
 	
 	String text = DynamicForm.form().bindFromRequest().get("text");
-	String parent_id = DynamicForm.form().bindFromRequest().get("parent_id");
 	String comment_id = id;
 	ClimateService element = ClimateService.findServiceByUrl(url);
 	ObjectNode jsonData = Json.newObject();
 	JsonNode response = null;
 	
 	try{
-	    DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
 	    Date date = new Date();
 	    jsonData.put("posted_date", dateFormat.format(date));
-	    jsonData.put("parent_id", parent_id);
+	    jsonData.put("comment_id", comment_id);
 	    jsonData.put("text", text);
-	    jsonData.put("user_id", USER_ID);
 	    jsonData.put("climate_service_id", element.getId());
 	    response = APICall.putAPI(EDIT_COMMENT_CALL, jsonData);
 	}
@@ -160,8 +157,6 @@ public class CommentController extends Controller{
 	    e.printStackTrace();
 	    return ok(failJson("Fail to connect"));
 	}
-
-	System.out.println(response.toString());
 
 	return ok(response.toString());
     }

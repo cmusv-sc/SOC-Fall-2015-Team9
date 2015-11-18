@@ -122,7 +122,8 @@ public class APICall {
 			if ((response.getStatus() == 201 || response
 			     .getStatus() == 200)
 			    && !response.getBody().contains("not")) {
-			    return createResponse(ResponseType.SUCCESS);
+			    return response.asJson();
+			    //return createResponse(ResponseType.SUCCESS);
 			} else { 
 			    return createResponse(ResponseType.SAVEERROR);
 			}

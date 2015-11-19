@@ -1,0 +1,39 @@
+
+@(url: String)
+@import helper._
+
+@scripts = {
+  <script src="//code.jquery.com/jquery-migrate-1.1.1.min.js"></script>
+  <script src="//code.jquery.com/ui/1.9.2/jquery-ui.min.js"></script>
+  <script src='@routes.Assets.at("javascripts/jquery.timeago.js")'></script>
+  <script src='@routes.Assets.at("javascripts/jquery.autogrow-textarea.js")'></script>
+  <script src='@routes.Assets.at("javascripts/jquery.comment.js")'></script>
+
+  <link rel="stylesheet" href='@routes.Assets.at("stylesheets/jquery.comment.css")'>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css">
+  <script type="text/javascript">
+
+  $(document).ready(function(){
+  $.ajaxPrefilter(function(options, originalOptions, jqXHR){
+  options.async = true;
+  });
+
+  $('div.comment-container').comment({
+  title: 'Comments',
+  url_get: '/comment/getComment/' + url,
+  url_input: '/comment/postComment/' + url,
+  url_delete: '/comment/deleteComment/' + url,
+  limit: 100,
+  auto_refresh: false,
+  refresh: 10000,
+  transition: 'slideToggle'
+  });
+  });
+  </script>
+}
+
+@main("Comment", scripts) {
+  <div class=""container">
+  <div class="comment-container"></div>
+  </div>
+}

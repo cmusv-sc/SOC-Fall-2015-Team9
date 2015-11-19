@@ -20,23 +20,18 @@
 @import helper._ 
 
 @scripts = {
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-<link rel="stylesheet" href='@routes.Assets.at("stylesheets/jquery.comment.css")'>
-<link rel="stylesheet" href='@routes.Assets.at("stylesheets/jquery.mentionsInput.css")'>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+	<link rel="stylesheet" href='@routes.Assets.at("stylesheets/jquery.comment.css")'>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css">
 
-<script src="//code.jquery.com/jquery-migrate-1.1.1.min.js"></script>
-<script src="//code.jquery.com/ui/1.9.2/jquery-ui.min.js"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-<script src='@routes.Assets.at("javascripts/jquery.timeago.js")'></script>
-<script src='@routes.Assets.at("javascripts/jquery.autogrow-textarea.js")'></script>
-<script src='@routes.Assets.at("javascripts/jquery.mentionsInput.js")'></script>
-<script src='@routes.Assets.at("javascripts/lib/jquery.elastic.js")'></script>
-<script src='@routes.Assets.at("javascripts/lib/jquery.events.input.js")'></script>
-<script src='@routes.Assets.at("javascripts/jquery.comment.js")'></script>
+	<script src="//code.jquery.com/jquery-migrate-1.1.1.min.js"></script>
+	<script src="//code.jquery.com/ui/1.9.2/jquery-ui.min.js"></script>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<script src='@routes.Assets.at("javascripts/jquery.timeago.js")'></script>
+	<script src='@routes.Assets.at("javascripts/jquery.autogrow-textarea.js")'></script>
+	<script src='@routes.Assets.at("javascripts/jquery.comment.js")'></script>
 
-<script type="text/javascript">
+	<script type="text/javascript">
 	$(document).ready(function(){
 	    $.ajaxPrefilter(function(options, originalOptions, jqXHR){
 		options.async = true;
@@ -53,34 +48,23 @@
 	    }
 
 	    $('#toLoad').load("@url");
-  
-	    $('div.comment-container').comment({
-		title: 'Comments',
-		url_get: '/comment/getComment/' + url,
-		url_input: '/comment/postComment/' + url,
-		url_delete: '/comment/deleteComment/' + url,
-		limit: 10,
-		auto_refresh: false,
-		refresh: 10000,
-		transition: 'slideToggle'
-	    });
 
-	    $('textarea.mention').mentionsInput({
-	    	onDataRequest:function (mode, query, callback) {
-	    	    var data = [
-	    		{ id:1, name:'Kenneth Auchenberg', 'avatar':'http://cdn0.4dots.com/i/customavatars/avatar7112_1.gif', 'type':'contact' },
-	    		{ id:2, name:'Jon Froda', 'avatar':'http://cdn0.4dots.com/i/customavatars/avatar7112_1.gif', 'type':'contact' },
-	    		{ id:3, name:'Anders Pollas', 'avatar':'http://cdn0.4dots.com/i/customavatars/avatar7112_1.gif', 'type':'contact' },
-	    		{ id:4, name:'Kasper Hulthin', 'avatar':'http://cdn0.4dots.com/i/customavatars/avatar7112_1.gif', 'type':'contact' },
-	    		{ id:5, name:'Andreas Haugstrup', 'avatar':'http://cdn0.4dots.com/i/customavatars/avatar7112_1.gif', 'type':'contact' },
-	    		{ id:6, name:'Pete Lacey', 'avatar':'http://cdn0.4dots.com/i/customavatars/avatar7112_1.gif', 'type':'contact' }
-	    	    ];
-
-	    	    data = _.filter(data, function(item) { return item.name.toLowerCase().indexOf(query.toLowerCase()) > -1 });
-
-	    	    callback.call(this, data);
-	    	},
-	    	minChars:0
+	    $.getJSON('/users/getAllUsername',function(data) {
+		for (var i = 0; i < data.users.length; i++) {
+		    data.users[i] = '@@' + data.users[i];
+		}
+		
+		$('div.comment-container').comment({
+		    title: 'Comments',
+		    url_get: '/comment/getComment/' + url,
+		    url_input: '/comment/postComment/' + url,
+		    url_delete: '/comment/deleteComment/' + url,
+		    users: data.users,
+		    limit: 10,
+		    auto_refresh: false,
+		    refresh: 10000,
+		    transition: 'slideToggle'
+		});
 	    });
 	});
     </script>
@@ -92,8 +76,6 @@
 	</div>
 
 	<hr style="display: block;margin-top: 2em;margin-bottom: 2em;margin-left: auto;margin-right: auto;border-style: inset;border-width: 1px;">
-
-	<textarea id="testArea" class="mention" style="background-color: transparent;"></textarea>
 
 	<div class="container">
 	<div class="comment-container"></div>

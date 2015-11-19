@@ -40,6 +40,9 @@ POST  /climate/edit/climateServices			controllers.ClimateServiceController.editC
 GET   /climate/new/climateServices			controllers.ClimateServiceController.addClimateServices()
 GET   /climate/oneService				controllers.ClimateServiceController.oneService(url ?= null)
 
+# User
+GET   /users/getAllUsername				@controllers.UserController.getAllUsername()
+
 # Comment
 GET   /comment/getComment/:url				@controllers.CommentController.getComment(url: String)
 POST  /comment/postComment/:url				@controllers.CommentController.postComment(url: String)

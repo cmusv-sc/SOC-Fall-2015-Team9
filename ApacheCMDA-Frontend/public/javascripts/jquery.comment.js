@@ -52,15 +52,10 @@ if ( typeof Object.create !== 'function' ) {
 		form_elem.append(parent_id_field);
 	    }
 
-	    var mentionsDiv = $('<div class="mentions-input-box"></div>');
-	    var mentionsDivDiv = $('<div class="mentions"><div></div></div>');
 	    var textarea = $('<textarea></textarea>');
-	    var lastDiv = $('<div style="position: absolute; display: none; word-wrap: break-word; white-space: pre-wrap; border: 1px solid rgb(220, 220, 220); font-weight: 400; width: 1140px; font-family: \'Helvetica Neue\', Helvetica, Arial, sans-serif; line-height: 20px; font-size: 14px; padding: 9px;">&nbsp;</div><div class="mentions-autocomplete-list"></div>');
-	    textarea.attr('class', 'mention');
 	    textarea.attr('name', 'text');
 	    textarea.attr('placeHolder', 'Leave a message...');
 	    textarea.css('overflow', 'hidden');
-	    textarea.attr('data-mentions-input', "true");
 	    textarea.autogrow();
 
 	    textarea.on('keypress', function(e){
@@ -74,53 +69,17 @@ if ( typeof Object.create !== 'function' ) {
 		}
 	    });
 
-	    var availableTags = [
-		"ActionScript",
-		"AppleScript",
-		"Asp",
-		"BASIC",
-		"C",
-		"C++",
-		"Clojure",
-		"COBOL",
-		"ColdFusion",
-		"Erlang",
-		"Fortran",
-		"Groovy",
-		"Haskell",
-		"Java",
-		"JavaScript",
-		"Lisp",
-		"Perl",
-		"PHP",
-		"Python",
-		"Ruby",
-		"Scala",
-		"Scheme"
-	    ];
-
-	    for (var i = 0; i < availableTags.length; i++) {
-		availableTags[i] = '@' + availableTags[i];
-	    }
-
-	    //textarea.autocomplete({source: availableTags});
 	    textarea.autocomplete({
-		/* http://stackoverflow.com/questions/2382497/jquery-autocomplete-plug-in-search-configuration */
 		source: function(req, responseFn) {
 		    var re = $.ui.autocomplete.escapeRegex(req.term);
 		    var matcher = new RegExp( "^" + re, "i" );
-		    var a = $.grep( availableTags, function(item,index){
+		    var a = $.grep(self.options.users, function(item,index){
 			return matcher.test(item);
 		    });
-
 		    responseFn( a );
 		}
 	    });
 	    
-	    mentionsDiv.append(mentionsDivDiv);
-	    mentionsDiv.append(textarea);
-	    mentionsDiv.append(lastDiv);
-
 	    form_elem.append(textarea);
 
 	    return form_elem;
@@ -702,6 +661,7 @@ if ( typeof Object.create !== 'function' ) {
      url_get: '#',
      url_input: '#',
      url_delete: '#',
+     users: [],
      wrapEachWith: '<li></li>',
      limit: 10,
      auto_refresh: true,

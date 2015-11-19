@@ -42,4 +42,6 @@ public interface UserRepository extends CrudRepository<User, Long>{
 	Long getUserIdByEmail(String email);
     @Query(value = "select u.userName from User u where u.id = ?1", nativeQuery = true)
 	String getUsernameById(Long id);
+    @Query(value = "select u.userName from User u", nativeQuery = true)
+	List<String> getAllUsername();
 }

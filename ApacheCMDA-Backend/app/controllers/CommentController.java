@@ -75,6 +75,7 @@ public class CommentController extends Controller{
 
 	return response.toString();
     }
+    
     private ArrayNode getCommentArray(Long elementId, Long parentId){
 	List<Comment> comments = commentRepository.findAllByClimateServiceIdAndParentId(elementId, parentId);
 	ArrayNode commentArray = JsonNodeFactory.instance.arrayNode();

@@ -39,7 +39,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class CommentController extends Controller{
     private static final String GET_COMMENT_CALL = Constants.NEW_BACKEND + "comment/getComment/";
@@ -49,7 +48,7 @@ public class CommentController extends Controller{
     
     final static Form<Comment> commentForm = Form.form(Comment.class);
     private final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
+    
     private String failJson(String msg){
 	ObjectNode response = Json.newObject();
 	response.put("success", false);

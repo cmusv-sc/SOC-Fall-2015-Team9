@@ -28,8 +28,12 @@ import javax.inject.Named;
 import javax.inject.Singleton;
 import javax.persistence.PersistenceException;
 
+import com.fasterxml.jackson.databind.node.JsonNodeFactory;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.google.gson.Gson;
+import play.libs.Json;
 
 /**
  * The main set of web services.
@@ -174,6 +178,20 @@ public class UserController extends Controller {
 	if (format.equals("json")) {
 	    result = new Gson().toJson(userList);
 	}
+	return ok(result);
+    }
+
+    public Result getAllUsername(){
+	List<String> usernames = userRepository.getAllUsername();
+	ObjectNode result = Json.newObject();
+	ArrayNode usernameArray = JsonNodeFactory.instance.arrayNode();
+
+	for (String username : usernames){
+	    usernameArray.add(username);
+	}
+
+	result.put("users", usernameArray);
+	
 	return ok(result);
     }
 	

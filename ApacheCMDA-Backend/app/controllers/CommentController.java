@@ -75,7 +75,24 @@ public class CommentController extends Controller{
 
 	return response.toString();
     }
-    
+
+    private String checkMention(String text){
+	List<String> usernames = userRepository.getAllUsername();
+
+	for (String username : usernames){
+	    String mentionUsername = '@' + username + ' ';
+	    int index = text.indexOf(mentionUsername);
+
+	    if (index >= 0){
+		String before = text.substring(0, index);
+		String after = text.substring(index + username.length() + 1);
+		text = before + "<b style=\"background-color: #59D0F7\">" + username + "</b>" + after;
+	    }
+	}
+
+	return text;
+    }
+
     private ArrayNode getCommentArray(Long elementId, Long parentId){
 	List<Comment> comments = commentRepository.findAllByClimateServiceIdAndParentId(elementId, parentId);
 	ArrayNode commentArray = JsonNodeFactory.instance.arrayNode();
@@ -175,7 +192,7 @@ public class CommentController extends Controller{
 
 	try{
 	    long parentId = json.findPath("parent_id").asLong();
-	    String text = json.findPath("text").asText();
+	    String text = checkMention(json.findPath("text").asText());
 	    String email = json.findPath("email").asText();
 	    Long createdBy = userRepository.getUserIdByEmail(email);
 	    String fullname = userRepository.getUsernameByEmail(email);

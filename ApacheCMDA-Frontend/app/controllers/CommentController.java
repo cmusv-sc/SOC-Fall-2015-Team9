@@ -37,6 +37,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import play.api.templates.HtmlFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -94,7 +95,7 @@ public class CommentController extends Controller{
 	    Date date = new Date();
 	    jsonData.put("posted_date", dateFormat.format(date));
 	    jsonData.put("parent_id", parent_id);
-	    jsonData.put("text", text);
+	    jsonData.put("text", HtmlFormat.escape(text).toString());
 	    jsonData.put("email", session("email"));
 	    jsonData.put("climate_service_id", element.getId());
 	    response = APICall.postAPI(POST_COMMENT_CALL, jsonData);

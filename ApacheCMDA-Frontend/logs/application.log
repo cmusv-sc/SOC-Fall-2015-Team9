@@ -1,205 +1,21 @@
-<<<<<<< HEAD
-2015-11-20 06:05:41,934 - [INFO] - from play in pool-5-thread-4 
+2015-11-20 06:43:06,439 - [INFO] - from play in pool-5-thread-2 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2015-11-20 06:06:49,232 - [INFO] - from play in play-internal-execution-context-1 
+2015-11-20 06:44:01,452 - [INFO] - from play in play-internal-execution-context-1 
 datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
 
-2015-11-20 06:06:49,436 - [INFO] - from play in play-internal-execution-context-1 
+2015-11-20 06:44:01,752 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:h2:file:data/db
 
-2015-11-20 06:06:51,267 - [INFO] - from play in play-internal-execution-context-1 
+2015-11-20 06:44:03,632 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 
-2015-11-20 06:06:53,973 - [INFO] - from application in play-akka.actor.default-dispatcher-3 
+2015-11-20 06:44:04,252 - [INFO] - from application in play-akka.actor.default-dispatcher-2 
 http://localhost:9034/climateService/getAllMostRecentClimateServicesByLatestAccessTime/json
 
-2015-11-20 06:06:53,977 - [INFO] - from application in play-akka.actor.default-dispatcher-6 
+2015-11-20 06:44:20,570 - [INFO] - from application in play-akka.actor.default-dispatcher-6 
 http://localhost:9034/climateService/getAllMostRecentClimateServicesByLatestAccessTime/json
 
-2015-11-20 06:06:53,977 - [INFO] - from application in play-akka.actor.default-dispatcher-2 
+2015-11-20 06:44:28,755 - [INFO] - from application in play-akka.actor.default-dispatcher-10 
 http://localhost:9034/climateService/getAllMostRecentClimateServicesByLatestAccessTime/json
-
-2015-11-20 06:06:53,979 - [INFO] - from application in play-akka.actor.default-dispatcher-5 
-http://localhost:9034/climateService/getAllMostRecentClimateServicesByLatestAccessTime/json
-
-2015-11-20 06:07:14,614 - [INFO] - from application in play-akka.actor.default-dispatcher-2 
-http://localhost:9034/climateService/getAllMostRecentClimateServicesByLatestAccessTime/json
-=======
-2015-11-19 20:23:14,050 - [INFO] - from play in pool-4-thread-1 
-Listening for HTTP on /0:0:0:0:0:0:0:0:9000
-
-2015-11-19 20:23:16,735 - [INFO] - from play in play-internal-execution-context-1 
-datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
-
-2015-11-19 20:23:17,025 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:h2:file:data/db
-
-2015-11-19 20:23:18,574 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2015-11-19 20:25:29,010 - [INFO] - from application in play-akka.actor.default-dispatcher-20 
-http://localhost:9034/comment/searchCommentByHashTag/2-d-variable-map
-
-2015-11-19 20:25:47,882 - [INFO] - from application in play-akka.actor.default-dispatcher-20 
-http://localhost:9034/comment/searchCommentByHashTag/2-d-variable-map
-
-2015-11-19 20:26:29,773 - [INFO] - from application in play-akka.actor.default-dispatcher-27 
-http://localhost:9034/comment/searchCommentByHashTag/2-d-variable-map
-
-2015-11-19 20:27:42,549 - [INFO] - from play in play-internal-execution-context-2 
-datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
-
-2015-11-19 20:27:42,553 - [INFO] - from play in play-internal-execution-context-2 
-database [default] connected at jdbc:h2:file:data/db
-
-2015-11-19 20:27:47,270 - [INFO] - from play in play-internal-execution-context-2 
-Application started (Dev)
-
-2015-11-19 20:28:16,031 - [INFO] - from application in play-akka.actor.default-dispatcher-34 
-http://localhost:9034/comment/searchCommentByHashTag/2-d-variable-map
-
-2015-11-19 20:31:20,206 - [INFO] - from application in play-akka.actor.default-dispatcher-33 
-http://localhost:9034/climateService/getAllClimateServices/json
-
-2015-11-19 20:31:25,287 - [INFO] - from application in play-akka.actor.default-dispatcher-42 
-http://localhost:9034/climateService/getAllClimateServices/json
-
-2015-11-19 20:31:25,310 - [INFO] - from application in play-akka.actor.default-dispatcher-42 
-http://localhost:9034/comment/getComment/1/seckcoder@gmail.com/json
-
-2015-11-19 20:38:52,054 - [INFO] - from play in play-internal-execution-context-2 
-datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
-
-2015-11-19 20:38:52,109 - [INFO] - from play in play-internal-execution-context-2 
-database [default] connected at jdbc:h2:file:data/db
-
-2015-11-19 20:38:53,469 - [INFO] - from play in play-internal-execution-context-2 
-Application started (Dev)
-
-2015-11-19 20:38:59,078 - [INFO] - from application in play-akka.actor.default-dispatcher-49 
-http://localhost:9034/comment/searchCommentByHashTag/2-d-variable-map
-
-2015-11-19 20:41:37,083 - [INFO] - from play in play-internal-execution-context-2 
-datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
-
-2015-11-19 20:41:37,093 - [INFO] - from play in play-internal-execution-context-2 
-database [default] connected at jdbc:h2:file:data/db
-
-2015-11-19 20:41:38,035 - [INFO] - from play in play-internal-execution-context-2 
-Application started (Dev)
-
-2015-11-19 20:59:17,572 - [INFO] - from application in play-akka.actor.default-dispatcher-168 
-http://localhost:9034/climateService/getAllClimateServices/json
-
-2015-11-19 20:59:23,754 - [INFO] - from application in play-akka.actor.default-dispatcher-163 
-http://localhost:9034/climateService/getAllClimateServices/json
-
-2015-11-19 20:59:23,785 - [INFO] - from application in play-akka.actor.default-dispatcher-163 
-http://localhost:9034/comment/getComment/2/seckcoder@gmail.com/json
-
-2015-11-19 20:59:42,977 - [INFO] - from application in play-akka.actor.default-dispatcher-169 
-http://localhost:9034/climateService/getAllClimateServices/json
-
-2015-11-19 20:59:52,751 - [INFO] - from application in play-akka.actor.default-dispatcher-168 
-http://localhost:9034/comment/searchCommentByHashTag/2-d-variable-map
-
-2015-11-19 21:00:37,329 - [INFO] - from application in play-akka.actor.default-dispatcher-170 
-http://localhost:9034/comment/searchCommentByHashTag/2-d-variable-map
-
-2015-11-19 21:00:37,329 - [INFO] - from application in play-akka.actor.default-dispatcher-173 
-http://localhost:9034/comment/searchCommentByHashTag/2-d-variable-map
-
-2015-11-19 21:01:11,969 - [INFO] - from application in play-akka.actor.default-dispatcher-172 
-http://localhost:9034/comment/searchCommentByHashTag/2-d-variable-map
-
-2015-11-19 21:01:27,523 - [INFO] - from application in play-akka.actor.default-dispatcher-169 
-http://localhost:9034/comment/searchCommentByHashTag/2-d-variable-map
-
-2015-11-19 21:03:22,641 - [INFO] - from application in play-akka.actor.default-dispatcher-182 
-http://localhost:9034/comment/searchCommentByHashTag/2-d-variable-map
-
-2015-11-19 21:03:28,901 - [INFO] - from application in play-akka.actor.default-dispatcher-175 
-http://localhost:9034/comment/searchCommentByHashTag/2-d-variable-map
-
-2015-11-19 21:03:38,566 - [INFO] - from application in play-akka.actor.default-dispatcher-186 
-http://localhost:9034/comment/searchCommentByHashTag/2-d-variable-map
-
-2015-11-19 21:04:03,212 - [INFO] - from application in play-akka.actor.default-dispatcher-183 
-http://localhost:9034/comment/searchCommentByHashTag/2-d-variable-map
-
-2015-11-19 21:04:03,212 - [INFO] - from application in play-akka.actor.default-dispatcher-184 
-http://localhost:9034/comment/searchCommentByHashTag/2-d-variable-map
-
-2015-11-19 21:04:28,500 - [INFO] - from application in play-akka.actor.default-dispatcher-190 
-http://localhost:9034/comment/searchCommentByHashTag/2-d-variable-map
-
-2015-11-19 21:05:38,862 - [ERROR] - from application in New I/O worker #5 
-
-
-! @6o791h9ea - Internal server error, for (GET) [/comment/searchCommentByHashTagPage] ->
-
-play.PlayExceptions$TemplateCompilationException: Compilation error[`identifier' expected but `2' found]
-	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:55) ~[na:na]
-	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:30) ~[na:na]
-	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:35) ~[scala-library-2.10.3.jar:na]
-	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:34) ~[scala-library-2.10.3.jar:na]
-	at scala.Function1$$anonfun$compose$1.apply(Function1.scala:47) ~[scala-library-2.10.3.jar:na]
-	at sbt.$tilde$greater$$anonfun$$u2219$1.apply(TypeFunctions.scala:42) ~[na:na]
-	at sbt.std.Transform$$anon$4.work(System.scala:64) ~[na:na]
-	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
-	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
-	at sbt.ErrorHandling$.wideConvert(ErrorHandling.scala:18) ~[na:na]
-	at sbt.Execute.work(Execute.scala:244) ~[na:na]
-	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
-	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
-	at sbt.ConcurrentRestrictions$$anon$4$$anonfun$1.apply(ConcurrentRestrictions.scala:160) ~[na:na]
-	at sbt.CompletionService$$anon$2.call(CompletionService.scala:30) ~[na:na]
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[na:1.8.0_65]
-	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) ~[na:1.8.0_65]
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[na:1.8.0_65]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [na:1.8.0_65]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [na:1.8.0_65]
-	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_65]
-
-2015-11-19 21:05:54,198 - [ERROR] - from application in New I/O worker #5 
-
-
-! @6o791i99f - Internal server error, for (GET) [/comment/searchCommentByHashTagPage] ->
-
-play.PlayExceptions$TemplateCompilationException: Compilation error[`identifier' expected but `'' found]
-	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:55) ~[na:na]
-	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:30) ~[na:na]
-	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:35) ~[scala-library-2.10.3.jar:na]
-	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:34) ~[scala-library-2.10.3.jar:na]
-	at scala.Function1$$anonfun$compose$1.apply(Function1.scala:47) ~[scala-library-2.10.3.jar:na]
-	at sbt.$tilde$greater$$anonfun$$u2219$1.apply(TypeFunctions.scala:42) ~[na:na]
-	at sbt.std.Transform$$anon$4.work(System.scala:64) ~[na:na]
-	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
-	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
-	at sbt.ErrorHandling$.wideConvert(ErrorHandling.scala:18) ~[na:na]
-	at sbt.Execute.work(Execute.scala:244) ~[na:na]
-	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
-	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
-	at sbt.ConcurrentRestrictions$$anon$4$$anonfun$1.apply(ConcurrentRestrictions.scala:160) ~[na:na]
-	at sbt.CompletionService$$anon$2.call(CompletionService.scala:30) ~[na:na]
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[na:1.8.0_65]
-	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) ~[na:1.8.0_65]
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[na:1.8.0_65]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [na:1.8.0_65]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [na:1.8.0_65]
-	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_65]
-
-2015-11-19 21:06:36,347 - [INFO] - from play in play-internal-execution-context-5 
-datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
-
-2015-11-19 21:06:36,364 - [INFO] - from play in play-internal-execution-context-5 
-database [default] connected at jdbc:h2:file:data/db
-
-2015-11-19 21:06:36,900 - [INFO] - from play in play-internal-execution-context-5 
-Application started (Dev)
-
-2015-11-19 21:06:43,985 - [INFO] - from application in play-akka.actor.default-dispatcher-193 
-http://localhost:9034/comment/searchCommentByHashTag/2-d-variable-map
->>>>>>> c5eb84e084129c43be06048fcdc084f80fba5046
 

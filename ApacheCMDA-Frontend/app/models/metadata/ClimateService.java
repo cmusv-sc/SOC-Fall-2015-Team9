@@ -317,7 +317,7 @@ public class ClimateService {
 	    return climateServices;
 	}
 
-	for (int i = 0; i < climateServicesNode.size(); i++) {
+	for (int i = 0; i < climateServicesNode.size() && i < 3; i++) {
 	    JsonNode json = climateServicesNode.path(i);
 	    ClimateService newService = new ClimateService();
 	    newService.setId(json.get("id").asText());

@@ -3,8 +3,8 @@
 # ~~~~
 
 # Home page
-GET           /home                                            controllers.ClimateServiceController.home(email ?= null, vfile ?= null, dataset ?= null)
-GET           /                                                controllers.ClimateServiceController.home(email ?= null, vfile ?= null, dataset ?= null)
+GET           /home                                            controllers.ClimateServiceController.mostRecentlyUsedClimateServices3()
+GET           /                                                controllers.ClimateServiceController.mostRecentlyUsedClimateServices3()
 GET           /login                                           controllers.Application.login()
 GET           /logout                                          controllers.Application.logout()
 GET           /authenticate                                    controllers.Application.authenticate()
@@ -30,6 +30,7 @@ GET           /climate/tutorial                                controllers.Clima
 GET           /climate/climateServices                         controllers.ClimateServiceController.climateServices()
 GET           /climate/mostRecentlyAddedClimateServices        controllers.ClimateServiceController.mostRecentlyAddedClimateServices()
 GET           /climate/mostRecentlyUsedClimateServices         controllers.ClimateServiceController.mostRecentlyUsedClimateServices()
+GET           /climate/mostRecentlyUsedClimateServices3        controllers.ClimateServiceController.mostRecentlyUsedClimateServices3()
 GET           /climate/mostPopularClimateServices              controllers.ClimateServiceController.mostPopularClimateServices()
 POST          /climate/new/climateServices                     controllers.ClimateServiceController.newClimateService()
 GET           /climate/searchClimateServices                   controllers.ClimateServiceController.searchClimateServices()

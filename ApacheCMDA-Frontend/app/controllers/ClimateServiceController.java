@@ -90,12 +90,17 @@ public class ClimateServiceController extends Controller {
 	return ok(mostRecentlyAddedServices.render(ClimateService.getMostRecentlyAdded(),
 						   climateServiceForm));
     }
-	
+
     public static Result mostRecentlyUsedClimateServices() {
 	return ok(mostRecentlyUsedServices.render(ClimateService.getMostRecentlyUsed(),
 						  climateServiceForm));
     }
-	
+
+    public static Result mostRecentlyUsedClimateServices3() {
+  return ok(mostRecentlyUsedServices3.render(ClimateService.getMostRecentlyUsed3(),
+              climateServiceForm));
+    }
+
     public static Result mostPopularClimateServices() {
 	return ok(mostPopularServices.render(ClimateService.getMostPopular(),
 					     climateServiceForm));
@@ -112,7 +117,7 @@ public class ClimateServiceController extends Controller {
 	    if (newClimateServiceName != null && !newClimateServiceName.isEmpty()) {
 		jsonData.put("name", newClimateServiceName);
 	    }
-			
+
 	    jsonData.put("creatorId", 1);
 	    jsonData.put("purpose", dc.field("Purpose").value());
 	    jsonData.put("url", dc.field("Url").value());
@@ -144,7 +149,7 @@ public class ClimateServiceController extends Controller {
 		jsonData.put("name", climateServiceName);
 	    }
 	    ClimateService originalService = ClimateService.findServiceByName(climateServiceName);
-			
+
 	    if (originalService == null) {
 		Application.flashMsg(APICall.createResponse(ResponseType.UNKNOWN));
 		return notFound("not found original climateService " + climateServiceName);
@@ -155,16 +160,16 @@ public class ClimateServiceController extends Controller {
 	    jsonData.put("url", originalService.getUrl());
 	    jsonData.put("scenario", originalService.getScenario());
 	    jsonData.put("versionNo", originalService.getVersion());
-			
+
 	    if (originalService.getRootservice() != null)
-				
+
 		jsonData.put("rootServiceId", originalService.getRootservice());
 	    String editField = df.field("name").value();
-			
+
 	    if (editField != null && !editField.isEmpty()) {
 		jsonData.put(editField, df.field("value").value());
 	    }
-			
+
 	    if (editField == null || editField.isEmpty()) {
 		Application.flashMsg(APICall.createResponse(ResponseType.UNKNOWN));
 		return notFound("not found edit field");

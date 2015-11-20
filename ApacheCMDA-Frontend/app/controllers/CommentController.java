@@ -50,6 +50,14 @@ public class CommentController extends Controller{
     final static Form<Comment> commentForm = Form.form(Comment.class);
     private final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
+	private static ObjectNode failJsonObject(String msg){
+	ObjectNode response = Json.newObject();
+	response.put("success", false);
+	response.put("message", msg);
+
+	return response;
+    }
+
     private String failJson(String msg){
 	ObjectNode response = Json.newObject();
 	response.put("success", false);
@@ -162,4 +170,20 @@ public class CommentController extends Controller{
 
 	return ok(response.toString());
     }
+
+	public static Result searchCommentByHashTagPage() {
+		return ok(searchCommentByHashTag.render());
+	}
+	public static Result searchCommentByHashTag(String hashTag) {
+		System.out.println(hashTag);
+		JsonNode response = null;
+		try {
+			response = APICall.callAPI(Constants.NEW_BACKEND + "comment/searchCommentByHashTag/" + hashTag);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			return ok(failJsonObject("Fail to connect"));
+		}
+		return ok(response);
+	}
 }

@@ -276,4 +276,28 @@ public class CommentController extends Controller{
 
 	return ok(response.toString());
     }
+
+	public Result searchCommentByHashTag(String hashTag) {
+		System.out.println("searchCommentByHashTag" + hashTag);
+		List<HashTag> htags = hashTagRepository.findHashTags("%" + hashTag + "");
+
+		ObjectNode result = Json.newObject();
+		ArrayNode commentArray = JsonNodeFactory.instance.arrayNode();
+		for (HashTag htag: htags) {
+			Comment comment = htag.getComment();
+			ObjectNode oneComment = JsonNodeFactory.instance.objectNode();
+			oneComment.put("comment_id", comment.getCommentId());
+			oneComment.put("in_reply_to", comment.getInReplyTo());
+			oneComment.put("created_by", comment.getCreatedBy());
+			oneComment.put("fullname", comment.getFullname());
+			oneComment.put("picture", comment.getPicture());
+			oneComment.put("posted_date", timeFormat.format(comment.getPostedDate()));
+			oneComment.put("text", comment.getText());
+			oneComment.put("attachments", JsonNodeFactory.instance.arrayNode());
+			commentArray.add(oneComment);
+		}
+		System.out.println(commentArray.toString());
+		result.put("comments", commentArray);
+		return ok(result);
+	}
 }

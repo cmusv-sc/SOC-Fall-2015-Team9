@@ -27,6 +27,7 @@ GET       /comment/getComment/:id/:email/json			            @controllers.Comment
 POST  	  /comment/postComment					    @controllers.CommentController.postComment
 PUT  	  /comment/editComment					    @controllers.CommentController.editComment
 DELETE    /comment/deleteComment/:service_id/:comment_id	    @controllers.CommentController.deleteComment(service_id: Long, comment_id: Long)
+GET       /comment/searchCommentByHashTag/:hashTag			            @controllers.CommentController.searchCommentByHashTag(hashTag: String)
 
 # Instrument
 GET       /instrument/getAllInstruments/json                        @controllers.InstrumentController.getAllInstruments(format: String="json")

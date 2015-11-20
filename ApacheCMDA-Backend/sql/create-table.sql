@@ -17,6 +17,22 @@ create table if not exists Message
 */
 
 
+
+CREATE TABLE if not exists Comment (
+  commentId bigint(20) NOT NULL AUTO_INCREMENT,
+  parentId bigint(20) DEFAULT NULL,
+  inReplyTo varchar(255) DEFAULT NULL, 
+  elementId bigint(20) DEFAULT NULL, 
+  createdBy bigint(20) DEFAULT NULL,
+  fullname varchar(255) DEFAULT NULL,
+  picture varchar(255) DEFAULT NULL,
+  postedDate datetime DEFAULT NULL,
+  text varchar(255) DEFAULT NULL,
+  PRIMARY KEY (commentId),
+  FOREIGN KEY(elementId) REFERENCES ClimateService(id),
+  FOREIGN KEY(createdBy) REFERENCES User(id)
+  );
+
 create table if not exists HashTag
 (
   id bigint(20) not null AUTO_INCREMENT,
@@ -27,3 +43,4 @@ create table if not exists HashTag
   foreign key (commentId) References Comment(commentId),
   foreign key (serviceId) References ClimateService(id)
 );
+

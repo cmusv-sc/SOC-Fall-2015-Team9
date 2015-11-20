@@ -65,6 +65,8 @@ public class ClimateServiceController extends Controller {
 	return ok(searchClimateServices.render(climateServiceForm));
     }
 
+
+
     public static Result getClimateSearchResult() throws UnsupportedEncodingException{
 	Form<ClimateService> dc = climateServiceForm.bindFromRequest();
 	ObjectNode jsonData = Json.newObject();
@@ -82,7 +84,8 @@ public class ClimateServiceController extends Controller {
 	List<ClimateService> response = ClimateService.queryClimateService(keywords);
 	return ok(climateServices.render(response, climateServiceForm));
     }
-	
+
+
     public static Result mostRecentlyAddedClimateServices() {
 	return ok(mostRecentlyAddedServices.render(ClimateService.getMostRecentlyAdded(),
 						   climateServiceForm));

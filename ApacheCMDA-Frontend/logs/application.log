@@ -2606,3 +2606,1350 @@ Application started (Dev)
 2015-11-20 21:46:12,219 - [INFO] - from application in play-akka.actor.default-dispatcher-490 
 http://localhost:9034/climateService/getAllMostRecentClimateServicesByLatestAccessTime/json
 
+2015-11-20 21:57:32,704 - [INFO] - from application in play-akka.actor.default-dispatcher-504 
+http://localhost:9034/climateService/getAllMostRecentClimateServicesByLatestAccessTime/json
+
+2015-11-20 21:58:09,816 - [INFO] - from application in play-akka.actor.default-dispatcher-510 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-20 21:58:11,743 - [INFO] - from application in play-akka.actor.default-dispatcher-513 
+http://localhost:9034/users/getAllUsername
+
+2015-11-20 21:58:11,973 - [INFO] - from application in play-akka.actor.default-dispatcher-513 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-20 21:58:11,991 - [INFO] - from application in play-akka.actor.default-dispatcher-513 
+http://localhost:9034/comment/getComment/1/null/json
+
+2015-11-20 22:01:06,158 - [INFO] - from application in play-akka.actor.default-dispatcher-504 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-20 22:01:09,655 - [INFO] - from application in play-akka.actor.default-dispatcher-521 
+http://localhost:9034/users/getAllUsername
+
+2015-11-20 22:01:09,884 - [INFO] - from application in play-akka.actor.default-dispatcher-521 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-20 22:01:09,901 - [INFO] - from application in play-akka.actor.default-dispatcher-521 
+http://localhost:9034/comment/getComment/1/null/json
+
+2015-11-20 22:01:29,974 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-11-20 22:01:29,979 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-11-20 22:01:30,156 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-11-20 22:01:30,166 - [INFO] - from application in play-akka.actor.default-dispatcher-520 
+http://localhost:9034/climateService/getAllMostRecentClimateServicesByLatestAccessTime/json
+
+2015-11-20 22:02:32,105 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6o7e54mp4 - Internal server error, for (GET) [/assets/stylesheets/bootstrap.css] ->
+
+play.PlayExceptions$UnexpectedException: Unexpected exception[FileNotFoundException: /home/SOC-Fall-2015/ApacheCMDA-Frontend/app/views/climate/.#mostPopularServices.scala.html (No such file or directory)]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:309) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10-2.2.3.jar:2.2.3]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
+java.io.FileNotFoundException: /home/SOC-Fall-2015/ApacheCMDA-Frontend/app/views/climate/.#mostPopularServices.scala.html (No such file or directory)
+	at java.io.RandomAccessFile.open(Native Method) ~[na:1.7.0_79]
+	at java.io.RandomAccessFile.<init>(RandomAccessFile.java:241) ~[na:1.7.0_79]
+	at scalax.io.support.FileUtils$.randomAccessFile(FileUtils.scala:105) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.support.FileUtils$.openChannel(FileUtils.scala:49) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.defaultfs.DefaultFileOps$$anonfun$channel$1.apply(DefaultFileOps.scala:43) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.defaultfs.DefaultFileOps$$anonfun$channel$1.apply(DefaultFileOps.scala:43) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Resource$$anonfun$fromSeekableByteChannel$1.apply(Resource.scala:460) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Resource$$anonfun$fromSeekableByteChannel$1.apply(Resource.scala:460) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource.scalax$io$managed$SeekableByteChannelResource$$rawOpen(SeekableByteChannelResource.scala:24) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource.open(SeekableByteChannelResource.scala:27) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource$$anonfun$bytes$1.apply(SeekableByteChannelResource.scala:79) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource$$anonfun$bytes$1.apply(SeekableByteChannelResource.scala:79) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable.iterator(ByteResourceTraversable.scala:28) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable$$anonfun$toArray$1.apply(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable$$anonfun$toArray$1.apply(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scala.util.control.Exception$Catch$$anonfun$either$1.apply(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch$$anonfun$either$1.apply(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch.apply(Exception.scala:102) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch.either(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scalax.io.CloseableIterator$.withIterator(CloseableIterator.scala:101) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable.toArray(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Input$class.byteArray(Input.scala:81) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.FileOps.byteArray(FileOps.scala:78) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at play.templates.ScalaTemplateCompiler$.compile(ScalaTemplateCompiler.scala:178) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8$$anonfun$apply$9.apply(PlaySourceGenerators.scala:45) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8$$anonfun$apply$9.apply(PlaySourceGenerators.scala:43) ~[na:na]
+	at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59) ~[scala-library-2.10.3.jar:na]
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:47) ~[scala-library-2.10.3.jar:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8.apply(PlaySourceGenerators.scala:43) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8.apply(PlaySourceGenerators.scala:42) ~[na:na]
+	at scala.collection.immutable.List.foreach(List.scala:318) ~[scala-library-2.10.3.jar:na]
+	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:42) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:30) ~[na:na]
+	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:35) ~[scala-library-2.10.3.jar:na]
+	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:34) ~[scala-library-2.10.3.jar:na]
+	at scala.Function1$$anonfun$compose$1.apply(Function1.scala:47) ~[scala-library-2.10.3.jar:na]
+	at sbt.$tilde$greater$$anonfun$$u2219$1.apply(TypeFunctions.scala:42) ~[na:na]
+	at sbt.std.Transform$$anon$4.work(System.scala:64) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ErrorHandling$.wideConvert(ErrorHandling.scala:18) ~[na:na]
+	at sbt.Execute.work(Execute.scala:244) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ConcurrentRestrictions$$anon$4$$anonfun$1.apply(ConcurrentRestrictions.scala:160) ~[na:na]
+	at sbt.CompletionService$$anon$2.call(CompletionService.scala:30) ~[na:na]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262) ~[na:1.7.0_79]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471) ~[na:1.7.0_79]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262) ~[na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+
+2015-11-20 22:02:32,206 - [ERROR] - from application in New I/O worker #2 
+
+
+! @6o7e54n3g - Internal server error, for (GET) [/assets/stylesheets/jquery.tablesorter.pager.css] ->
+
+play.PlayExceptions$UnexpectedException: Unexpected exception[FileNotFoundException: /home/SOC-Fall-2015/ApacheCMDA-Frontend/app/views/climate/.#mostPopularServices.scala.html (No such file or directory)]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:309) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10-2.2.3.jar:2.2.3]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
+java.io.FileNotFoundException: /home/SOC-Fall-2015/ApacheCMDA-Frontend/app/views/climate/.#mostPopularServices.scala.html (No such file or directory)
+	at java.io.RandomAccessFile.open(Native Method) ~[na:1.7.0_79]
+	at java.io.RandomAccessFile.<init>(RandomAccessFile.java:241) ~[na:1.7.0_79]
+	at scalax.io.support.FileUtils$.randomAccessFile(FileUtils.scala:105) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.support.FileUtils$.openChannel(FileUtils.scala:49) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.defaultfs.DefaultFileOps$$anonfun$channel$1.apply(DefaultFileOps.scala:43) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.defaultfs.DefaultFileOps$$anonfun$channel$1.apply(DefaultFileOps.scala:43) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Resource$$anonfun$fromSeekableByteChannel$1.apply(Resource.scala:460) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Resource$$anonfun$fromSeekableByteChannel$1.apply(Resource.scala:460) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource.scalax$io$managed$SeekableByteChannelResource$$rawOpen(SeekableByteChannelResource.scala:24) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource.open(SeekableByteChannelResource.scala:27) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource$$anonfun$bytes$1.apply(SeekableByteChannelResource.scala:79) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource$$anonfun$bytes$1.apply(SeekableByteChannelResource.scala:79) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable.iterator(ByteResourceTraversable.scala:28) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable$$anonfun$toArray$1.apply(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable$$anonfun$toArray$1.apply(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scala.util.control.Exception$Catch$$anonfun$either$1.apply(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch$$anonfun$either$1.apply(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch.apply(Exception.scala:102) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch.either(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scalax.io.CloseableIterator$.withIterator(CloseableIterator.scala:101) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable.toArray(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Input$class.byteArray(Input.scala:81) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.FileOps.byteArray(FileOps.scala:78) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at play.templates.ScalaTemplateCompiler$.compile(ScalaTemplateCompiler.scala:178) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8$$anonfun$apply$9.apply(PlaySourceGenerators.scala:45) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8$$anonfun$apply$9.apply(PlaySourceGenerators.scala:43) ~[na:na]
+	at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59) ~[scala-library-2.10.3.jar:na]
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:47) ~[scala-library-2.10.3.jar:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8.apply(PlaySourceGenerators.scala:43) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8.apply(PlaySourceGenerators.scala:42) ~[na:na]
+	at scala.collection.immutable.List.foreach(List.scala:318) ~[scala-library-2.10.3.jar:na]
+	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:42) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:30) ~[na:na]
+	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:35) ~[scala-library-2.10.3.jar:na]
+	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:34) ~[scala-library-2.10.3.jar:na]
+	at scala.Function1$$anonfun$compose$1.apply(Function1.scala:47) ~[scala-library-2.10.3.jar:na]
+	at sbt.$tilde$greater$$anonfun$$u2219$1.apply(TypeFunctions.scala:42) ~[na:na]
+	at sbt.std.Transform$$anon$4.work(System.scala:64) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ErrorHandling$.wideConvert(ErrorHandling.scala:18) ~[na:na]
+	at sbt.Execute.work(Execute.scala:244) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ConcurrentRestrictions$$anon$4$$anonfun$1.apply(ConcurrentRestrictions.scala:160) ~[na:na]
+	at sbt.CompletionService$$anon$2.call(CompletionService.scala:30) ~[na:na]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262) ~[na:1.7.0_79]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471) ~[na:1.7.0_79]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262) ~[na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+
+2015-11-20 22:02:32,307 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6o7e54n79 - Internal server error, for (GET) [/assets/stylesheets/custom.css] ->
+
+play.PlayExceptions$UnexpectedException: Unexpected exception[FileNotFoundException: /home/SOC-Fall-2015/ApacheCMDA-Frontend/app/views/climate/.#mostPopularServices.scala.html (No such file or directory)]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:309) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10-2.2.3.jar:2.2.3]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
+java.io.FileNotFoundException: /home/SOC-Fall-2015/ApacheCMDA-Frontend/app/views/climate/.#mostPopularServices.scala.html (No such file or directory)
+	at java.io.RandomAccessFile.open(Native Method) ~[na:1.7.0_79]
+	at java.io.RandomAccessFile.<init>(RandomAccessFile.java:241) ~[na:1.7.0_79]
+	at scalax.io.support.FileUtils$.randomAccessFile(FileUtils.scala:105) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.support.FileUtils$.openChannel(FileUtils.scala:49) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.defaultfs.DefaultFileOps$$anonfun$channel$1.apply(DefaultFileOps.scala:43) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.defaultfs.DefaultFileOps$$anonfun$channel$1.apply(DefaultFileOps.scala:43) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Resource$$anonfun$fromSeekableByteChannel$1.apply(Resource.scala:460) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Resource$$anonfun$fromSeekableByteChannel$1.apply(Resource.scala:460) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource.scalax$io$managed$SeekableByteChannelResource$$rawOpen(SeekableByteChannelResource.scala:24) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource.open(SeekableByteChannelResource.scala:27) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource$$anonfun$bytes$1.apply(SeekableByteChannelResource.scala:79) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource$$anonfun$bytes$1.apply(SeekableByteChannelResource.scala:79) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable.iterator(ByteResourceTraversable.scala:28) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable$$anonfun$toArray$1.apply(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable$$anonfun$toArray$1.apply(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scala.util.control.Exception$Catch$$anonfun$either$1.apply(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch$$anonfun$either$1.apply(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch.apply(Exception.scala:102) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch.either(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scalax.io.CloseableIterator$.withIterator(CloseableIterator.scala:101) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable.toArray(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Input$class.byteArray(Input.scala:81) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.FileOps.byteArray(FileOps.scala:78) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at play.templates.ScalaTemplateCompiler$.compile(ScalaTemplateCompiler.scala:178) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8$$anonfun$apply$9.apply(PlaySourceGenerators.scala:45) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8$$anonfun$apply$9.apply(PlaySourceGenerators.scala:43) ~[na:na]
+	at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59) ~[scala-library-2.10.3.jar:na]
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:47) ~[scala-library-2.10.3.jar:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8.apply(PlaySourceGenerators.scala:43) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8.apply(PlaySourceGenerators.scala:42) ~[na:na]
+	at scala.collection.immutable.List.foreach(List.scala:318) ~[scala-library-2.10.3.jar:na]
+	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:42) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:30) ~[na:na]
+	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:35) ~[scala-library-2.10.3.jar:na]
+	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:34) ~[scala-library-2.10.3.jar:na]
+	at scala.Function1$$anonfun$compose$1.apply(Function1.scala:47) ~[scala-library-2.10.3.jar:na]
+	at sbt.$tilde$greater$$anonfun$$u2219$1.apply(TypeFunctions.scala:42) ~[na:na]
+	at sbt.std.Transform$$anon$4.work(System.scala:64) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ErrorHandling$.wideConvert(ErrorHandling.scala:18) ~[na:na]
+	at sbt.Execute.work(Execute.scala:244) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ConcurrentRestrictions$$anon$4$$anonfun$1.apply(ConcurrentRestrictions.scala:160) ~[na:na]
+	at sbt.CompletionService$$anon$2.call(CompletionService.scala:30) ~[na:na]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262) ~[na:1.7.0_79]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471) ~[na:1.7.0_79]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262) ~[na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+
+2015-11-20 22:02:32,434 - [ERROR] - from application in New I/O worker #2 
+
+
+! @6o7e54nc8 - Internal server error, for (GET) [/assets/stylesheets/main.css] ->
+
+play.PlayExceptions$UnexpectedException: Unexpected exception[FileNotFoundException: /home/SOC-Fall-2015/ApacheCMDA-Frontend/app/views/climate/.#mostPopularServices.scala.html (No such file or directory)]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:309) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10-2.2.3.jar:2.2.3]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
+java.io.FileNotFoundException: /home/SOC-Fall-2015/ApacheCMDA-Frontend/app/views/climate/.#mostPopularServices.scala.html (No such file or directory)
+	at java.io.RandomAccessFile.open(Native Method) ~[na:1.7.0_79]
+	at java.io.RandomAccessFile.<init>(RandomAccessFile.java:241) ~[na:1.7.0_79]
+	at scalax.io.support.FileUtils$.randomAccessFile(FileUtils.scala:105) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.support.FileUtils$.openChannel(FileUtils.scala:49) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.defaultfs.DefaultFileOps$$anonfun$channel$1.apply(DefaultFileOps.scala:43) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.defaultfs.DefaultFileOps$$anonfun$channel$1.apply(DefaultFileOps.scala:43) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Resource$$anonfun$fromSeekableByteChannel$1.apply(Resource.scala:460) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Resource$$anonfun$fromSeekableByteChannel$1.apply(Resource.scala:460) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource.scalax$io$managed$SeekableByteChannelResource$$rawOpen(SeekableByteChannelResource.scala:24) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource.open(SeekableByteChannelResource.scala:27) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource$$anonfun$bytes$1.apply(SeekableByteChannelResource.scala:79) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource$$anonfun$bytes$1.apply(SeekableByteChannelResource.scala:79) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable.iterator(ByteResourceTraversable.scala:28) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable$$anonfun$toArray$1.apply(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable$$anonfun$toArray$1.apply(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scala.util.control.Exception$Catch$$anonfun$either$1.apply(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch$$anonfun$either$1.apply(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch.apply(Exception.scala:102) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch.either(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scalax.io.CloseableIterator$.withIterator(CloseableIterator.scala:101) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable.toArray(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Input$class.byteArray(Input.scala:81) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.FileOps.byteArray(FileOps.scala:78) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at play.templates.ScalaTemplateCompiler$.compile(ScalaTemplateCompiler.scala:178) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8$$anonfun$apply$9.apply(PlaySourceGenerators.scala:45) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8$$anonfun$apply$9.apply(PlaySourceGenerators.scala:43) ~[na:na]
+	at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59) ~[scala-library-2.10.3.jar:na]
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:47) ~[scala-library-2.10.3.jar:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8.apply(PlaySourceGenerators.scala:43) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8.apply(PlaySourceGenerators.scala:42) ~[na:na]
+	at scala.collection.immutable.List.foreach(List.scala:318) ~[scala-library-2.10.3.jar:na]
+	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:42) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:30) ~[na:na]
+	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:35) ~[scala-library-2.10.3.jar:na]
+	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:34) ~[scala-library-2.10.3.jar:na]
+	at scala.Function1$$anonfun$compose$1.apply(Function1.scala:47) ~[scala-library-2.10.3.jar:na]
+	at sbt.$tilde$greater$$anonfun$$u2219$1.apply(TypeFunctions.scala:42) ~[na:na]
+	at sbt.std.Transform$$anon$4.work(System.scala:64) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ErrorHandling$.wideConvert(ErrorHandling.scala:18) ~[na:na]
+	at sbt.Execute.work(Execute.scala:244) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ConcurrentRestrictions$$anon$4$$anonfun$1.apply(ConcurrentRestrictions.scala:160) ~[na:na]
+	at sbt.CompletionService$$anon$2.call(CompletionService.scala:30) ~[na:na]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262) ~[na:1.7.0_79]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471) ~[na:1.7.0_79]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262) ~[na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+
+2015-11-20 22:02:32,527 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6o7e54nfp - Internal server error, for (GET) [/assets/stylesheets/navbar-fixed-top.css] ->
+
+play.PlayExceptions$UnexpectedException: Unexpected exception[FileNotFoundException: /home/SOC-Fall-2015/ApacheCMDA-Frontend/app/views/climate/.#mostPopularServices.scala.html (No such file or directory)]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:309) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10-2.2.3.jar:2.2.3]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
+java.io.FileNotFoundException: /home/SOC-Fall-2015/ApacheCMDA-Frontend/app/views/climate/.#mostPopularServices.scala.html (No such file or directory)
+	at java.io.RandomAccessFile.open(Native Method) ~[na:1.7.0_79]
+	at java.io.RandomAccessFile.<init>(RandomAccessFile.java:241) ~[na:1.7.0_79]
+	at scalax.io.support.FileUtils$.randomAccessFile(FileUtils.scala:105) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.support.FileUtils$.openChannel(FileUtils.scala:49) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.defaultfs.DefaultFileOps$$anonfun$channel$1.apply(DefaultFileOps.scala:43) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.defaultfs.DefaultFileOps$$anonfun$channel$1.apply(DefaultFileOps.scala:43) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Resource$$anonfun$fromSeekableByteChannel$1.apply(Resource.scala:460) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Resource$$anonfun$fromSeekableByteChannel$1.apply(Resource.scala:460) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource.scalax$io$managed$SeekableByteChannelResource$$rawOpen(SeekableByteChannelResource.scala:24) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource.open(SeekableByteChannelResource.scala:27) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource$$anonfun$bytes$1.apply(SeekableByteChannelResource.scala:79) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource$$anonfun$bytes$1.apply(SeekableByteChannelResource.scala:79) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable.iterator(ByteResourceTraversable.scala:28) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable$$anonfun$toArray$1.apply(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable$$anonfun$toArray$1.apply(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scala.util.control.Exception$Catch$$anonfun$either$1.apply(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch$$anonfun$either$1.apply(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch.apply(Exception.scala:102) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch.either(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scalax.io.CloseableIterator$.withIterator(CloseableIterator.scala:101) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable.toArray(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Input$class.byteArray(Input.scala:81) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.FileOps.byteArray(FileOps.scala:78) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at play.templates.ScalaTemplateCompiler$.compile(ScalaTemplateCompiler.scala:178) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8$$anonfun$apply$9.apply(PlaySourceGenerators.scala:45) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8$$anonfun$apply$9.apply(PlaySourceGenerators.scala:43) ~[na:na]
+	at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59) ~[scala-library-2.10.3.jar:na]
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:47) ~[scala-library-2.10.3.jar:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8.apply(PlaySourceGenerators.scala:43) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8.apply(PlaySourceGenerators.scala:42) ~[na:na]
+	at scala.collection.immutable.List.foreach(List.scala:318) ~[scala-library-2.10.3.jar:na]
+	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:42) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:30) ~[na:na]
+	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:35) ~[scala-library-2.10.3.jar:na]
+	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:34) ~[scala-library-2.10.3.jar:na]
+	at scala.Function1$$anonfun$compose$1.apply(Function1.scala:47) ~[scala-library-2.10.3.jar:na]
+	at sbt.$tilde$greater$$anonfun$$u2219$1.apply(TypeFunctions.scala:42) ~[na:na]
+	at sbt.std.Transform$$anon$4.work(System.scala:64) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ErrorHandling$.wideConvert(ErrorHandling.scala:18) ~[na:na]
+	at sbt.Execute.work(Execute.scala:244) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ConcurrentRestrictions$$anon$4$$anonfun$1.apply(ConcurrentRestrictions.scala:160) ~[na:na]
+	at sbt.CompletionService$$anon$2.call(CompletionService.scala:30) ~[na:na]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262) ~[na:1.7.0_79]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471) ~[na:1.7.0_79]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262) ~[na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+
+2015-11-20 22:02:32,610 - [ERROR] - from application in New I/O worker #2 
+
+
+! @6o7e54nj6 - Internal server error, for (GET) [/assets/stylesheets/bootstrap-editable.css] ->
+
+play.PlayExceptions$UnexpectedException: Unexpected exception[FileNotFoundException: /home/SOC-Fall-2015/ApacheCMDA-Frontend/app/views/climate/.#mostPopularServices.scala.html (No such file or directory)]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:309) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10-2.2.3.jar:2.2.3]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
+java.io.FileNotFoundException: /home/SOC-Fall-2015/ApacheCMDA-Frontend/app/views/climate/.#mostPopularServices.scala.html (No such file or directory)
+	at java.io.RandomAccessFile.open(Native Method) ~[na:1.7.0_79]
+	at java.io.RandomAccessFile.<init>(RandomAccessFile.java:241) ~[na:1.7.0_79]
+	at scalax.io.support.FileUtils$.randomAccessFile(FileUtils.scala:105) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.support.FileUtils$.openChannel(FileUtils.scala:49) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.defaultfs.DefaultFileOps$$anonfun$channel$1.apply(DefaultFileOps.scala:43) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.defaultfs.DefaultFileOps$$anonfun$channel$1.apply(DefaultFileOps.scala:43) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Resource$$anonfun$fromSeekableByteChannel$1.apply(Resource.scala:460) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Resource$$anonfun$fromSeekableByteChannel$1.apply(Resource.scala:460) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource.scalax$io$managed$SeekableByteChannelResource$$rawOpen(SeekableByteChannelResource.scala:24) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource.open(SeekableByteChannelResource.scala:27) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource$$anonfun$bytes$1.apply(SeekableByteChannelResource.scala:79) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource$$anonfun$bytes$1.apply(SeekableByteChannelResource.scala:79) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable.iterator(ByteResourceTraversable.scala:28) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable$$anonfun$toArray$1.apply(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable$$anonfun$toArray$1.apply(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scala.util.control.Exception$Catch$$anonfun$either$1.apply(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch$$anonfun$either$1.apply(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch.apply(Exception.scala:102) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch.either(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scalax.io.CloseableIterator$.withIterator(CloseableIterator.scala:101) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable.toArray(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Input$class.byteArray(Input.scala:81) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.FileOps.byteArray(FileOps.scala:78) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at play.templates.ScalaTemplateCompiler$.compile(ScalaTemplateCompiler.scala:178) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8$$anonfun$apply$9.apply(PlaySourceGenerators.scala:45) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8$$anonfun$apply$9.apply(PlaySourceGenerators.scala:43) ~[na:na]
+	at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59) ~[scala-library-2.10.3.jar:na]
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:47) ~[scala-library-2.10.3.jar:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8.apply(PlaySourceGenerators.scala:43) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8.apply(PlaySourceGenerators.scala:42) ~[na:na]
+	at scala.collection.immutable.List.foreach(List.scala:318) ~[scala-library-2.10.3.jar:na]
+	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:42) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:30) ~[na:na]
+	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:35) ~[scala-library-2.10.3.jar:na]
+	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:34) ~[scala-library-2.10.3.jar:na]
+	at scala.Function1$$anonfun$compose$1.apply(Function1.scala:47) ~[scala-library-2.10.3.jar:na]
+	at sbt.$tilde$greater$$anonfun$$u2219$1.apply(TypeFunctions.scala:42) ~[na:na]
+	at sbt.std.Transform$$anon$4.work(System.scala:64) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ErrorHandling$.wideConvert(ErrorHandling.scala:18) ~[na:na]
+	at sbt.Execute.work(Execute.scala:244) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ConcurrentRestrictions$$anon$4$$anonfun$1.apply(ConcurrentRestrictions.scala:160) ~[na:na]
+	at sbt.CompletionService$$anon$2.call(CompletionService.scala:30) ~[na:na]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262) ~[na:1.7.0_79]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471) ~[na:1.7.0_79]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262) ~[na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+
+2015-11-20 22:02:32,711 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6o7e54nn1 - Internal server error, for (GET) [/assets/stylesheets/style.css] ->
+
+play.PlayExceptions$UnexpectedException: Unexpected exception[FileNotFoundException: /home/SOC-Fall-2015/ApacheCMDA-Frontend/app/views/climate/.#mostPopularServices.scala.html (No such file or directory)]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:309) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10-2.2.3.jar:2.2.3]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
+java.io.FileNotFoundException: /home/SOC-Fall-2015/ApacheCMDA-Frontend/app/views/climate/.#mostPopularServices.scala.html (No such file or directory)
+	at java.io.RandomAccessFile.open(Native Method) ~[na:1.7.0_79]
+	at java.io.RandomAccessFile.<init>(RandomAccessFile.java:241) ~[na:1.7.0_79]
+	at scalax.io.support.FileUtils$.randomAccessFile(FileUtils.scala:105) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.support.FileUtils$.openChannel(FileUtils.scala:49) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.defaultfs.DefaultFileOps$$anonfun$channel$1.apply(DefaultFileOps.scala:43) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.defaultfs.DefaultFileOps$$anonfun$channel$1.apply(DefaultFileOps.scala:43) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Resource$$anonfun$fromSeekableByteChannel$1.apply(Resource.scala:460) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Resource$$anonfun$fromSeekableByteChannel$1.apply(Resource.scala:460) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource.scalax$io$managed$SeekableByteChannelResource$$rawOpen(SeekableByteChannelResource.scala:24) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource.open(SeekableByteChannelResource.scala:27) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource$$anonfun$bytes$1.apply(SeekableByteChannelResource.scala:79) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource$$anonfun$bytes$1.apply(SeekableByteChannelResource.scala:79) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable.iterator(ByteResourceTraversable.scala:28) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable$$anonfun$toArray$1.apply(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable$$anonfun$toArray$1.apply(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scala.util.control.Exception$Catch$$anonfun$either$1.apply(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch$$anonfun$either$1.apply(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch.apply(Exception.scala:102) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch.either(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scalax.io.CloseableIterator$.withIterator(CloseableIterator.scala:101) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable.toArray(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Input$class.byteArray(Input.scala:81) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.FileOps.byteArray(FileOps.scala:78) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at play.templates.ScalaTemplateCompiler$.compile(ScalaTemplateCompiler.scala:178) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8$$anonfun$apply$9.apply(PlaySourceGenerators.scala:45) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8$$anonfun$apply$9.apply(PlaySourceGenerators.scala:43) ~[na:na]
+	at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59) ~[scala-library-2.10.3.jar:na]
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:47) ~[scala-library-2.10.3.jar:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8.apply(PlaySourceGenerators.scala:43) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8.apply(PlaySourceGenerators.scala:42) ~[na:na]
+	at scala.collection.immutable.List.foreach(List.scala:318) ~[scala-library-2.10.3.jar:na]
+	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:42) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:30) ~[na:na]
+	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:35) ~[scala-library-2.10.3.jar:na]
+	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:34) ~[scala-library-2.10.3.jar:na]
+	at scala.Function1$$anonfun$compose$1.apply(Function1.scala:47) ~[scala-library-2.10.3.jar:na]
+	at sbt.$tilde$greater$$anonfun$$u2219$1.apply(TypeFunctions.scala:42) ~[na:na]
+	at sbt.std.Transform$$anon$4.work(System.scala:64) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ErrorHandling$.wideConvert(ErrorHandling.scala:18) ~[na:na]
+	at sbt.Execute.work(Execute.scala:244) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ConcurrentRestrictions$$anon$4$$anonfun$1.apply(ConcurrentRestrictions.scala:160) ~[na:na]
+	at sbt.CompletionService$$anon$2.call(CompletionService.scala:30) ~[na:na]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262) ~[na:1.7.0_79]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471) ~[na:1.7.0_79]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262) ~[na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+
+2015-11-20 22:03:37,763 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6o7e58g31 - Internal server error, for (GET) [/assets/stylesheets/bootstrap.css] ->
+
+play.PlayExceptions$UnexpectedException: Unexpected exception[FileNotFoundException: /home/SOC-Fall-2015/ApacheCMDA-Frontend/app/views/climate/.#mostPopularServices.scala.html (No such file or directory)]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:309) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10-2.2.3.jar:2.2.3]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
+java.io.FileNotFoundException: /home/SOC-Fall-2015/ApacheCMDA-Frontend/app/views/climate/.#mostPopularServices.scala.html (No such file or directory)
+	at java.io.RandomAccessFile.open(Native Method) ~[na:1.7.0_79]
+	at java.io.RandomAccessFile.<init>(RandomAccessFile.java:241) ~[na:1.7.0_79]
+	at scalax.io.support.FileUtils$.randomAccessFile(FileUtils.scala:105) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.support.FileUtils$.openChannel(FileUtils.scala:49) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.defaultfs.DefaultFileOps$$anonfun$channel$1.apply(DefaultFileOps.scala:43) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.defaultfs.DefaultFileOps$$anonfun$channel$1.apply(DefaultFileOps.scala:43) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Resource$$anonfun$fromSeekableByteChannel$1.apply(Resource.scala:460) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Resource$$anonfun$fromSeekableByteChannel$1.apply(Resource.scala:460) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource.scalax$io$managed$SeekableByteChannelResource$$rawOpen(SeekableByteChannelResource.scala:24) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource.open(SeekableByteChannelResource.scala:27) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource$$anonfun$bytes$1.apply(SeekableByteChannelResource.scala:79) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource$$anonfun$bytes$1.apply(SeekableByteChannelResource.scala:79) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable.iterator(ByteResourceTraversable.scala:28) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable$$anonfun$toArray$1.apply(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable$$anonfun$toArray$1.apply(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scala.util.control.Exception$Catch$$anonfun$either$1.apply(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch$$anonfun$either$1.apply(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch.apply(Exception.scala:102) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch.either(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scalax.io.CloseableIterator$.withIterator(CloseableIterator.scala:101) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable.toArray(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Input$class.byteArray(Input.scala:81) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.FileOps.byteArray(FileOps.scala:78) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at play.templates.ScalaTemplateCompiler$.compile(ScalaTemplateCompiler.scala:178) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8$$anonfun$apply$9.apply(PlaySourceGenerators.scala:45) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8$$anonfun$apply$9.apply(PlaySourceGenerators.scala:43) ~[na:na]
+	at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59) ~[scala-library-2.10.3.jar:na]
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:47) ~[scala-library-2.10.3.jar:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8.apply(PlaySourceGenerators.scala:43) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8.apply(PlaySourceGenerators.scala:42) ~[na:na]
+	at scala.collection.immutable.List.foreach(List.scala:318) ~[scala-library-2.10.3.jar:na]
+	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:42) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:30) ~[na:na]
+	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:35) ~[scala-library-2.10.3.jar:na]
+	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:34) ~[scala-library-2.10.3.jar:na]
+	at scala.Function1$$anonfun$compose$1.apply(Function1.scala:47) ~[scala-library-2.10.3.jar:na]
+	at sbt.$tilde$greater$$anonfun$$u2219$1.apply(TypeFunctions.scala:42) ~[na:na]
+	at sbt.std.Transform$$anon$4.work(System.scala:64) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ErrorHandling$.wideConvert(ErrorHandling.scala:18) ~[na:na]
+	at sbt.Execute.work(Execute.scala:244) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ConcurrentRestrictions$$anon$4$$anonfun$1.apply(ConcurrentRestrictions.scala:160) ~[na:na]
+	at sbt.CompletionService$$anon$2.call(CompletionService.scala:30) ~[na:na]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262) ~[na:1.7.0_79]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471) ~[na:1.7.0_79]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262) ~[na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+
+2015-11-20 22:03:37,886 - [ERROR] - from application in New I/O worker #2 
+
+
+! @6o7e58g7f - Internal server error, for (GET) [/assets/stylesheets/bootstrap-editable.css] ->
+
+play.PlayExceptions$UnexpectedException: Unexpected exception[FileNotFoundException: /home/SOC-Fall-2015/ApacheCMDA-Frontend/app/views/climate/.#mostPopularServices.scala.html (No such file or directory)]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:309) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10-2.2.3.jar:2.2.3]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
+java.io.FileNotFoundException: /home/SOC-Fall-2015/ApacheCMDA-Frontend/app/views/climate/.#mostPopularServices.scala.html (No such file or directory)
+	at java.io.RandomAccessFile.open(Native Method) ~[na:1.7.0_79]
+	at java.io.RandomAccessFile.<init>(RandomAccessFile.java:241) ~[na:1.7.0_79]
+	at scalax.io.support.FileUtils$.randomAccessFile(FileUtils.scala:105) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.support.FileUtils$.openChannel(FileUtils.scala:49) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.defaultfs.DefaultFileOps$$anonfun$channel$1.apply(DefaultFileOps.scala:43) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.defaultfs.DefaultFileOps$$anonfun$channel$1.apply(DefaultFileOps.scala:43) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Resource$$anonfun$fromSeekableByteChannel$1.apply(Resource.scala:460) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Resource$$anonfun$fromSeekableByteChannel$1.apply(Resource.scala:460) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource.scalax$io$managed$SeekableByteChannelResource$$rawOpen(SeekableByteChannelResource.scala:24) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource.open(SeekableByteChannelResource.scala:27) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource$$anonfun$bytes$1.apply(SeekableByteChannelResource.scala:79) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource$$anonfun$bytes$1.apply(SeekableByteChannelResource.scala:79) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable.iterator(ByteResourceTraversable.scala:28) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable$$anonfun$toArray$1.apply(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable$$anonfun$toArray$1.apply(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scala.util.control.Exception$Catch$$anonfun$either$1.apply(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch$$anonfun$either$1.apply(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch.apply(Exception.scala:102) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch.either(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scalax.io.CloseableIterator$.withIterator(CloseableIterator.scala:101) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable.toArray(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Input$class.byteArray(Input.scala:81) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.FileOps.byteArray(FileOps.scala:78) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at play.templates.ScalaTemplateCompiler$.compile(ScalaTemplateCompiler.scala:178) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8$$anonfun$apply$9.apply(PlaySourceGenerators.scala:45) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8$$anonfun$apply$9.apply(PlaySourceGenerators.scala:43) ~[na:na]
+	at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59) ~[scala-library-2.10.3.jar:na]
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:47) ~[scala-library-2.10.3.jar:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8.apply(PlaySourceGenerators.scala:43) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8.apply(PlaySourceGenerators.scala:42) ~[na:na]
+	at scala.collection.immutable.List.foreach(List.scala:318) ~[scala-library-2.10.3.jar:na]
+	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:42) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:30) ~[na:na]
+	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:35) ~[scala-library-2.10.3.jar:na]
+	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:34) ~[scala-library-2.10.3.jar:na]
+	at scala.Function1$$anonfun$compose$1.apply(Function1.scala:47) ~[scala-library-2.10.3.jar:na]
+	at sbt.$tilde$greater$$anonfun$$u2219$1.apply(TypeFunctions.scala:42) ~[na:na]
+	at sbt.std.Transform$$anon$4.work(System.scala:64) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ErrorHandling$.wideConvert(ErrorHandling.scala:18) ~[na:na]
+	at sbt.Execute.work(Execute.scala:244) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ConcurrentRestrictions$$anon$4$$anonfun$1.apply(ConcurrentRestrictions.scala:160) ~[na:na]
+	at sbt.CompletionService$$anon$2.call(CompletionService.scala:30) ~[na:na]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262) ~[na:1.7.0_79]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471) ~[na:1.7.0_79]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262) ~[na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+
+2015-11-20 22:03:37,986 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6o7e58gbg - Internal server error, for (GET) [/assets/stylesheets/jquery.tablesorter.pager.css] ->
+
+play.PlayExceptions$UnexpectedException: Unexpected exception[FileNotFoundException: /home/SOC-Fall-2015/ApacheCMDA-Frontend/app/views/climate/.#mostPopularServices.scala.html (No such file or directory)]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:309) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10-2.2.3.jar:2.2.3]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
+java.io.FileNotFoundException: /home/SOC-Fall-2015/ApacheCMDA-Frontend/app/views/climate/.#mostPopularServices.scala.html (No such file or directory)
+	at java.io.RandomAccessFile.open(Native Method) ~[na:1.7.0_79]
+	at java.io.RandomAccessFile.<init>(RandomAccessFile.java:241) ~[na:1.7.0_79]
+	at scalax.io.support.FileUtils$.randomAccessFile(FileUtils.scala:105) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.support.FileUtils$.openChannel(FileUtils.scala:49) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.defaultfs.DefaultFileOps$$anonfun$channel$1.apply(DefaultFileOps.scala:43) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.defaultfs.DefaultFileOps$$anonfun$channel$1.apply(DefaultFileOps.scala:43) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Resource$$anonfun$fromSeekableByteChannel$1.apply(Resource.scala:460) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Resource$$anonfun$fromSeekableByteChannel$1.apply(Resource.scala:460) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource.scalax$io$managed$SeekableByteChannelResource$$rawOpen(SeekableByteChannelResource.scala:24) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource.open(SeekableByteChannelResource.scala:27) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource$$anonfun$bytes$1.apply(SeekableByteChannelResource.scala:79) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource$$anonfun$bytes$1.apply(SeekableByteChannelResource.scala:79) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable.iterator(ByteResourceTraversable.scala:28) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable$$anonfun$toArray$1.apply(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable$$anonfun$toArray$1.apply(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scala.util.control.Exception$Catch$$anonfun$either$1.apply(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch$$anonfun$either$1.apply(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch.apply(Exception.scala:102) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch.either(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scalax.io.CloseableIterator$.withIterator(CloseableIterator.scala:101) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable.toArray(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Input$class.byteArray(Input.scala:81) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.FileOps.byteArray(FileOps.scala:78) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at play.templates.ScalaTemplateCompiler$.compile(ScalaTemplateCompiler.scala:178) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8$$anonfun$apply$9.apply(PlaySourceGenerators.scala:45) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8$$anonfun$apply$9.apply(PlaySourceGenerators.scala:43) ~[na:na]
+	at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59) ~[scala-library-2.10.3.jar:na]
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:47) ~[scala-library-2.10.3.jar:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8.apply(PlaySourceGenerators.scala:43) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8.apply(PlaySourceGenerators.scala:42) ~[na:na]
+	at scala.collection.immutable.List.foreach(List.scala:318) ~[scala-library-2.10.3.jar:na]
+	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:42) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:30) ~[na:na]
+	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:35) ~[scala-library-2.10.3.jar:na]
+	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:34) ~[scala-library-2.10.3.jar:na]
+	at scala.Function1$$anonfun$compose$1.apply(Function1.scala:47) ~[scala-library-2.10.3.jar:na]
+	at sbt.$tilde$greater$$anonfun$$u2219$1.apply(TypeFunctions.scala:42) ~[na:na]
+	at sbt.std.Transform$$anon$4.work(System.scala:64) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ErrorHandling$.wideConvert(ErrorHandling.scala:18) ~[na:na]
+	at sbt.Execute.work(Execute.scala:244) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ConcurrentRestrictions$$anon$4$$anonfun$1.apply(ConcurrentRestrictions.scala:160) ~[na:na]
+	at sbt.CompletionService$$anon$2.call(CompletionService.scala:30) ~[na:na]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262) ~[na:1.7.0_79]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471) ~[na:1.7.0_79]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262) ~[na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+
+2015-11-20 22:03:38,077 - [ERROR] - from application in New I/O worker #2 
+
+
+! @6o7e58gf1 - Internal server error, for (GET) [/assets/stylesheets/main.css] ->
+
+play.PlayExceptions$UnexpectedException: Unexpected exception[FileNotFoundException: /home/SOC-Fall-2015/ApacheCMDA-Frontend/app/views/climate/.#mostPopularServices.scala.html (No such file or directory)]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:309) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10-2.2.3.jar:2.2.3]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
+java.io.FileNotFoundException: /home/SOC-Fall-2015/ApacheCMDA-Frontend/app/views/climate/.#mostPopularServices.scala.html (No such file or directory)
+	at java.io.RandomAccessFile.open(Native Method) ~[na:1.7.0_79]
+	at java.io.RandomAccessFile.<init>(RandomAccessFile.java:241) ~[na:1.7.0_79]
+	at scalax.io.support.FileUtils$.randomAccessFile(FileUtils.scala:105) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.support.FileUtils$.openChannel(FileUtils.scala:49) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.defaultfs.DefaultFileOps$$anonfun$channel$1.apply(DefaultFileOps.scala:43) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.defaultfs.DefaultFileOps$$anonfun$channel$1.apply(DefaultFileOps.scala:43) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Resource$$anonfun$fromSeekableByteChannel$1.apply(Resource.scala:460) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Resource$$anonfun$fromSeekableByteChannel$1.apply(Resource.scala:460) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource.scalax$io$managed$SeekableByteChannelResource$$rawOpen(SeekableByteChannelResource.scala:24) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource.open(SeekableByteChannelResource.scala:27) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource$$anonfun$bytes$1.apply(SeekableByteChannelResource.scala:79) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource$$anonfun$bytes$1.apply(SeekableByteChannelResource.scala:79) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable.iterator(ByteResourceTraversable.scala:28) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable$$anonfun$toArray$1.apply(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable$$anonfun$toArray$1.apply(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scala.util.control.Exception$Catch$$anonfun$either$1.apply(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch$$anonfun$either$1.apply(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch.apply(Exception.scala:102) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch.either(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scalax.io.CloseableIterator$.withIterator(CloseableIterator.scala:101) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable.toArray(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Input$class.byteArray(Input.scala:81) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.FileOps.byteArray(FileOps.scala:78) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at play.templates.ScalaTemplateCompiler$.compile(ScalaTemplateCompiler.scala:178) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8$$anonfun$apply$9.apply(PlaySourceGenerators.scala:45) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8$$anonfun$apply$9.apply(PlaySourceGenerators.scala:43) ~[na:na]
+	at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59) ~[scala-library-2.10.3.jar:na]
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:47) ~[scala-library-2.10.3.jar:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8.apply(PlaySourceGenerators.scala:43) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8.apply(PlaySourceGenerators.scala:42) ~[na:na]
+	at scala.collection.immutable.List.foreach(List.scala:318) ~[scala-library-2.10.3.jar:na]
+	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:42) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:30) ~[na:na]
+	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:35) ~[scala-library-2.10.3.jar:na]
+	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:34) ~[scala-library-2.10.3.jar:na]
+	at scala.Function1$$anonfun$compose$1.apply(Function1.scala:47) ~[scala-library-2.10.3.jar:na]
+	at sbt.$tilde$greater$$anonfun$$u2219$1.apply(TypeFunctions.scala:42) ~[na:na]
+	at sbt.std.Transform$$anon$4.work(System.scala:64) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ErrorHandling$.wideConvert(ErrorHandling.scala:18) ~[na:na]
+	at sbt.Execute.work(Execute.scala:244) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ConcurrentRestrictions$$anon$4$$anonfun$1.apply(ConcurrentRestrictions.scala:160) ~[na:na]
+	at sbt.CompletionService$$anon$2.call(CompletionService.scala:30) ~[na:na]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262) ~[na:1.7.0_79]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471) ~[na:1.7.0_79]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262) ~[na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+
+2015-11-20 22:03:38,215 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6o7e58gk8 - Internal server error, for (GET) [/assets/stylesheets/navbar-fixed-top.css] ->
+
+play.PlayExceptions$UnexpectedException: Unexpected exception[FileNotFoundException: /home/SOC-Fall-2015/ApacheCMDA-Frontend/app/views/climate/.#mostPopularServices.scala.html (No such file or directory)]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:309) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10-2.2.3.jar:2.2.3]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
+java.io.FileNotFoundException: /home/SOC-Fall-2015/ApacheCMDA-Frontend/app/views/climate/.#mostPopularServices.scala.html (No such file or directory)
+	at java.io.RandomAccessFile.open(Native Method) ~[na:1.7.0_79]
+	at java.io.RandomAccessFile.<init>(RandomAccessFile.java:241) ~[na:1.7.0_79]
+	at scalax.io.support.FileUtils$.randomAccessFile(FileUtils.scala:105) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.support.FileUtils$.openChannel(FileUtils.scala:49) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.defaultfs.DefaultFileOps$$anonfun$channel$1.apply(DefaultFileOps.scala:43) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.defaultfs.DefaultFileOps$$anonfun$channel$1.apply(DefaultFileOps.scala:43) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Resource$$anonfun$fromSeekableByteChannel$1.apply(Resource.scala:460) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Resource$$anonfun$fromSeekableByteChannel$1.apply(Resource.scala:460) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource.scalax$io$managed$SeekableByteChannelResource$$rawOpen(SeekableByteChannelResource.scala:24) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource.open(SeekableByteChannelResource.scala:27) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource$$anonfun$bytes$1.apply(SeekableByteChannelResource.scala:79) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource$$anonfun$bytes$1.apply(SeekableByteChannelResource.scala:79) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable.iterator(ByteResourceTraversable.scala:28) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable$$anonfun$toArray$1.apply(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable$$anonfun$toArray$1.apply(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scala.util.control.Exception$Catch$$anonfun$either$1.apply(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch$$anonfun$either$1.apply(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch.apply(Exception.scala:102) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch.either(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scalax.io.CloseableIterator$.withIterator(CloseableIterator.scala:101) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable.toArray(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Input$class.byteArray(Input.scala:81) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.FileOps.byteArray(FileOps.scala:78) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at play.templates.ScalaTemplateCompiler$.compile(ScalaTemplateCompiler.scala:178) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8$$anonfun$apply$9.apply(PlaySourceGenerators.scala:45) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8$$anonfun$apply$9.apply(PlaySourceGenerators.scala:43) ~[na:na]
+	at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59) ~[scala-library-2.10.3.jar:na]
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:47) ~[scala-library-2.10.3.jar:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8.apply(PlaySourceGenerators.scala:43) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8.apply(PlaySourceGenerators.scala:42) ~[na:na]
+	at scala.collection.immutable.List.foreach(List.scala:318) ~[scala-library-2.10.3.jar:na]
+	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:42) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:30) ~[na:na]
+	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:35) ~[scala-library-2.10.3.jar:na]
+	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:34) ~[scala-library-2.10.3.jar:na]
+	at scala.Function1$$anonfun$compose$1.apply(Function1.scala:47) ~[scala-library-2.10.3.jar:na]
+	at sbt.$tilde$greater$$anonfun$$u2219$1.apply(TypeFunctions.scala:42) ~[na:na]
+	at sbt.std.Transform$$anon$4.work(System.scala:64) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ErrorHandling$.wideConvert(ErrorHandling.scala:18) ~[na:na]
+	at sbt.Execute.work(Execute.scala:244) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ConcurrentRestrictions$$anon$4$$anonfun$1.apply(ConcurrentRestrictions.scala:160) ~[na:na]
+	at sbt.CompletionService$$anon$2.call(CompletionService.scala:30) ~[na:na]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262) ~[na:1.7.0_79]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471) ~[na:1.7.0_79]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262) ~[na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+
+2015-11-20 22:03:38,337 - [ERROR] - from application in New I/O worker #2 
+
+
+! @6o7e58gp3 - Internal server error, for (GET) [/assets/stylesheets/custom.css] ->
+
+play.PlayExceptions$UnexpectedException: Unexpected exception[FileNotFoundException: /home/SOC-Fall-2015/ApacheCMDA-Frontend/app/views/climate/.#mostPopularServices.scala.html (No such file or directory)]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:309) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10-2.2.3.jar:2.2.3]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
+java.io.FileNotFoundException: /home/SOC-Fall-2015/ApacheCMDA-Frontend/app/views/climate/.#mostPopularServices.scala.html (No such file or directory)
+	at java.io.RandomAccessFile.open(Native Method) ~[na:1.7.0_79]
+	at java.io.RandomAccessFile.<init>(RandomAccessFile.java:241) ~[na:1.7.0_79]
+	at scalax.io.support.FileUtils$.randomAccessFile(FileUtils.scala:105) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.support.FileUtils$.openChannel(FileUtils.scala:49) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.defaultfs.DefaultFileOps$$anonfun$channel$1.apply(DefaultFileOps.scala:43) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.defaultfs.DefaultFileOps$$anonfun$channel$1.apply(DefaultFileOps.scala:43) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Resource$$anonfun$fromSeekableByteChannel$1.apply(Resource.scala:460) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Resource$$anonfun$fromSeekableByteChannel$1.apply(Resource.scala:460) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource.scalax$io$managed$SeekableByteChannelResource$$rawOpen(SeekableByteChannelResource.scala:24) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource.open(SeekableByteChannelResource.scala:27) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource$$anonfun$bytes$1.apply(SeekableByteChannelResource.scala:79) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource$$anonfun$bytes$1.apply(SeekableByteChannelResource.scala:79) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable.iterator(ByteResourceTraversable.scala:28) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable$$anonfun$toArray$1.apply(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable$$anonfun$toArray$1.apply(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scala.util.control.Exception$Catch$$anonfun$either$1.apply(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch$$anonfun$either$1.apply(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch.apply(Exception.scala:102) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch.either(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scalax.io.CloseableIterator$.withIterator(CloseableIterator.scala:101) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable.toArray(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Input$class.byteArray(Input.scala:81) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.FileOps.byteArray(FileOps.scala:78) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at play.templates.ScalaTemplateCompiler$.compile(ScalaTemplateCompiler.scala:178) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8$$anonfun$apply$9.apply(PlaySourceGenerators.scala:45) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8$$anonfun$apply$9.apply(PlaySourceGenerators.scala:43) ~[na:na]
+	at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59) ~[scala-library-2.10.3.jar:na]
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:47) ~[scala-library-2.10.3.jar:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8.apply(PlaySourceGenerators.scala:43) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8.apply(PlaySourceGenerators.scala:42) ~[na:na]
+	at scala.collection.immutable.List.foreach(List.scala:318) ~[scala-library-2.10.3.jar:na]
+	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:42) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:30) ~[na:na]
+	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:35) ~[scala-library-2.10.3.jar:na]
+	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:34) ~[scala-library-2.10.3.jar:na]
+	at scala.Function1$$anonfun$compose$1.apply(Function1.scala:47) ~[scala-library-2.10.3.jar:na]
+	at sbt.$tilde$greater$$anonfun$$u2219$1.apply(TypeFunctions.scala:42) ~[na:na]
+	at sbt.std.Transform$$anon$4.work(System.scala:64) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ErrorHandling$.wideConvert(ErrorHandling.scala:18) ~[na:na]
+	at sbt.Execute.work(Execute.scala:244) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ConcurrentRestrictions$$anon$4$$anonfun$1.apply(ConcurrentRestrictions.scala:160) ~[na:na]
+	at sbt.CompletionService$$anon$2.call(CompletionService.scala:30) ~[na:na]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262) ~[na:1.7.0_79]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471) ~[na:1.7.0_79]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262) ~[na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+
+2015-11-20 22:03:38,452 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6o7e58h3f - Internal server error, for (GET) [/assets/stylesheets/style.css] ->
+
+play.PlayExceptions$UnexpectedException: Unexpected exception[FileNotFoundException: /home/SOC-Fall-2015/ApacheCMDA-Frontend/app/views/climate/.#mostPopularServices.scala.html (No such file or directory)]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:309) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10-2.2.3.jar:2.2.3]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
+java.io.FileNotFoundException: /home/SOC-Fall-2015/ApacheCMDA-Frontend/app/views/climate/.#mostPopularServices.scala.html (No such file or directory)
+	at java.io.RandomAccessFile.open(Native Method) ~[na:1.7.0_79]
+	at java.io.RandomAccessFile.<init>(RandomAccessFile.java:241) ~[na:1.7.0_79]
+	at scalax.io.support.FileUtils$.randomAccessFile(FileUtils.scala:105) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.support.FileUtils$.openChannel(FileUtils.scala:49) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.defaultfs.DefaultFileOps$$anonfun$channel$1.apply(DefaultFileOps.scala:43) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.defaultfs.DefaultFileOps$$anonfun$channel$1.apply(DefaultFileOps.scala:43) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Resource$$anonfun$fromSeekableByteChannel$1.apply(Resource.scala:460) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Resource$$anonfun$fromSeekableByteChannel$1.apply(Resource.scala:460) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource.scalax$io$managed$SeekableByteChannelResource$$rawOpen(SeekableByteChannelResource.scala:24) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource.open(SeekableByteChannelResource.scala:27) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource$$anonfun$bytes$1.apply(SeekableByteChannelResource.scala:79) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource$$anonfun$bytes$1.apply(SeekableByteChannelResource.scala:79) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable.iterator(ByteResourceTraversable.scala:28) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable$$anonfun$toArray$1.apply(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable$$anonfun$toArray$1.apply(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scala.util.control.Exception$Catch$$anonfun$either$1.apply(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch$$anonfun$either$1.apply(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch.apply(Exception.scala:102) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch.either(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scalax.io.CloseableIterator$.withIterator(CloseableIterator.scala:101) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable.toArray(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Input$class.byteArray(Input.scala:81) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.FileOps.byteArray(FileOps.scala:78) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at play.templates.ScalaTemplateCompiler$.compile(ScalaTemplateCompiler.scala:178) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8$$anonfun$apply$9.apply(PlaySourceGenerators.scala:45) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8$$anonfun$apply$9.apply(PlaySourceGenerators.scala:43) ~[na:na]
+	at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59) ~[scala-library-2.10.3.jar:na]
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:47) ~[scala-library-2.10.3.jar:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8.apply(PlaySourceGenerators.scala:43) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8.apply(PlaySourceGenerators.scala:42) ~[na:na]
+	at scala.collection.immutable.List.foreach(List.scala:318) ~[scala-library-2.10.3.jar:na]
+	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:42) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:30) ~[na:na]
+	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:35) ~[scala-library-2.10.3.jar:na]
+	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:34) ~[scala-library-2.10.3.jar:na]
+	at scala.Function1$$anonfun$compose$1.apply(Function1.scala:47) ~[scala-library-2.10.3.jar:na]
+	at sbt.$tilde$greater$$anonfun$$u2219$1.apply(TypeFunctions.scala:42) ~[na:na]
+	at sbt.std.Transform$$anon$4.work(System.scala:64) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ErrorHandling$.wideConvert(ErrorHandling.scala:18) ~[na:na]
+	at sbt.Execute.work(Execute.scala:244) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ConcurrentRestrictions$$anon$4$$anonfun$1.apply(ConcurrentRestrictions.scala:160) ~[na:na]
+	at sbt.CompletionService$$anon$2.call(CompletionService.scala:30) ~[na:na]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262) ~[na:1.7.0_79]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471) ~[na:1.7.0_79]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262) ~[na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+
+2015-11-20 22:03:38,548 - [ERROR] - from application in New I/O worker #2 
+
+
+! @6o7e58h77 - Internal server error, for (GET) [/assets/stylesheets/jquery.comment.css] ->
+
+play.PlayExceptions$UnexpectedException: Unexpected exception[FileNotFoundException: /home/SOC-Fall-2015/ApacheCMDA-Frontend/app/views/climate/.#mostPopularServices.scala.html (No such file or directory)]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:309) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10-2.2.3.jar:2.2.3]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10-2.2.3.jar:2.2.3]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
+java.io.FileNotFoundException: /home/SOC-Fall-2015/ApacheCMDA-Frontend/app/views/climate/.#mostPopularServices.scala.html (No such file or directory)
+	at java.io.RandomAccessFile.open(Native Method) ~[na:1.7.0_79]
+	at java.io.RandomAccessFile.<init>(RandomAccessFile.java:241) ~[na:1.7.0_79]
+	at scalax.io.support.FileUtils$.randomAccessFile(FileUtils.scala:105) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.support.FileUtils$.openChannel(FileUtils.scala:49) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.defaultfs.DefaultFileOps$$anonfun$channel$1.apply(DefaultFileOps.scala:43) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.defaultfs.DefaultFileOps$$anonfun$channel$1.apply(DefaultFileOps.scala:43) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Resource$$anonfun$fromSeekableByteChannel$1.apply(Resource.scala:460) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Resource$$anonfun$fromSeekableByteChannel$1.apply(Resource.scala:460) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource.scalax$io$managed$SeekableByteChannelResource$$rawOpen(SeekableByteChannelResource.scala:24) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource.open(SeekableByteChannelResource.scala:27) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource$$anonfun$bytes$1.apply(SeekableByteChannelResource.scala:79) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.managed.SeekableByteChannelResource$$anonfun$bytes$1.apply(SeekableByteChannelResource.scala:79) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable.iterator(ByteResourceTraversable.scala:28) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable$$anonfun$toArray$1.apply(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable$$anonfun$toArray$1.apply(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scala.util.control.Exception$Catch$$anonfun$either$1.apply(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch$$anonfun$either$1.apply(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch.apply(Exception.scala:102) ~[scala-library-2.10.3.jar:na]
+	at scala.util.control.Exception$Catch.either(Exception.scala:124) ~[scala-library-2.10.3.jar:na]
+	at scalax.io.CloseableIterator$.withIterator(CloseableIterator.scala:101) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.traversable.ByteResourceTraversable.toArray(ByteResourceTraversable.scala:48) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.io.Input$class.byteArray(Input.scala:81) ~[scala-io-core_2.10-0.4.2.jar:0.4.2]
+	at scalax.file.FileOps.byteArray(FileOps.scala:78) ~[scala-io-file_2.10-0.4.2.jar:0.4.2]
+	at play.templates.ScalaTemplateCompiler$.compile(ScalaTemplateCompiler.scala:178) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8$$anonfun$apply$9.apply(PlaySourceGenerators.scala:45) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8$$anonfun$apply$9.apply(PlaySourceGenerators.scala:43) ~[na:na]
+	at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59) ~[scala-library-2.10.3.jar:na]
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:47) ~[scala-library-2.10.3.jar:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8.apply(PlaySourceGenerators.scala:43) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8.apply(PlaySourceGenerators.scala:42) ~[na:na]
+	at scala.collection.immutable.List.foreach(List.scala:318) ~[scala-library-2.10.3.jar:na]
+	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:42) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:30) ~[na:na]
+	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:35) ~[scala-library-2.10.3.jar:na]
+	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:34) ~[scala-library-2.10.3.jar:na]
+	at scala.Function1$$anonfun$compose$1.apply(Function1.scala:47) ~[scala-library-2.10.3.jar:na]
+	at sbt.$tilde$greater$$anonfun$$u2219$1.apply(TypeFunctions.scala:42) ~[na:na]
+	at sbt.std.Transform$$anon$4.work(System.scala:64) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ErrorHandling$.wideConvert(ErrorHandling.scala:18) ~[na:na]
+	at sbt.Execute.work(Execute.scala:244) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ConcurrentRestrictions$$anon$4$$anonfun$1.apply(ConcurrentRestrictions.scala:160) ~[na:na]
+	at sbt.CompletionService$$anon$2.call(CompletionService.scala:30) ~[na:na]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262) ~[na:1.7.0_79]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471) ~[na:1.7.0_79]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262) ~[na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_79]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+
+2015-11-20 22:03:52,292 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-11-20 22:03:52,295 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-11-20 22:03:52,447 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-11-20 22:03:52,454 - [INFO] - from application in play-akka.actor.default-dispatcher-516 
+http://localhost:9034/climateService/getAllMostRecentClimateServicesByLatestAccessTime/json
+
+2015-11-20 22:03:55,376 - [INFO] - from application in play-akka.actor.default-dispatcher-528 
+http://localhost:9034/users/getAllUsername
+
+2015-11-20 22:03:56,773 - [INFO] - from application in play-akka.actor.default-dispatcher-531 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-20 22:03:56,824 - [INFO] - from application in play-akka.actor.default-dispatcher-531 
+http://localhost:9034/comment/getComment/1/null/json
+
+2015-11-20 22:04:14,601 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-11-20 22:04:14,608 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-11-20 22:04:14,835 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-11-20 22:04:14,844 - [INFO] - from application in play-akka.actor.default-dispatcher-526 
+http://localhost:9034/climateService/getAllMostRecentClimateServicesByLatestAccessTime/json
+
+2015-11-20 22:04:41,977 - [INFO] - from play in play-internal-execution-context-1 
+datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
+
+2015-11-20 22:04:41,987 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:data/db
+
+2015-11-20 22:04:42,086 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-11-20 22:04:42,094 - [INFO] - from application in play-akka.actor.default-dispatcher-529 
+http://localhost:9034/climateService/getAllMostRecentClimateServicesByLatestAccessTime/json
+
+2015-11-20 22:21:25,405 - [INFO] - from application in play-akka.actor.default-dispatcher-539 
+http://localhost:9034/users/getHasUnreadMention/zhibinz@andrew.cmu.edu
+
+2015-11-20 22:21:25,423 - [INFO] - from application in play-akka.actor.default-dispatcher-541 
+http://localhost:9034/climateService/getAllMostRecentClimateServicesByLatestAccessTime/json
+
+2015-11-20 22:21:29,781 - [INFO] - from application in play-akka.actor.default-dispatcher-540 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-20 22:21:31,925 - [INFO] - from application in play-akka.actor.default-dispatcher-538 
+http://localhost:9034/users/getAllUsername
+
+2015-11-20 22:21:32,083 - [INFO] - from application in play-akka.actor.default-dispatcher-540 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-20 22:21:32,102 - [INFO] - from application in play-akka.actor.default-dispatcher-540 
+http://localhost:9034/comment/getComment/1/zhibinz@andrew.cmu.edu/json
+
+2015-11-20 22:21:38,622 - [INFO] - from application in play-akka.actor.default-dispatcher-538 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-20 22:21:47,298 - [INFO] - from application in play-akka.actor.default-dispatcher-525 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-20 22:22:12,146 - [INFO] - from application in play-akka.actor.default-dispatcher-539 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-20 22:22:17,053 - [INFO] - from application in play-akka.actor.default-dispatcher-543 
+http://localhost:9034/climateService/getAllMostRecentClimateServicesByLatestAccessTime/json
+
+2015-11-20 22:22:22,557 - [INFO] - from application in play-akka.actor.default-dispatcher-547 
+http://localhost:9034/users/getHasUnreadMention/test@gmail.com
+
+2015-11-20 22:22:22,572 - [INFO] - from application in play-akka.actor.default-dispatcher-543 
+http://localhost:9034/climateService/getAllMostRecentClimateServicesByLatestAccessTime/json
+
+2015-11-20 22:22:40,139 - [INFO] - from application in play-akka.actor.default-dispatcher-542 
+http://localhost:9034/comment/getMentions/test@gmail.com
+
+2015-11-20 22:22:40,860 - [INFO] - from application in play-akka.actor.default-dispatcher-546 
+http://localhost:9034/comment/getMentions/test@gmail.com
+
+2015-11-20 22:22:54,347 - [INFO] - from application in play-akka.actor.default-dispatcher-545 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-20 22:22:58,097 - [INFO] - from application in play-akka.actor.default-dispatcher-551 
+http://localhost:9034/users/getAllUsername
+
+2015-11-20 22:22:58,282 - [INFO] - from application in play-akka.actor.default-dispatcher-550 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-20 22:22:58,320 - [INFO] - from application in play-akka.actor.default-dispatcher-550 
+http://localhost:9034/comment/getComment/2/test@gmail.com/json
+
+2015-11-20 22:23:18,185 - [INFO] - from application in play-akka.actor.default-dispatcher-544 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-20 22:23:25,476 - [INFO] - from application in play-akka.actor.default-dispatcher-544 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-20 22:23:47,596 - [INFO] - from application in play-akka.actor.default-dispatcher-549 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-20 22:24:05,097 - [INFO] - from application in play-akka.actor.default-dispatcher-545 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-20 22:24:14,189 - [INFO] - from application in play-akka.actor.default-dispatcher-545 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-20 22:24:16,783 - [INFO] - from application in play-akka.actor.default-dispatcher-549 
+http://localhost:9034/climateService/getAllMostRecentClimateServicesByLatestAccessTime/json
+
+2015-11-20 22:24:19,316 - [INFO] - from application in play-akka.actor.default-dispatcher-557 
+http://localhost:9034/users/getHasUnreadMention/zhibinz@andrew.cmu.edu
+
+2015-11-20 22:24:19,340 - [INFO] - from application in play-akka.actor.default-dispatcher-557 
+http://localhost:9034/climateService/getAllMostRecentClimateServicesByLatestAccessTime/json
+
+2015-11-20 22:24:22,214 - [INFO] - from application in play-akka.actor.default-dispatcher-557 
+http://localhost:9034/comment/getMentions/zhibinz@andrew.cmu.edu
+
+2015-11-20 22:24:22,817 - [INFO] - from application in play-akka.actor.default-dispatcher-553 
+http://localhost:9034/comment/getMentions/zhibinz@andrew.cmu.edu
+
+2015-11-20 22:24:29,324 - [INFO] - from application in play-akka.actor.default-dispatcher-555 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-20 22:24:31,012 - [INFO] - from application in play-akka.actor.default-dispatcher-560 
+http://localhost:9034/users/getAllUsername
+
+2015-11-20 22:24:31,169 - [INFO] - from application in play-akka.actor.default-dispatcher-560 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-20 22:24:31,182 - [INFO] - from application in play-akka.actor.default-dispatcher-560 
+http://localhost:9034/comment/getComment/1/zhibinz@andrew.cmu.edu/json
+
+2015-11-20 22:24:36,072 - [INFO] - from application in play-akka.actor.default-dispatcher-556 
+http://localhost:9034/users/getAllUsername
+
+2015-11-20 22:24:36,264 - [INFO] - from application in play-akka.actor.default-dispatcher-560 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-20 22:24:36,283 - [INFO] - from application in play-akka.actor.default-dispatcher-560 
+http://localhost:9034/comment/getComment/2/zhibinz@andrew.cmu.edu/json
+
+2015-11-20 22:24:50,538 - [INFO] - from application in play-akka.actor.default-dispatcher-557 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-20 22:25:16,521 - [INFO] - from application in play-akka.actor.default-dispatcher-554 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-20 22:25:41,737 - [INFO] - from application in play-akka.actor.default-dispatcher-561 
+http://localhost:9034/comment/searchCommentByHashTag/2-d-variable-map
+
+2015-11-20 22:27:32,248 - [INFO] - from application in play-akka.actor.default-dispatcher-567 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-11-20 22:27:32,268 - [INFO] - from application in play-akka.actor.default-dispatcher-567 
+http://localhost:9034/comment/getComment/2/zhibinz@andrew.cmu.edu/json
+
+2015-11-20 22:27:35,106 - [INFO] - from application in play-akka.actor.default-dispatcher-567 
+http://localhost:9034/climateService/getAllMostRecentClimateServicesByLatestAccessTime/json
+

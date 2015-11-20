@@ -47,7 +47,7 @@
 	</tr>
 	@for(climateService <- climateServices){
 	<tr>
-		<td><a href = "@climateService.getUrl()">@climateService.getClimateServiceName()</a></td>
+	  <td><a href = "@climateService.getUrl()">@climateService.getClimateServiceName()</a></td>
 
 		<td><span class="@climateService.getClimateServiceName() editable" data-name='purpose'>
 				@climateService.getPurpose() </span></td>

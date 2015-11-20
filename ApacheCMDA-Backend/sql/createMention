@@ -1,0 +1,1 @@
+create table Mention (mentionId bigint(20) not null auto_increment, username varchar(255) default null, commentId bigint(20) default null, foreign key(commentId) references Comment(commentId), primary key(mentionId));

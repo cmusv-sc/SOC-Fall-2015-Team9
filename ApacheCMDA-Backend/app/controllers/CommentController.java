@@ -54,18 +54,23 @@ public class CommentController extends Controller{
     private final ClimateServiceRepository climateServiceRepository;
     private final HashTagRepository hashTagRepository;
     private final UserRepository userRepository;
+    private final MentionRepository mentionRepository;
+    
     private final Pattern HASHTAG_PATTERN = Pattern.compile("#(\\S+)");
+    //private final Pattern HASHTAG_PATTERN = Pattern.compile("#(\\w+|\\W+)");
     private final SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     @Inject
     public CommentController(final CommentRepository commentRepository,
 			     final ClimateServiceRepository climateServiceRepository,
 			     final HashTagRepository hashTagRepository,
-			     final UserRepository userRepository){
+			     final UserRepository userRepository,
+			     final MentionRepository mentionRepository){
 	this.commentRepository = commentRepository;
 	this.climateServiceRepository = climateServiceRepository;
 	this.hashTagRepository = hashTagRepository;
 	this.userRepository = userRepository;
+	this.mentionRepository = mentionRepository;
     }
 
     private String failJson(String msg){
@@ -75,6 +80,42 @@ public class CommentController extends Controller{
 
 	return response.toString();
     }
+
+    private String checkMention(String text){
+	List<String> usernames = userRepository.getAllUsername();
+
+	for (String username : usernames){
+	    String mentionUsername = '@' + username + ' ';
+	    int index = text.indexOf(mentionUsername);
+
+	    if (index >= 0){
+		User user  = userRepository.findByUsername(username);
+		user.setUnreadMention(true);
+		userRepository.save(user);
+		
+		String before = text.substring(0, index);
+		String after = text.substring(index + username.length() + 1);
+		text = before + "<b style=\"background-color: #59D0F7\">" + username + "</b>" + after;
+	    }
+	}
+
+	return text;
+    }
+
+    private void saveMention(String text, Long commentId){
+	List<String> usernames = userRepository.getAllUsername();
+
+	for (String username : usernames){
+	    String mentionUsername = '@' + username + ' ';
+	    int index = text.indexOf(mentionUsername);
+
+	    if (index >= 0){
+		Mention mention = new Mention(username, commentId);
+		mentionRepository.save(mention);
+	    }
+	}
+    }
+
     private ArrayNode getCommentArray(Long elementId, Long parentId){
 	List<Comment> comments = commentRepository.findAllByClimateServiceIdAndParentId(elementId, parentId);
 	ArrayNode commentArray = JsonNodeFactory.instance.arrayNode();
@@ -146,26 +187,26 @@ public class CommentController extends Controller{
 
 
     private void addHashTags(Comment comment) {
-		Matcher mat = HASHTAG_PATTERN.matcher(comment.getText());
+	Matcher mat = HASHTAG_PATTERN.matcher(comment.getText());
 
-		System.out.println("add hash tags " + comment.getText());
+	System.out.println("add hash tags " + comment.getText());
 
-		List<HashTag> htags = new ArrayList<HashTag>();
-		while (mat.find()) {
-			String serviceName = mat.group(1);
-			System.out.println("matched hash tag " + serviceName);
-			List<ClimateService> services = climateServiceRepository.findAllByName(serviceName);
-			if (!services.isEmpty()) {
-				ClimateService service = services.get(0);
-				HashTag htag = new HashTag(comment, service, serviceName);
-				htags.add(htag);
-			}
-		}
-		hashTagRepository.save(htags);
+	List<HashTag> htags = new ArrayList<HashTag>();
+	while (mat.find()) {
+	    String serviceName = mat.group(1);
+	    System.out.println("matched hash tag " + serviceName);
+	    List<ClimateService> services = climateServiceRepository.findAllByName(serviceName);
+	    if (!services.isEmpty()) {
+		ClimateService service = services.get(0);
+		HashTag htag = new HashTag(comment, service, serviceName);
+		htags.add(htag);
+	    }
 	}
+	hashTagRepository.save(htags);
+    }
 
     public Result postComment(){
-		System.out.println("POST COMMENT");
+	System.out.println("POST COMMENT");
 
 	ObjectNode response = Json.newObject();
 	JsonNode json = request().body().asJson();
@@ -176,7 +217,7 @@ public class CommentController extends Controller{
 
 	try{
 	    long parentId = json.findPath("parent_id").asLong();
-	    String text = json.findPath("text").asText();
+	    String text = checkMention(json.findPath("text").asText());
 	    String email = json.findPath("email").asText();
 	    Long createdBy = userRepository.getUserIdByEmail(email);
 	    String fullname = userRepository.getUsernameByEmail(email);
@@ -193,6 +234,7 @@ public class CommentController extends Controller{
 	    Comment comment = new Comment(parentId, inReplyTo, serviceId, createdBy, fullname, "/assets/images/user_blank_picture.png", postedDate, text);
 	    Comment commentEntry = commentRepository.save(comment);
 	    addHashTags(commentEntry);
+	    saveMention(json.findPath("text").asText(), commentEntry.getCommentId());
 
 	    response.put("success", true);
 	    response.put("comment_id", commentEntry.getCommentId());
@@ -233,7 +275,7 @@ public class CommentController extends Controller{
 	System.out.println(json.toString());
 
 	try{
-	    String text = json.findPath("text").asText();
+	    String text = checkMention(json.findPath("text").asText());
 	    Long commentId = json.findPath("comment_id").asLong();
 	    Date postedDate = timeFormat.parse(json.findPath("posted_date").asText());
 
@@ -241,6 +283,7 @@ public class CommentController extends Controller{
 	    comment.setText(text);
 	    comment.setPostedDate(postedDate);
 	    Comment commentEntry = commentRepository.save(comment);
+	    saveMention(json.findPath("text").asText(), commentEntry.getCommentId());
 
 	    response.put("success", true);
 	    response.put("text", commentEntry.getText());
@@ -279,27 +322,34 @@ public class CommentController extends Controller{
 	return ok(response.toString());
     }
 
-	public Result searchCommentByHashTag(String hashTag) {
-		System.out.println("searchCommentByHashTag" + hashTag);
-		List<HashTag> htags = hashTagRepository.findHashTags("%" + hashTag + "");
+    public Result searchCommentByHashTag(String hashTag) {
+	System.out.println("searchCommentByHashTag" + hashTag);
+	List<HashTag> htags = hashTagRepository.findHashTags("%" + hashTag + "");
 
-		ObjectNode result = Json.newObject();
-		ArrayNode commentArray = JsonNodeFactory.instance.arrayNode();
-		for (HashTag htag: htags) {
-			Comment comment = htag.getComment();
-			ObjectNode oneComment = JsonNodeFactory.instance.objectNode();
-			oneComment.put("comment_id", comment.getCommentId());
-			oneComment.put("in_reply_to", comment.getInReplyTo());
-			oneComment.put("created_by", comment.getCreatedBy());
-			oneComment.put("fullname", comment.getFullname());
-			oneComment.put("picture", comment.getPicture());
-			oneComment.put("posted_date", timeFormat.format(comment.getPostedDate()));
-			oneComment.put("text", comment.getText());
-			oneComment.put("attachments", JsonNodeFactory.instance.arrayNode());
-			commentArray.add(oneComment);
-		}
-		System.out.println(commentArray.toString());
-		result.put("comments", commentArray);
-		return ok(result);
+	ObjectNode result = Json.newObject();
+	ArrayNode commentArray = JsonNodeFactory.instance.arrayNode();
+	for (HashTag htag: htags) {
+	    Comment comment = htag.getComment();
+	    ObjectNode oneComment = JsonNodeFactory.instance.objectNode();
+	    oneComment.put("comment_id", comment.getCommentId());
+	    oneComment.put("in_reply_to", comment.getInReplyTo());
+	    oneComment.put("created_by", comment.getCreatedBy());
+	    oneComment.put("fullname", comment.getFullname());
+	    oneComment.put("picture", comment.getPicture());
+	    oneComment.put("posted_date", timeFormat.format(comment.getPostedDate()));
+	    oneComment.put("text", comment.getText());
+	    oneComment.put("attachments", JsonNodeFactory.instance.arrayNode());
+	    commentArray.add(oneComment);
 	}
+	System.out.println(commentArray.toString());
+	result.put("comments", commentArray);
+	return ok(result);
+    }
+
+    public Result getMentions(String email){
+	String username = userRepository.getUsernameByEmail(email);
+	List<Long> commentIds = mentionRepository.findAllCommentIdByUsername(username);
+
+	return ok("tmp");
+    }
 }

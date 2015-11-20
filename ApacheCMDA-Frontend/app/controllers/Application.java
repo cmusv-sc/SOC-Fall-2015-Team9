@@ -17,10 +17,12 @@
 
 package controllers;
 
+import java.util.List;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
 import models.User;
+import models.Comment;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -36,7 +38,9 @@ import play.data.validation.Constraints;
 
 public class Application extends Controller {
     final static Form<User> userForm = Form.form(User.class);
-
+    private static final String GET_HAS_UNREAD_MENTION = Constants.NEW_BACKEND + "users/getHasUnreadMention/";
+    private static final String GET_MENTIONS = Constants.NEW_BACKEND + "comment/getMentions/";
+    
     public static class Login {
 	@Constraints.Required
 	public String email;
@@ -77,10 +81,15 @@ public class Application extends Controller {
 	Form<Login> loginForm = Form.form(Login.class).bindFromRequest();
 	if (loginForm.hasErrors()){
 	    return badRequest(login.render(loginForm));
-	} else {
+	}
+	else {
+	    JsonNode response = APICall.callAPI(GET_HAS_UNREAD_MENTION + loginForm.get().email);
+	    
 	    session().clear();
 	    session("email", loginForm.get().email);
+	    session("hasUnreadMention", response.get("hasUnreadMention").asText());
 	    return redirect(routes.ClimateServiceController.mostRecentlyUsedClimateServices3());
+	    //return redirect(routes.ClimateServiceController.home("", "", ""));
 	}
     }
 
@@ -154,6 +163,32 @@ public class Application extends Controller {
 	    e.printStackTrace();
 	    Application.flashMsg(APICall.createResponse(ResponseType.UNKNOWN));
 	}
+	
 	return ok(response);
+    }
+
+    public static Result showMentions(){
+	//return ok(comments.render());
+	return ok("{\"success\": true}");
+    }
+
+    public static Result getMentions(){
+	if (session("email") == null){
+	    flash("Fail", "Please login first");
+	    //return redirect(routes.ClimateServiceController.home(null, null, null));
+	}
+
+	JsonNode response = null;
+	try {
+	    response = APICall.callAPI(GET_MENTIONS + session("email"));
+	}catch (IllegalStateException e){
+	    e.printStackTrace();
+	    Application.flashMsg(APICall.createResponse(ResponseType.CONVERSIONERROR));
+	} catch (Exception e){
+	    e.printStackTrace();
+	    Application.flashMsg(APICall.createResponse(ResponseType.UNKNOWN));
+	}
+	
+	return ok(response.toString());
     }
 }

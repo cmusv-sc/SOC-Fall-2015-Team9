@@ -28,8 +28,12 @@ import javax.inject.Named;
 import javax.inject.Singleton;
 import javax.persistence.PersistenceException;
 
+import com.fasterxml.jackson.databind.node.JsonNodeFactory;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.google.gson.Gson;
+import play.libs.Json;
 
 /**
  * The main set of web services.
@@ -45,6 +49,14 @@ public class UserController extends Controller {
     @Inject
     public UserController(final UserRepository userRepository) {
 	this.userRepository = userRepository;
+    }
+
+    private String failJson(String msg){
+	ObjectNode response = Json.newObject();
+	response.put("success", false);
+	response.put("message", msg);
+
+	return response.toString();
     }
 
     public Result addUser() {
@@ -176,6 +188,20 @@ public class UserController extends Controller {
 	}
 	return ok(result);
     }
+
+    public Result getAllUsername(){
+	List<String> usernames = userRepository.getAllUsername();
+	ObjectNode result = Json.newObject();
+	ArrayNode usernameArray = JsonNodeFactory.instance.arrayNode();
+
+	for (String username : usernames){
+	    usernameArray.add(username);
+	}
+
+	result.put("users", usernameArray);
+	
+	return ok(result);
+    }
 	
     public Result isUserValid() {
 	JsonNode json = request().body().asJson();
@@ -222,6 +248,38 @@ public class UserController extends Controller {
 	    return badRequest("User is not deleted");
 	}
 		
+    }
+
+    public Result getHasUnreadMention(String email){
+	ObjectNode response = Json.newObject();
+	
+	response.put("hasUnreadMention", userRepository.getHasUnreadMentionByEmail(email));
+
+	return ok(response.toString());
+    }
+
+    public Result updateHasUnreadMention(){
+	JsonNode json = request().body().asJson();
+	ObjectNode response = Json.newObject();
+	if (json == null) {
+	    return badRequest("Expecting Json data");
+	}
+
+	try{
+	    User user  = userRepository.findByEmail(json.path("email").asText());
+	    user.setUnreadMention(json.path("unreadMention").asBoolean());
+	    
+	    userRepository.save(user);
+
+	    response.put("success", true);
+	}
+	catch (PersistenceException pe) {
+	    pe.printStackTrace();
+	    System.out.println("Comment not updated");
+	    return badRequest(failJson("Comment not updated"));
+	}
+
+	return ok(response.toString());
     }
     
     public Result isEmailExisted(){

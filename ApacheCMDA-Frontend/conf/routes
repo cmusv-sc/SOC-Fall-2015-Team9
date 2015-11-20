@@ -5,13 +5,17 @@
 # Home page
 GET           /home                                            controllers.ClimateServiceController.mostRecentlyUsedClimateServices3()
 GET           /                                                controllers.ClimateServiceController.mostRecentlyUsedClimateServices3()
-GET           /login                                           controllers.Application.login()
-GET           /logout                                          controllers.Application.logout()
-GET           /authenticate                                    controllers.Application.authenticate()
-GET           /signup                                          controllers.Application.signup()
-GET           /createNewUser                                   controllers.Application.createNewUser()
-GET           /createSuccess                                   controllers.Application.createSuccess()
-POST          /isEmailExisted                                  controllers.Application.isEmailExisted()
+#GET    /home				 controllers.ClimateServiceController.home(email ?= null, vfile ?= null, dataset ?= null)
+#GET    /			       	 controllers.ClimateServiceController.home(email ?= null, vfile ?= null, dataset ?= null)
+GET    /login				 controllers.Application.login()
+GET    /logout				 controllers.Application.logout()
+GET    /authenticate			 controllers.Application.authenticate()
+GET    /signup				 controllers.Application.signup()
+GET    /createNewUser			 controllers.Application.createNewUser()
+GET    /createSuccess			 controllers.Application.createSuccess()
+POST   /isEmailExisted			 controllers.Application.isEmailExisted()
+GET    /showMentions			 controllers.Application.showMentions()
+GET    /getMentions			 controllers.Application.getMentions()
 
 # BugReporting
 GET           /bugs                                            controllers.BugReportController.reports()
@@ -40,6 +44,9 @@ POST          /climate/download/climateServices                controllers.Clima
 POST          /climate/edit/climateServices                    controllers.ClimateServiceController.editClimateService()
 GET           /climate/new/climateServices                     controllers.ClimateServiceController.addClimateServices()
 GET           /climate/oneService                              controllers.ClimateServiceController.oneService(url ?= null)
+
+# User
+GET   /users/getAllUsername				@controllers.UserController.getAllUsername()
 
 # Comment
 GET           /comment/getComment/:url                         @controllers.CommentController.getComment(url: String)

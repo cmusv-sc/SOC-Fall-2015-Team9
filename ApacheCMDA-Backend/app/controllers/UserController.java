@@ -51,6 +51,14 @@ public class UserController extends Controller {
 	this.userRepository = userRepository;
     }
 
+    private String failJson(String msg){
+	ObjectNode response = Json.newObject();
+	response.put("success", false);
+	response.put("message", msg);
+
+	return response.toString();
+    }
+
     public Result addUser() {
 	JsonNode json = request().body().asJson();
 	if (json == null) {
@@ -240,6 +248,38 @@ public class UserController extends Controller {
 	    return badRequest("User is not deleted");
 	}
 		
+    }
+
+    public Result getHasUnreadMention(String email){
+	ObjectNode response = Json.newObject();
+	
+	response.put("hasUnreadMention", userRepository.getHasUnreadMentionByEmail(email));
+
+	return ok(response.toString());
+    }
+
+    public Result updateHasUnreadMention(){
+	JsonNode json = request().body().asJson();
+	ObjectNode response = Json.newObject();
+	if (json == null) {
+	    return badRequest("Expecting Json data");
+	}
+
+	try{
+	    User user  = userRepository.findByEmail(json.path("email").asText());
+	    user.setUnreadMention(json.path("unreadMention").asBoolean());
+	    
+	    userRepository.save(user);
+
+	    response.put("success", true);
+	}
+	catch (PersistenceException pe) {
+	    pe.printStackTrace();
+	    System.out.println("Comment not updated");
+	    return badRequest(failJson("Comment not updated"));
+	}
+
+	return ok(response.toString());
     }
     
     public Result isEmailExisted(){

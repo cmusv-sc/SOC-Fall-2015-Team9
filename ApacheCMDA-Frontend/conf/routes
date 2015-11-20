@@ -12,6 +12,8 @@ GET    /signup				 controllers.Application.signup()
 GET    /createNewUser			 controllers.Application.createNewUser()
 GET    /createSuccess			 controllers.Application.createSuccess()
 POST   /isEmailExisted			 controllers.Application.isEmailExisted()
+GET    /showMentions			 controllers.Application.showMentions()
+GET    /getMentions			 controllers.Application.getMentions()
 
 # BugReporting
 GET   /bugs                              controllers.BugReportController.reports()

@@ -27,6 +27,7 @@ GET       /comment/getComment/:id/:email/json			            @controllers.Comment
 POST  	  /comment/postComment					    @controllers.CommentController.postComment
 PUT  	  /comment/editComment					    @controllers.CommentController.editComment
 DELETE    /comment/deleteComment/:service_id/:comment_id	    @controllers.CommentController.deleteComment(service_id: Long, comment_id: Long)
+GET	  /comment/getMentions/:email				    @controllers.CommentController.getMentions(email: String)
 
 # Instrument
 GET       /instrument/getAllInstruments/json                        @controllers.InstrumentController.getAllInstruments(format: String="json")
@@ -53,6 +54,8 @@ PUT       /parameter/updateParameter/name/:oldName                  @controllers
 DELETE    /parameter/deleteParameter/service/:id/name/:name         @controllers.ParameterController.deleteParameterByName(id:Long, name: String)
 
 # Users
+GET	  /users/getHasUnreadMention/:email			    @controllers.UserController.getHasUnreadMention(email: String)
+POST	  /users/updateHasUnreadMention				    @controllers.UserController.updateHasUnreadMention()
 GET	  /users/getAllUsername					    @controllers.UserController.getAllUsername()
 POST	  /users/isEmailExisted	     				    @controllers.UserController.isEmailExisted
 GET       /users/:id                                                @controllers.UserController.getUser(id: Long, format: String="json")

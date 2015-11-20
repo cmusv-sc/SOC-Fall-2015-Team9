@@ -54,6 +54,7 @@ public class CommentController extends Controller{
     private final ClimateServiceRepository climateServiceRepository;
     private final HashTagRepository hashTagRepository;
     private final UserRepository userRepository;
+    private final MentionRepository mentionRepository;
     private final Pattern HASHTAG_PATTERN = Pattern.compile("#(\\w+|\\W+)");
     private final SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
@@ -61,11 +62,13 @@ public class CommentController extends Controller{
     public CommentController(final CommentRepository commentRepository,
 			     final ClimateServiceRepository climateServiceRepository,
 			     final HashTagRepository hashTagRepository,
-			     final UserRepository userRepository){
+			     final UserRepository userRepository,
+			     final MentionRepository mentionRepository){
 	this.commentRepository = commentRepository;
 	this.climateServiceRepository = climateServiceRepository;
 	this.hashTagRepository = hashTagRepository;
 	this.userRepository = userRepository;
+	this.mentionRepository = mentionRepository;
     }
 
     private String failJson(String msg){
@@ -84,6 +87,10 @@ public class CommentController extends Controller{
 	    int index = text.indexOf(mentionUsername);
 
 	    if (index >= 0){
+		User user  = userRepository.findByUsername(username);
+		user.setUnreadMention(true);
+		userRepository.save(user);
+		
 		String before = text.substring(0, index);
 		String after = text.substring(index + username.length() + 1);
 		text = before + "<b style=\"background-color: #59D0F7\">" + username + "</b>" + after;
@@ -91,6 +98,20 @@ public class CommentController extends Controller{
 	}
 
 	return text;
+    }
+
+    private void saveMention(String text, Long commentId){
+	List<String> usernames = userRepository.getAllUsername();
+
+	for (String username : usernames){
+	    String mentionUsername = '@' + username + ' ';
+	    int index = text.indexOf(mentionUsername);
+
+	    if (index >= 0){
+		Mention mention = new Mention(username, commentId);
+		mentionRepository.save(mention);
+	    }
+	}
     }
 
     private ArrayNode getCommentArray(Long elementId, Long parentId){
@@ -181,7 +202,7 @@ public class CommentController extends Controller{
     }
 
     public Result postComment(){
-		System.out.println("POST COMMENT");
+	System.out.println("POST COMMENT");
 
 	ObjectNode response = Json.newObject();
 	JsonNode json = request().body().asJson();
@@ -209,6 +230,7 @@ public class CommentController extends Controller{
 	    Comment comment = new Comment(parentId, inReplyTo, serviceId, createdBy, fullname, "/assets/images/user_blank_picture.png", postedDate, text);
 	    Comment commentEntry = commentRepository.save(comment);
 	    addHashTags(commentEntry);
+	    saveMention(json.findPath("text").asText(), commentEntry.getCommentId());
 
 	    response.put("success", true);
 	    response.put("comment_id", commentEntry.getCommentId());
@@ -249,7 +271,7 @@ public class CommentController extends Controller{
 	System.out.println(json.toString());
 
 	try{
-	    String text = json.findPath("text").asText();
+	    String text = checkMention(json.findPath("text").asText());
 	    Long commentId = json.findPath("comment_id").asLong();
 	    Date postedDate = timeFormat.parse(json.findPath("posted_date").asText());
 
@@ -257,6 +279,7 @@ public class CommentController extends Controller{
 	    comment.setText(text);
 	    comment.setPostedDate(postedDate);
 	    Comment commentEntry = commentRepository.save(comment);
+	    saveMention(json.findPath("text").asText(), commentEntry.getCommentId());
 
 	    response.put("success", true);
 	    response.put("text", commentEntry.getText());
@@ -293,5 +316,12 @@ public class CommentController extends Controller{
 	}
 
 	return ok(response.toString());
+    }
+
+    public Result getMentions(String email){
+	String username = userRepository.getUsernameByEmail(email);
+	List<Long> commentIds = mentionRepository.findAllCommentIdByUsername(username);
+
+	return ok("tmp");
     }
 }

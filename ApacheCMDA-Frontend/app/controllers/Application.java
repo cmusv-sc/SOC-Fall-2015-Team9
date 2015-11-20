@@ -39,6 +39,7 @@ import play.data.validation.Constraints;
 public class Application extends Controller {
     final static Form<User> userForm = Form.form(User.class);
     private static final String GET_HAS_UNREAD_MENTION = Constants.NEW_BACKEND + "users/getHasUnreadMention/";
+    private static final String UPDATE_HAS_UNREAD_MENTION = Constants.NEW_BACKEND + "users/updateHasUnreadMention";
     private static final String GET_MENTIONS = Constants.NEW_BACKEND + "comment/getMentions/";
     
     public static class Login {
@@ -137,8 +138,7 @@ public class Application extends Controller {
 
     	}catch (IllegalStateException e){
 	    e.printStackTrace();
-	    Application.flashMsg(APICall
-				 .createResponse(ResponseType.CONVERSIONERROR));
+	    Application.flashMsg(APICall.createResponse(ResponseType.CONVERSIONERROR));
 	} catch (Exception e){
 	    e.printStackTrace();
 	    Application.flashMsg(APICall.createResponse(ResponseType.UNKNOWN));
@@ -168,19 +168,24 @@ public class Application extends Controller {
     }
 
     public static Result showMentions(){
-	//return ok(comments.render());
-	return ok("{\"success\": true}");
+	return ok(comments.render());
     }
 
     public static Result getMentions(){
 	if (session("email") == null){
 	    flash("Fail", "Please login first");
-	    //return redirect(routes.ClimateServiceController.home(null, null, null));
+	    return redirect(routes.ClimateServiceController.mostRecentlyUsedClimateServices3());
 	}
 
+	ObjectNode jsonData = Json.newObject();
 	JsonNode response = null;
 	try {
+	    session("hasUnreadMention", "false");
 	    response = APICall.callAPI(GET_MENTIONS + session("email"));
+
+	    jsonData.put("email", session("email"));
+	    jsonData.put("unreadMention", false);
+	    APICall.postAPI(UPDATE_HAS_UNREAD_MENTION, jsonData);
 	}catch (IllegalStateException e){
 	    e.printStackTrace();
 	    Application.flashMsg(APICall.createResponse(ResponseType.CONVERSIONERROR));

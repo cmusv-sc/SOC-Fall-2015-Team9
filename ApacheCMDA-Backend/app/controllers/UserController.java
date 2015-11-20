@@ -268,7 +268,6 @@ public class UserController extends Controller {
 	try{
 	    User user  = userRepository.findByEmail(json.path("email").asText());
 	    user.setUnreadMention(json.path("unreadMention").asBoolean());
-	    
 	    userRepository.save(user);
 
 	    response.put("success", true);

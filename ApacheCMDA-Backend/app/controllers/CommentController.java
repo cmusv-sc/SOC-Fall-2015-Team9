@@ -28,6 +28,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.math.BigInteger;
 import play.libs.Json;
 
 import java.util.regex.Pattern;
@@ -56,8 +57,8 @@ public class CommentController extends Controller{
     private final UserRepository userRepository;
     private final MentionRepository mentionRepository;
     
-    private final Pattern HASHTAG_PATTERN = Pattern.compile("#(\\S+)");
-    //private final Pattern HASHTAG_PATTERN = Pattern.compile("#(\\w+|\\W+)");
+    //private final Pattern HASHTAG_PATTERN = Pattern.compile("#(\\S+)");
+    private final Pattern HASHTAG_PATTERN = Pattern.compile("#(\\w+|\\W+)");
     private final SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     @Inject
@@ -347,9 +348,61 @@ public class CommentController extends Controller{
     }
 
     public Result getMentions(String email){
+	Long userId = userRepository.getUserIdByEmail(email);
 	String username = userRepository.getUsernameByEmail(email);
-	List<Long> commentIds = mentionRepository.findAllCommentIdByUsername(username);
+	List<BigInteger> commentIds = mentionRepository.findAllCommentIdByUsername(username);
+	ArrayNode commentArray = JsonNodeFactory.instance.arrayNode();
+	Long total_comment = 0L;	
 
-	return ok("tmp");
+	ObjectNode response = Json.newObject();
+	ObjectNode result = Json.newObject();
+	ObjectNode user = Json.newObject();
+	
+	// User node
+	if (userId == null){
+	    user.put("user_id", -1);
+	    user.put("fullname", "Visitor");
+	    user.put("is_logged_in", false);
+	    user.put("is_add_allowed", false);
+	    user.put("is_edit_allowed", false);
+	}
+	else{
+	    user.put("user_id", userId);
+	    user.put("fullname", username);
+	    user.put("is_logged_in", true);
+	    user.put("is_add_allowed", true);
+	    user.put("is_edit_allowed", true);
+	}
+	user.put("picture", "/assets/images/user_blank_picture.png");
+
+	for (BigInteger commentId : commentIds){
+	    //Long commentId = ((BigInteger)commentIds[i]).longValue();
+	    Comment comment = commentRepository.findCommentById(commentId.longValue());
+	    
+	    ObjectNode oneComment = JsonNodeFactory.instance.objectNode();
+	    oneComment.put("comment_id", comment.getCommentId());
+	    oneComment.put("parent_id", 0);
+	    oneComment.put("in_reply_to", comment.getInReplyTo());
+	    oneComment.put("element_id", comment.getElementId());
+	    oneComment.put("created_by", comment.getCreatedBy());
+	    oneComment.put("fullname", comment.getFullname());
+	    oneComment.put("picture", comment.getPicture());
+	    oneComment.put("posted_date", timeFormat.format(comment.getPostedDate()));
+	    oneComment.put("text", comment.getText());
+	    oneComment.put("attachments", JsonNodeFactory.instance.arrayNode());
+	    oneComment.put("childrens", JsonNodeFactory.instance.arrayNode());
+	    commentArray.add(oneComment);
+	    total_comment++;
+	}
+
+	// result
+	result.put("comments", commentArray);
+	result.put("total_comment", total_comment);
+	result.put("user", user);
+
+	// response
+	response.put("results", result);
+
+	return ok(response.toString());
     }
 }

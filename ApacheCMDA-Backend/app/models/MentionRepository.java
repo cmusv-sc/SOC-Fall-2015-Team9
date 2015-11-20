@@ -17,6 +17,7 @@
 package models;
 
 import java.util.List;
+import java.math.BigInteger;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -32,6 +33,6 @@ import javax.inject.Singleton;
 @Named
 @Singleton
 public interface MentionRepository extends CrudRepository<Mention, Long>{
-    @Query(value = "select m.commentId from Mention m where m.username = ?1", nativeQuery = true)
-	List<Long> findAllCommentIdByUsername(String username);
+    @Query(value = "select m.commentId from Mention m where m.username = ?1 order by m.commentId desc", nativeQuery = true)
+	List<BigInteger> findAllCommentIdByUsername(String username);
 }

@@ -54,7 +54,7 @@ public class CommentController extends Controller{
     private final ClimateServiceRepository climateServiceRepository;
     private final HashTagRepository hashTagRepository;
     private final UserRepository userRepository;
-    private final Pattern HASHTAG_PATTERN = Pattern.compile("#(\\w+|\\W+)");
+    private final Pattern HASHTAG_PATTERN = Pattern.compile("#(\\S+)");
     private final SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     @Inject
@@ -146,21 +146,23 @@ public class CommentController extends Controller{
 
 
     private void addHashTags(Comment comment) {
-	Matcher mat = HASHTAG_PATTERN.matcher(comment.getText());
+		Matcher mat = HASHTAG_PATTERN.matcher(comment.getText());
 
-	List<HashTag> htags = new ArrayList<HashTag>();
-	while (mat.find()) {
-	    String hashTag = mat.group(1);
-	    String serviceName = hashTag.substring(1);
-	    List<ClimateService> services = climateServiceRepository.findAllByName(serviceName);
-	    if (!services.isEmpty()) {
-		ClimateService service = services.get(0);
-		HashTag htag = new HashTag(comment, service, hashTag);
-		htags.add(htag);
-	    }
+		System.out.println("add hash tags " + comment.getText());
+
+		List<HashTag> htags = new ArrayList<HashTag>();
+		while (mat.find()) {
+			String serviceName = mat.group(1);
+			System.out.println("matched hash tag " + serviceName);
+			List<ClimateService> services = climateServiceRepository.findAllByName(serviceName);
+			if (!services.isEmpty()) {
+				ClimateService service = services.get(0);
+				HashTag htag = new HashTag(comment, service, serviceName);
+				htags.add(htag);
+			}
+		}
+		hashTagRepository.save(htags);
 	}
-	hashTagRepository.save(htags);
-    }
 
     public Result postComment(){
 		System.out.println("POST COMMENT");

@@ -57,8 +57,8 @@ public class CommentController extends Controller{
     private final UserRepository userRepository;
     private final MentionRepository mentionRepository;
     
-    //private final Pattern HASHTAG_PATTERN = Pattern.compile("#(\\S+)");
-    private final Pattern HASHTAG_PATTERN = Pattern.compile("#(\\w+|\\W+)");
+    private final Pattern HASHTAG_PATTERN = Pattern.compile("#(\\S+)");
+    //private final Pattern HASHTAG_PATTERN = Pattern.compile("#(\\w+|\\W+)");
     private final SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     @Inject
@@ -142,6 +142,16 @@ public class CommentController extends Controller{
 
     private void deleteCommentById(Long elementId, Long commentId){
 	List<Comment> comments = commentRepository.findAllByClimateServiceIdAndParentId(elementId, commentId);
+	List<Mention> mentions = mentionRepository.findAllMentionByCommentId(commentId);
+	List<HashTag> hashTags = hashTagRepository.findHashTagsByCommentId(commentId);
+
+	for (Mention mention : mentions){
+	    mentionRepository.delete(mention);
+	}
+
+	for (HashTag hashTag : hashTags){
+	    hashTagRepository.delete(hashTag);
+	}
 
 	for (Comment comment : comments){
 	    deleteCommentById(elementId, comment.getCommentId());

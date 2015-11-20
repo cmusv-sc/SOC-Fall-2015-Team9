@@ -35,4 +35,6 @@ import javax.inject.Singleton;
 public interface MentionRepository extends CrudRepository<Mention, Long>{
     @Query(value = "select m.commentId from Mention m where m.username = ?1 order by m.commentId desc", nativeQuery = true)
 	List<BigInteger> findAllCommentIdByUsername(String username);
+    @Query(value = "select m.* from Mention m where m.commentId = ?1", nativeQuery = true)
+	List<Mention> findAllMentionByCommentId(Long commentId);
 }

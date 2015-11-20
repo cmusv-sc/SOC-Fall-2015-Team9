@@ -47,7 +47,7 @@
 	});
 
 	$.getJSON('/getMentions',function(data) {
-	    $("#commentNum").text(data.results.total_comment + " Comments");
+	    $("#commentNum").text(data.results.total_comment + " Mention(s)");
 	    $("#comments-container").empty();
 
 	    data.results.comments.forEach(function(comment){

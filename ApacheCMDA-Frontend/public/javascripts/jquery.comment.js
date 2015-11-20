@@ -56,6 +56,7 @@
 	    textarea.attr('name', 'text');
 	    textarea.attr('placeHolder', 'Leave a message...');
 	    textarea.css('overflow', 'hidden');
+	    textarea.attr('autocomplete', 'on');
 	    textarea.autogrow();
 
 	    textarea.on('keypress', function(e){
@@ -432,7 +433,16 @@
 
 		    form_edit_container.toggle();
 		    var textarea = $('textarea', form_edit_container);
-		    textarea.val(post_txt.html());
+		    var post_text = post_txt.html();
+		    var re1 = new RegExp('<b style="background-color: #59D0F7">', 'g');
+		    var re2 = new RegExp('</b>', 'g');
+		    
+		    post_text = post_text.replace(re1, '@');
+		    post_text = post_text.replace(re2, ' ');
+
+		    console.log(post_text);
+		    
+		    textarea.val(post_text);
 		    textarea.autogrow();
 		    textarea.focus();
 		});	

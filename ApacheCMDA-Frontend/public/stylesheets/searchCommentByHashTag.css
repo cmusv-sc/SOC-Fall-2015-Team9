@@ -1,0 +1,29 @@
+
+
+#comments-container {
+    font-size: 13px;
+}
+
+.posted-comment-container {
+    margin-top: 10%;
+    margin-bottom: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.posted-comment-sub-container {
+    width: 80%;
+}
+
+.posted-comment-head {
+}
+
+.posted-comment-author {
+}
+
+.posted-comment-date {
+}
+
+.posted-comment-body {
+    margin-top: 2%;
+}

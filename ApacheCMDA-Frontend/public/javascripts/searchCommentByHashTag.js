@@ -78,8 +78,12 @@ jQuery(document).ready(function ($) {
             comments.forEach(function (comment) {
                 $("#comments-container").append(commentHTML(comment));
             });
-        }).fail(function (err) {
-            console.log(err);
-        });
+
+	    if (comments.length == 0){
+		$("#comments-container").append("<h1>No result found</h1>")
+	    }
+	}).fail(function (err) {
+	    console.log(err);
+	});
     });
 });

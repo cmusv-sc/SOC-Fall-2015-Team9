@@ -72,7 +72,7 @@ public class CommentController extends Controller{
 	JsonNode response = null;
 
 	try{
-	    response = APICall.callAPI(GET_COMMENT_CALL + element.getId() + "/" + session("email") + "/json");
+	    response = APICall.callAPI(GET_COMMENT_CALL + element.getId() + "/" + "1/" + session("email") + "/json");
 	}
 	catch (IllegalStateException e){
 	    e.printStackTrace();
@@ -105,6 +105,8 @@ public class CommentController extends Controller{
 	    jsonData.put("text", HtmlFormat.escape(text).toString());
 	    jsonData.put("email", session("email"));
 	    jsonData.put("climate_service_id", element.getId());
+	    // version
+	    jsonData.put("version_id", 1L);
 	    response = APICall.postAPI(POST_COMMENT_CALL, jsonData);
 	}
 	catch (IllegalStateException e){
@@ -156,7 +158,7 @@ public class CommentController extends Controller{
 	JsonNode response = null;
 
 	try{
-	    response = APICall.deleteAPI(DELETE_COMMENT_CALL + element.getId() + "/" + comment_id);
+	    response = APICall.deleteAPI(DELETE_COMMENT_CALL + element.getId() + "/" + "1/" + comment_id);
 	}
 	catch (IllegalStateException e){
 	    e.printStackTrace();

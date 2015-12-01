@@ -37,4 +37,6 @@ public interface MentionRepository extends CrudRepository<Mention, Long>{
 	List<BigInteger> findAllCommentIdByUsername(String username);
     @Query(value = "select m.* from Mention m where m.commentId = ?1", nativeQuery = true)
 	List<Mention> findAllMentionByCommentId(Long commentId);
+    @Query(value = "select m.* from Mention m where m.commentId = ?1 and username = ?2", nativeQuery = true)
+	Mention findMentionByCommentIdAndName(Long commentId, String username);
 }

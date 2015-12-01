@@ -46,7 +46,7 @@ GET           /climate/new/climateServices                     controllers.Clima
 GET           /climate/oneService                              controllers.ClimateServiceController.oneService(url ?= null)
 
 # User
-GET   /users/getAllUsername				@controllers.UserController.getAllUsername()
+GET   /users/getUsernamesAndServicesAutoCompleteSource	       @controllers.UserController.getUsernamesAndServicesAutoCompleteSource()
 
 # Comment
 GET           /comment/getComment/:url                         @controllers.CommentController.getComment(url: String)

@@ -18,6 +18,7 @@
 package controllers;
 
 import models.User;
+import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -30,6 +31,7 @@ import scala.Console;
 import util.APICall;
 import util.APICall.ResponseType;
 import util.Constants;
+import models.metadata.ClimateService;
 import views.html.climate.*;
 import play.data.DynamicForm;
 import java.io.File;
@@ -39,6 +41,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Iterator;
 
 public class UserController extends Controller{
     private static final String GET_USER_LIST_CALL = Constants.NEW_BACKEND + "users/getAllUsername";
@@ -52,13 +55,25 @@ public class UserController extends Controller{
 	return response.toString();
     }
     
-    public Result getAllUsername(){
+    public Result getUsernamesAndServicesAutoCompleteSource(){
 	System.out.println("Get user list");
 
 	JsonNode response = null;
+	ObjectNode result = Json.newObject();
+	ArrayNode usernamesAndServices = JsonNodeFactory.instance.arrayNode();
 
 	try{
 	    response = APICall.callAPI(GET_USER_LIST_CALL);
+	    ArrayNode usernamesNode = (ArrayNode)response.get("users");
+	    for (JsonNode usernameNode : usernamesNode){
+		String username = usernameNode.asText();
+		usernamesAndServices.add('@' + username + ' ');
+	    }
+	    
+	    List<ClimateService> services = ClimateService.all();
+	    for (ClimateService service : services){
+		usernamesAndServices.add('#' + service.getClimateServiceName() + ' ');
+	    }
 	}
 	catch (IllegalStateException e){
 	    e.printStackTrace();
@@ -69,6 +84,8 @@ public class UserController extends Controller{
 	    return ok(failJson("Fail to connect"));
 	}
 
-	return ok(response.toString());
+	result.put("usernamesAndServices", usernamesAndServices);
+
+	return ok(result.toString());
     }
 }

@@ -9,7 +9,6 @@
 
 $(document).ready(function () {
     var commentHTML= function (comment) {
-
         return "<div class='posted-comment-container clearfix'>" +
                     "<div class='avatar pull-left'>" +
                         "<div class=>" +
@@ -29,7 +28,6 @@ $(document).ready(function () {
     };
     $("#comments-container").empty();
     $("#submitBtn").click(function () {
-        console.log("click button...");
         var htag = $("#inputHashTag")[0].value.substr(1);
         $.ajax({
             url: "/comment/searchCommentByHashTag/" + htag
@@ -45,16 +43,4 @@ $(document).ready(function () {
             console.log(err);
         });
     });
-    /*
-    $("#comments-container").append(commentHTML({
-        text : 'this is a comment',
-        posted_date: '2015-11-09 20:02:01',
-        fullname : 'wei li'
-    }));
-    $("#comments-container").append(commentHTML({
-        text : 'this is a comment',
-        posted_date: '2015-11-09 20:02:01',
-        fullname : 'wei li'
-    }));
-    */
 });

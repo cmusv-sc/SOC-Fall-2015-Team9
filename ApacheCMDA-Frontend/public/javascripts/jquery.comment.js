@@ -9,13 +9,13 @@
 
 // Utility
 
-		if ( typeof Object.create !== 'function' ) {
-		    Object.create = function( obj ) {
-			function F() {};
-			F.prototype = obj;
-			return new F();
-		    };
-		}
+			if ( typeof Object.create !== 'function' ) {
+			    Object.create = function( obj ) {
+				function F() {};
+				F.prototype = obj;
+				return new F();
+			    };
+			}
 
 (function($, window, document, undefined){
 
@@ -63,7 +63,6 @@
 		e = e || event;
 		if (e.keyCode === 13 && !e.shiftKey && $.trim(this.value).length>0) {
 		    e.preventDefault();
-		    //form_elem.submit();
 		    self.submitForm_(comment_id, form_elem.serialize());
 		}
 		else if (e.keyCode === 64){
@@ -71,7 +70,7 @@
 	    });
 
 	    function split( val ) {
-		return val.split(/@\s*/);
+		return val.split(/@|#\s*/);
 	    }
 	    function extractLast(term) {
 		return split(term).pop();
@@ -82,13 +81,20 @@
 		    var re = $.ui.autocomplete.escapeRegex(request.term);
 		    var last = re.substring(re.lastIndexOf('@'));
 		    var matcher = new RegExp( "^" + last, "i" );
-		    var a = $.grep(self.options.users, function(item,index){
+		    var a = $.grep(self.options.usersAndServices, function(item,index){
 		    	return matcher.test(item);
 		    });
+		    if (a.length == 0){
+			var last = re.substring(re.lastIndexOf('#'));
+			var matcher = new RegExp( "^" + last, "i" );
+			a = $.grep(self.options.usersAndServices, function(item,index){
+		    	    return matcher.test(item);
+			});
+		    }
 		    response($.ui.autocomplete.filter(a, extractLast(request.term)));
 		},
 		select: function(event, ui) {
-		    while (this.value[this.value.length - 1] != '@'){
+		    while (this.value[this.value.length - 1] != '@' && this.value[this.value.length - 1] != '#'){
 			this.value = this.value.substring(0, this.value.length - 1);
 		    }
 		    this.value = this.value + ui.item.value.substring(1);
@@ -98,7 +104,10 @@
 	    }).data('ui-autocomplete')._renderItem =  function (ul, item){
 		var newText = String(item.value).replace(new RegExp(this.term.substring(this.term.lastIndexOf('@')), "gi"),
 							 "<span style='font-weight:bold;color:Blue;'>$&</span>");
-
+		if (newText.indexOf('@') == -1){
+		    newText = String(item.value).replace(new RegExp(this.term.substring(this.term.lastIndexOf('#')), "gi"),
+							 "<span style='font-weight:bold;color:Blue;'>$&</span>");
+		}
 		return $("<li>")
 		    .data("ui-autocomplete-item", item)
 		    .append("<a>" + newText + "</a>")
@@ -252,19 +261,12 @@
 
 	    setTimeout(function() {
 		self.fetch_().done(function( results ) {
-
-		    //console.log(results);
-
-		    // results['user']
 		    if(results.results.user!=undefined)
 			self.user_info_ = results.results.user;
 
-		    // results['comments']
 		    if(results.results.comments!=undefined)
 			results_ = results.results.comments;
-		    // results = self.limit_( results.results.comments, self.options.limit );
 
-		    // results['total_comment']
 		    if(results.results.total_comment!=undefined)
 			self.total_comment = results.results.total_comment;
 
@@ -435,10 +437,12 @@
 		    var textarea = $('textarea', form_edit_container);
 		    var post_text = post_txt.html();
 		    var re1 = new RegExp('<b style="background-color: #59D0F7">', 'g');
-		    var re2 = new RegExp('</b>', 'g');
+		    var re2 = new RegExp('<b style="background-color: #E6ED0C">', 'g');
+		    var re3 = new RegExp('</b>', 'g');
 		    
 		    post_text = post_text.replace(re1, '@');
-		    post_text = post_text.replace(re2, ' ');
+		    post_text = post_text.replace(re2, '#');
+		    post_text = post_text.replace(re3, ' ');
 
 		    console.log(post_text);
 		    

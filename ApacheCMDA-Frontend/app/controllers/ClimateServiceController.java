@@ -19,6 +19,8 @@ package controllers;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import models.metadata.ClimateService;
 import play.Logger;
 import play.data.Form;
@@ -65,7 +67,27 @@ public class ClimateServiceController extends Controller {
 	return ok(searchClimateServices.render(climateServiceForm));
     }
 
+    public Result getServicesAutoCompleteSource(){
+	ObjectNode result = Json.newObject();
+	ArrayNode serviceNames = JsonNodeFactory.instance.arrayNode();
+	
+	try{
+	    List<ClimateService> services = ClimateService.all();
+	    for (ClimateService service : services){
+		serviceNames.add('@' + service.getClimateServiceName());
+	    }
+	}
+	catch (IllegalStateException e){
+	    e.printStackTrace();
+	}
+	catch (Exception e) {
+	    e.printStackTrace();
+	}
 
+	result.put("services", serviceNames);
+
+	return ok(result);
+    }
 
     public static Result getClimateSearchResult() throws UnsupportedEncodingException{
 	Form<ClimateService> dc = climateServiceForm.bindFromRequest();

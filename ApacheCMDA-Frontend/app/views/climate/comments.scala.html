@@ -19,28 +19,32 @@
 
 @scripts = {
 	<script src="//code.jquery.com/jquery-migrate-1.1.1.min.js"></script>
-	<script src="//code.jquery.com/ui/1.9.2/jquery-ui.min.js"></script>
-	<script src='@routes.Assets.at("javascripts/jquery.timeago.js")'></script>
-	<script src='@routes.Assets.at("javascripts/jquery.autogrow-textarea.js")'></script>
-	<script src='@routes.Assets.at("javascripts/jquery.comment.js")'></script>
 	<script src='@routes.Assets.at("javascripts/edit_button.js")'></script>
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
 
-	<link rel="stylesheet" href='@routes.Assets.at("stylesheets/jquery.comment.css")'>
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+	<link rel="stylesheet" href='@routes.Assets.at("stylesheets/searchCommentByHashTag.css")'>
 	<script type="text/javascript">
 
     $(document).ready(function(){
 	var commentHTML= function (comment) {
-	    return '<li>' +
-		'<div class="avatar pull-left"><img src="/assets/images/user_blank_picture.png" border="0" class="ui-corner-all"></div>' +
-		'<div class="posted-comment-container pull-left">' +
-		'<div class="posted-comment-head">' +
-		'<span class="posted-comment-author">' + comment.fullname + 
-		'</span><span class="dot">•</span><span>' + comment.posted_date +
-		'</span></div><div class="posted-comment-body">' +
-		'<div class="posted-comment-txt">' + comment.text +
-		'</div></div></div>' + '<div class="clear"></div>' +
-		'</li><li></li>';
+            return "<div class='posted-comment-container clearfix'>" +
+                "<div class='avatar pull-left'>" +
+                "<div class=>" +
+                "<img class='ui-corner-all curr-user-photo' border='0' src='/assets/images/user_blank_picture.png'></img>" +
+                "</div>" +
+                "</div>" +
+                "<div class='posted-comment-sub-container pull-right'>" +
+                "<div class='posted-comment-head clearfix'>" +
+                "<span class='posted-comment-author pull-left'>" + comment.fullname + "</span>" +
+                "<span class='posted-comment-date pull-right'>" + comment.posted_date + "</span>" +
+                "</div>" +
+                "<div class='posted-comment-body'>" +
+                "<div class='posted-comment-text'>" + comment.text + "</div>" +
+                "</div>" +
+                "</div>"
+            "</div>";
 	};
 	$.ajaxPrefilter(function(options, originalOptions, jqXHR){
 	    options.async = true;
@@ -51,7 +55,7 @@
 	    $("#comments-container").empty();
 
 	    data.results.comments.forEach(function(comment){
-		$('#comment-list').append(commentHTML(comment));
+		$('#comments-container').append(commentHTML(comment));
 	    });
 	});
     });
@@ -62,12 +66,10 @@
     @flash_message()
     
 	<h1 id="commentNum"></h1>
-	
-    	<div class="comment-container" style="display:block;">
-	<div class="comments-display">
-	
-	<ul class="posted-comments" id="comment-list">
-	</ul>
+
+	<div class="ui-widget col-sm-offset-3 col-sm-6">
+	<div class="form-group">
+	<div id="comments-container" class="form-group">
 	</div>
-	</div>
+	</div>	
 }

@@ -65,8 +65,6 @@
 		    e.preventDefault();
 		    self.submitForm_(comment_id, form_elem.serialize());
 		}
-		else if (e.keyCode === 64){
-		}
 	    });
 
 	    function split( val ) {

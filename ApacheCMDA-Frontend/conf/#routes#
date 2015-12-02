@@ -53,7 +53,7 @@ GET   /users/getUsernamesAndServicesAutoCompleteSource	       @controllers.UserC
 # Comment
 GET           /comment/getComment/:url/:version                @controllers.CommentController.getComment(url: String, version: Long)
 POST          /comment/postComment/:url/:version               @controllers.CommentController.postComment(url: String, version: Long)
-POST          /comment/postComment/:url/:version/:id           @controllers.CommentController.editComment(url: String, version: Long, id: String)
+POST          /comment/postComment/:url/:version/:id           @controllers.CommentController.editComment(url: String, id: String)
 DELETE        /comment/deleteComment/:url/:version             @controllers.CommentController.deleteComment(url: String, version: Long)
 GET   /comment/searchCommentByHashTag/:hashTag		       controllers.CommentController.searchCommentByHashTag(hashTag: String)
 GET   /comment/searchCommentByHashTagPage		       controllers.CommentController.searchCommentByHashTagPage()

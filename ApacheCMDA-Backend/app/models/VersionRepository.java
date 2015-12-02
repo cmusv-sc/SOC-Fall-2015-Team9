@@ -29,6 +29,6 @@ import javax.inject.Singleton;
 @Named
 @Singleton
 public interface VersionRepository extends CrudRepository<Version, Long>{
-    @Query(value = "select v.* from Version v where v.serviceId = ?1", nativeQuery = true)
+    @Query(value = "select v.* from Version v where v.serviceId = ?1 order by v.versionId", nativeQuery = true)
 	List<Version> getAllVersions(Long serviceId);
 }

@@ -15,7 +15,7 @@
     * limitations under the License.											   *
     *******************************************************************************@ 
 
-@(url: String) 
+@(url: String, version: String) 
 
 @import helper._ 
 
@@ -52,9 +52,9 @@
 	    $.getJSON('/users/getUsernamesAndServicesAutoCompleteSource',function(data){
 		$('#commentContainer').comment({
 		    title: 'Comments',
-		    url_get: '/comment/getComment/' + url,
-		    url_input: '/comment/postComment/' + url,
-		    url_delete: '/comment/deleteComment/' + url,
+		    url_get: '/comment/getComment/' + url + "/@version",
+		    url_input: '/comment/postComment/' + url + "/@version",
+		    url_delete: '/comment/deleteComment/' + url + "@version",
 		    usersAndServices: data.usernamesAndServices,
 		    limit: 10,
 		    auto_refresh: false,

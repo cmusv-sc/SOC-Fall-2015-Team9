@@ -15,7 +15,7 @@
     <div id="versions">
         @for(climateService <- climateServices) {
             <div>
-                <a href="@routes.ClimateServiceController.oneService(climateService.getUrl())">Version @climateService.getVersion()</p>
+                <a href="@routes.ClimateServiceController.oneService(climateService.getUrl(), climateService.getVersion())">Version @climateService.getVersion()</p>
             </div>
         }
     </div>

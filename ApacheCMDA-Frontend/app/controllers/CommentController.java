@@ -65,14 +65,14 @@ public class CommentController extends Controller{
 	return response.toString();
     }
 
-    public Result getComment(String url){
+    public Result getComment(String url, Long version){
 	System.out.println("GET COMMENT");
 	
 	ClimateService element = ClimateService.findServiceByUrl(url);
 	JsonNode response = null;
 
 	try{
-	    response = APICall.callAPI(GET_COMMENT_CALL + element.getId() + "/" + "1/" + session("email") + "/json");
+	    response = APICall.callAPI(GET_COMMENT_CALL + element.getId() + "/" + version + "/" + session("email") + "/json");
 	}
 	catch (IllegalStateException e){
 	    e.printStackTrace();
@@ -86,7 +86,7 @@ public class CommentController extends Controller{
 	return ok(response.toString());
     }
 
-    public Result postComment(String url){
+    public Result postComment(String url, Long version){
 	System.out.println("POST COMMENT");
 
 	if (session("email") == null){
@@ -105,8 +105,7 @@ public class CommentController extends Controller{
 	    jsonData.put("text", HtmlFormat.escape(text).toString());
 	    jsonData.put("email", session("email"));
 	    jsonData.put("climate_service_id", element.getId());
-	    // version
-	    jsonData.put("version_id", 1L);
+	    jsonData.put("version_id", version);
 	    response = APICall.postAPI(POST_COMMENT_CALL, jsonData);
 	}
 	catch (IllegalStateException e){
@@ -121,7 +120,7 @@ public class CommentController extends Controller{
 	return ok(response.toString());
     }
 
-    public Result editComment(String url, String id){
+    public Result editComment(String url, Long version, String id){
 	System.out.println("EDIT COMMENT");
 	
 	String text = DynamicForm.form().bindFromRequest().get("text");
@@ -135,6 +134,7 @@ public class CommentController extends Controller{
 	    jsonData.put("posted_date", dateFormat.format(date));
 	    jsonData.put("comment_id", comment_id);
 	    jsonData.put("text", text);
+	    jsonData.put("version", version);
 	    jsonData.put("climate_service_id", element.getId());
 	    response = APICall.putAPI(EDIT_COMMENT_CALL, jsonData);
 	}
@@ -150,7 +150,7 @@ public class CommentController extends Controller{
 	return ok(response.toString());
     }
 
-    public Result deleteComment(String url){
+    public Result deleteComment(String url, Long version){
 	System.out.println("DELETE COMMENT");
 	
 	String comment_id = DynamicForm.form().bindFromRequest().get("comment_id");
@@ -158,7 +158,7 @@ public class CommentController extends Controller{
 	JsonNode response = null;
 
 	try{
-	    response = APICall.deleteAPI(DELETE_COMMENT_CALL + element.getId() + "/" + "1/" + comment_id);
+	    response = APICall.deleteAPI(DELETE_COMMENT_CALL + element.getId() + "/" + version + "/" + comment_id);
 	}
 	catch (IllegalStateException e){
 	    e.printStackTrace();

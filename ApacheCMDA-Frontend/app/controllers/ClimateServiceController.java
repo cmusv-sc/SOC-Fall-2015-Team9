@@ -238,8 +238,8 @@ public class ClimateServiceController extends Controller {
 	return ok(file);
     }
 
-    public static Result oneService(String url) {
-	return ok(oneService.render("/assets/html/" + url));
+    public static Result oneService(String url, String version) {
+	return ok(oneService.render("/assets/html/" + url, version));
     }
 
     public static Result getAllVersions(String climateServiceId) {

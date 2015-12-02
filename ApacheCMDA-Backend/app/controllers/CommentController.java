@@ -96,7 +96,7 @@ public class CommentController extends Controller{
 		
 		String before = text.substring(0, index);
 		String after = text.substring(index + username.length() + 1);
-		text = before + "<b style=\"background-color: #59D0F7\">@" + username + "</b> " + after;
+		text = before + "<b style=\"background-color: #59D0F7\">@" + username + "</b>" + after;
 	    }
 	}
 
@@ -244,7 +244,7 @@ public class CommentController extends Controller{
 
 	    // if inside reply
 	    if (parentId != 0){
-		inReplyTo = userRepository.getUsernameById(parentId);
+		inReplyTo = commentRepository.findCommentById(parentId).getFullname();
 	    }
 	    
 	    Comment comment = new Comment(parentId, inReplyTo, serviceId, createdBy, fullname,
@@ -258,6 +258,7 @@ public class CommentController extends Controller{
 	    response.put("comment_id", commentEntry.getCommentId());
 	    response.put("parent_id", commentEntry.getParentId());
 	    response.put("created_by", commentEntry.getCreatedBy());
+	    response.put("in_reply_to", inReplyTo);
 	    response.put("fullname", commentEntry.getFullname());
 	    response.put("picture", commentEntry.getPicture());
 	    response.put("posted_date", timeFormat.format(commentEntry.getPostedDate()));

@@ -31,6 +31,12 @@ DELETE    /comment/deleteComment/:id/:versionId/:commentId   	    @controllers.C
 GET       /comment/searchCommentByHashTag/:hashTag	            @controllers.CommentController.searchCommentByHashTag(hashTag: String)
 GET	  /comment/getMentions/:email				    @controllers.CommentController.getMentions(email: String)
 
+# Rating
+GET       /rating/getRating/:service_id/:email/json		    @controllers.RatingController.getRating(service_id: Long, email: String, format: String="json")
+POST  	  /rating/postRating					            @controllers.RatingController.postRating
+PUT  	  /rating/editRating					            @controllers.RatingController.editRating
+DELETE    /rating/deleteRating/:user_id/:service_id         @controllers.RatingController.deleteRating(user_id: Long, service_id: Long)
+
 # Instrument
 GET       /instrument/getAllInstruments/json                        @controllers.InstrumentController.getAllInstruments(format: String="json")
 GET       /instrument/getInstrument/id/:id/json                     @controllers.InstrumentController.getInstrument(id: Long, format: String="json")

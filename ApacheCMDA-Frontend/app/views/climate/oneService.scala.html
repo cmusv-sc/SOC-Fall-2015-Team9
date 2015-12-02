@@ -23,6 +23,7 @@
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 	<link rel="stylesheet" href='@routes.Assets.at("stylesheets/jquery.comment.css")'>
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href='@routes.Assets.at("stylesheets/jquery.raty.css")'>
 
 	<script src="//code.jquery.com/jquery-migrate-1.1.1.min.js"></script>
 	<script src="//code.jquery.com/ui/1.9.2/jquery-ui.min.js"></script>
@@ -30,6 +31,7 @@
 	<script src='@routes.Assets.at("javascripts/jquery.timeago.js")'></script>
 	<script src='@routes.Assets.at("javascripts/jquery.autogrow-textarea.js")'></script>
 	<script src='@routes.Assets.at("javascripts/jquery.comment.js")'></script>
+	<script src='@routes.Assets.at("javascripts/jquery.raty.js")'></script>
 
 	<script type="text/javascript">
 	jQuery(document).ready(function($){
@@ -61,6 +63,18 @@
 		    refresh: 10000,
 		    transition: 'slideToggle'
 		});
+
+		$('#rating').raty({
+  			path: '/assets/images',
+  			cancel      : true,
+  			cancelPlace : 'right',
+ 			half        : false,
+  			click       : function(score, evt) {
+      			<!--alert('ID: ' + this.id + "\nscore: " + score + "\nevent: " + evt);-->
+      			return score;
+    		}
+ 		 });
+
 	    });
 	});
     </script>
@@ -84,6 +98,9 @@
 	</div>
 
 	<hr style="display: block;margin-top: 2em;margin-bottom: 2em;margin-left: auto;margin-right: auto;border-style: inset;border-width: 1px;">
+
+
+	<div id="rating"></div>
 
 	<div class="container">
 	<div class="comment-container" id="commentContainer"></div>

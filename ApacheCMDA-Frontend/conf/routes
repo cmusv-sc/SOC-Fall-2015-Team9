@@ -39,6 +39,7 @@ POST          /climate/download/climateServices                controllers.Clima
 POST          /climate/edit/climateServices                    controllers.ClimateServiceController.editClimateService()
 GET           /climate/new/climateServices                     controllers.ClimateServiceController.addClimateServices()
 GET           /climate/oneService                              controllers.ClimateServiceController.oneService(url ?= null)
+GET           /climate/getAllVersion/:serviceId                controllers.ClimateServiceController.getAllVersion(serviceId : long) 
 
 # Comment
 GET           /comment/getComment/:url                         @controllers.CommentController.getComment(url: String)

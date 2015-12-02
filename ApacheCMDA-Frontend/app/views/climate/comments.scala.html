@@ -1,39 +1,75 @@
+@*******************************************************************************
+    * Licensed to the Apache Software Foundation (ASF) under one or more		   *
+    * contributor license agreements.  See the NOTICE file distributed with	   *
+    * this work for additional information regarding copyright ownership.         *
+    * The ASF licenses this file to You under the Apache License, Version 2.0     *
+    * (the "License"); you may not use this file except in compliance with        *
+    * the License.  You may obtain a copy of the License at                       *
+    *                                                                             *
+    *    http://www.apache.org/licenses/LICENSE-2.0                               *
+    *																			   *
+    * Unless required by applicable law or agreed to in writing, software         *
+    * distributed under the License is distributed on an "AS IS" BASIS,           *
+    * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.    *
+    * See the License for the specific language governing permissions and         *
+    * limitations under the License.											   *
+    *******************************************************************************@
 
-@(url: String)
 @import helper._
 
 @scripts = {
-  <script src="//code.jquery.com/jquery-migrate-1.1.1.min.js"></script>
-  <script src="//code.jquery.com/ui/1.9.2/jquery-ui.min.js"></script>
-  <script src='@routes.Assets.at("javascripts/jquery.timeago.js")'></script>
-  <script src='@routes.Assets.at("javascripts/jquery.autogrow-textarea.js")'></script>
-  <script src='@routes.Assets.at("javascripts/jquery.comment.js")'></script>
+	<script src="//code.jquery.com/jquery-migrate-1.1.1.min.js"></script>
+	<script src='@routes.Assets.at("javascripts/edit_button.js")'></script>
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
 
-  <link rel="stylesheet" href='@routes.Assets.at("stylesheets/jquery.comment.css")'>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css">
-  <script type="text/javascript">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+	<link rel="stylesheet" href='@routes.Assets.at("stylesheets/searchCommentByHashTag.css")'>
+	<script type="text/javascript">
 
-  $(document).ready(function(){
-  $.ajaxPrefilter(function(options, originalOptions, jqXHR){
-  options.async = true;
-  });
+    $(document).ready(function(){
+	var commentHTML= function (comment) {
+            return "<div class='posted-comment-container clearfix'>" +
+                "<div class='avatar pull-left'>" +
+                "<div class=>" +
+                "<img class='ui-corner-all curr-user-photo' border='0' src='/assets/images/user_blank_picture.png'></img>" +
+                "</div>" +
+                "</div>" +
+                "<div class='posted-comment-sub-container pull-right'>" +
+                "<div class='posted-comment-head clearfix'>" +
+                "<span class='posted-comment-author pull-left'>" + comment.fullname + "</span>" +
+                "<span class='posted-comment-date pull-right'>" + comment.posted_date + "</span>" +
+                "</div>" +
+                "<div class='posted-comment-body'>" +
+                "<div class='posted-comment-text'>" + comment.text + "</div>" +
+                "</div>" +
+                "</div>"
+            "</div>";
+	};
+	$.ajaxPrefilter(function(options, originalOptions, jqXHR){
+	    options.async = true;
+	});
 
-  $('div.comment-container').comment({
-  title: 'Comments',
-  url_get: '/comment/getComment/' + url,
-  url_input: '/comment/postComment/' + url,
-  url_delete: '/comment/deleteComment/' + url,
-  limit: 100,
-  auto_refresh: false,
-  refresh: 10000,
-  transition: 'slideToggle'
-  });
-  });
-  </script>
+	$.getJSON('/getMentions',function(data) {
+	    $("#commentNum").text(data.results.total_comment + " Mention(s)");
+	    $("#comments-container").empty();
+
+	    data.results.comments.forEach(function(comment){
+		$('#comments-container').append(commentHTML(comment));
+	    });
+	});
+    });
+    </script>
 }
 
 @main("Comment", scripts) {
-  <div class=""container">
-  <div class="comment-container"></div>
-  </div>
+    @flash_message()
+    
+	<h1 id="commentNum"></h1>
+
+	<div class="ui-widget col-sm-offset-3 col-sm-6">
+	<div class="form-group">
+	<div id="comments-container" class="form-group">
+	</div>
+	</div>	
 }

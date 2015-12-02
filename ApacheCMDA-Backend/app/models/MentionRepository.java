@@ -16,23 +16,27 @@
  */
 package models;
 
-import java.util.Date;
 import java.util.List;
+import java.math.BigInteger;
 
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import javax.inject.Named;
 import javax.inject.Singleton;
 
+/**
+ * Provides CRUD functionality for accessing people. Spring Data auto-magically takes care of many standard
+ * operations here.
+ */
 @Named
 @Singleton
-public interface CommentRepository extends CrudRepository<Comment, Long>{
-    @Query(value = "select c.* from Comment c where c.elementId = ?1 and c.versionId = ?2 and c.parentId = ?3 order by postedDate desc", nativeQuery = true)
-	List<Comment> findAllByClimateServiceIdAndVersionIdAndParentId(Long elementId, Long versionId, Long parentId);
-    @Query(value = "select count(*) from Comment where elementId = ?1 and versionId = ?2", nativeQuery = true)
-	Long countComments(Long elementId, Long versionId);
-    @Query(value = "select c.* from Comment c where c.commentId = ?1", nativeQuery = true)
-	Comment findCommentById(Long commentId);
+public interface MentionRepository extends CrudRepository<Mention, Long>{
+    @Query(value = "select m.commentId from Mention m where m.username = ?1 order by m.commentId desc", nativeQuery = true)
+	List<BigInteger> findAllCommentIdByUsername(String username);
+    @Query(value = "select m.* from Mention m where m.commentId = ?1", nativeQuery = true)
+	List<Mention> findAllMentionByCommentId(Long commentId);
+    @Query(value = "select m.* from Mention m where m.commentId = ?1 and username = ?2", nativeQuery = true)
+	Mention findMentionByCommentIdAndName(Long commentId, String username);
 }

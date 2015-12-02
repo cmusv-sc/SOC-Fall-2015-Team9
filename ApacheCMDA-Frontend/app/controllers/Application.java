@@ -17,10 +17,12 @@
 
 package controllers;
 
+import java.util.List;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
 import models.User;
+import models.Comment;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -36,12 +38,15 @@ import play.data.validation.Constraints;
 
 public class Application extends Controller {
     final static Form<User> userForm = Form.form(User.class);
-	
+    private static final String GET_HAS_UNREAD_MENTION = Constants.NEW_BACKEND + "users/getHasUnreadMention/";
+    private static final String UPDATE_HAS_UNREAD_MENTION = Constants.NEW_BACKEND + "users/updateHasUnreadMention";
+    private static final String GET_MENTIONS = Constants.NEW_BACKEND + "comment/getMentions/";
+    
     public static class Login {
 	@Constraints.Required
 	public String email;
 	public String password;
-	    
+
 	public String validate(){
 	    ObjectNode jsonData = Json.newObject();
 	    jsonData.put("email", email);
@@ -54,7 +59,7 @@ public class Application extends Controller {
 	    return null;
 	}
     }
-	
+
     public static Result home(){
 	return ok(home.render("", "", ""));
     }
@@ -62,47 +67,52 @@ public class Application extends Controller {
     public static Result login(){
 	return ok(login.render(Form.form(Login.class)));
     }
-	
+
     public static Result logout(){
         session().clear();
         flash("success", "You've been logged out");
-        return redirect(routes.ClimateServiceController.home(null, null, null));
+        return redirect(routes.ClimateServiceController.mostRecentlyUsedClimateServices3());
     }
-	
+
     public static Result createSuccess(){
 	return ok(createSuccess.render());
     }
-	
+
     public static Result authenticate(){
 	Form<Login> loginForm = Form.form(Login.class).bindFromRequest();
 	if (loginForm.hasErrors()){
 	    return badRequest(login.render(loginForm));
-	} else {
+	}
+	else {
+	    JsonNode response = APICall.callAPI(GET_HAS_UNREAD_MENTION + loginForm.get().email);
+	    
 	    session().clear();
 	    session("email", loginForm.get().email);
-	    return redirect(routes.ClimateServiceController.home("", "", ""));
+	    session("hasUnreadMention", response.get("hasUnreadMention").asText());
+	    return redirect(routes.ClimateServiceController.mostRecentlyUsedClimateServices3());
+	    //return redirect(routes.ClimateServiceController.home("", "", ""));
 	}
     }
-    
+
     public static void flashMsg(JsonNode jsonNode){
 	Iterator<Entry<String, JsonNode>> it = jsonNode.fields();
 	while (it.hasNext()){
 	    Entry<String, JsonNode> field = it.next();
-	    flash(field.getKey(),field.getValue().asText());	
+	    flash(field.getKey(),field.getValue().asText());
 	}
     }
-    
-    public static Result signup(){    	
+
+    public static Result signup(){
 	return ok(signup.render(userForm));
     }
-  
-    
+
+
     public static Result createNewUser(){
     	Form<User> nu = userForm.bindFromRequest();
-    	
+
     	ObjectNode jsonData = Json.newObject();
     	String userName = null;
-    	
+
     	try{
 	    userName = nu.field("firstName").value()+" "+(nu.field("middleInitial")).value()
 		+" "+(nu.field("lastName")).value();
@@ -119,28 +129,27 @@ public class Application extends Controller {
 	    jsonData.put("faxNumber", nu.get().getFaxNumber());
 	    jsonData.put("researchFields", nu.get().getResearchFields());
 	    jsonData.put("highestDegree", nu.get().getHighestDegree());
-			
+
 	    JsonNode response = APICall.postAPI(Constants.NEW_BACKEND + Constants.ADD_USER, jsonData);
 
 	    // flash the response message
 	    Application.flashMsg(response);
 	    return redirect(routes.Application.createSuccess());
-    		
+
     	}catch (IllegalStateException e){
 	    e.printStackTrace();
-	    Application.flashMsg(APICall
-				 .createResponse(ResponseType.CONVERSIONERROR));
+	    Application.flashMsg(APICall.createResponse(ResponseType.CONVERSIONERROR));
 	} catch (Exception e){
 	    e.printStackTrace();
 	    Application.flashMsg(APICall.createResponse(ResponseType.UNKNOWN));
 	}
-	return ok(signup.render(nu));  
+	return ok(signup.render(nu));
     }
-    
+
     public static Result isEmailExisted(){
     	JsonNode json = request().body().asJson();
     	String email = json.path("email").asText();
-    	
+
 	ObjectNode jsonData = Json.newObject();
 	JsonNode response = null;
 	try {
@@ -154,6 +163,37 @@ public class Application extends Controller {
 	    e.printStackTrace();
 	    Application.flashMsg(APICall.createResponse(ResponseType.UNKNOWN));
 	}
+	
 	return ok(response);
+    }
+
+    public static Result showMentions(){
+	return ok(comments.render());
+    }
+
+    public static Result getMentions(){
+	if (session("email") == null){
+	    flash("Fail", "Please login first");
+	    return redirect(routes.ClimateServiceController.mostRecentlyUsedClimateServices3());
+	}
+
+	ObjectNode jsonData = Json.newObject();
+	JsonNode response = null;
+	try {
+	    session("hasUnreadMention", "false");
+	    response = APICall.callAPI(GET_MENTIONS + session("email"));
+
+	    jsonData.put("email", session("email"));
+	    jsonData.put("unreadMention", false);
+	    APICall.postAPI(UPDATE_HAS_UNREAD_MENTION, jsonData);
+	}catch (IllegalStateException e){
+	    e.printStackTrace();
+	    Application.flashMsg(APICall.createResponse(ResponseType.CONVERSIONERROR));
+	} catch (Exception e){
+	    e.printStackTrace();
+	    Application.flashMsg(APICall.createResponse(ResponseType.UNKNOWN));
+	}
+	
+	return ok(response.toString());
     }
 }

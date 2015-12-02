@@ -13,7 +13,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.    *
  * See the License for the specific language governing permissions and         *
  * limitations under the License.											   *
- *******************************************************************************@ 
+ *******************************************************************************@
 
 @(bugReportForm: play.data.Form[BugReport])
 
@@ -21,48 +21,48 @@
 @import helper.twitterBootstrap._
 
 @main("Bug Report") {
-    
+
     @flash_message()
-        
+
     @helper.form(action = routes.BugReportController.newReport) {
-        
+
         <fieldset>
             <legend>Bug Report</legend>
-            
+
             @inputText(
-                bugReportForm("name"), 
-                '_label -> "Your name",                 
-                '_error -> bugReportForm.globalError                                
+                bugReportForm("name"),
+                '_label -> "Your name",
+                '_error -> bugReportForm.globalError
             )
             @inputText(
-                bugReportForm("title"), 
-                '_label -> "Bug Title",                 
-                '_error -> bugReportForm.globalError                                
+                bugReportForm("title"),
+                '_label -> "Bug Title",
+                '_error -> bugReportForm.globalError
             )
             @inputText(
-                bugReportForm("email"), 
+                bugReportForm("email"),
                 '_label -> "Email",
-                '_helper -> "You must be a registered user to report a bug",                 
-                '_error -> bugReportForm.globalError                                
+                '_helper -> "You must be a registered user to report a bug",
+                '_error -> bugReportForm.globalError
             )
             @inputText(
-                bugReportForm("organization"), 
-                '_label -> "Organization",                 
-                '_error -> bugReportForm.globalError                                
+                bugReportForm("organization"),
+                '_label -> "Organization",
+                '_error -> bugReportForm.globalError
             )
             @textarea(
-                bugReportForm("description"), 
-                '_label -> "Description", 'cols -> 65, 'rows -> 7                                               
+                bugReportForm("description"),
+                '_label -> "Description", 'cols -> 65, 'rows -> 7
             )
-           
+
         </fieldset>
-        
-      
+
+
         <div class="actions">
             <input type="submit" class="btn primary" value="Submit">
-            <a href="@routes.ClimateServiceController.home()" class="btn">Cancel</a>
+            <a href="@routes.ClimateServiceController.mostRecentlyUsedClimateServices3()" class="btn">Cancel</a>
         </div>
-        
+
     }
-    
+
 }

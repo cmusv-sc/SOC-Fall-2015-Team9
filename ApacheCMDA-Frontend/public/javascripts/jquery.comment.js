@@ -8,13 +8,14 @@
  */
 
 // Utility
-	    if ( typeof Object.create !== 'function' ) {
-		Object.create = function( obj ) {
-		    function F() {};
-		    F.prototype = obj;
-		    return new F();
-		};
-	    }
+
+			if ( typeof Object.create !== 'function' ) {
+			    Object.create = function( obj ) {
+				function F() {};
+				F.prototype = obj;
+				return new F();
+			    };
+			}
 
 (function($, window, document, undefined){
 
@@ -55,19 +56,62 @@
 	    textarea.attr('name', 'text');
 	    textarea.attr('placeHolder', 'Leave a message...');
 	    textarea.css('overflow', 'hidden');
+	    textarea.attr('autocomplete', 'on');
 	    textarea.autogrow();
 
 	    textarea.on('keypress', function(e){
 		e = e || event;
 		if (e.keyCode === 13 && !e.shiftKey && $.trim(this.value).length>0) {
 		    e.preventDefault();
-		    //form_elem.submit();
-		    
-
 		    self.submitForm_(comment_id, form_elem.serialize());
 		}
 	    });
 
+	    function split( val ) {
+		return val.split(/@|#\s*/);
+	    }
+	    function extractLast(term) {
+		return split(term).pop();
+	    }
+	    
+	    textarea.autocomplete({
+		source: function(request, response) {
+		    var re = $.ui.autocomplete.escapeRegex(request.term);
+		    var last = re.substring(re.lastIndexOf('@'));
+		    var matcher = new RegExp( "^" + last, "i" );
+		    var a = $.grep(self.options.usersAndServices, function(item,index){
+		    	return matcher.test(item);
+		    });
+		    if (a.length == 0){
+			var last = re.substring(re.lastIndexOf('#'));
+			var matcher = new RegExp( "^" + last, "i" );
+			a = $.grep(self.options.usersAndServices, function(item,index){
+		    	    return matcher.test(item);
+			});
+		    }
+		    response($.ui.autocomplete.filter(a, extractLast(request.term)));
+		},
+		select: function(event, ui) {
+		    while (this.value[this.value.length - 1] != '@' && this.value[this.value.length - 1] != '#'){
+			this.value = this.value.substring(0, this.value.length - 1);
+		    }
+		    this.value = this.value + ui.item.value.substring(1);
+		    return false;
+		},
+		delay: 0
+	    }).data('ui-autocomplete')._renderItem =  function (ul, item){
+		var newText = String(item.value).replace(new RegExp(this.term.substring(this.term.lastIndexOf('@')), "gi"),
+							 "<span style='font-weight:bold;color:Blue;'>$&</span>");
+		if (newText.indexOf('@') == -1){
+		    newText = String(item.value).replace(new RegExp(this.term.substring(this.term.lastIndexOf('#')), "gi"),
+							 "<span style='font-weight:bold;color:Blue;'>$&</span>");
+		}
+		return $("<li>")
+		    .data("ui-autocomplete-item", item)
+		    .append("<a>" + newText + "</a>")
+		    .appendTo(ul);
+	    };
+	    
 	    form_elem.append(textarea);
 
 	    return form_elem;
@@ -86,60 +130,60 @@
 		data: form_data,
 		type: 'post',
 		dataType: 'json',
-                beforeSend: function(xhr, opts){
+		beforeSend: function(xhr, opts){
 
-                    $('textarea', self.$elem).attr("disabled", true);
+		    $('textarea', self.$elem).attr("disabled", true);
 
-                }
-            }).done( function(result){
+		}
+	    }).done( function(result){
 
-                if(result.success!=undefined)
-                {
-                    if(result.success===false)
-                    {
-                        // error
-                        $.each(result, function(key, val){
-                            // check error if any
-                            if(val.error!=undefined)
-                            {
-                                $show_warning_(val.error);
-                                return false;
-                            }
-                        });
-                    }
-                    else
-                    {
-                    	if(comment_id!=null)	// edit mode
-                    	{
-                    	    var item = $('#posted-'+comment_id, self.$elem);
+		if(result.success!=undefined)
+		{
+		    if(result.success===false)
+		    {
+			// error
+			$.each(result, function(key, val){
+			    // check error if any
+			    if(val.error!=undefined)
+			    {
+				$show_warning_(val.error);
+				return false;
+			    }
+			});
+		    }
+		    else
+		    {
+			if(comment_id!=null)	// edit mode
+			{
+			    var item = $('#posted-'+comment_id, self.$elem);
                     	    
-                    	    var item_txt = $('.posted-comment-txt:hidden', item);
-                    	    item_txt.html(result.text);
-                    	    item_txt.toggle();
+			    var item_txt = $('.posted-comment-txt:hidden', item);
+			    item_txt.html(result.text);
+			    item_txt.toggle();
 
-                    	    var item_form_edit = $('.posted-comment-form-edit', item).first();
-                    	    item_form_edit.toggle();
-                    	}
-                    	else
-                    	{
-	                    result.fullname = self.user_info_.fullname;
-	                    result.picture = self.user_info_.picture;
+			    var item_form_edit = $('.posted-comment-form-edit', item).first();
+			    item_form_edit.toggle();
+			}
+			else
+			{
+			    result.fullname = self.user_info_.fullname;
+			    result.picture = self.user_info_.picture;
 
-	                    // add new itemlist
+			    // add new itemlist
 			    var itemlist = self.buildItemList_( result );
 
 			    if(result.parent_id===undefined)
-		                self.$rootlist.prepend(itemlist);
-		            else
-		            {
-		                if(result.parent_id==0)
-			            self.$rootlist.prepend(itemlist);
-		                else
-		                {
-			            var id = 'posted-comment-child-'+result.parent_id;
+				self.$rootlist.prepend(itemlist);
+			    else
+			    {
+				if(result.parent_id==0)
+				    self.$rootlist.prepend(itemlist);
+				else
+				{
+				    var id = 'posted-comment-child-'+result.parent_id;
 
-			            //prepend the new comment
-			            //var the_child = $('ul[id="'+id+'"]', self.$elem).prepend(itemlist);
+				    //prepend the new comment
+				    //var the_child = $('ul[id="'+id+'"]', self.$elem).prepend(itemlist);
 				    $(itemlist).insertAfter('#' + id + ' > div');
 
 				    // hide the form post
@@ -181,7 +225,6 @@
 	    
 	    elem.append(avatar);
 
-
 	    var form = $('<div></div>');
 	    form.addClass('form').addClass('pull-left');
 
@@ -189,7 +232,7 @@
 	    {
 		// form new
 		var form_elem = self.buildForm_(null, parent_id);
-		form.append(form_elem);				
+		form.append(form_elem);
 	    }
 
 	    elem.append(form);
@@ -216,19 +259,12 @@
 
 	    setTimeout(function() {
 		self.fetch_().done(function( results ) {
-
-		    //console.log(results);
-
-		    // results['user']
 		    if(results.results.user!=undefined)
 			self.user_info_ = results.results.user;
 
-		    // results['comments']
 		    if(results.results.comments!=undefined)
 			results_ = results.results.comments;
-		    // results = self.limit_( results.results.comments, self.options.limit );
 
-		    // results['total_comment']
 		    if(results.results.total_comment!=undefined)
 			self.total_comment = results.results.total_comment;
 
@@ -397,10 +433,21 @@
 
 		    form_edit_container.toggle();
 		    var textarea = $('textarea', form_edit_container);
-		    textarea.val(post_txt.html());
+		    var post_text = post_txt.html();
+		    var re1 = new RegExp('<b style="background-color: #59D0F7">', 'g');
+		    var re2 = new RegExp('<b style="background-color: #E6ED0C">', 'g');
+		    var re3 = new RegExp('</b>', 'g');
+		    
+		    post_text = post_text.replace(re1, '@');
+		    post_text = post_text.replace(re2, '#');
+		    post_text = post_text.replace(re3, ' ');
+
+		    console.log(post_text);
+		    
+		    textarea.val(post_text);
 		    textarea.autogrow();
 		    textarea.focus();
-		});				
+		});	
 	    }
 
 	    // delete
@@ -435,8 +482,6 @@
 	    {
 		var reply_container = $('<span></span>');
 		reply_container.addClass('post-reply');
-
-		console.log(self.user_info_);
 
 		//var reply = $('');
 		var reply = $('<a>Reply</a>');
@@ -652,6 +697,7 @@
 	url_get: '#',
 	url_input: '#',
 	url_delete: '#',
+	users: [],
 	wrapEachWith: '<li></li>',
 	limit: 10,
 	auto_refresh: true,

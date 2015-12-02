@@ -1,0 +1,1 @@
+alter table User add column unreadMention bool default false;

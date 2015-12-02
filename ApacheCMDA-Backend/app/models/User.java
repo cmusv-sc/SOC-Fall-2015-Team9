@@ -40,6 +40,7 @@ public class User {
     private String faxNumber;
     private String researchFields;
     private String highestDegree;
+    private Boolean unreadMention;
 
     // @OneToMany(mappedBy = "user", cascade={CascadeType.ALL})
     // private Set<ClimateService> climateServices = new
@@ -125,6 +126,10 @@ public class User {
 	return highestDegree;
     }
 
+    public Boolean getUnreadMention() {
+	return unreadMention;
+    }
+
     public void setUserName(String userName) {
 	this.userName = userName;
     }
@@ -175,6 +180,10 @@ public class User {
 
     public void setHighestDegree(String highestDegree) {
 	this.highestDegree = highestDegree;
+    }
+
+    public void setUnreadMention(Boolean b) {
+	this.unreadMention = b;
     }
 
     @Override

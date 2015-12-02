@@ -37,9 +37,9 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import play.api.templates.HtmlFormat;
 import java.util.Date;
 import java.util.List;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class CommentController extends Controller{
     private static final String GET_COMMENT_CALL = Constants.NEW_BACKEND + "comment/getComment/";
@@ -49,15 +49,14 @@ public class CommentController extends Controller{
     
     final static Form<Comment> commentForm = Form.form(Comment.class);
     private final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
-	private static ObjectNode failJsonObject(String msg){
+    private static ObjectNode failJsonObject(String msg){
 	ObjectNode response = Json.newObject();
 	response.put("success", false);
 	response.put("message", msg);
 
 	return response;
     }
-
+    
     private String failJson(String msg){
 	ObjectNode response = Json.newObject();
 	response.put("success", false);
@@ -73,7 +72,7 @@ public class CommentController extends Controller{
 	JsonNode response = null;
 
 	try{
-	    response = APICall.callAPI(GET_COMMENT_CALL + element.getId() + "/" + session("email") + "/json");
+	    response = APICall.callAPI(GET_COMMENT_CALL + element.getId() + "/" + "1/" + session("email") + "/json");
 	}
 	catch (IllegalStateException e){
 	    e.printStackTrace();
@@ -103,9 +102,11 @@ public class CommentController extends Controller{
 	    Date date = new Date();
 	    jsonData.put("posted_date", dateFormat.format(date));
 	    jsonData.put("parent_id", parent_id);
-	    jsonData.put("text", text);
+	    jsonData.put("text", HtmlFormat.escape(text).toString());
 	    jsonData.put("email", session("email"));
 	    jsonData.put("climate_service_id", element.getId());
+	    // version
+	    jsonData.put("version_id", 1L);
 	    response = APICall.postAPI(POST_COMMENT_CALL, jsonData);
 	}
 	catch (IllegalStateException e){
@@ -157,7 +158,7 @@ public class CommentController extends Controller{
 	JsonNode response = null;
 
 	try{
-	    response = APICall.deleteAPI(DELETE_COMMENT_CALL + element.getId() + "/" + comment_id);
+	    response = APICall.deleteAPI(DELETE_COMMENT_CALL + element.getId() + "/" + "1/" + comment_id);
 	}
 	catch (IllegalStateException e){
 	    e.printStackTrace();
@@ -171,19 +172,19 @@ public class CommentController extends Controller{
 	return ok(response.toString());
     }
 
-	public static Result searchCommentByHashTagPage() {
-		return ok(searchCommentByHashTag.render());
+    public static Result searchCommentByHashTagPage() {
+	return ok(searchCommentByHashTag.render());
+    }
+    public static Result searchCommentByHashTag(String hashTag) {
+	System.out.println(hashTag);
+	JsonNode response = null;
+	try {
+	    response = APICall.callAPI(Constants.NEW_BACKEND + "comment/searchCommentByHashTag/" + hashTag);
 	}
-	public static Result searchCommentByHashTag(String hashTag) {
-		System.out.println(hashTag);
-		JsonNode response = null;
-		try {
-			response = APICall.callAPI(Constants.NEW_BACKEND + "comment/searchCommentByHashTag/" + hashTag);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			return ok(failJsonObject("Fail to connect"));
-		}
-		return ok(response);
+	catch (Exception e) {
+	    e.printStackTrace();
+	    return ok(failJsonObject("Fail to connect"));
 	}
+	return ok(response);
+    }
 }

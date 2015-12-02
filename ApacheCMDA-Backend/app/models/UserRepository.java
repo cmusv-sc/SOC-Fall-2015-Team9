@@ -36,10 +36,16 @@ public interface UserRepository extends CrudRepository<User, Long>{
 	List<User> findByUserName(String userName);
     @Query(value = "select u.* from User u where u.email = ?1", nativeQuery = true)
 	User findByEmail(String email);
+    @Query(value = "select u.* from User u where u.username = ?1", nativeQuery = true)
+	User findByUsername(String username);
     @Query(value = "select u.userName from User u where u.email = ?1", nativeQuery = true)
 	String getUsernameByEmail(String email);
     @Query(value = "select u.id from User u where u.email = ?1", nativeQuery = true)
 	Long getUserIdByEmail(String email);
     @Query(value = "select u.userName from User u where u.id = ?1", nativeQuery = true)
 	String getUsernameById(Long id);
+    @Query(value = "select u.userName from User u", nativeQuery = true)
+	List<String> getAllUsername();
+    @Query(value = "select u.unreadMention from User u where u.email = ?1", nativeQuery = true)
+	Boolean getHasUnreadMentionByEmail(String email);
 }

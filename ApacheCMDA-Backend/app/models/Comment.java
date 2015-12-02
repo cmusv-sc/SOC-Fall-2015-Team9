@@ -43,13 +43,14 @@ public class Comment{
     @Temporal(TemporalType.TIMESTAMP)
     private Date postedDate;
     private String text;
+    private Long versionId;
 
     public Comment(){
 	
     }
 
     public Comment(long parentId, String inReplyTo, long elementId, long createdBy, String fullname,
-		   String picture, Date postedDate, String text){
+		   String picture, Date postedDate, String text, Long versionId){
 	super();
 	this.parentId = parentId;
 	this.inReplyTo = inReplyTo;
@@ -59,6 +60,7 @@ public class Comment{
 	this.picture = picture;
 	this.postedDate = postedDate;
 	this.text = text;
+	this.versionId = versionId;
     }
 
     public long getCommentId(){
@@ -122,6 +124,13 @@ public class Comment{
     }
     public void setText(String text){
 	this.text = text;
+    }
+
+    public Long getVersionId(){
+	return versionId;
+    }
+    public void setVersionId(Long versionId){
+	this.versionId = versionId;
     }
 
     @Override

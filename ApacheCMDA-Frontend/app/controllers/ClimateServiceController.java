@@ -19,6 +19,8 @@ package controllers;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import models.metadata.ClimateService;
 import play.Logger;
 import play.data.Form;
@@ -65,7 +67,27 @@ public class ClimateServiceController extends Controller {
 	return ok(searchClimateServices.render(climateServiceForm));
     }
 
+    public Result getServicesAutoCompleteSource(){
+	ObjectNode result = Json.newObject();
+	ArrayNode serviceNames = JsonNodeFactory.instance.arrayNode();
+	
+	try{
+	    List<ClimateService> services = ClimateService.all();
+	    for (ClimateService service : services){
+		serviceNames.add('@' + service.getClimateServiceName());
+	    }
+	}
+	catch (IllegalStateException e){
+	    e.printStackTrace();
+	}
+	catch (Exception e) {
+	    e.printStackTrace();
+	}
 
+	result.put("services", serviceNames);
+
+	return ok(result);
+    }
 
     public static Result getClimateSearchResult() throws UnsupportedEncodingException{
 	Form<ClimateService> dc = climateServiceForm.bindFromRequest();
@@ -90,12 +112,17 @@ public class ClimateServiceController extends Controller {
 	return ok(mostRecentlyAddedServices.render(ClimateService.getMostRecentlyAdded(),
 						   climateServiceForm));
     }
-	
+
     public static Result mostRecentlyUsedClimateServices() {
 	return ok(mostRecentlyUsedServices.render(ClimateService.getMostRecentlyUsed(),
 						  climateServiceForm));
     }
-	
+
+    public static Result mostRecentlyUsedClimateServices3() {
+  return ok(mostRecentlyUsedServices3.render(ClimateService.getMostRecentlyUsed3(),
+              climateServiceForm));
+    }
+
     public static Result mostPopularClimateServices() {
 	return ok(mostPopularServices.render(ClimateService.getMostPopular(),
 					     climateServiceForm));
@@ -112,7 +139,7 @@ public class ClimateServiceController extends Controller {
 	    if (newClimateServiceName != null && !newClimateServiceName.isEmpty()) {
 		jsonData.put("name", newClimateServiceName);
 	    }
-			
+
 	    jsonData.put("creatorId", 1);
 	    jsonData.put("purpose", dc.field("Purpose").value());
 	    jsonData.put("url", dc.field("Url").value());
@@ -144,7 +171,7 @@ public class ClimateServiceController extends Controller {
 		jsonData.put("name", climateServiceName);
 	    }
 	    ClimateService originalService = ClimateService.findServiceByName(climateServiceName);
-			
+
 	    if (originalService == null) {
 		Application.flashMsg(APICall.createResponse(ResponseType.UNKNOWN));
 		return notFound("not found original climateService " + climateServiceName);
@@ -155,16 +182,16 @@ public class ClimateServiceController extends Controller {
 	    jsonData.put("url", originalService.getUrl());
 	    jsonData.put("scenario", originalService.getScenario());
 	    jsonData.put("versionNo", originalService.getVersion());
-			
+
 	    if (originalService.getRootservice() != null)
-				
+
 		jsonData.put("rootServiceId", originalService.getRootservice());
 	    String editField = df.field("name").value();
-			
+
 	    if (editField != null && !editField.isEmpty()) {
 		jsonData.put(editField, df.field("value").value());
 	    }
-			
+
 	    if (editField == null || editField.isEmpty()) {
 		Application.flashMsg(APICall.createResponse(ResponseType.UNKNOWN));
 		return notFound("not found edit field");

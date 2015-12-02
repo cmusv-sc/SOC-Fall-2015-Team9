@@ -245,6 +245,7 @@ public class ClimateServiceController extends Controller {
     }
 
 	public static Result getAllVersions(String climateServiceId) {
+		System.out.println("getAllVersions");
 		JsonNode response = null;
 		List<ClimateService> climateServices = new ArrayList<ClimateService>();
 		try {
@@ -252,15 +253,15 @@ public class ClimateServiceController extends Controller {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		if (response.isArray()) {
-			for (final JsonNode version: response) {
-				String versionNo = version.get("versionId").asText();
-				String url = version.get("url").asText();
-				ClimateService cs = new ClimateService();
-				cs.setVersion(versionNo);
-				cs.setUrl(url);
-				climateServices.add(cs);
-			}
+		ArrayNode versions = (ArrayNode)response.get("versions");
+		for (JsonNode version: versions) {
+			String versionNo = version.get(0).asText();
+			String url = version.get(1).asText();
+			System.out.println("VersionNo " + versionNo + ", url " + url);
+			ClimateService cs = new ClimateService();
+			cs.setVersion(versionNo);
+			cs.setUrl(url);
+			climateServices.add(cs);
 		}
 		return ok(climateServiceVersions.render(climateServices));
 	}

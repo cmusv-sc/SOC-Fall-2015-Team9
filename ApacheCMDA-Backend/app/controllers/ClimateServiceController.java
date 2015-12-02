@@ -38,9 +38,12 @@ import javax.persistence.PersistenceException;
 import org.apache.commons.lang3.StringEscapeUtils;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.google.gson.Gson;
 
-
+import play.libs.Json;
 
 class CompareServiceById implements Comparator<ClimateService> {
     @Override
@@ -61,15 +64,18 @@ public class ClimateServiceController extends Controller {
     private final ClimateServiceRepository climateServiceRepository;
     private final UserRepository userRepository;
     private final ServiceEntryRepository serviceEntryRepository;
+    private final VersionRepository versionRepository;
 
     // We are using constructor injection to receive a repository to support our
     // desire for immutability.
     @Inject
     public ClimateServiceController(final ClimateServiceRepository climateServiceRepository,
-				    UserRepository userRepository,ServiceEntryRepository serviceEntryRepository) {
+				    UserRepository userRepository,ServiceEntryRepository serviceEntryRepository,
+				    VersionRepository versionRepository) {
 	this.climateServiceRepository = climateServiceRepository;
 	this.userRepository = userRepository;
         this.serviceEntryRepository = serviceEntryRepository;
+	this.versionRepository = versionRepository;
     }
 
     public Result addClimateService() {
@@ -515,5 +521,28 @@ public class ClimateServiceController extends Controller {
 	services = removeDuplicateServices(services);
 	String result = new Gson().toJson(services);
 	return ok(result);
+    }
+
+    public Result getAllVersions(Long serviceId){
+	ObjectNode response = Json.newObject();
+	ArrayNode versionArray = JsonNodeFactory.instance.arrayNode();
+
+	try{
+	    List<Version> versions = versionRepository.getAllVersions(serviceId);
+
+	    for (Version version : versions){
+		ArrayNode versionNode = JsonNodeFactory.instance.arrayNode();
+		System.out.println(version);
+		versionNode.add(version.getVersionId());
+		versionNode.add(version.getUrl());
+		versionArray.add(versionNode);
+	    }
+	}
+	catch (PersistenceException pe) {
+	    pe.printStackTrace();
+	}
+	
+	response.put("versions", versionArray);
+	return ok(response.toString());
     }
 }

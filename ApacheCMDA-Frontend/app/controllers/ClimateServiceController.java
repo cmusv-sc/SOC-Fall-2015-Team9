@@ -59,6 +59,8 @@ public class ClimateServiceController extends Controller {
     }
 
     public static Result climateServices() {
+	JsonNode response = APICall.callAPI(Constants.NEW_BACKEND + "climateService/getAllVersions/1");
+
 	return ok(climateServices.render(ClimateService.all(),
 					 climateServiceForm));
     }

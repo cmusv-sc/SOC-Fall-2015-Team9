@@ -21,6 +21,7 @@ PUT       /climateService/updateClimateService/name/:oldName        @controllers
 DELETE    /climateService/deleteClimateService/id/:id               @controllers.ClimateServiceController.deleteClimateServiceById(id: Long)
 DELETE    /climateService/deleteClimateService/name/:name           @controllers.ClimateServiceController.deleteClimateServiceByName(name: String)
 GET       /climateService/queryClimateService/:keywords             @controllers.ClimateServiceController.queryClimateService(keywords:String)
+GET       /climateService/getAllVersions/:serviceId   		    @controllers.ClimateServiceController.getAllVersions(serviceId : Long)
 
 # Comment
 GET       /comment/getComment/:id/:versionId/:email/json            @controllers.CommentController.getComment(id: Long, versionId: Long, email: String, format: String="json")

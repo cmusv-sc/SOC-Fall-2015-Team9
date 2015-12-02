@@ -38,6 +38,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -240,4 +241,25 @@ public class ClimateServiceController extends Controller {
     public static Result oneService(String url) {
 	return ok(oneService.render("/assets/html/" + url));
     }
+
+	public static Result getAllVersions(String climateServiceId) {
+		JsonNode response = null;
+		List<ClimateService> climateServices = new ArrayList<ClimateService>();
+		try {
+			response = APICall.callAPI(Constants.NEW_BACKEND + "climateService/getAllVersions/" + climateServiceId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		if (response.isArray()) {
+			for (final JsonNode version: response) {
+				String versionNo = version.get("versionId").asText();
+				String url = version.get("url").asText();
+				ClimateService cs = new ClimateService();
+				cs.setVersion(versionNo);
+				cs.setUrl(url);
+				climateServices.add(cs);
+			}
+		}
+		return ok(climateServiceVersions.render(climateServices));
+	}
 }

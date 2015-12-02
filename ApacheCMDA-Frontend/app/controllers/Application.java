@@ -80,10 +80,13 @@ public class Application extends Controller {
 
     public static Result authenticate(){
 	Form<Login> loginForm = Form.form(Login.class).bindFromRequest();
+		System.out.println(loginForm);
 	if (loginForm.hasErrors()){
 	    return badRequest(login.render(loginForm));
 	}
 	else {
+
+		System.out.println("authenticate....");
 	    JsonNode response = APICall.callAPI(GET_HAS_UNREAD_MENTION + loginForm.get().email);
 	    
 	    session().clear();

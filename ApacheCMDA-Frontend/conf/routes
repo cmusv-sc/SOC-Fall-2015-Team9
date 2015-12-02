@@ -45,6 +45,7 @@ POST          /climate/edit/climateServices                    controllers.Clima
 GET           /climate/new/climateServices                     controllers.ClimateServiceController.addClimateServices()
 GET           /climate/oneService                              controllers.ClimateServiceController.oneService(url ?= null)
 GET	      /climate/getServicesAutoCompleteSource	       @controllers.ClimateServiceController.getServicesAutoCompleteSource()
+GET           /climate/getAllVersions/:serviceId                controllers.ClimateServiceController.getAllVersions(serviceId : String)
 
 # User
 GET   /users/getUsernamesAndServicesAutoCompleteSource	       @controllers.UserController.getUsernamesAndServicesAutoCompleteSource()

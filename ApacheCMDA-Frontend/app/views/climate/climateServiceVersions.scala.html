@@ -1,0 +1,22 @@
+@(climateServices: List[metadata.ClimateService])
+
+
+@import helper._
+
+
+@scripts = {
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+}
+
+@main("Climate Services") {
+    @flash_message()
+
+    <h1>All Versions</h1>
+    <div id="versions">
+        @for(climateService <- climateServices) {
+            <div>
+                <a href="@routes.ClimateServiceController.oneService(climateService.getUrl())">Version @climateService.getVersion()</p>
+            </div>
+        }
+    </div>
+}

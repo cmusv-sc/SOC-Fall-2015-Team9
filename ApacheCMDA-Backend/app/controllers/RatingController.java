@@ -57,69 +57,71 @@ public class RatingController extends Controller{
     public Result getRating(Long serviceId, Long versionId, String email, String format){
         System.out.println("GET RATiNG");
         ObjectNode response = Json.newObject();
+	Rating individualRecord =  ratingRepository.getIndividualRating(userRepository.getUserIdByEmail(email), serviceId, versionId);
+	Double averageRate = ratingRepository.getAverageRate(serviceId, versionId);
 
-        // result
-        response.put("individual_rate", ratingRepository.getIndividualRating(userRepository.getUserIdByEmail(email), serviceId, versionId).getRate());
-        response.put("average_rate", ratingRepository.getAverageRate(serviceId, versionId));
+	// result
+	response.put("success", true);
+	if (individualRecord != null){
+	    response.put("individual_rate", individualRecord.getRate());
+	}
+	else{
+	    response.put("individual_rate", 0);
+	}
 
-        // response;
-        System.out.println(response);
+	if (averageRate != null){
+	    response.put("average_rate", averageRate);
+	}
+	else{
+	    response.put("average_rate", 0.0);
+	}
 
-        return ok(response);
+	return ok(response);
     }
 
     public Result postRating(){
-        System.out.println("POST RATING");
+	System.out.println("POST RATING");
 
-        ObjectNode response = Json.newObject();
-        JsonNode json = request().body().asJson();
-        if (json == null) {
-            System.out.println("Rating not saved, expecting Json data");
-            return badRequest("Rating not saved, expecting Json data");
-        }
+	ObjectNode response = Json.newObject();
+	JsonNode json = request().body().asJson();
+	if (json == null) {
+	    System.out.println("Rating not saved, expecting Json data");
+	    return badRequest("Rating not saved, expecting Json data");
+	}
 
-        try{
-            String email = json.findPath("email").asText();
+	try{
+	    String email = json.findPath("email").asText();
 
-            long userId = userRepository.getUserIdByEmail(email);
-            long serviceId = json.findPath("service_id").asLong();
-            long versionId = json.findPath("version_id").asLong();
-            int rate = json.findPath("rate").asInt();
-            Rating record = ratingRepository.getIndividualRating(userId, serviceId, versionId);
+	    long userId = userRepository.getUserIdByEmail(email);
+	    long serviceId = json.findPath("service_id").asLong();
+	    long versionId = json.findPath("version_id").asLong();
+	    int rate = json.findPath("rate").asInt();
+	    Rating record = ratingRepository.getIndividualRating(userId, serviceId, versionId);
 
-            if(record == null){
-                Rating rating = new Rating(userId, serviceId, versionId, rate);
-                Rating ratingEntry = ratingRepository.save(rating);
+	    if(record == null){
+		Rating rating = new Rating(userId, serviceId, versionId, rate);
+		Rating ratingEntry = ratingRepository.save(rating);
 
-                response.put("success", true);
-                response.put("rating_id", ratingEntry.getRatingId());
-                response.put("user_id", ratingEntry.getUserId());
-                response.put("service_id", ratingEntry.getServiceId());
-                response.put("version_id", ratingEntry.getVersionId());
-                response.put("rate", ratingEntry.getRate());
-                response.put("average_rate", ratingRepository.getAverageRate(serviceId, versionId));
-                response.put("is_logged_in", true);
-                response.put("is_edit_allowed", true);
-                response.put("is_add_allowed", true);
-            }else{
-                Rating rating = record;
-                rating.setRate(rate);
-                Rating ratingEntry = ratingRepository.save(rating);
+		response.put("success", true);
+		response.put("rate", ratingEntry.getRate());
+		response.put("average_rate", ratingRepository.getAverageRate(serviceId, versionId));
+	    }else{
+		Rating rating = record;
+		rating.setRate(rate);
+		Rating ratingEntry = ratingRepository.save(rating);
 
-                response.put("success", true);
-                response.put("rate", ratingEntry.getRate());
-                response.put("average_rate", ratingRepository.getAverageRate(serviceId, versionId));
-            }
-        }
-        catch (PersistenceException pe) {
-            pe.printStackTrace();
-            System.out.println("Rating not saved");
-            return badRequest(failJson("Rating not saved"));
-        }
+		response.put("success", true);
+		response.put("rate", ratingEntry.getRate());
+		response.put("average_rate", ratingRepository.getAverageRate(serviceId, versionId));
+	    }
+	}
+	catch (PersistenceException pe) {
+	    pe.printStackTrace();
+	    System.out.println("Rating not saved");
+	    return badRequest(failJson("Rating not saved"));
+	}
 
-        System.out.println(response);
-
-        return ok(response);
+	return ok(response);
     }
 
 }

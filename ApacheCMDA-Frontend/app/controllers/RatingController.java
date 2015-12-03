@@ -57,7 +57,7 @@ public class RatingController extends Controller{
             e.printStackTrace();
             return ok(failJson("Fail to connect"));
         }
-        System.out.println(response);
+
         return ok(response);
     }
 
@@ -88,7 +88,6 @@ public class RatingController extends Controller{
             return ok(failJson("Fail to connect"));
         }
 
-        System.out.println(response);
         return ok(response);
     }
 }

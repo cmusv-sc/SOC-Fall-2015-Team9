@@ -56,7 +56,7 @@
 		    title: 'Comments',
 		    url_get: '/comment/getComment/' + url + "/@version",
 		    url_input: '/comment/postComment/' + url + "/@version",
-		    url_delete: '/comment/deleteComment/' + url + "@version",
+		    url_delete: '/comment/deleteComment/' + url + "/@version",
 		    usersAndServices: data.usernamesAndServices,
 		    limit: 10,
 		    auto_refresh: false,
@@ -64,19 +64,14 @@
 		    transition: 'slideToggle'
 		});
 
-		console.log("/climate/postRating/" + 1 + "/" + url + "/1");
-
 		$.ajax({
-			type  : "GET",
-			url   : "/rating/getRating/" + url + "/1"
+		    type  : "GET",
+		    url   : "/rating/getRating/" + url + "/@version"
 		}).done(function (ret) {
-			console.log("GET: " + ret);
-			console.log("GET: " + ret.individual_rate);
-			console.log("GET: " + ret.average_rate);
-
-			$('#rating').raty({
+		    $('#averageRating').text("Average Rate: " + ret.average_rate);
+		    $('#rating').raty({
   			path: '/assets/images',
-  			cancel      : true,
+  			cancel      : false,
   			cancelPlace : 'right',
  			half        : false,
  			score       : function(){
@@ -85,14 +80,13 @@
   			click       : function(score, evt) {
       			$.ajax({
       				type : "POST",
-        			url: "/rating/postRating/" + score + "/" + url + "/1"
+        			url: "/rating/postRating/" + score + "/" + url + "/@version"
     			}).done(function (ret) {
-					var average_rate = ret.average_rate;
-					console.log("POST: " + ret["average_rate"]);
+			    $('#averageRating').text("Average Rate: " + ret.average_rate);
     			});
-    		}
+    			}
 
- 		 });
+ 		    });
 		});
 
 
@@ -121,10 +115,10 @@
 	<hr style="display: block;margin-top: 2em;margin-bottom: 2em;margin-left: auto;margin-right: auto;border-style: inset;border-width: 1px;">
 
     @if(session.get("email")){
-	    <div id="rating">Rate this service: </div>
+	    <div> <div id="rating" style="display: inline; margin-right: 1cm;">Rate this service: </div><div id="averageRating" style="display: inline"></div></div>
 	    <br/>
     }
-	    
+    
 	<div class="container">
 	<div class="comment-container" id="commentContainer"></div>
 	</div>

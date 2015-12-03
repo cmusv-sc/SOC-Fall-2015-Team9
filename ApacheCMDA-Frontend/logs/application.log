@@ -1,90 +1,39 @@
-2015-12-03 20:09:50,132 - [INFO] - from play in pool-4-thread-4 
+2015-12-03 20:41:07,342 - [INFO] - from play in pool-4-thread-1 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2015-12-03 20:10:45,571 - [INFO] - from play in play-internal-execution-context-1 
+2015-12-03 20:41:39,322 - [INFO] - from play in play-internal-execution-context-1 
 datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
 
-2015-12-03 20:10:45,992 - [INFO] - from play in play-internal-execution-context-1 
+2015-12-03 20:41:39,818 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:h2:file:data/db
 
-2015-12-03 20:10:47,780 - [INFO] - from play in play-internal-execution-context-1 
+2015-12-03 20:41:41,993 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 
-2015-12-03 20:10:48,428 - [INFO] - from application in play-akka.actor.default-dispatcher-5 
-http://localhost:9034/climateService/getAllMostRecentClimateServicesByLatestAccessTime/json
-
-2015-12-03 20:11:09,066 - [INFO] - from application in play-akka.actor.default-dispatcher-11 
-http://localhost:9034/users/getHasUnreadMention/zhibinz@andrew.cmu.edu
-
-2015-12-03 20:11:09,139 - [INFO] - from application in play-akka.actor.default-dispatcher-11 
-http://localhost:9034/climateService/getAllMostRecentClimateServicesByLatestAccessTime/json
-
-2015-12-03 20:11:11,934 - [INFO] - from application in play-akka.actor.default-dispatcher-9 
-http://localhost:9034/climateService/getAllClimateServices/json
-
-2015-12-03 20:11:13,716 - [INFO] - from application in play-akka.actor.default-dispatcher-10 
-http://localhost:9034/climateService/getAllVersions/1
-
-2015-12-03 20:11:16,252 - [INFO] - from application in play-akka.actor.default-dispatcher-7 
+2015-12-03 20:41:46,402 - [INFO] - from application in play-akka.actor.default-dispatcher-2 
 http://localhost:9034/users/getAllUsername
 
-2015-12-03 20:11:16,269 - [INFO] - from application in play-akka.actor.default-dispatcher-7 
+2015-12-03 20:41:57,495 - [INFO] - from application in play-akka.actor.default-dispatcher-2 
 http://localhost:9034/climateService/getAllClimateServices/json
 
-2015-12-03 20:11:16,542 - [INFO] - from application in play-akka.actor.default-dispatcher-7 
+2015-12-03 20:41:57,520 - [INFO] - from application in play-akka.actor.default-dispatcher-6 
 http://localhost:9034/climateService/getAllClimateServices/json
 
-2015-12-03 20:11:16,569 - [INFO] - from application in play-akka.actor.default-dispatcher-7 
-http://localhost:9034/comment/getComment/1/2/zhibinz@andrew.cmu.edu/json
-
-2015-12-03 20:12:25,302 - [INFO] - from application in play-akka.actor.default-dispatcher-18 
+2015-12-03 20:43:23,486 - [INFO] - from application in play-akka.actor.default-dispatcher-14 
 http://localhost:9034/users/getAllUsername
 
-2015-12-03 20:12:25,329 - [INFO] - from application in play-akka.actor.default-dispatcher-18 
+2015-12-03 20:43:23,512 - [INFO] - from application in play-akka.actor.default-dispatcher-14 
 http://localhost:9034/climateService/getAllClimateServices/json
 
-2015-12-03 20:12:25,667 - [INFO] - from application in play-akka.actor.default-dispatcher-19 
+2015-12-03 20:43:23,900 - [INFO] - from application in play-akka.actor.default-dispatcher-10 
 http://localhost:9034/climateService/getAllClimateServices/json
 
-2015-12-03 20:12:25,703 - [INFO] - from application in play-akka.actor.default-dispatcher-19 
-http://localhost:9034/comment/getComment/1/2/zhibinz@andrew.cmu.edu/json
-
-2015-12-03 20:12:47,050 - [INFO] - from application in play-akka.actor.default-dispatcher-17 
-http://localhost:9034/users/getAllUsername
-
-2015-12-03 20:12:47,061 - [INFO] - from application in play-akka.actor.default-dispatcher-17 
+2015-12-03 20:43:23,997 - [INFO] - from application in play-akka.actor.default-dispatcher-3 
 http://localhost:9034/climateService/getAllClimateServices/json
 
-2015-12-03 20:12:47,447 - [INFO] - from application in play-akka.actor.default-dispatcher-24 
-http://localhost:9034/climateService/getAllClimateServices/json
+2015-12-03 20:43:24,071 - [INFO] - from application in play-akka.actor.default-dispatcher-10 
+http://localhost:9034/rating/getRating/5/1/testrate@gmail.com/json
 
-2015-12-03 20:12:47,517 - [INFO] - from application in play-akka.actor.default-dispatcher-24 
-http://localhost:9034/comment/getComment/1/2/zhibinz@andrew.cmu.edu/json
-
-2015-12-03 20:13:19,010 - [INFO] - from application in play-akka.actor.default-dispatcher-25 
-http://localhost:9034/users/getAllUsername
-
-2015-12-03 20:13:19,040 - [INFO] - from application in play-akka.actor.default-dispatcher-25 
-http://localhost:9034/climateService/getAllClimateServices/json
-
-2015-12-03 20:13:19,456 - [INFO] - from application in play-akka.actor.default-dispatcher-23 
-http://localhost:9034/climateService/getAllClimateServices/json
-
-2015-12-03 20:13:19,504 - [INFO] - from application in play-akka.actor.default-dispatcher-23 
-http://localhost:9034/comment/getComment/1/2/zhibinz@andrew.cmu.edu/json
-
-2015-12-03 20:13:48,157 - [INFO] - from application in play-akka.actor.default-dispatcher-31 
-http://localhost:9034/users/getAllUsername
-
-2015-12-03 20:13:48,179 - [INFO] - from application in play-akka.actor.default-dispatcher-31 
-http://localhost:9034/climateService/getAllClimateServices/json
-
-2015-12-03 20:13:48,560 - [INFO] - from application in play-akka.actor.default-dispatcher-31 
-http://localhost:9034/climateService/getAllClimateServices/json
-
-2015-12-03 20:13:48,609 - [INFO] - from application in play-akka.actor.default-dispatcher-31 
-http://localhost:9034/comment/getComment/1/2/zhibinz@andrew.cmu.edu/json
-
-2015-12-03 20:13:59,844 - [INFO] - from application in play-akka.actor.default-dispatcher-26 
-http://localhost:9034/climateService/getAllClimateServices/json
+2015-12-03 20:43:24,126 - [INFO] - from application in play-akka.actor.default-dispatcher-3 
+http://localhost:9034/comment/getComment/5/1/testrate@gmail.com/json
 

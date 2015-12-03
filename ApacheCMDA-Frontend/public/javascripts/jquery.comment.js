@@ -434,16 +434,14 @@
 		    form_edit_container.toggle();
 		    var textarea = $('textarea', form_edit_container);
 		    var post_text = post_txt.html();
-		    var re1 = new RegExp('<b style="background-color: #59D0F7">', 'g');
-		    var re2 = new RegExp('<b style="background-color: #E6ED0C">', 'g');
+		    var re1 = new RegExp('<b style="background-color: #59D0F7">@', 'g');
+		    var re2 = new RegExp('<b style="background-color: #E6ED0C">#', 'g');
 		    var re3 = new RegExp('</b>', 'g');
 		    
 		    post_text = post_text.replace(re1, '@');
 		    post_text = post_text.replace(re2, '#');
 		    post_text = post_text.replace(re3, ' ');
 
-		    console.log(post_text);
-		    
 		    textarea.val(post_text);
 		    textarea.autogrow();
 		    textarea.focus();

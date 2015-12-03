@@ -38,6 +38,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -59,8 +60,6 @@ public class ClimateServiceController extends Controller {
     }
 
     public static Result climateServices() {
-	JsonNode response = APICall.callAPI(Constants.NEW_BACKEND + "climateService/getAllVersions/1");
-
 	return ok(climateServices.render(ClimateService.all(),
 					 climateServiceForm));
     }
@@ -121,8 +120,8 @@ public class ClimateServiceController extends Controller {
     }
 
     public static Result mostRecentlyUsedClimateServices3() {
-  return ok(mostRecentlyUsedServices3.render(ClimateService.getMostRecentlyUsed3(),
-              climateServiceForm));
+	return ok(mostRecentlyUsedServices3.render(ClimateService.getMostRecentlyUsed3(),
+						   climateServiceForm));
     }
 
     public static Result mostPopularClimateServices() {
@@ -239,7 +238,29 @@ public class ClimateServiceController extends Controller {
 	return ok(file);
     }
 
-    public static Result oneService(String url) {
-	return ok(oneService.render("/assets/html/" + url));
+    public static Result oneService(String url, String version) {
+	return ok(oneService.render("/assets/html/" + url, version));
+    }
+
+    public static Result getAllVersions(String climateServiceId) {
+	System.out.println("getAllVersions");
+	JsonNode response = null;
+	List<ClimateService> climateServices = new ArrayList<ClimateService>();
+	try {
+	    response = APICall.callAPI(Constants.NEW_BACKEND + "climateService/getAllVersions/" + climateServiceId);
+	} catch (Exception e) {
+	    e.printStackTrace();
+	}
+	ArrayNode versions = (ArrayNode)response.get("versions");
+	for (JsonNode version: versions) {
+	    String versionNo = version.get(0).asText();
+	    String url = version.get(1).asText();
+	    System.out.println("VersionNo " + versionNo + ", url " + url);
+	    ClimateService cs = new ClimateService();
+	    cs.setVersion(versionNo);
+	    cs.setUrl(url);
+	    climateServices.add(cs);
+	}
+	return ok(climateServiceVersions.render(climateServices));
     }
 }

@@ -53,16 +53,10 @@ GET   /users/getUsernamesAndServicesAutoCompleteSource	       @controllers.UserC
 # Comment
 GET           /comment/getComment/:url/:version                @controllers.CommentController.getComment(url: String, version: Long)
 POST          /comment/postComment/:url/:version               @controllers.CommentController.postComment(url: String, version: Long)
-POST          /comment/postComment/:url/:version/:id           @controllers.CommentController.editComment(url: String, version: Long, id: String)
+POST          /comment/postComment/:url/:version/:id           @controllers.CommentController.editComment(url: String, id: String)
 DELETE        /comment/deleteComment/:url/:version             @controllers.CommentController.deleteComment(url: String, version: Long)
 GET   /comment/searchCommentByHashTag/:hashTag		       controllers.CommentController.searchCommentByHashTag(hashTag: String)
 GET   /comment/searchCommentByHashTagPage		       controllers.CommentController.searchCommentByHashTagPage()
-
-#Rating
-#GET   /rating/getRating/:url				@controllers.RatingController.getRating(url: String)
-#POST  /rating/postRating/:url				@controllers.RatingController.postRating(url: String)
-#POST  /rating/postRating/:url/:id			@controllers.RatingController.editRating(url: String, id: String)
-#DELETE  /rating/deleteRating/:url			@controllers.RatingController.deleteComment(url: String)
 
 # Keyword search
 GET           /climate/datasets                                controllers.DatasetController.datasetList()

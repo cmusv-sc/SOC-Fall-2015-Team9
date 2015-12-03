@@ -255,7 +255,6 @@ public class ClimateServiceController extends Controller {
 	for (JsonNode version: versions) {
 	    String versionNo = version.get(0).asText();
 	    String url = version.get(1).asText();
-	    System.out.println("VersionNo " + versionNo + ", url " + url);
 	    ClimateService cs = new ClimateService();
 	    cs.setVersion(versionNo);
 	    cs.setUrl(url);

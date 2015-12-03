@@ -1,0 +1,1 @@
+CREATE TABLE Rating (ratingId bigint(20) NOT NULL AUTO_INCREMENT, userId bigint(20) DEFAULT NULL, serviceId bigint(20) DEFAULT NULL, fullname varchar(255) DEFAULT NULL, postedDate datetime DEFAULT NULL, rate int DEFAULT NULL, PRIMARY KEY (ratingId), FOREIGN KEY(serviceId) REFERENCES ClimateService(id), FOREIGN KEY(userId) REFERENCES User(id))

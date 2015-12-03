@@ -1,2 +1,3 @@
 .idea
 ApacheCMDA-Frontend/data/db.lock.db
+ApacheCMDA-Frontend/logs/*

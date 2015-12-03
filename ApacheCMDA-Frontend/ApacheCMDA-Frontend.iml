@@ -8,8 +8,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="activator-launch-1.2.121" level="project" />
     <orderEntry type="library" name="activator-launch-1.2.12" level="project" />
     <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="library" name="activator-launch-1.2.121" level="project" />
   </component>
 </module>

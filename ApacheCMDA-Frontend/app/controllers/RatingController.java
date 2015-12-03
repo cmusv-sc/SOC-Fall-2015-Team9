@@ -29,11 +29,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class RatingController extends Controller{
     private static final String GET_RATING_CALL = Constants.NEW_BACKEND + "rating/getRating/";
     private static final String POST_RATING_CALL = Constants.NEW_BACKEND + "rating/postRating";
-    private static final String EDIT_RATING_CALL = Constants.NEW_BACKEND + "rating/editRating";
-    private static final String DELETE_RATING_CALL = Constants.NEW_BACKEND + "rating/deleteRating/";
 
     final static Form<Rating> ratingForm = Form.form(Rating.class);
-    private final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     private String failJson(String msg){
         ObjectNode response = Json.newObject();
@@ -43,14 +40,44 @@ public class RatingController extends Controller{
         return response.toString();
     }
 
-    public Result getRating(String url){
+    public Result getRating(String url, Long version){
         System.out.println("GET RATING");
 
         ClimateService element = ClimateService.findServiceByUrl(url);
         JsonNode response = null;
 
         try{
-            response = APICall.callAPI(GET_RATING_CALL + element.getId() + "/" + session("email") + "/json");
+            response = APICall.callAPI(GET_RATING_CALL + element.getId() + "/" + version + "/" + session("email") + "/json");
+        }
+        catch (IllegalStateException e){
+            e.printStackTrace();
+            return ok(failJson("Fail to connect"));
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            return ok(failJson("Fail to connect"));
+        }
+        System.out.println(response);
+        return ok(response);
+    }
+
+    public Result postRating(Long rate, String url, Long version){
+        System.out.println("POST RATING");
+
+        if (session("email") == null){
+            return ok(failJson("Please login first"));
+        }
+
+        ClimateService element = ClimateService.findServiceByUrl(url);
+        ObjectNode jsonData = Json.newObject();
+        JsonNode response = null;
+
+        try{
+            jsonData.put("email", session("email"));
+            jsonData.put("service_id", element.getId());
+            jsonData.put("version_id", version);
+            jsonData.put("rate", rate);
+            response = APICall.postAPI(POST_RATING_CALL, jsonData);
         }
         catch (IllegalStateException e){
             e.printStackTrace();
@@ -61,91 +88,7 @@ public class RatingController extends Controller{
             return ok(failJson("Fail to connect"));
         }
 
-        return ok(response.toString());
+        System.out.println(response);
+        return ok(response);
     }
-
-//    public Result postRating(String url){
-//        System.out.println("POST RATING");
-//
-//        if (session("email") == null){
-//            return ok(failJson("Please login first"));
-//        }
-//        int rate = DynamicForm.form().bindFromRequest().get("rate");
-//        long userId = DynamicForm.form().bindFromRequest().get("user_id");
-//
-//        ClimateService element = ClimateService.findServiceByUrl(url);
-//        ObjectNode jsonData = Json.newObject();
-//        JsonNode response = null;
-//
-//        try{
-//            Date date = new Date();
-//            jsonData.put("posted_date", dateFormat.format(date));
-//            jsonData.put("parent_id", parent_id);
-//            jsonData.put("text", text);
-//            jsonData.put("email", session("email"));
-//            jsonData.put("climate_service_id", element.getId());
-//            response = APICall.postAPI(POST_COMMENT_CALL, jsonData);
-//        }
-//        catch (IllegalStateException e){
-//            e.printStackTrace();
-//            return ok(failJson("Fail to connect"));
-//        }
-//        catch (Exception e) {
-//            e.printStackTrace();
-//            return ok(failJson("Fail to connect"));
-//        }
-//
-//        return ok(response.toString());
-//    }
-
-//    public Result editRating(String url, String id){
-//        System.out.println("EDIT COMMENT");
-//
-//        String text = DynamicForm.form().bindFromRequest().get("text");
-//        String comment_id = id;
-//        ClimateService element = ClimateService.findServiceByUrl(url);
-//        ObjectNode jsonData = Json.newObject();
-//        JsonNode response = null;
-//
-//        try{
-//            Date date = new Date();
-//            jsonData.put("posted_date", dateFormat.format(date));
-//            jsonData.put("comment_id", comment_id);
-//            jsonData.put("text", text);
-//            jsonData.put("climate_service_id", element.getId());
-//            response = APICall.putAPI(EDIT_COMMENT_CALL, jsonData);
-//        }
-//        catch (IllegalStateException e){
-//            e.printStackTrace();
-//            return ok(failJson("Fail to connect"));
-//        }
-//        catch (Exception e) {
-//            e.printStackTrace();
-//            return ok(failJson("Fail to connect"));
-//        }
-//
-//        return ok(response.toString());
-//    }
-//
-//    public Result deleteComment(String url){
-//        System.out.println("DELETE COMMENT");
-//
-//        String comment_id = DynamicForm.form().bindFromRequest().get("comment_id");
-//        ClimateService element = ClimateService.findServiceByUrl(url);
-//        JsonNode response = null;
-//
-//        try{
-//            response = APICall.deleteAPI(DELETE_COMMENT_CALL + element.getId() + "/" + comment_id);
-//        }
-//        catch (IllegalStateException e){
-//            e.printStackTrace();
-//            return ok(failJson("Fail to connect"));
-//        }
-//        catch (Exception e) {
-//            e.printStackTrace();
-//            return ok(failJson("Fail to connect"));
-//        }
-//
-//        return ok(response.toString());
-//    }
 }

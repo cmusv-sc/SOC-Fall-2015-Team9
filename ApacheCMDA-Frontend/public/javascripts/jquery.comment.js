@@ -98,6 +98,9 @@
 		    this.value = this.value + ui.item.value.substring(1);
 		    return false;
 		},
+		focus: function (event, ui){
+		    event.preventDefault();
+		},
 		delay: 0
 	    }).data('ui-autocomplete')._renderItem =  function (ul, item){
 		var newText = String(item.value).replace(new RegExp(this.term.substring(this.term.lastIndexOf('@')), "gi"),

@@ -1,24 +1,39 @@
-2015-12-02 17:19:17,046 - [INFO] - from play in pool-4-thread-4 
+2015-12-03 20:41:07,342 - [INFO] - from play in pool-4-thread-1 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2015-12-02 17:20:10,631 - [INFO] - from play in play-internal-execution-context-1 
+2015-12-03 20:41:39,322 - [INFO] - from play in play-internal-execution-context-1 
 datasource [jdbc:h2:file:data/db;DB_CLOSE_DELAY=-1] bound to JNDI as DefaultDS
 
-2015-12-02 17:20:10,906 - [INFO] - from play in play-internal-execution-context-1 
+2015-12-03 20:41:39,818 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:h2:file:data/db
 
-2015-12-02 17:20:13,202 - [INFO] - from play in play-internal-execution-context-1 
+2015-12-03 20:41:41,993 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 
-2015-12-02 17:20:14,517 - [INFO] - from application in play-akka.actor.default-dispatcher-8 
+2015-12-03 20:41:46,402 - [INFO] - from application in play-akka.actor.default-dispatcher-2 
 http://localhost:9034/users/getAllUsername
 
-2015-12-02 17:20:15,709 - [INFO] - from application in play-akka.actor.default-dispatcher-8 
+2015-12-03 20:41:57,495 - [INFO] - from application in play-akka.actor.default-dispatcher-2 
 http://localhost:9034/climateService/getAllClimateServices/json
 
-2015-12-02 17:20:15,808 - [INFO] - from application in play-akka.actor.default-dispatcher-4 
+2015-12-03 20:41:57,520 - [INFO] - from application in play-akka.actor.default-dispatcher-6 
 http://localhost:9034/climateService/getAllClimateServices/json
 
-2015-12-02 17:20:15,834 - [INFO] - from application in play-akka.actor.default-dispatcher-4 
-http://localhost:9034/comment/getComment/1/1/null/json
+2015-12-03 20:43:23,486 - [INFO] - from application in play-akka.actor.default-dispatcher-14 
+http://localhost:9034/users/getAllUsername
+
+2015-12-03 20:43:23,512 - [INFO] - from application in play-akka.actor.default-dispatcher-14 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 20:43:23,900 - [INFO] - from application in play-akka.actor.default-dispatcher-10 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 20:43:23,997 - [INFO] - from application in play-akka.actor.default-dispatcher-3 
+http://localhost:9034/climateService/getAllClimateServices/json
+
+2015-12-03 20:43:24,071 - [INFO] - from application in play-akka.actor.default-dispatcher-10 
+http://localhost:9034/rating/getRating/5/1/testrate@gmail.com/json
+
+2015-12-03 20:43:24,126 - [INFO] - from application in play-akka.actor.default-dispatcher-3 
+http://localhost:9034/comment/getComment/5/1/testrate@gmail.com/json
 

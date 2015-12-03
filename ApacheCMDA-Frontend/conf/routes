@@ -58,10 +58,8 @@ GET   /comment/searchCommentByHashTag/:hashTag			controllers.CommentController.s
 GET   /comment/searchCommentByHashTagPage			controllers.CommentController.searchCommentByHashTagPage()
 
 #Rating
-#GET   /rating/getRating/:url				@controllers.RatingController.getRating(url: String)
-#POST  /rating/postRating/:url				@controllers.RatingController.postRating(url: String)
-#POST  /rating/postRating/:url/:id			@controllers.RatingController.editRating(url: String, id: String)
-#DELETE  /rating/deleteRating/:url			@controllers.RatingController.deleteComment(url: String)
+GET   /rating/getRating/:url/:version				        @controllers.RatingController.getRating(url: String, version: Long)
+POST  /rating/postRating/:rate/:url/:version				@controllers.RatingController.postRating(rate: Long, url: String, version: Long)
 
 # Keyword search
 GET           /climate/datasets                                controllers.DatasetController.datasetList()

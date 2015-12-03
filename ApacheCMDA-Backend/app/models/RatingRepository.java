@@ -13,10 +13,18 @@ import javax.inject.Singleton;
 @Named
 @Singleton
 public interface RatingRepository extends CrudRepository<Rating, Long>{
-    @Query(value = "select r.* from Rating r where r.userId = ?1 and r.serviceId = ?2 order by postedDate desc", nativeQuery = true)
-    List<Rating> findAllByClimateServiceId(Long userId, Long serviceId);
-    @Query(value = "select count(*) from Rating where serviceId = ?1", nativeQuery = true)
-    Long countRatings(Long serviceId);
-    @Query(value = "select r.* from Rating r where r.ratingId = ?1", nativeQuery = true)
-    Rating findRatingById(Long ratingId);
+
+    @Query(value = "SELECT * FROM Rating WHERE userId = ?1 AND serviceId = ?2 AND versionId = ?3", nativeQuery = true)
+    Rating getIndividualRating(Long userId, Long serviceId, Long versionId);
+
+    @Query(value = "SELECT AVG(rate) FROM Rating WHERE serviceId = ?1 AND versionId = ?2", nativeQuery = true)
+    double getAverageRate(Long serviceId, Long versionId);
+
+//    @Query(value = "INSERT INTO Rating (userId, serviceId, versionId, rate) VALUES (?1, ?2, ?3, ?4)", nativeQuery = true)
+//    void insertNewRating(Long userId, Long serviceId, Long versionId, int rate);
+//
+//    @Query(value = "UPDATE Rating SET rate = ?1 WHERE id  = ?2")
+//    void updateExistingRating(int rate, Long ratingId);
 }
+
+

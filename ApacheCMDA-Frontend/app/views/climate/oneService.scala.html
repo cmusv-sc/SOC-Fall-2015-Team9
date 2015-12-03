@@ -64,16 +64,37 @@
 		    transition: 'slideToggle'
 		});
 
-		$('#rating').raty({
+		console.log("/climate/postRating/" + 1 + "/" + url + "/1");
+
+		$.ajax({
+			type  : "GET",
+			url   : "/rating/getRating/" + url + "/1"
+		}).done(function (ret) {
+			console.log("GET: " + ret);
+			console.log("GET: " + ret.individual_rate);
+			console.log("GET: " + ret.average_rate);
+
+			$('#rating').raty({
   			path: '/assets/images',
   			cancel      : true,
   			cancelPlace : 'right',
  			half        : false,
+ 			score       : function(){
+ 				return ret["individual_rate"];
+ 			},
   			click       : function(score, evt) {
-      			<!--alert('ID: ' + this.id + "\nscore: " + score + "\nevent: " + evt);-->
-      			return score;
+      			$.ajax({
+      				type : "POST",
+        			url: "/rating/postRating/" + score + "/" + url + "/1"
+    			}).done(function (ret) {
+					var average_rate = ret.average_rate;
+					console.log("POST: " + ret["average_rate"]);
+    			});
     		}
+
  		 });
+		});
+
 
 	    });
 	});
@@ -98,8 +119,6 @@
 	</div>
 
 	<hr style="display: block;margin-top: 2em;margin-bottom: 2em;margin-left: auto;margin-right: auto;border-style: inset;border-width: 1px;">
-
-
 	<div id="rating"></div>
 
 	<div class="container">

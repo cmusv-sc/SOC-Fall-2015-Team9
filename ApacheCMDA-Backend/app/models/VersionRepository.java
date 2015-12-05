@@ -31,4 +31,8 @@ import javax.inject.Singleton;
 public interface VersionRepository extends CrudRepository<Version, Long>{
     @Query(value = "select v.* from Version v where v.serviceId = ?1 order by v.versionId", nativeQuery = true)
 	List<Version> getAllVersions(Long serviceId);
+    @Query(value = "select v.* from Version v order by v.latestAccessTimeStamp desc limit 3", nativeQuery = true)
+	List<Version> getTop3MostRecentUsed();
+    @Query(value = "select v.* from Version v where v.url=?1 and v.versionId=?2", nativeQuery = true)
+	Version getOneByUrlAndVersion(String url, Long version);
 }

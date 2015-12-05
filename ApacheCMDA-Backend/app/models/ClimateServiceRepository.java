@@ -40,6 +40,8 @@ public interface ClimateServiceRepository extends CrudRepository<ClimateService,
 	List<ClimateService> findServiceWithPurpose(String purpose);
     @Query(value = "select c.* from ClimateService c, ServiceEntry s where c.id=s.serviceId group by s.serviceId order by sum(s.count) desc", nativeQuery = true)
 	List<ClimateService> getClimateServiceOrderByCount();
-    @Query(value = "select c.* from ClimateService c, ServiceEntry s where c.id=s.serviceId group by s.serviceId order by s.latestAccessTimeStamp desc", nativeQuery = true)
+    @Query(value = "select c.* from ClimateService c, Version v where c.id=v.serviceId order by v.latestAccessTimeStamp desc limit 3", nativeQuery = true)
 	List<ClimateService> getClimateServiceOrderByLatestAccessTime();
+    @Query(value = "select c.* from ClimateService c where c.id=?1", nativeQuery = true)
+	ClimateService findServiceById(Long id);
 }

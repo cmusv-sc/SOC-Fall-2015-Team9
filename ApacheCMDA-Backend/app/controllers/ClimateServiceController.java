@@ -59,8 +59,6 @@ class CompareServiceById implements Comparator<ClimateService> {
 @Singleton
 public class ClimateServiceController extends Controller {
     private final int initialcount = 0;
-
-    // static final String DATE_PATTERN = "yyyy-MM-dd'T'HH:mm:ssz";
     private final ClimateServiceRepository climateServiceRepository;
     private final UserRepository userRepository;
     private final ServiceEntryRepository serviceEntryRepository;
@@ -398,102 +396,120 @@ public class ClimateServiceController extends Controller {
     }
 
     public Result getAllClimateServicesOrderByLatestAccessTime(String format){
-        Iterable<ClimateService> climateServices = climateServiceRepository.getClimateServiceOrderByLatestAccessTime();
-        if (climateServices == null) {
-            System.out.println("No climate service found");
-        }
+	List<Version> versions = versionRepository.getTop3MostRecentUsed();
+	ArrayList<ClimateService> climateServices = new ArrayList<ClimateService>();
 
-        String result = new String();
-        if (format.equals("json")) {
-            result = new Gson().toJson(climateServices);
-        }
+	for (Version version : versions){
+	    ClimateService climateService = climateServiceRepository.findServiceById(version.getServiceId());
+	    climateService.setUrl(version.getUrl());
+	    climateService.setVersionNo(Long.toString(version.getVersionId()));
+	    climateServices.add(climateService);
+	}
 
-        return ok(result);
+	return ok(new Gson().toJson(climateServices));
+    }
+
+    public Result updateAccessTimestamp(){
+	ObjectNode response = Json.newObject();
+	JsonNode json = request().body().asJson();
+
+	try{
+	    Version version = versionRepository.getOneByUrlAndVersion(json.findPath("url").asText(), json.findPath("version").asLong());
+	    version.setLatestAccessTimeStamp(new Date());
+	    versionRepository.save(version);
+	    response.put("success", "success");
+	}
+	-catch (PersistenceException pe) {
+	    pe.printStackTrace();
+	    response.put("success", "fail");
+	}
+	
+	return ok(response);
     }
 
     public Result getAllClimateServicesOrderByCount(String format){
-        Iterable<ClimateService> climateServices = climateServiceRepository.getClimateServiceOrderByCount();
-        if (climateServices == null) {
-            System.out.println("No climate service found");
-        }
+	Iterable<ClimateService> climateServices = climateServiceRepository.getClimateServiceOrderByCount();
+	if (climateServices == null) {
+	    System.out.println("No climate service found");
+	}
 
-        String result = new String();
-        if (format.equals("json")) {
-            result = new Gson().toJson(climateServices);
-        }
+	String result = new String();
+	if (format.equals("json")) {
+	    result = new Gson().toJson(climateServices);
+	}
 
-        return ok(result);
+	return ok(result);
     }
 
     public Result addServiceEntry() {
-        JsonNode json = request().body().asJson();
-        if (json == null) {
-            System.out
+	JsonNode json = request().body().asJson();
+	if (json == null) {
+	    System.out
 		.println("Climate service not saved, expecting Json data");
-            return badRequest("Climate service not saved, expecting Json data");
-        }
+	    return badRequest("Climate service not saved, expecting Json data");
+	}
 
-        // Parse JSON file
-        String versionNo = json.findPath("versionNo").asText();
-        String registerNote = json.findPath("registerNote").asText();
-        int count = json.findPath("count").asInt();
-        long serviceId = json.findPath("serviceId").asLong();
-        long creatorId = json.findPath("creatorId").asLong();
+	// Parse JSON file
+	String versionNo = json.findPath("versionNo").asText();
+	String registerNote = json.findPath("registerNote").asText();
+	int count = json.findPath("count").asInt();
+	long serviceId = json.findPath("serviceId").asLong();
+	long creatorId = json.findPath("creatorId").asLong();
 
-        Date registerTime = new Date();
-        SimpleDateFormat format = new SimpleDateFormat(Common.DATE_PATTERN);
-        try {
-            registerTime = format.parse(json.findPath("registerTimeStamp").asText());
-        } catch (ParseException e) {
-            System.out
+	Date registerTime = new Date();
+	SimpleDateFormat format = new SimpleDateFormat(Common.DATE_PATTERN);
+	try {
+	    registerTime = format.parse(json.findPath("registerTimeStamp").asText());
+	} catch (ParseException e) {
+	    System.out
 		.println("No creation date specified, set to current time");
-        }
+	}
 
-        Date latestAccessTime = new Date();
-        try {
-            latestAccessTime = format.parse(json.findPath("latestAccessTimeStamp").asText());
-        } catch (ParseException e) {
-            System.out
+	Date latestAccessTime = new Date();
+	try {
+	    latestAccessTime = format.parse(json.findPath("latestAccessTimeStamp").asText());
+	} catch (ParseException e) {
+	    System.out
 		.println("No creation date specified, set to current time");
-        }
+	}
 
-        try {
-            ClimateService climateService = climateServiceRepository.findOne(serviceId);
-            User creator = userRepository.findOne(creatorId);
-            ServiceEntry entry = new ServiceEntry();
-            entry.setClimateService(climateService);
-            entry.setCount(count);
-            entry.setRegisterNote(registerNote);
-            entry.setVersionNo(versionNo);
-            entry.setUser(creator);
-            entry.setRegisterTimeStamp(registerTime);
-            entry.setLatestAccessTimestamp(latestAccessTime);
+	try {
+	    ClimateService climateService = climateServiceRepository.findOne(serviceId);
+	    User creator = userRepository.findOne(creatorId);
+	    ServiceEntry entry = new ServiceEntry();
+	    entry.setClimateService(climateService);
+	    entry.setCount(count);
+	    entry.setRegisterNote(registerNote);
+	    entry.setVersionNo(versionNo);
+	    entry.setUser(creator);
+	    entry.setRegisterTimeStamp(registerTime);
+	    entry.setLatestAccessTimestamp(latestAccessTime);
 
-            ServiceEntry savedServiceEntry = serviceEntryRepository.save(entry);
+	    ServiceEntry savedServiceEntry = serviceEntryRepository.save(entry);
 
-            System.out.println("Service Entry saved: "
+	    System.out.println("Service Entry saved: "
 			       + savedServiceEntry.getId());
-            return created(new Gson().toJson(savedServiceEntry));
-        } catch (PersistenceException pe) {
-            pe.printStackTrace();
-            System.out.println("Service Entry not saved: " + serviceId);
-            return badRequest("Service Entry not saved: " + serviceId);
-        }
+	    return created(new Gson().toJson(savedServiceEntry));
+	} catch (PersistenceException pe) {
+	    pe.printStackTrace();
+	    System.out.println("Service Entry not saved: " + serviceId);
+	    return badRequest("Service Entry not saved: " + serviceId);
+	}
     }
 
     public Result getAllServiceEntries(String format) {
-        Iterable<ServiceEntry> serviceEntries = serviceEntryRepository
+	Iterable<ServiceEntry> serviceEntries = serviceEntryRepository
 	    .findAll();
-        if (serviceEntries == null) {
-            System.out.println("No service entry found");
-        }
+	if (serviceEntries == null) {
+	    System.out.println("No service entry found");
+	}
 
-        String result = new String();
-        if (format.equals("json")) {
-            result = new Gson().toJson(serviceEntries);
-        }
+	String result = new String();
+	if (format.equals("json")) {
+	    result = new Gson().toJson(serviceEntries);
+	}
 
-        return ok(result);
+	return ok(result);
 
     }
 
@@ -532,7 +548,6 @@ public class ClimateServiceController extends Controller {
 
 	    for (Version version : versions){
 		ArrayNode versionNode = JsonNodeFactory.instance.arrayNode();
-		System.out.println(version);
 		versionNode.add(version.getVersionId());
 		versionNode.add(version.getUrl());
 		versionArray.add(versionNode);

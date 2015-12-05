@@ -36,16 +36,18 @@ public class Version{
     private long serviceId;
     private long versionId;
     private String url;
+    private Date latestAccessTimeStamp;
 
     public Version(){
     }
 
-    public Version(long id, long serviceId, long versionId, String url){
+    public Version(long id, long serviceId, long versionId, String url, Date latestAccessTimeStamp){
 	super();
 	this.id = id;
 	this.serviceId = serviceId;
 	this.versionId = versionId;
 	this.url = url;
+	this.latestAccessTimeStamp = latestAccessTimeStamp;
     }
 
     public long getServiceId(){
@@ -67,6 +69,13 @@ public class Version{
     }
     public void setUrl(String url){
 	this.url = url;
+    }
+
+    public Date getLatestAccessTimeStamp(){
+	return latestAccessTimeStamp;
+    }
+    public void setLatestAccessTimeStamp(Date latestAccessTimeStamp){
+	this.latestAccessTimeStamp = latestAccessTimeStamp;
     }
 
     @Override

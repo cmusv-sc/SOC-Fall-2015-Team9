@@ -239,6 +239,8 @@ public class ClimateServiceController extends Controller {
     }
 
     public static Result oneService(String url, String version) {
+	ClimateService.updateAccessTimestamp(url, Long.parseLong(version));
+	
 	return ok(oneService.render("/assets/html/" + url, version));
     }
 

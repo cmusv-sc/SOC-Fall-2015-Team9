@@ -23,6 +23,7 @@ import java.util.*;
 import com.fasterxml.jackson.databind.JsonNode;
 import util.APICall;
 import util.Constants;
+import play.libs.Json;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -67,6 +68,8 @@ public class ClimateService {
     private static final String GET_MOST_RECENTLY_ADDED_CLIMATE_SERVICES_CALL = Constants.NEW_BACKEND+"climateService/getAllMostRecentClimateServicesByCreateTime/json";
 
     private static final String GET_MOST_RECENTLY_USED_CLIMATE_SERVICES_CALL = Constants.NEW_BACKEND+"climateService/getAllMostRecentClimateServicesByLatestAccessTime/json";
+
+    private static final String UPDATE_ACCESS_TIMESTAMP = Constants.NEW_BACKEND + "climateService/updateAccessTimestamp";
 
     private static final String GET_MOST_POPULAR_CLIMATE_SERVICES_CALL = Constants.NEW_BACKEND+"climateService/getAllMostUsedClimateServices/json";
 
@@ -289,7 +292,7 @@ public class ClimateService {
 	    return climateServices;
 	}
 
-	for (int i = 0; i < climateServicesNode.size() && i < 3; i++) {
+	for (int i = 0; i < climateServicesNode.size(); i++) {
 	    JsonNode json = climateServicesNode.path(i);
 	    ClimateService newService = new ClimateService();
 	    newService.setId(json.get("id").asText());
@@ -305,8 +308,16 @@ public class ClimateService {
 	return climateServices;
     }
 
-    public static List<ClimateService> getMostPopular() {
+    public static void updateAccessTimestamp(String url, Long version){
+	ObjectNode jsonData = Json.newObject();
 
+	jsonData.put("url", url);
+	jsonData.put("version", version);
+	
+	APICall.postAPI(UPDATE_ACCESS_TIMESTAMP, jsonData);
+    }
+
+    public static List<ClimateService> getMostPopular() {
 	List<ClimateService> climateServices = new ArrayList<ClimateService>();
 
 	JsonNode climateServicesNode = APICall
@@ -317,12 +328,10 @@ public class ClimateService {
 	    return climateServices;
 	}
 
-	for (int i = 0; i < climateServicesNode.size() && i < 3; i++) {
+	for (int i = 0; i < climateServicesNode.size(); i++) {
 	    JsonNode json = climateServicesNode.path(i);
 	    ClimateService newService = new ClimateService();
-	    newService.setId(json.get("id").asText());
-	    newService.setClimateServiceName(json.get(
-						      "name").asText());
+	    newService.setClimateServiceName(json.get("name").asText());
 	    newService.setPurpose(json.findPath("purpose").asText());
 	    newService.setUrl(json.findPath("url").asText());
 	    newService.setScenario(json.findPath("scenario").asText());

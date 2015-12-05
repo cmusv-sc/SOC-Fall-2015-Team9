@@ -120,8 +120,8 @@ public class ClimateServiceController extends Controller {
     }
 
     public static Result mostRecentlyUsedClimateServices3() {
-	return ok(mostRecentlyUsedServices3.render(ClimateService.getMostRecentlyUsed3(),
-						   climateServiceForm));
+	return ok(mostRecentlyUsedServices3.render(ClimateService.getMostRecentlyUsed3(), ClimateService.getTopGrades3(),
+						   ClimateService.getAllRatings(), climateServiceForm));
     }
 
     public static Result mostPopularClimateServices() {

@@ -13,11 +13,10 @@ import javax.inject.Singleton;
 @Named
 @Singleton
 public interface RatingRepository extends CrudRepository<Rating, Long>{
-
     @Query(value = "SELECT * FROM Rating WHERE userId = ?1 AND serviceId = ?2 AND versionId = ?3", nativeQuery = true)
 	Rating getIndividualRating(Long userId, Long serviceId, Long versionId);
     @Query(value = "SELECT AVG(rate) FROM Rating WHERE serviceId = ?1 AND versionId = ?2", nativeQuery = true)
 	Double getAverageRate(Long serviceId, Long versionId);
+    @Query(value = "SELECT * FROM Rating group by serviceId, versionId order by AVG(rate) desc", nativeQuery = true)
+	List<Rating> getAllOrderByAverageRate();
 }
-
-

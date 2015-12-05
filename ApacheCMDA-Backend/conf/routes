@@ -10,8 +10,10 @@
 GET       /climateService/getClimateService/:name/json              @controllers.ClimateServiceController.getClimateService(name: String, format: String="json")
 GET       /climateService/getClimateService/id/:id                  @controllers.ClimateServiceController.getClimateServiceById(id: Long)
 GET       /climateService/getAllClimateServices/json                @controllers.ClimateServiceController.getAllClimateServices(format: String="json")
+GET       /climateService/getAllClimateServicesWithRatings          @controllers.ClimateServiceController.getAllClimateServicesWithRatings()
 GET       /climateService/getAllMostRecentClimateServicesByCreateTime/json       @controllers.ClimateServiceController.getAllClimateServicesOrderByCreateTime(format: String="json")
-GET       /climateService/getAllMostRecentClimateServicesByLatestAccessTime/json @controllers.ClimateServiceController.getAllClimateServicesOrderByLatestAccessTime(format: String="json")
+GET       /climateService/getTop3MostRecentUsedServices 	    @controllers.ClimateServiceController.getTop3MostRecentUsedServices()
+GET       /climateService/getTop3HighestGradesServices 		    @controllers.ClimateServiceController.getTop3GradesServices()
 GET       /climateService/getAllMostUsedClimateServices/json        @controllers.ClimateServiceController.getAllClimateServicesOrderByCount(format: String="json")
 POST      /climateService/addClimateService                         @controllers.ClimateServiceController.addClimateService
 GET       /climateService/getAllServiceEntries/json                 @controllers.ClimateServiceController.getAllServiceEntries(format: String="json")

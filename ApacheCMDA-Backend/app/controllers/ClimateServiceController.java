@@ -63,17 +63,19 @@ public class ClimateServiceController extends Controller {
     private final UserRepository userRepository;
     private final ServiceEntryRepository serviceEntryRepository;
     private final VersionRepository versionRepository;
+    private final RatingRepository ratingRepository;
 
     // We are using constructor injection to receive a repository to support our
     // desire for immutability.
     @Inject
     public ClimateServiceController(final ClimateServiceRepository climateServiceRepository,
 				    UserRepository userRepository,ServiceEntryRepository serviceEntryRepository,
-				    VersionRepository versionRepository) {
+				    VersionRepository versionRepository, RatingRepository ratingRepository) {
 	this.climateServiceRepository = climateServiceRepository;
 	this.userRepository = userRepository;
         this.serviceEntryRepository = serviceEntryRepository;
 	this.versionRepository = versionRepository;
+	this.ratingRepository = ratingRepository;
     }
 
     public Result addClimateService() {
@@ -380,22 +382,60 @@ public class ClimateServiceController extends Controller {
 
     }
 
+    public Result getAllClimateServicesWithRatings() {
+	Iterable<Version> versions = versionRepository.getAllVersions();
+	ObjectNode result = Json.newObject();
+	ArrayNode servicesArray = JsonNodeFactory.instance.arrayNode();
+
+	for (Version version : versions){
+	    ObjectNode oneResult = Json.newObject();
+	    ClimateService climateService = climateServiceRepository.findServiceById(version.getServiceId());
+	    Double rating = ratingRepository.getAverageRate(version.getServiceId(), version.getVersionId());
+
+	    oneResult.put("name", climateService.getName());
+	    oneResult.put("purpose", climateService.getPurpose());
+	    oneResult.put("url", version.getUrl());
+	    oneResult.put("version", version.getVersionId());
+	    oneResult.put("rating", rating);
+
+	    servicesArray.add(oneResult);
+	}
+
+	result.put("services", servicesArray);
+
+	return ok(result);
+    }
+
     public Result getAllClimateServicesOrderByCreateTime(String format){
         Iterable<ClimateService> climateServices = climateServiceRepository
 	    .findByOrderByCreateTimeDesc();
-        if (climateServices == null) {
-            System.out.println("No climate service found");
-        }
+	if (climateServices == null) {
+	    System.out.println("No climate service found");
+	}
 
-        String result = new String();
-        if (format.equals("json")) {
-            result = new Gson().toJson(climateServices);
-        }
+	String result = new String();
+	if (format.equals("json")) {
+	    result = new Gson().toJson(climateServices);
+	}
 
-        return ok(result);
+	return ok(result);
     }
 
-    public Result getAllClimateServicesOrderByLatestAccessTime(String format){
+    public Result getTop3GradesServices(){
+	Iterable<Rating> ratings = ratingRepository.getAllOrderByAverageRate();
+	ArrayList<ClimateService> climateServices = new ArrayList<ClimateService>();
+
+	for (Rating rating : ratings){
+	    ClimateService climateService = climateServiceRepository.findServiceById(rating.getServiceId());
+	    climateService.setUrl(versionRepository.getUrlByServiceAndVersion(rating.getServiceId(), rating.getVersionId()));
+	    climateService.setVersionNo(Long.toString(rating.getVersionId()));
+	    climateServices.add(climateService);
+	}
+
+	return ok(new Gson().toJson(climateServices));
+    }
+
+    public Result getTop3MostRecentUsedServices(){
 	List<Version> versions = versionRepository.getTop3MostRecentUsed();
 	ArrayList<ClimateService> climateServices = new ArrayList<ClimateService>();
 
@@ -419,7 +459,7 @@ public class ClimateServiceController extends Controller {
 	    versionRepository.save(version);
 	    response.put("success", "success");
 	}
-	-catch (PersistenceException pe) {
+	catch (PersistenceException pe) {
 	    pe.printStackTrace();
 	    response.put("success", "fail");
 	}
@@ -544,7 +584,7 @@ public class ClimateServiceController extends Controller {
 	ArrayNode versionArray = JsonNodeFactory.instance.arrayNode();
 
 	try{
-	    List<Version> versions = versionRepository.getAllVersions(serviceId);
+	    List<Version> versions = versionRepository.getAllVersionsById(serviceId);
 
 	    for (Version version : versions){
 		ArrayNode versionNode = JsonNodeFactory.instance.arrayNode();

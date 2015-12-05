@@ -29,10 +29,14 @@ import javax.inject.Singleton;
 @Named
 @Singleton
 public interface VersionRepository extends CrudRepository<Version, Long>{
+    @Query(value = "select v.* from Version v order by v.serviceId, v.versionId", nativeQuery = true)
+	List<Version> getAllVersions();
     @Query(value = "select v.* from Version v where v.serviceId = ?1 order by v.versionId", nativeQuery = true)
-	List<Version> getAllVersions(Long serviceId);
+	List<Version> getAllVersionsById(Long serviceId);
     @Query(value = "select v.* from Version v order by v.latestAccessTimeStamp desc limit 3", nativeQuery = true)
 	List<Version> getTop3MostRecentUsed();
     @Query(value = "select v.* from Version v where v.url=?1 and v.versionId=?2", nativeQuery = true)
 	Version getOneByUrlAndVersion(String url, Long version);
+    @Query(value = "select v.url from Version v where v.serviceId = ?1 and v.versionId=?2", nativeQuery = true)
+	String getUrlByServiceAndVersion(Long serviceId, Long versionId);
 }

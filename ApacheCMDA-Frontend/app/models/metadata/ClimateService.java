@@ -28,6 +28,7 @@ import play.libs.Json;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 
 public class ClimateService {
     private String id;
@@ -38,11 +39,11 @@ public class ClimateService {
     private String version;
     private String rootservice;
     private String photo;
+    private Double rating;
 
     public String getScenario() {
 	return scenario;
     }
-
     public void setScenario(String scenario) {
 	this.scenario = scenario;
     }
@@ -50,7 +51,6 @@ public class ClimateService {
     public String getVersion() {
 	return version;
     }
-
     public void setVersion(String version) {
 	this.version = version;
     }
@@ -58,16 +58,26 @@ public class ClimateService {
     public String getRootservice() {
 	return rootservice;
     }
-
     public void setRootservice(String rootservice) {
 	this.rootservice = rootservice;
+    }
+
+    public Double getRating() {
+	return rating;
+    }
+    public void setRating(Double rating) {
+	this.rating = rating;
     }
 
     private static final String GET_CLIMATE_SERVICES_CALL = Constants.NEW_BACKEND+"climateService/getAllClimateServices/json";
 
     private static final String GET_MOST_RECENTLY_ADDED_CLIMATE_SERVICES_CALL = Constants.NEW_BACKEND+"climateService/getAllMostRecentClimateServicesByCreateTime/json";
 
-    private static final String GET_MOST_RECENTLY_USED_CLIMATE_SERVICES_CALL = Constants.NEW_BACKEND+"climateService/getAllMostRecentClimateServicesByLatestAccessTime/json";
+    private static final String GET_MOST_RECENTLY_USED_CLIMATE_SERVICES_CALL = Constants.NEW_BACKEND+"climateService/getTop3MostRecentUsedServices";
+
+    private static final String GET_TOP_3_GRADES_CLIMATE_SERVICES_CALL = Constants.NEW_BACKEND+"climateService/getTop3HighestGradesServices";
+
+    private static final String GET_ALL_RATINGS = Constants.NEW_BACKEND + "climateService/getAllClimateServicesWithRatings";
 
     private static final String UPDATE_ACCESS_TIMESTAMP = Constants.NEW_BACKEND + "climateService/updateAccessTimestamp";
 
@@ -280,8 +290,7 @@ public class ClimateService {
     }
 
 
-    public static List<ClimateService> getMostRecentlyUsed3() {
-
+    public static List<ClimateService> getMostRecentlyUsed3(){
 	List<ClimateService> climateServices = new ArrayList<ClimateService>();
 
 	JsonNode climateServicesNode = APICall
@@ -296,8 +305,7 @@ public class ClimateService {
 	    JsonNode json = climateServicesNode.path(i);
 	    ClimateService newService = new ClimateService();
 	    newService.setId(json.get("id").asText());
-	    newService.setClimateServiceName(json.get(
-						      "name").asText());
+	    newService.setClimateServiceName(json.get("name").asText());
 	    newService.setPurpose(json.findPath("purpose").asText());
 	    newService.setUrl(json.findPath("url").asText());
 	    newService.setScenario(json.findPath("scenario").asText());
@@ -305,6 +313,56 @@ public class ClimateService {
 	    newService.setRootservice(json.findPath("rootServiceId").asText());
 	    climateServices.add(newService);
 	}
+	return climateServices;
+    }
+
+    public static List<ClimateService> getTopGrades3(){
+	List<ClimateService> climateServices = new ArrayList<ClimateService>();
+
+	JsonNode climateServicesNode = APICall
+	    .callAPI(GET_TOP_3_GRADES_CLIMATE_SERVICES_CALL);
+
+	if (climateServicesNode == null || climateServicesNode.has("error")
+	    || !climateServicesNode.isArray()) {
+	    return climateServices;
+	}
+
+	for (int i = 0; i < climateServicesNode.size(); i++) {
+	    JsonNode json = climateServicesNode.path(i);
+	    ClimateService newService = new ClimateService();
+	    newService.setId(json.get("id").asText());
+	    newService.setClimateServiceName(json.get("name").asText());
+	    newService.setPurpose(json.findPath("purpose").asText());
+	    newService.setUrl(json.findPath("url").asText());
+	    newService.setScenario(json.findPath("scenario").asText());
+	    newService.setVersion(json.findPath("versionNo").asText());
+	    newService.setRootservice(json.findPath("rootServiceId").asText());
+	    climateServices.add(newService);
+	}
+	return climateServices;
+    }
+
+    public static List<ClimateService> getAllRatings(){
+	List<ClimateService> climateServices = new ArrayList<ClimateService>();
+
+	JsonNode climateServicesNode = APICall.callAPI(GET_ALL_RATINGS);
+
+	if (climateServicesNode == null || climateServicesNode.has("error")){
+	    return climateServices;
+	}
+
+	ArrayNode versions = (ArrayNode)climateServicesNode.get("services");
+	for (JsonNode version: versions) {
+	    ClimateService cs = new ClimateService();
+	    cs.setVersion(version.get("version").asText());
+	    cs.setUrl(version.get("url").asText());
+	    cs.setClimateServiceName(version.get("name").asText());
+	    cs.setPurpose(version.get("purpose").asText());
+	    cs.setRating(version.get("rating").asDouble());
+
+	    climateServices.add(cs);
+	}
+
 	return climateServices;
     }
 

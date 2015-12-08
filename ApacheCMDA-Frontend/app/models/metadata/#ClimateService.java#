@@ -337,6 +337,13 @@ public class ClimateService {
 	    newService.setScenario(json.findPath("scenario").asText());
 	    newService.setVersion(json.findPath("versionNo").asText());
 	    newService.setRootservice(json.findPath("rootServiceId").asText());
+	    Double rating = version.get("rating").asDouble();
+	    if (rating == 0){
+		cs.setRating("N/A");
+	    }
+	    else{
+		cs.setRating(String.valueOf(rating));
+	    }
 	    climateServices.add(newService);
 	}
 	return climateServices;
